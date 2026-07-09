@@ -1,0 +1,33 @@
+{
+  "title": "My Library",
+  "description": "Library description",
+  "sources": ["oe", "raj"],
+  "sourceInfo": {
+    "oe": {
+      "title": "ACIM Original Edition",
+      "description": "oe description",
+      "books": ["text", "workbook", "manual"],
+      "bookInfo": {
+        "text": {
+          "title": "Text",
+          "description": "ACIM Original Edition, Text",
+          "groups": ["front", "one"],
+          "groupInfo": {
+            "front": {
+              "title": "Front Matter",
+              "units": ["forward", "introduction"],
+              "unitInfo": {
+                "forward": {
+                  "title": "Text Forward",
+                  "audio": "audio file location",
+                  "timing": "timing data",
+                  "url": "oe/text/front/forward"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

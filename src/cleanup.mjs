@@ -9,8 +9,8 @@ import { QueryCommand, DeleteCommand } from "@aws-sdk/lib-dynamodb";
  * @param {object} options - CLI options (source, book, unit)
  */
 export async function cleanExistingRecords(docClient, tableName, options) {
-  const skPrefix = `${options.book}/${options.unit}/`;
-  console.log(`Checking for existing records under source="${options.source}" with prefix "${skPrefix}"...`);
+  const bookPrefix = `${options.book}/`;
+  console.log(`Checking for existing records under source="${options.source}" for book="${options.book}" and unit="${options.unit}"...`);
 
   const queryParams = {
     TableName: tableName,
@@ -21,22 +21,37 @@ export async function cleanExistingRecords(docClient, tableName, options) {
     },
     ExpressionAttributeValues: {
       ":source": options.source,
-      ":skPrefix": skPrefix
+      ":skPrefix": bookPrefix
     }
   };
   
   const queryResult = await docClient.send(new QueryCommand(queryParams));
   if (queryResult.Items && queryResult.Items.length > 0) {
-    console.log(`Found ${queryResult.Items.length} existing records. Deleting...`);
-    for (const item of queryResult.Items) {
-      await docClient.send(new DeleteCommand({
-        TableName: tableName,
-        Key: {
-          source: item.source,
-          sk: item.sk
-        }
-      }));
-      console.log(`Deleted existing record: ${item.sk}`);
+    // Filter items in memory to match the target unit (handling optional sequence prefix)
+    const itemsToDelete = queryResult.Items.filter(item => {
+      const skParts = item.sk.split('/');
+      if (skParts.length >= 2) {
+        const unitPart = skParts[1];
+        const cleanUnit = unitPart.includes(':') ? unitPart.split(':')[1] : unitPart;
+        return cleanUnit === options.unit;
+      }
+      return false;
+    });
+
+    if (itemsToDelete.length > 0) {
+      console.log(`Found ${itemsToDelete.length} existing records for unit "${options.unit}". Deleting...`);
+      for (const item of itemsToDelete) {
+        await docClient.send(new DeleteCommand({
+          TableName: tableName,
+          Key: {
+            source: item.source,
+            sk: item.sk
+          }
+        }));
+        console.log(`Deleted existing record: ${item.sk}`);
+      }
+    } else {
+      console.log("No existing records found to clean up.");
     }
   } else {
     console.log("No existing records found to clean up.");

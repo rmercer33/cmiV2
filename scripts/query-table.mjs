@@ -43,8 +43,8 @@ async function run() {
       expressionAttributeNames["#sk"] = "sk";
       keyConditionExpression += " AND begins_with(#sk, :skPrefix)";
       
-      const skPrefix = options.unit ? `${options.book}/${options.unit}/` : `${options.book}/`;
-      expressionAttributeValues[":skPrefix"] = skPrefix;
+      // Always query by book prefix to fetch items, as unit names have a dynamic sequence number prepended
+      expressionAttributeValues[":skPrefix"] = `${options.book}/`;
     }
 
     const queryParams = {
@@ -54,16 +54,26 @@ async function run() {
       ExpressionAttributeValues: expressionAttributeValues
     };
 
-    const hasSkPrefix = options.book ? true : false;
-    const targetPrefix = hasSkPrefix ? (options.unit ? `${options.book}/${options.unit}/` : `${options.book}/`) : "";
-
-    console.log(`Querying local table '${tableName}' for source="${options.source}"${hasSkPrefix ? ` and sk starting with "${targetPrefix}"` : ""}...`);
+    console.log(`Querying local table '${tableName}' for source="${options.source}"${options.book ? ` and book="${options.book}"${options.unit ? ` (filtering for unit="${options.unit}")` : ""}` : ""}...`);
     
     const result = await docClient.send(new QueryCommand(queryParams));
 
-    if (result.Items && result.Items.length > 0) {
-      console.log(`\nQuery Results (${result.Items.length} records found):`);
-      console.log(JSON.stringify(result.Items, null, 2));
+    let items = result.Items || [];
+    if (options.book && options.unit) {
+      items = items.filter(item => {
+        const skParts = item.sk.split('/');
+        if (skParts.length >= 2) {
+          const unitPart = skParts[1];
+          const cleanUnit = unitPart.includes(':') ? unitPart.split(':')[1] : unitPart;
+          return cleanUnit === options.unit;
+        }
+        return false;
+      });
+    }
+
+    if (items.length > 0) {
+      console.log(`\nQuery Results (${items.length} records found):`);
+      console.log(JSON.stringify(items, null, 2));
     } else {
       console.log("\nNo matching records found.");
     }

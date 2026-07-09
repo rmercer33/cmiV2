@@ -30,4 +30,4 @@ if [ "$#" -lt 7 ]; then
   exit 1
 fi
 
-node src/index.mjs "$@" -e http://localhost:8000
+node src/index.mjs "$@" -d -e http://localhost:8000

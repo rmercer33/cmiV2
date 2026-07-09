@@ -44,8 +44,8 @@ async function run() {
       expressionAttributeNames["#sk"] = "sk";
       keyConditionExpression += " AND begins_with(#sk, :skPrefix)";
       
-      const skPrefix = options.unit ? `${options.book}/${options.unit}/` : `${options.book}/`;
-      expressionAttributeValues[":skPrefix"] = skPrefix;
+      // Always query by book prefix to fetch items, as unit names have a dynamic sequence number prepended
+      expressionAttributeValues[":skPrefix"] = `${options.book}/`;
     }
 
     const queryParams = {
@@ -55,15 +55,26 @@ async function run() {
       ExpressionAttributeValues: expressionAttributeValues
     };
 
-    const hasSkPrefix = options.book ? true : false;
-    const targetPrefix = hasSkPrefix ? (options.unit ? `${options.book}/${options.unit}/` : `${options.book}/`) : "";
-
-    console.log(`Scanning/Querying local DynamoDB table '${tableName}' for items with source="${options.source}"${hasSkPrefix ? ` and sk starting with "${targetPrefix}"` : ""}...`);
+    console.log(`Scanning/Querying local DynamoDB table '${tableName}' for items with source="${options.source}"${options.book ? ` and book="${options.book}"${options.unit ? ` (filtering for unit="${options.unit}")` : ""}` : ""}...`);
 
     const queryResult = await docClient.send(new QueryCommand(queryParams));
-    if (queryResult.Items && queryResult.Items.length > 0) {
-      console.log(`Found ${queryResult.Items.length} records to delete. Deleting...`);
-      for (const item of queryResult.Items) {
+    let itemsToDelete = queryResult.Items || [];
+
+    if (options.book && options.unit) {
+      itemsToDelete = itemsToDelete.filter(item => {
+        const skParts = item.sk.split('/');
+        if (skParts.length >= 2) {
+          const unitPart = skParts[1];
+          const cleanUnit = unitPart.includes(':') ? unitPart.split(':')[1] : unitPart;
+          return cleanUnit === options.unit;
+        }
+        return false;
+      });
+    }
+
+    if (itemsToDelete.length > 0) {
+      console.log(`Found ${itemsToDelete.length} records to delete. Deleting...`);
+      for (const item of itemsToDelete) {
         await docClient.send(new DeleteCommand({
           TableName: tableName,
           Key: {

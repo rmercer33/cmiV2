@@ -1,0 +1,127 @@
+
+# Information about the library
+
+pk: "cmi"
+sk: "libraryInfo"
+Item: {
+  "title": "Library of Christ Mind Teachings",
+  "description": "Library of Christ Mind Teachings",
+  "contact": "Rick Mercer",
+  "email": "rmercer33@gmail.com",
+  "sourceId": [
+    "oe", "raj", "wom"
+  ]
+}
+
+# Information about each content source in the library
+
+pk: "cmi"
+sk: "oe:sourceInfo"
+Item: {
+  "title": "ACIM Original Edition",
+  "description": "Original Edition",
+  "contact": "Rev Reja Joy",
+  "email": "reja@gmail.com",
+  "bookId": [
+    "text", "workbook", "manual"
+  ]
+}
+
+# Information about each book
+
+pk: cmi
+sk: oe/text
+Item: {
+  "title": "Text",
+  "description": "Description",
+  "groupId": [
+    "front", "01", "02"
+  ]
+}
+
+# Information about each group - optional
+
+pk: cmi
+sk: oe/text/front
+Item: {
+  "title": "Front Matter",
+  "unitId": [
+    "forward", "intro"
+  ]
+}
+
+{
+  "library": {
+    "title": "My Library",
+    "description": "Library description",
+    "sources": [
+      "oe", "raj", "wom", "jsb", "acol", "ftcm"
+    ],
+    "sourceInfo": [
+      "oe": {
+        "title": "oe title",
+        "description": "oe description",
+        "books": [
+          "text", "workbook", "manual"
+        ],
+        "bookInfo": [
+          "title": "ACIM Original Editiion, text",
+          "description": "Original Edition",
+            "groups"": [
+              "front", "01"
+            ],
+            "groupInfo": [
+              "front": {
+                "title": "Front Matter",
+                units: [
+                  "forward", "intro"
+                ],
+                "unitInfo": [
+                  "forward": {
+                    "title": "Forward",
+                    "audio": "path to audio file",
+                    "timer": "email of timer",
+                    "url": "/oe/text/forward"
+                  },
+                  "intro": {
+                    "title": "Introduction",
+                    "audio": "path to audio file",
+                    "timer": "email of timer",
+                    "url": "/oe/text/intro"
+                  }
+                ]
+              },
+              {
+                "01": {
+                  "title": "Group 01 title",
+                  "units": [
+                    "chap01", "chap02"
+                  ],
+                  "unitInfo": [
+                    "chap01": {
+                      "title": "Tx.1.I. Principles of Miracles",
+                      "audio": "path to audio file",
+                      "url": "/oe/text/01/chap01"
+                    },
+                    "chap02": {
+                      "title": "Tx.1.II. Distortions of Miracle Impulses",
+                      "audio": "path to audio file",
+                      "url": "/oe/text/01/chap01"
+                    }
+                  ]
+                }
+              }
+            ]
+          ]
+        }
+      ],
+      "raj": {
+        "title": "The Raj Material",
+        "description": "Raj - don't you know?",
+        "books": [
+          "yaa", "grad", "sg2012", "shorts"
+        ]
+      }
+    ]
+  }
+}

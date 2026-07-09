@@ -11,12 +11,15 @@ export function parseArguments(argv) {
   
   program
     .name("cmi-data-generator")
-    .description("Parse Markdown and insert paragraphs and headings into DynamoDB")
+    .description("Parse Markdown, generate HTML fragments, and optionally insert paragraphs and headings into DynamoDB")
     .version("1.0.0")
-    .argument("<filepath>", "Path to the markdown file")
-    .requiredOption("-s, --source <source>", "The partition key value (source)")
-    .requiredOption("-b, --book <book>", "The book name (used in range key)")
-    .requiredOption("-u, --unit <unit>", "The unit name (used in range key)")
+    .argument("[filepath]", "Path to a single markdown file to parse (bypasses directory processing)")
+    .option("-s, --source <source>", "The partition key value (source)")
+    .option("-b, --book <book>", "The book name (used in range key)")
+    .option("-u, --unit <unit>", "The unit name (used in range key)")
+    .option("-p, --path <path>", "Limit directory processing to a specific path relative to the content root (e.g., oe/workbook)")
+    .option("-d, --db", "Ingest parsed search items into DynamoDB (opt-in)", false)
+    .option("-c, --config <configPath>", "Path to the parser config file", "./parser-config.json")
     .option("-e, --endpoint <endpoint>", "DynamoDB endpoint URL (e.g. http://localhost:8000)")
     .option("-r, --region <region>", "AWS Region", "us-east-1");
 
@@ -24,6 +27,10 @@ export function parseArguments(argv) {
 
   const options = program.opts();
   const filepath = program.args[0];
+
+  if (options.db && !options.endpoint) {
+    program.error("error: Option -e, --endpoint <endpoint> is required when -d, --db is specified. This is enforced to prevent accidental modification of real AWS cloud databases.");
+  }
 
   return { filepath, options };
 }

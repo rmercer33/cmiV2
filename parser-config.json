@@ -1,0 +1,6 @@
+{
+  "contentRoot": "../cmiContent/content",
+  "outputRoot": "./_site",
+  "wrapperTag": "section",
+  "wrapperId": "cmi-transcript"
+}
