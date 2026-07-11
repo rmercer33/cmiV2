@@ -1,0 +1,116 @@
+{
+  "title": "The Impersonal Life",
+  "description": "The Jeshua Letters",
+  "author": "Joseph S. Benner",
+  "website": "https://theimpersonallife.weebly.com/the-impersonal-life.html",
+  "image": "/images/covers/site/til.jpg",
+  "books": [
+    "til"
+  ],
+  "bookInfo": {
+    "til": {
+      "title": "The Impersonal Life",
+      "description": "Joseph S. Benner, 1914",
+      "image": "/images/covers/jsb/til.jpg",
+      "units": [
+        "chap01",
+        "chap02",
+        "chap03",
+        "chap04",
+        "chap05",
+        "chap06",
+        "chap07",
+        "chap08",
+        "chap09",
+        "chap10",
+        "chap11",
+        "chap12",
+        "chap13",
+        "chap14",
+        "chap15",
+        "chap16",
+        "chap17",
+        "chap18",
+        "chap19"
+      ],
+      "unitInfo": {
+        "chap01": {
+          "title": "I AM",
+          "url": "jsb/til/chap01"
+        },
+        "chap02": {
+          "title": "Be Still! and KNOW I AM God",
+          "url": "jsb/til/chap02"
+        },
+        "chap03": {
+          "title": "I, Life, God",
+          "url": "jsb/til/chap03"
+        },
+        "chap04": {
+          "title": "For I AM LIFE",
+          "url": "jsb/til/chap04"
+        },
+        "chap05": {
+          "title": "Consciousness, Intelligence, Will",
+          "url": "jsb/til/chap05"
+        },
+        "chap06": {
+          "title": "The Key",
+          "url": "jsb/til/chap06"
+        },
+        "chap07": {
+          "title": "Thinking and Creating",
+          "url": "jsb/til/chap07"
+        },
+        "chap08": {
+          "title": "The Word",
+          "url": "jsb/til/chap08"
+        },
+        "chap09": {
+          "title": "My Idea",
+          "url": "jsb/til/chap09"
+        },
+        "chap10": {
+          "title": "The Garden of Eden",
+          "url": "jsb/til/chap10"
+        },
+        "chap11": {
+          "title": "Good and Evil",
+          "url": "jsb/til/chap11"
+        },
+        "chap12": {
+          "title": "Use",
+          "url": "jsb/til/chap12"
+        },
+        "chap13": {
+          "title": "Soul Mates",
+          "url": "jsb/til/chap13"
+        },
+        "chap14": {
+          "title": "Authority",
+          "url": "jsb/til/chap14"
+        },
+        "chap15": {
+          "title": "Mediums and Mediators",
+          "url": "jsb/til/chap15"
+        },
+        "chap16": {
+          "title": "Masters",
+          "url": "jsb/til/chap16"
+        },
+        "chap17": {
+          "title": "The Christ and Love",
+          "url": "jsb/til/chap17"
+        },
+        "chap18": {
+          "title": "Finding Me",
+          "url": "jsb/til/chap18"
+        },
+        "chap19": {
+          "title": "Union",
+          "url": "jsb/til/chap19"
+        }
+      }
+    }
+  }
+}

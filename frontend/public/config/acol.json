@@ -1,0 +1,1062 @@
+{
+  "title": " A Course of Love",
+  "description": "A Course of Love",
+  "website": "https://acourseoflove.org/",
+  "author": "Mari Perron",
+  "author-website": "https://mariperron.com/",
+  "publisher": "Take Heart Publications",
+  "publisher-website": "https://takeheartpublications.org/",
+  "image": "/images/covers/site/acol.jpg",
+  "books": [
+    "course",
+    "dialog",
+    "treatise"
+  ],
+  "bookInfo": {
+    "course": {
+      "title": "Book One: The Course",
+      "description": "No description",
+      "image": "/images/covers/acol/course.jpg",
+      "units": [
+        "chap01",
+        "chap02",
+        "chap03",
+        "chap04",
+        "chap05",
+        "chap06",
+        "chap07",
+        "chap08",
+        "chap09",
+        "chap10",
+        "chap11",
+        "chap12",
+        "chap13",
+        "chap14",
+        "chap15",
+        "chap16",
+        "chap17",
+        "chap18",
+        "chap19",
+        "chap20",
+        "chap21",
+        "chap22",
+        "chap23",
+        "chap24",
+        "chap25",
+        "chap26",
+        "chap27",
+        "chap28",
+        "chap29",
+        "chap30",
+        "chap31",
+        "chap32",
+        "intro",
+        "learning1",
+        "prelude"
+      ],
+      "unitInfo": {
+        "chap01": {
+          "title": "Chapter 1: A Course of Love",
+          "url": "acol/course/chap01",
+          "chapter": 1,
+          "audio": true
+        },
+        "chap02": {
+          "title": "Chapter 2: What Love Is",
+          "url": "acol/course/chap02",
+          "chapter": 2,
+          "audio": true
+        },
+        "chap03": {
+          "title": "Chapter 3: The First Lesson",
+          "url": "acol/course/chap03",
+          "chapter": 3,
+          "audio": true
+        },
+        "chap04": {
+          "title": "Chapter 4: Love’s Equity",
+          "url": "acol/course/chap04",
+          "chapter": 4,
+          "audio": true
+        },
+        "chap05": {
+          "title": "Chapter 5: Relationship",
+          "url": "acol/course/chap05",
+          "chapter": 5,
+          "audio": true
+        },
+        "chap06": {
+          "title": "Chapter 6: Forgiveness/Joining",
+          "url": "acol/course/chap06",
+          "chapter": 6,
+          "audio": true
+        },
+        "chap07": {
+          "title": "Chapter 7: Withholding",
+          "url": "acol/course/chap07",
+          "chapter": 7
+        },
+        "chap08": {
+          "title": "Chapter 8: The Separation from the Body",
+          "url": "acol/course/chap08",
+          "chapter": 8
+        },
+        "chap09": {
+          "title": "Chapter 9: The Prodigal's Return",
+          "url": "acol/course/chap09",
+          "chapter": 9
+        },
+        "chap10": {
+          "title": "Chapter 10: Use and Understanding",
+          "url": "acol/course/chap10",
+          "chapter": 10
+        },
+        "chap11": {
+          "title": "Chapter 11: Free Will and Willingness",
+          "url": "acol/course/chap11",
+          "chapter": 11
+        },
+        "chap12": {
+          "title": "Chapter 12: Origin of Separation",
+          "url": "acol/course/chap12",
+          "chapter": 12
+        },
+        "chap13": {
+          "title": "Chapter 13: Observation and Experience",
+          "url": "acol/course/chap13",
+          "chapter": 13
+        },
+        "chap14": {
+          "title": "Chapter 14: Special Relationships, Earthly and Human",
+          "url": "acol/course/chap14",
+          "chapter": 14
+        },
+        "chap15": {
+          "title": "Chapter 15: The Special Self",
+          "url": "acol/course/chap15",
+          "chapter": 15
+        },
+        "chap16": {
+          "title": "Chapter 16: What You Choose Instead",
+          "url": "acol/course/chap16",
+          "chapter": 16
+        },
+        "chap17": {
+          "title": "Chapter 17: Conscious Non-Planning",
+          "url": "acol/course/chap17",
+          "chapter": 17
+        },
+        "chap18": {
+          "title": "Chapter 18: The Mind Engaged",
+          "url": "acol/course/chap18",
+          "chapter": 18
+        },
+        "chap19": {
+          "title": "Chapter 19: Oneness and Duality",
+          "url": "acol/course/chap19",
+          "chapter": 19
+        },
+        "chap20": {
+          "title": "Chapter 20: Wholeheartedness&mdash;The Embrace",
+          "url": "acol/course/chap20",
+          "chapter": 20,
+          "audio": true
+        },
+        "chap21": {
+          "title": "Chapter 21: Love Is",
+          "url": "acol/course/chap21",
+          "chapter": 21
+        },
+        "chap22": {
+          "title": "Chapter 22: The Intersection",
+          "url": "acol/course/chap22",
+          "chapter": 22
+        },
+        "chap23": {
+          "title": "Chapter 23: The Freedom of the Body",
+          "url": "acol/course/chap23",
+          "chapter": 23
+        },
+        "chap24": {
+          "title": "Chapter 24: The Time of Tenderness",
+          "url": "acol/course/chap24",
+          "chapter": 24
+        },
+        "chap25": {
+          "title": "Chapter 25: Devotion as a Type of Participation",
+          "url": "acol/course/chap25",
+          "chapter": 25
+        },
+        "chap26": {
+          "title": "Chapter 26: The Full Life",
+          "url": "acol/course/chap26",
+          "chapter": 26
+        },
+        "chap27": {
+          "title": "Chapter 27: Being",
+          "url": "acol/course/chap27",
+          "chapter": 27
+        },
+        "chap28": {
+          "title": "Chapter 28: Bearing Witness",
+          "url": "acol/course/chap28",
+          "chapter": 28
+        },
+        "chap29": {
+          "title": "Chapter 29: Attention",
+          "url": "acol/course/chap29",
+          "chapter": 29
+        },
+        "chap30": {
+          "title": "Chapter 30: Being Present",
+          "url": "acol/course/chap30",
+          "chapter": 30
+        },
+        "chap31": {
+          "title": "Chapter 31: The Nature of the Mind",
+          "url": "acol/course/chap31",
+          "chapter": 31
+        },
+        "chap32": {
+          "title": "Chapter 32: Love Returned to Love",
+          "url": "acol/course/chap32",
+          "chapter": 32
+        },
+        "intro": {
+          "title": "Introduction",
+          "url": "acol/course/intro",
+          "chapter": -1,
+          "audio": true
+        },
+        "learning1": {
+          "title": "Learning in the Time of Christ&mdash;Part One",
+          "url": "acol/course/learning1"
+        },
+        "prelude": {
+          "title": "The Prelude",
+          "url": "acol/course/prelude",
+          "chapter": 0
+        }
+      }
+    },
+    "dialog": {
+      "title": "Book Three: Dialogues",
+      "description": "No description",
+      "image": "/images/covers/acol/dialog.jpg",
+      "units": [
+        "chap01",
+        "chap02",
+        "chap03",
+        "chap04",
+        "chap05",
+        "chap06",
+        "chap07",
+        "chap08",
+        "chap09",
+        "chap10",
+        "chap11",
+        "chap12",
+        "chap13",
+        "chap14",
+        "chap15",
+        "chap16",
+        "chap17",
+        "day01",
+        "day02",
+        "day03",
+        "day04",
+        "day05",
+        "day06",
+        "day07",
+        "day08",
+        "day09",
+        "day10",
+        "day11",
+        "day12",
+        "day13",
+        "day14",
+        "day15",
+        "day16",
+        "day17",
+        "day18",
+        "day19",
+        "day20",
+        "day21",
+        "day22",
+        "day23",
+        "day24",
+        "day25",
+        "day26",
+        "day27",
+        "day28",
+        "day29",
+        "day30",
+        "day31",
+        "day32",
+        "day33",
+        "day34",
+        "day35",
+        "day36",
+        "day37",
+        "day38",
+        "day39",
+        "day40",
+        "dialog",
+        "epilog",
+        "learning3"
+      ],
+      "unitInfo": {
+        "chap01": {
+          "title": "Chapter 1: Acceptance of the State of Grace of the Newly Identified Child of God",
+          "url": "acol/dialog/chap01",
+          "chapter": 1
+        },
+        "chap02": {
+          "title": "Chapter 2: Acceptance and Denial",
+          "url": "acol/dialog/chap02",
+          "chapter": 2
+        },
+        "chap03": {
+          "title": "Chapter 3: The Covenant of the New",
+          "url": "acol/dialog/chap03",
+          "chapter": 3
+        },
+        "chap04": {
+          "title": "Chapter 4: The New You",
+          "url": "acol/dialog/chap04",
+          "chapter": 4
+        },
+        "chap05": {
+          "title": "Chapter 5: True Representation",
+          "url": "acol/dialog/chap05",
+          "chapter": 5
+        },
+        "chap06": {
+          "title": "Chapter 6: The Body and the Elevation of Form",
+          "url": "acol/dialog/chap06",
+          "chapter": 6
+        },
+        "chap07": {
+          "title": "Chapter 7: Time and the Experience of Transformation",
+          "url": "acol/dialog/chap07",
+          "chapter": 7
+        },
+        "chap08": {
+          "title": "Chapter 8: The Territory of Conscious Awareness",
+          "url": "acol/dialog/chap08",
+          "chapter": 8
+        },
+        "chap09": {
+          "title": "Chapter 9: Awareness that Does Not Come from Thought",
+          "url": "acol/dialog/chap09",
+          "chapter": 9
+        },
+        "chap10": {
+          "title": "Chapter 10: The Goal and the Accomplishment of the Elevated Self of Form",
+          "url": "acol/dialog/chap10",
+          "chapter": 10
+        },
+        "chap11": {
+          "title": "Chapter 11: The Return to Unity and the End of Thought As You Know It",
+          "url": "acol/dialog/chap11",
+          "chapter": 11
+        },
+        "chap12": {
+          "title": "Chapter 12: The Body and Your Thoughts",
+          "url": "acol/dialog/chap12",
+          "chapter": 12
+        },
+        "chap13": {
+          "title": "Chapter 13: Sharing and a Refinement of Your Means of Expressing What You Know",
+          "url": "acol/dialog/chap13",
+          "chapter": 13
+        },
+        "chap14": {
+          "title": "Chapter 14: New Frontiers Beyond the Body and Mind, Form and Time",
+          "url": "acol/dialog/chap14",
+          "chapter": 14
+        },
+        "chap15": {
+          "title": "Chapter 15: Becoming and the Principles of Creation",
+          "url": "acol/dialog/chap15",
+          "chapter": 15
+        },
+        "chap16": {
+          "title": "Chapter 16: From Image to Presence",
+          "url": "acol/dialog/chap16",
+          "chapter": 16
+        },
+        "chap17": {
+          "title": "Chapter 17: The Secret of Succession",
+          "url": "acol/dialog/chap17",
+          "chapter": 17
+        },
+        "day01": {
+          "title": "Day 1: Accept Me",
+          "url": "acol/dialog/day01",
+          "section": "The Forty Days and Forty Nights",
+          "day": 1
+        },
+        "day02": {
+          "title": "Day 2: Accept Your Self",
+          "url": "acol/dialog/day02",
+          "section": "The Forty Days and Forty Nights",
+          "day": 2
+        },
+        "day03": {
+          "title": "Day 3: Accept Abundance",
+          "url": "acol/dialog/day03",
+          "section": "The Forty Days and Forty Nights",
+          "day": 3
+        },
+        "day04": {
+          "title": "Day 4: The New Temptations",
+          "url": "acol/dialog/day04",
+          "section": "The Forty Days and Forty Nights",
+          "day": 4
+        },
+        "day05": {
+          "title": "Day 5: Access to Unity",
+          "url": "acol/dialog/day05",
+          "section": "The Forty Days and Forty Nights",
+          "day": 5
+        },
+        "day06": {
+          "title": "Day 6: The Time In Between",
+          "url": "acol/dialog/day06",
+          "section": "The Forty Days and Forty Nights",
+          "day": 6
+        },
+        "day07": {
+          "title": "Day 7: Conditions of the Time of Acceptance",
+          "url": "acol/dialog/day07",
+          "section": "The Forty Days and Forty Nights",
+          "day": 7
+        },
+        "day08": {
+          "title": "Day 8: Accept the Present",
+          "url": "acol/dialog/day08",
+          "section": "The Forty Days and Forty Nights",
+          "day": 8
+        },
+        "day09": {
+          "title": "Day 9: Freedom",
+          "url": "acol/dialog/day09",
+          "section": "The Forty Days and Forty Nights",
+          "day": 9
+        },
+        "day10": {
+          "title": "Day 10: Power",
+          "url": "acol/dialog/day10",
+          "section": "The Forty Days and Forty Nights",
+          "day": 10
+        },
+        "day11": {
+          "title": "Day 11 Christ-Consciousness",
+          "url": "acol/dialog/day11",
+          "section": "The Forty Days and Forty Nights",
+          "day": 11
+        },
+        "day12": {
+          "title": "Day 12: The Spacious Self Joined in Relationship",
+          "url": "acol/dialog/day12",
+          "section": "The Forty Days and Forty Nights",
+          "day": 12
+        },
+        "day13": {
+          "title": "Day 13: Union with the Spacious Self",
+          "url": "acol/dialog/day13",
+          "section": "The Forty Days and Forty Nights",
+          "day": 12
+        },
+        "day14": {
+          "title": "Day 14: Healing",
+          "url": "acol/dialog/day14",
+          "section": "The Forty Days and Forty Nights",
+          "day": 14
+        },
+        "day15": {
+          "title": "Day 15: Entering the Dialogue",
+          "url": "acol/dialog/day15",
+          "section": "The Forty Days and Forty Nights",
+          "day": 16
+        },
+        "day16": {
+          "title": "Day 16: Paradise Re-Found",
+          "url": "acol/dialog/day16",
+          "section": "The Forty Days and Forty Nights",
+          "day": 16
+        },
+        "day17": {
+          "title": "Day 17: The Fulfillment of the Way of Jesus",
+          "url": "acol/dialog/day17",
+          "section": "The Forty Days and Forty Nights",
+          "day": 17
+        },
+        "day18": {
+          "title": "Day 18: The Way to Paradise",
+          "url": "acol/dialog/day18",
+          "section": "The Forty Days and Forty Nights",
+          "day": 18
+        },
+        "day19": {
+          "title": "Day 19: The Way of Mary",
+          "url": "acol/dialog/day19",
+          "section": "The Forty Days and Forty Nights",
+          "day": 19
+        },
+        "day20": {
+          "title": "Day 20: The First Transition",
+          "url": "acol/dialog/day20",
+          "section": "The Forty Days and Forty Nights",
+          "day": 20
+        },
+        "day21": {
+          "title": "Day 21: The Reversal",
+          "url": "acol/dialog/day21",
+          "section": "The Forty Days and Forty Nights",
+          "day": 21
+        },
+        "day22": {
+          "title": "Day 22: Channeling",
+          "url": "acol/dialog/day22",
+          "section": "The Forty Days and Forty Nights",
+          "day": 22
+        },
+        "day23": {
+          "title": "Day 23: Carrying",
+          "url": "acol/dialog/day23",
+          "section": "The Forty Days and Forty Nights",
+          "day": 23
+        },
+        "day24": {
+          "title": "Day 24: Potential",
+          "url": "acol/dialog/day24",
+          "section": "The Forty Days and Forty Nights",
+          "day": 24
+        },
+        "day25": {
+          "title": "Day 25: Tending Your Garden",
+          "url": "acol/dialog/day25",
+          "section": "The Forty Days and Forty Nights",
+          "day": 25
+        },
+        "day26": {
+          "title": "Day 26: Self-Guidance",
+          "url": "acol/dialog/day26",
+          "section": "The Forty Days and Forty Nights",
+          "day": 26
+        },
+        "day27": {
+          "title": "Day 27: The Apprehension of Levels of Experience",
+          "url": "acol/dialog/day27",
+          "section": "The Forty Days and Forty Nights",
+          "day": 27
+        },
+        "day28": {
+          "title": "Day 28: From Externally to Internally Directed Life Experience",
+          "url": "acol/dialog/day28",
+          "section": "The Forty Days and Forty Nights",
+          "day": 28
+        },
+        "day29": {
+          "title": "Day 29: The Common Denominator of Experience",
+          "url": "acol/dialog/day29",
+          "section": "The Forty Days and Forty Nights",
+          "day": 29
+        },
+        "day30": {
+          "title": "Day 30: Yielding to Wholeness",
+          "url": "acol/dialog/day30",
+          "section": "The Forty Days and Forty Nights",
+          "day": 30
+        },
+        "day31": {
+          "title": "Day 31: Joining",
+          "url": "acol/dialog/day31",
+          "section": "The Forty Days and Forty Nights",
+          "day": 31
+        },
+        "day32": {
+          "title": "Day 32: The Experience of the Self and the Power of God",
+          "url": "acol/dialog/day32",
+          "section": "The Forty Days and Forty Nights",
+          "day": 32
+        },
+        "day33": {
+          "title": "Day 33: Being in Relationship",
+          "url": "acol/dialog/day33",
+          "section": "The Forty Days and Forty Nights",
+          "day": 33
+        },
+        "day34": {
+          "title": "Day 34: Saying Yes to Power",
+          "url": "acol/dialog/day34",
+          "section": "The Forty Days and Forty Nights",
+          "day": 34
+        },
+        "day35": {
+          "title": "Day 35: Being a Creator in Unity and Relationship",
+          "url": "acol/dialog/day35",
+          "section": "The Forty Days and Forty Nights",
+          "day": 35
+        },
+        "day36": {
+          "title": "Day 36: Who You Are in Unity and Relationship",
+          "url": "acol/dialog/day36",
+          "section": "The Forty Days and Forty Nights",
+          "day": 36
+        },
+        "day37": {
+          "title": "Day 37: A New Idea of God",
+          "url": "acol/dialog/day37",
+          "section": "The Forty Days and Forty Nights",
+          "day": 37
+        },
+        "day38": {
+          "title": "Day 38: Who I Am",
+          "url": "acol/dialog/day38",
+          "section": "The Forty Days and Forty Nights",
+          "day": 38
+        },
+        "day39": {
+          "title": "Day 39: Who I Am to You",
+          "url": "acol/dialog/day39",
+          "section": "The Forty Days and Forty Nights",
+          "day": 39
+        },
+        "day40": {
+          "title": "Day 40: Who You Are to Me",
+          "url": "acol/dialog/day40",
+          "section": "The Forty Days and Forty Nights",
+          "day": 40
+        },
+        "dialog": {
+          "title": "Dialogue Unveiled",
+          "url": "acol/dialog/dialog"
+        },
+        "epilog": {
+          "title": "Epilogue: A Note on Being",
+          "url": "acol/dialog/epilog"
+        },
+        "learning3": {
+          "title": "Learning in the Time of Christ&mdash;Part Three",
+          "url": "acol/dialog/learning3"
+        }
+      }
+    },
+    "treatise": {
+      "title": "Book Two: The Treatise",
+      "description": "No description",
+      "image": "/images/covers/acol/treatise.jpg",
+      "units": [
+        "learning2",
+        "t1chap01",
+        "t1chap02",
+        "t1chap03",
+        "t1chap04",
+        "t1chap05",
+        "t1chap06",
+        "t1chap07",
+        "t1chap08",
+        "t1chap09",
+        "t1chap10",
+        "t2chap01",
+        "t2chap02",
+        "t2chap03",
+        "t2chap04",
+        "t2chap05",
+        "t2chap06",
+        "t2chap07",
+        "t2chap08",
+        "t2chap09",
+        "t2chap10",
+        "t2chap11",
+        "t2chap12",
+        "t2chap13",
+        "t3chap01",
+        "t3chap02",
+        "t3chap03",
+        "t3chap04",
+        "t3chap05",
+        "t3chap06",
+        "t3chap07",
+        "t3chap08",
+        "t3chap09",
+        "t3chap10",
+        "t3chap11",
+        "t3chap12",
+        "t3chap13",
+        "t3chap14",
+        "t3chap15",
+        "t3chap16",
+        "t3chap17",
+        "t3chap18",
+        "t3chap19",
+        "t3chap20",
+        "t3chap21",
+        "t3chap22",
+        "t4chap01",
+        "t4chap02",
+        "t4chap03",
+        "t4chap04",
+        "t4chap05",
+        "t4chap06",
+        "t4chap07",
+        "t4chap08",
+        "t4chap09",
+        "t4chap10",
+        "t4chap11",
+        "t4chap12"
+      ],
+      "unitInfo": {
+        "learning2": {
+          "title": "Learning in the Time of Christ&mdash;Part Two",
+          "url": "acol/treatise/learning2"
+        },
+        "t1chap01": {
+          "title": "Treatise 1, Chapter 1: The First Instruction",
+          "url": "acol/treatise/t1chap01",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 1
+        },
+        "t1chap02": {
+          "title": "Treatise 1, Chapter 2: The Art of Thought",
+          "url": "acol/treatise/t1chap02",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 2
+        },
+        "t1chap03": {
+          "title": "Treatise 1, Chapter 3: The Call to the Miracle",
+          "url": "acol/treatise/t1chap03",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 3
+        },
+        "t1chap04": {
+          "title": "Treatise 1, Chapter 4: The Center of the Universe",
+          "url": "acol/treatise/t1chap04",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 4
+        },
+        "t1chap05": {
+          "title": "Treatise 1, Chapter 5: The Choice for Love",
+          "url": "acol/treatise/t1chap05",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 5
+        },
+        "t1chap06": {
+          "title": "Treatise 1, Chapter 6: The Act of Prayer",
+          "url": "acol/treatise/t1chap06",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 6
+        },
+        "t1chap07": {
+          "title": "Treatise 1, Chapter 7: Suffering and the New Learning",
+          "url": "acol/treatise/t1chap07",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 7
+        },
+        "t1chap08": {
+          "title": "Treatise 1, Chapter 8: Incarnation and Resurrection",
+          "url": "acol/treatise/t1chap08",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 8
+        },
+        "t1chap09": {
+          "title": "Treatise 1, Chapter 9: Giving and Receiving",
+          "url": "acol/treatise/t1chap09",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 9
+        },
+        "t1chap10": {
+          "title": "Treatise 1, Chapter 10: Peace",
+          "url": "acol/treatise/t1chap10",
+          "treatise": "A Treatise on The Art of Thought: The First Treatise",
+          "chapter": 10
+        },
+        "t2chap01": {
+          "title": "Treatise 2, Chapter 1: Treasure",
+          "url": "acol/treatise/t2chap01",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 1
+        },
+        "t2chap02": {
+          "title": "Treatise 2, Chapter 2: To Hear the Call",
+          "url": "acol/treatise/t2chap02",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 2
+        },
+        "t2chap03": {
+          "title": "Treatise 2, Chapter 3: To Answer the Call",
+          "url": "acol/treatise/t2chap03",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 3
+        },
+        "t2chap04": {
+          "title": "Treatise 2, Chapter 4: The Call to Who You Are",
+          "url": "acol/treatise/t2chap04",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 4
+        },
+        "t2chap05": {
+          "title": "Treatise 2, Chapter 5: The Source of Your Call",
+          "url": "acol/treatise/t2chap05",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 5
+        },
+        "t2chap06": {
+          "title": "Treatise 2, Chapter 6: The Belief: Accomplishment",
+          "url": "acol/treatise/t2chap06",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 6
+        },
+        "t2chap07": {
+          "title": "Treatise 2, Chapter 7: The Belief: Giving and Receiving As One",
+          "url": "acol/treatise/t2chap07",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 7
+        },
+        "t2chap08": {
+          "title": "Treatise 2, Chapter 8: The Belief: No Relationships Are Special",
+          "url": "acol/treatise/t2chap08",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 8
+        },
+        "t2chap09": {
+          "title": "Treatise 2, Chapter 9: The Belief: There Is No Loss But Only Gain",
+          "url": "acol/treatise/t2chap09",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 9
+        },
+        "t2chap10": {
+          "title": "Treatise 2, Chapter 10: The Belief: We Only Learn in Unity",
+          "url": "acol/treatise/t2chap10",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 10
+        },
+        "t2chap11": {
+          "title": "Treatise 2, Chapter 11: The Belief: We Exist in Relationship and Unity",
+          "url": "acol/treatise/t2chap11",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 11
+        },
+        "t2chap12": {
+          "title": "Treatise 2, Chapter 12: The Belief: Correction and Atonement",
+          "url": "acol/treatise/t2chap12",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 12
+        },
+        "t2chap13": {
+          "title": "Treatise 2, Chapter 13: The Final Call",
+          "url": "acol/treatise/t2chap13",
+          "treatise": "A Treatise on The Nature of Unity and Its Recognition: The Second Treatise",
+          "chapter": 13
+        },
+        "t3chap01": {
+          "title": "Treatise 3, Chapter 1: True and False Representation",
+          "url": "acol/treatise/t3chap01",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 1
+        },
+        "t3chap02": {
+          "title": "Treatise 3, Chapter 2: The Purpose of Representation",
+          "url": "acol/treatise/t3chap02",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 2
+        },
+        "t3chap03": {
+          "title": "Treatise 3, Chapter 3: The True Self",
+          "url": "acol/treatise/t3chap03",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 3
+        },
+        "t3chap04": {
+          "title": "Treatise 3, Chapter 4: The Dismantling of Illusion",
+          "url": "acol/treatise/t3chap04",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 4
+        },
+        "t3chap05": {
+          "title": "Treatise 3, Chapter 5: Original Purpose",
+          "url": "acol/treatise/t3chap05",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 5
+        },
+        "t3chap06": {
+          "title": "Treatise 3, Chapter 6: The Desire for Reward",
+          "url": "acol/treatise/t3chap06",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 6
+        },
+        "t3chap07": {
+          "title": "Treatise 3, Chapter 7: The Explosion of Belief",
+          "url": "acol/treatise/t3chap07",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 7
+        },
+        "t3chap08": {
+          "title": "Treatise 3, Chapter 8: The House of Truth",
+          "url": "acol/treatise/t3chap08",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 8
+        },
+        "t3chap09": {
+          "title": "Treatise 3, Chapter 9: To Dwell in the House of Truth",
+          "url": "acol/treatise/t3chap09",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 9
+        },
+        "t3chap10": {
+          "title": "Treatise 3, Chapter 10: An Exercise in Forgetting",
+          "url": "acol/treatise/t3chap10",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 10
+        },
+        "t3chap11": {
+          "title": "Treatise 3, Chapter 11: The Temptations of the Human Experience",
+          "url": "acol/treatise/t3chap11",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 11
+        },
+        "t3chap12": {
+          "title": "Treatise 3, Chapter 12: The Physical Self in the House of Truth",
+          "url": "acol/treatise/t3chap12",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 12
+        },
+        "t3chap13": {
+          "title": "Treatise 3, Chapter 13: The Practice: No Loss But Only Gain",
+          "url": "acol/treatise/t3chap13",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 13
+        },
+        "t3chap14": {
+          "title": "Treatise 3, Chapter 14: Not Other Than Who You Are",
+          "url": "acol/treatise/t3chap14",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 14
+        },
+        "t3chap15": {
+          "title": "Treatise 3, Chapter 15: The New Beginning",
+          "url": "acol/treatise/t3chap15",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 15
+        },
+        "t3chap16": {
+          "title": "Treatise 3, Chapter 16: Willingness, Temptation, and Belief",
+          "url": "acol/treatise/t3chap16",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 16
+        },
+        "t3chap17": {
+          "title": "Treatise 3, Chapter 17: A Mistake in Learning",
+          "url": "acol/treatise/t3chap17",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 17
+        },
+        "t3chap18": {
+          "title": "Treatise 3, Chapter 18: Observation",
+          "url": "acol/treatise/t3chap18",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 18
+        },
+        "t3chap19": {
+          "title": "Treatise 3, Chapter 19: Physical Reality",
+          "url": "acol/treatise/t3chap19",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 19
+        },
+        "t3chap20": {
+          "title": "Treatise 3, Chapter 20: Suffering and Observance",
+          "url": "acol/treatise/t3chap20",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 20
+        },
+        "t3chap21": {
+          "title": "Treastise 3, Chapter 21: The Identity of the True Self",
+          "url": "acol/treatise/t3chap21",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 21
+        },
+        "t3chap22": {
+          "title": "Treastise 3, Chapter 22: The True Self in Observable Form",
+          "url": "acol/treatise/t3chap22",
+          "treatise": "A Treatise on The Personal Self: The Third Treatise",
+          "chapter": 22
+        },
+        "t4chap01": {
+          "title": "Treatise 4, Chapter 1: All Are Chosen",
+          "url": "acol/treatise/t4chap01",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 1
+        },
+        "t4chap02": {
+          "title": "Treatise 4, Chapter 2: Shared Vision",
+          "url": "acol/treatise/t4chap02",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 2
+        },
+        "t4chap03": {
+          "title": "Treatise 4, Chapter 3: Natural Vision",
+          "url": "acol/treatise/t4chap03",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 3
+        },
+        "t4chap04": {
+          "title": "Treatise 4, Chapter 4: The Inheritance of Everlasting Life",
+          "url": "acol/treatise/t4chap04",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 4
+        },
+        "t4chap05": {
+          "title": "Treatise 4, Chapter 5: The Energy of Creation and the Body of Christ",
+          "url": "acol/treatise/t4chap05",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 5
+        },
+        "t4chap06": {
+          "title": "Treatise 4, Chapter 6: A New Choice",
+          "url": "acol/treatise/t4chap06",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 6
+        },
+        "t4chap07": {
+          "title": "Treatise 4, Chapter 7: An End to Learning",
+          "url": "acol/treatise/t4chap07",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 7
+        },
+        "t4chap08": {
+          "title": "Treatise 4, Chapter 8: To Come to Know",
+          "url": "acol/treatise/t4chap08",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 8
+        },
+        "t4chap09": {
+          "title": "Treatise 4, Chapter 9: Beyond Learning",
+          "url": "acol/treatise/t4chap09",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 9
+        },
+        "t4chap10": {
+          "title": "Treatise 4, Chapter 10: Creating Anew",
+          "url": "acol/treatise/t4chap10",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 10
+        },
+        "t4chap11": {
+          "title": "\"Treatise 4, Chapter 11: The End of Learning and the",
+          "url": "acol/treatise/t4chap11",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 11
+        },
+        "t4chap12": {
+          "title": "Treatise 4, Chapter 12: A Prelude to The Dialogues",
+          "url": "acol/treatise/t4chap12",
+          "treatise": "A Treatise On The New: The Fourth Treatise",
+          "chapter": 12
+        }
+      }
+    }
+  }
+}

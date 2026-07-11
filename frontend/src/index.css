@@ -1,0 +1,666 @@
+/* index.css - cmiLibrary Design System & Theme Styles */
+
+/* ---------------------------------------------------- */
+/* 1. Theme and Variable Definitions                    */
+/* ---------------------------------------------------- */
+
+:root {
+  /* Warm Parchment - Light Mode (Default) */
+  --bg-primary: #FDFBF7;
+  --bg-secondary: #F6F3EC;
+  --bg-tertiary: #EFECE3;
+  --text-primary: #1E2022;
+  --text-secondary: #5E656B;
+  --text-header: #101213;
+  --accent-color: #1F4068;
+  --accent-light: rgba(31, 64, 104, 0.08);
+  --accent-border: rgba(31, 64, 104, 0.2);
+  --border-color: #E2DDD5;
+  --highlight-color: #FEF08A; /* Soft amber/yellow for active highlight */
+  --shadow-color: rgba(0, 0, 0, 0.05);
+
+  /* Fonts & Geometry */
+  --font-serif: "Lora", "Georgia", "PT Serif", serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --sidebar-width: 340px;
+  --header-height: 88px;
+  --max-content-width: 65ch; /* Scientific optimal line length for readability */
+}
+
+/* Midnight Slate - Dark Mode */
+[data-theme="dark"] {
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-tertiary: #334155;
+  --text-primary: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --text-header: #F1F5F9;
+  --accent-color: #38BDF8;
+  --accent-light: rgba(56, 189, 248, 0.12);
+  --accent-border: rgba(56, 189, 248, 0.3);
+  --border-color: #334155;
+  --highlight-color: #1E3A8A; /* Deep blue highlight for dark mode */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Sepia Reading Mode */
+[data-theme="sepia"] {
+  --bg-primary: #F4ECD8;
+  --bg-secondary: #EADCB9;
+  --bg-tertiary: #DFCF9B;
+  --text-primary: #433422;
+  --text-secondary: #7A6855;
+  --text-header: #2B1E11;
+  --accent-color: #8C6239;
+  --accent-light: rgba(140, 98, 57, 0.1);
+  --accent-border: rgba(140, 98, 57, 0.25);
+  --border-color: #DFD3B3;
+  --highlight-color: #FCD34D; /* Warm amber highlight */
+  --shadow-color: rgba(67, 52, 34, 0.06);
+}
+
+/* ---------------------------------------------------- */
+/* 2. Global Resets and Defaults                         */
+/* ---------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ---------------------------------------------------- */
+/* 3. Shell Layout Structure                            */
+/* ---------------------------------------------------- */
+
+.app-shell {
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-areas:
+    "header"
+    "main";
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Header Styles */
+.app-header {
+  grid-area: header;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 10;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-header);
+  overflow: hidden;
+}
+
+.brand span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 640px) {
+  .brand span {
+    font-size: 1rem;
+    max-width: 180px; /* Elegant truncation for narrow viewports */
+  }
+}
+
+.brand-icon {
+  color: var(--accent-color);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Theme Selector Control */
+.theme-select {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Main Container: Split Pane */
+.main-container {
+  grid-area: main;
+  display: flex;
+  height: calc(100vh - var(--header-height));
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ---------------------------------------------------- */
+/* 4. Sidebar Tree Navigation                          */
+/* ---------------------------------------------------- */
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  z-index: 5;
+}
+
+.sidebar.collapsed {
+  transform: translateX(calc(-1 * var(--sidebar-width)));
+  width: 0;
+}
+
+.sidebar-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
+  color: var(--text-header);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Accordion Node Item Styles */
+.tree-node {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.node-trigger {
+  width: 100%;
+  text-align: left;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-header);
+  transition: background-color 0.2s ease;
+}
+
+.node-trigger:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.node-chevron {
+  transition: transform 0.2s ease;
+}
+
+.node-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+.node-children {
+  background-color: var(--bg-primary);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.node-children.expanded {
+  max-height: none; /* Handled dynamically or set via class */
+}
+
+/* Recursive levels inside Sidebar */
+.book-item {
+  padding-left: 1.5rem;
+}
+
+.group-item {
+  padding-left: 2.25rem;
+}
+
+.unit-item {
+  display: block;
+  padding: 0.55rem 1rem 0.55rem 3rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.unit-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.unit-item.active {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  font-weight: 600;
+  border-left-color: var(--accent-color);
+}
+
+/* Sidebar Accordion Active Path Highlights */
+.node-trigger.source-trigger.active {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  border-left: 4px solid var(--accent-color);
+}
+
+.node-trigger.book-trigger.active {
+  background-color: var(--bg-tertiary);
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.node-trigger.group-trigger.active {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.header-identity-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Header Closed Sidebar Contextual Breadcrumbs */
+.header-breadcrumbs-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 2.75rem; /* Aligns with the branding text, past the toggle menu icon */
+  animation: fadeIn 0.3s ease;
+  overflow: hidden;
+}
+
+.crumb-line-source {
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.8;
+}
+
+.crumb-line-path {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crumb-line-path .crumb-separator {
+  color: var(--border-color);
+  font-weight: bold;
+}
+
+.crumb-line-path .crumb-book,
+.crumb-line-path .crumb-group {
+  opacity: 0.85;
+}
+
+.crumb-line-path .crumb-unit {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+  .header-breadcrumbs-stacked {
+    display: none; /* Hide on mobile/tablets to prevent cluttering */
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 5. Immersive Reader Interface                       */
+/* ---------------------------------------------------- */
+
+.reader-container {
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.reader-column {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin-bottom: 5rem; /* Generous bottom spacing for player */
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sidebar Toggle Overlay Button */
+.sidebar-toggle-btn {
+  position: fixed;
+  left: 1rem;
+  bottom: 2rem;
+  background-color: var(--accent-color);
+  color: #FFF;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ---------------------------------------------------- */
+/* 6. Styled HTML Content Rendering                     */
+/* ---------------------------------------------------- */
+
+#cmi-transcript {
+  font-family: var(--font-serif);
+  font-size: 1.25rem; /* Standard large legible text */
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+
+#cmi-transcript h1,
+#cmi-transcript h2,
+#cmi-transcript h3 {
+  font-family: var(--font-sans);
+  color: var(--text-header);
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+#cmi-transcript h1 { font-size: 2.25rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+#cmi-transcript h2 { font-size: 1.75rem; margin-top: 2.5rem; }
+#cmi-transcript h3 { font-size: 1.35rem; }
+
+#cmi-transcript p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  text-justify: inter-word;
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.4s ease;
+}
+
+/* Audio Seek Indicator on Hover */
+.audio-seek-indicator {
+  position: absolute;
+  left: -1.5rem;
+  top: 0.25rem;
+  color: var(--accent-color);
+  opacity: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+/* Only show play indicator on hover when audio is actively playing */
+.reader-container.audio-is-playing #cmi-transcript p:hover .audio-seek-indicator,
+.reader-container.audio-is-playing #cmi-transcript h2:hover .audio-seek-indicator,
+.reader-container.audio-is-playing #cmi-transcript h3:hover .audio-seek-indicator {
+  opacity: 0.8;
+}
+
+.reader-container.audio-is-playing .audio-seek-indicator:hover {
+  opacity: 1 !important;
+  transform: scale(1.15);
+}
+
+/* Make entire transcript paragraphs cursor interactive when audio is playing */
+.reader-container.audio-is-playing #cmi-transcript p,
+.reader-container.audio-is-playing #cmi-transcript h2,
+.reader-container.audio-is-playing #cmi-transcript h3 {
+  cursor: pointer;
+}
+
+.reader-container.audio-is-playing #cmi-transcript p:hover,
+.reader-container.audio-is-playing #cmi-transcript h2:hover,
+.reader-container.audio-is-playing #cmi-transcript h3:hover {
+  background-color: var(--accent-light); /* Very gentle highlight on hover */
+}
+
+/* Anchor Target Highlighting */
+#cmi-transcript p:target,
+#cmi-transcript p.highlight-target {
+  background-color: var(--highlight-color);
+  animation: flashHighlight 1.5s ease-out;
+}
+
+@keyframes flashHighlight {
+  0% { background-color: var(--highlight-color); }
+  70% { background-color: var(--highlight-color); }
+  100% { background-color: transparent; }
+}
+
+/* Active Audio Sync State */
+#cmi-transcript p.active-audio {
+  border-left: 3px solid var(--accent-color);
+  background-color: var(--accent-light);
+}
+
+/* ---------------------------------------------------- */
+/* 7. Loading States, Empty Views, and Alerts           */
+/* ---------------------------------------------------- */
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.welcome-screen {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.welcome-screen h1 {
+  font-size: 2.5rem;
+  color: var(--text-header);
+}
+
+.welcome-screen p {
+  font-size: 1.1rem;
+  max-width: 45ch;
+  line-height: 1.6;
+}
+
+.welcome-logo {
+  font-size: 4rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------- */
+/* 8. Media Queries for Responsiveness                  */
+/* ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 100%;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(0);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .reader-container {
+    padding: 1.5rem 1rem;
+  }
+
+  #cmi-transcript {
+    font-size: 1.1rem;
+  }
+
+  #cmi-transcript p {
+    text-align: left;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 9. Sticky Audio Player & Highlighting                */
+/* ---------------------------------------------------- */
+
+.sticky-audio-container {
+  position: fixed;
+  bottom: 0;
+  left: var(--sidebar-width, 320px);
+  right: 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  transition: left 0.2s ease;
+}
+
+/* When sidebar is collapsed, expand player to full width */
+.sidebar-collapsed .sticky-audio-container {
+  left: 0;
+}
+
+/* Adjust reader container padding at the bottom when player is active to prevent content overlap */
+.reader-container.has-audio-player {
+  padding-bottom: 8rem !important;
+}
+
+@media (max-width: 768px) {
+  .sticky-audio-container {
+    left: 0;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* 10. Sentence-Level Highlighting                      */
+/* ---------------------------------------------------- */
+
+.cmi-sentence {
+  transition: background-color 0.2s ease;
+}
+
+.cmi-sentence.active-sentence {
+  background-color: var(--highlight-color);
+  border-radius: 4px;
+  padding: 0 2px;
+}

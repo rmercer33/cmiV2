@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 792" width="612" height="792">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1B3B52" />
+      <stop offset="60%" stop-color="#0B1521" />
+      <stop offset="100%" stop-color="#05080E" />
+    </radialGradient>
+
+    <!-- Rich Metallic Gold Gradient -->
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3A8" />
+      <stop offset="25%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#F3E5AB" />
+      <stop offset="75%" stop-color="#AA7C11" />
+      <stop offset="100%" stop-color="#F3E5AB" />
+    </linearGradient>
+
+    <!-- Radiant Glow Gradient -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF3A8" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#FFF3A8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- 1. Background Fill -->
+  <rect width="612" height="792" fill="url(#bg-grad)" />
+
+  <!-- 2. Radiant Center Glow -->
+  <circle cx="306" cy="380" r="220" fill="url(#glow)" />
+
+  <!-- 3. Elegant Double Gold Frame -->
+  <rect x="25" y="25" width="562" height="742" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.6" />
+  <rect x="33" y="33" width="546" height="726" fill="none" stroke="url(#gold)" stroke-width="3.5" opacity="0.85" />
+  
+  <!-- Corner Ornamental Accents -->
+  <circle cx="33" cy="33" r="6" fill="url(#gold)" />
+  <circle cx="579" cy="33" r="6" fill="url(#gold)" />
+  <circle cx="33" cy="759" r="6" fill="url(#gold)" />
+  <circle cx="579" cy="759" r="6" fill="url(#gold)" />
+
+  <!-- 4. Sacred Geometry (Gold Mandala of Wisdom) -->
+  <g transform="translate(306, 380)" opacity="0.8">
+    <!-- Starburst Ray Lines -->
+    <g stroke="url(#gold)" stroke-width="0.75" opacity="0.4">
+      <line x1="-120" y1="0" x2="120" y2="0" />
+      <line x1="0" y1="-120" x2="0" y2="120" />
+      <line x1="-85" y1="-85" x2="85" y2="85" />
+      <line x1="-85" y1="85" x2="85" y2="-85" />
+      <line x1="-111" y1="-46" x2="111" y2="46" />
+      <line x1="-111" y1="46" x2="111" y2="-46" />
+      <line x1="-46" y1="-111" x2="46" y2="111" />
+      <line x1="-46" y1="111" x2="46" y2="-111" />
+    </g>
+
+    <!-- Concentric Sacred Rings -->
+    <circle r="110" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.5" />
+    <circle r="90" fill="none" stroke="url(#gold)" stroke-width="1" stroke-dasharray="3,3" opacity="0.6" />
+    <circle r="75" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.7" />
+    <circle r="40" fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.8" />
+    <circle r="15" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.9" />
+    <circle r="4" fill="url(#gold)" />
+
+    <!-- Overlapping Rotated Square Petals -->
+    <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="url(#gold)" stroke-width="0.8" transform="rotate(0)" opacity="0.5" />
+    <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="url(#gold)" stroke-width="0.8" transform="rotate(15)" opacity="0.5" />
+    <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="url(#gold)" stroke-width="0.8" transform="rotate(30)" opacity="0.5" />
+    <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="url(#gold)" stroke-width="0.8" transform="rotate(45)" opacity="0.5" />
+    <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="url(#gold)" stroke-width="0.8" transform="rotate(60)" opacity="0.5" />
+    <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="url(#gold)" stroke-width="0.8" transform="rotate(75)" opacity="0.5" />
+    
+    <!-- Outer Delicate Points -->
+    <path d="M 0,-115 L 6,-100 L -6,-100 Z" fill="url(#gold)" />
+    <path d="M 0,115 L 6,100 L -6,100 Z" fill="url(#gold)" />
+    <path d="M -115,0 L -100,6 L -100,-6 Z" fill="url(#gold)" />
+    <path d="M 115,0 L 100,6 L 100,-6 Z" fill="url(#gold)" />
+  </g>
+
+  <!-- 5. Elegant Typography (Serif Book Cover Formatting) -->
+  
+  <!-- Top Series Sub-header -->
+  <text x="306" y="125" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="15" 
+        font-weight="bold" 
+        fill="url(#gold)" 
+        text-anchor="middle" 
+        letter-spacing="5.5" 
+        opacity="0.95">THE WAY OF MASTERY</text>
+
+  <line x1="220" y1="145" x2="392" y2="145" stroke="url(#gold)" stroke-width="1" opacity="0.6" />
+
+  <!-- Main Subject Titles -->
+  <text x="306" y="555" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="46" 
+        font-weight="bold" 
+        fill="url(#gold)" 
+        text-anchor="middle" 
+        letter-spacing="2">QUESTIONS</text>
+
+  <text x="306" y="605" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="34" 
+        font-style="italic" 
+        fill="#FFFFFF" 
+        text-anchor="middle" 
+        opacity="0.85">&amp;</text>
+
+  <text x="306" y="660" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="46" 
+        font-weight="bold" 
+        fill="url(#gold)" 
+        text-anchor="middle" 
+        letter-spacing="2">ANSWERS</text>
+
+  <!-- Divider Ribbon -->
+  <rect x="260" y="688" width="92" height="1.5" fill="url(#gold)" opacity="0.6" />
+  <circle cx="306" cy="689" r="3" fill="url(#gold)" />
+
+  <!-- Bottom Subtitle -->
+  <text x="306" y="718" 
+        font-family="Georgia, 'Times New Roman', serif" 
+        font-size="14" 
+        font-style="italic" 
+        fill="#FFFFFF" 
+        text-anchor="middle" 
+        letter-spacing="1.5" 
+        opacity="0.75">Spiritual Dialogues &amp; Insights</text>
+
+</svg>

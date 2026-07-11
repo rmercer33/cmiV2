@@ -1,0 +1,5301 @@
+{
+  "title": "Sparkly Edition of A Course in Miracles",
+  "description": "Also known as the Thetford edition or the Hugh Lynn Cayce edition (HLC)",
+  "website": "https://theborderlandfoundation.com/",
+  "audio-available": "https://theborderlandfoundation.com/listen-to-sparkly-acim-audiobook/",
+  "image": "/images/covers/site/acim.jpg",
+  "books": [
+    "preface",
+    "text",
+    "workbook",
+    "manual"
+  ],
+  "bookInfo": {
+    "preface": {
+      "title": "Preface",
+      "description": "Preface Volume",
+      "units": [
+        "preface"
+      ],
+      "unitInfo": {
+        "preface": {
+          "title": "Preface to ACIM Sparkly Edition",
+          "url": "acim/preface/preface",
+          "restricted-menu": true
+        }
+      }
+    },
+    "text": {
+      "title": "Text",
+      "description": "Text Volume",
+      "groups": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31"
+      ],
+      "groupInfo": {
+        "10": {
+          "title": "God and the Ego",
+          "units": [
+            "chap1000",
+            "chap1001",
+            "chap1002",
+            "chap1003",
+            "chap1004",
+            "chap1005",
+            "chap1006",
+            "chap1007"
+          ],
+          "unitInfo": {
+            "chap1000": {
+              "title": "God and the Ego",
+              "url": "acim/text/10/chap1000",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.0"
+            },
+            "chap1001": {
+              "title": "Projection versus Extension",
+              "url": "acim/text/10/chap1001",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.1"
+            },
+            "chap1002": {
+              "title": "The Willingness for Healing",
+              "url": "acim/text/10/chap1002",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.2"
+            },
+            "chap1003": {
+              "title": "From Darkness to Light",
+              "url": "acim/text/10/chap1003",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.3"
+            },
+            "chap1004": {
+              "title": "The Inheritance of God’s Son",
+              "url": "acim/text/10/chap1004",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.4"
+            },
+            "chap1005": {
+              "title": "The “Dynamics” of the Ego",
+              "url": "acim/text/10/chap1005",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.5"
+            },
+            "chap1006": {
+              "title": "Experience and Perception",
+              "url": "acim/text/10/chap1006",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.6"
+            },
+            "chap1007": {
+              "title": "The Problem and the Answer",
+              "url": "acim/text/10/chap1007",
+              "chapter": "Ten",
+              "ctitle": "God and the Ego",
+              "ref": "T10.7"
+            }
+          }
+        },
+        "11": {
+          "title": "God’s Plan for Salvation",
+          "units": [
+            "chap1100",
+            "chap1101",
+            "chap1102",
+            "chap1103",
+            "chap1104",
+            "chap1105",
+            "chap1106",
+            "chap1107",
+            "chap1108",
+            "chap1109"
+          ],
+          "unitInfo": {
+            "chap1100": {
+              "title": "God’s Plan for Salvation",
+              "url": "acim/text/11/chap1100",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.0"
+            },
+            "chap1101": {
+              "title": "The Judgement of the Holy Spirit",
+              "url": "acim/text/11/chap1101",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.1"
+            },
+            "chap1102": {
+              "title": "The Mechanism of Miracles",
+              "url": "acim/text/11/chap1102",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.2"
+            },
+            "chap1103": {
+              "title": "The Investment in Reality",
+              "url": "acim/text/11/chap1103",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.3"
+            },
+            "chap1104": {
+              "title": "Seeking and Finding",
+              "url": "acim/text/11/chap1104",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.4"
+            },
+            "chap1105": {
+              "title": "The Sane Curriculum",
+              "url": "acim/text/11/chap1105",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.5"
+            },
+            "chap1106": {
+              "title": "The Vision of Christ",
+              "url": "acim/text/11/chap1106",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.6"
+            },
+            "chap1107": {
+              "title": "The Guide for Miracles",
+              "url": "acim/text/11/chap1107",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.7"
+            },
+            "chap1108": {
+              "title": "Reality and Redemption",
+              "url": "acim/text/11/chap1108",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.8"
+            },
+            "chap1109": {
+              "title": "Guiltlessness and Invulnerability",
+              "url": "acim/text/11/chap1109",
+              "chapter": "Eleven",
+              "ctitle": "God’s Plan for Salvation",
+              "ref": "T11.9"
+            }
+          }
+        },
+        "12": {
+          "title": "The Problem of Guilt",
+          "units": [
+            "chap1200",
+            "chap1201",
+            "chap1202",
+            "chap1203",
+            "chap1204",
+            "chap1205",
+            "chap1206"
+          ],
+          "unitInfo": {
+            "chap1200": {
+              "title": "The Problem of Guilt",
+              "url": "acim/text/12/chap1200",
+              "chapter": "Twelve",
+              "ctitle": "The Problem of Guilt",
+              "ref": "T12.0"
+            },
+            "chap1201": {
+              "title": "Crucifixion by Guilt",
+              "url": "acim/text/12/chap1201",
+              "chapter": "Twelve",
+              "ctitle": "The Problem of Guilt",
+              "ref": "T12.1"
+            },
+            "chap1202": {
+              "title": "The Fear of Redemption",
+              "url": "acim/text/12/chap1202",
+              "chapter": "Twelve",
+              "ctitle": "The Problem of Guilt",
+              "ref": "T12.2"
+            },
+            "chap1203": {
+              "title": "Healing and Time",
+              "url": "acim/text/12/chap1203",
+              "chapter": "Twelve",
+              "ctitle": "The Problem of Guilt",
+              "ref": "T12.3"
+            },
+            "chap1204": {
+              "title": "The Two Emotions",
+              "url": "acim/text/12/chap1204",
+              "chapter": "Twelve",
+              "ctitle": "The Problem of Guilt",
+              "ref": "T12.4"
+            },
+            "chap1205": {
+              "title": "Finding the Present",
+              "url": "acim/text/12/chap1205",
+              "chapter": "Twelve",
+              "ctitle": "The Problem of Guilt",
+              "ref": "T12.5"
+            },
+            "chap1206": {
+              "title": "Attainment of the Real World",
+              "url": "acim/text/12/chap1206",
+              "chapter": "Twelve",
+              "ctitle": "The Problem of Guilt",
+              "ref": "T12.6"
+            }
+          }
+        },
+        "13": {
+          "title": "From Perception to Knowledge",
+          "units": [
+            "chap1300",
+            "chap1301",
+            "chap1302",
+            "chap1303",
+            "chap1304",
+            "chap1305",
+            "chap1306",
+            "chap1307",
+            "chap1308"
+          ],
+          "unitInfo": {
+            "chap1300": {
+              "title": "From Perception to Knowledge",
+              "url": "acim/text/13/chap1300",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.0"
+            },
+            "chap1301": {
+              "title": "The Role of Healing",
+              "url": "acim/text/13/chap1301",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.1"
+            },
+            "chap1302": {
+              "title": "The Shadow of Guilt",
+              "url": "acim/text/13/chap1302",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.2"
+            },
+            "chap1303": {
+              "title": "Release and Restoration",
+              "url": "acim/text/13/chap1303",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.3"
+            },
+            "chap1304": {
+              "title": "The Guarantee of Heaven",
+              "url": "acim/text/13/chap1304",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.4"
+            },
+            "chap1305": {
+              "title": "The Testimony of Miracles",
+              "url": "acim/text/13/chap1305",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.5"
+            },
+            "chap1306": {
+              "title": "The Happy Learner",
+              "url": "acim/text/13/chap1306",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.6"
+            },
+            "chap1307": {
+              "title": "The Decision for Guiltlessness",
+              "url": "acim/text/13/chap1307",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.7"
+            },
+            "chap1308": {
+              "title": "The Way of Salvation",
+              "url": "acim/text/13/chap1308",
+              "chapter": "Thirteen",
+              "ctitle": "From Perception to Knowledge",
+              "ref": "T13.8"
+            }
+          }
+        },
+        "14": {
+          "title": "Bringing Illusions to Truth",
+          "units": [
+            "chap1400",
+            "chap1401",
+            "chap1402",
+            "chap1403",
+            "chap1404",
+            "chap1405",
+            "chap1406"
+          ],
+          "unitInfo": {
+            "chap1400": {
+              "title": "Bringing Illusions to Truth",
+              "url": "acim/text/14/chap1400",
+              "chapter": "Fourteen",
+              "ctitle": "Bringing Illusions to Truth",
+              "ref": "T14.0"
+            },
+            "chap1401": {
+              "title": "Guilt and Guiltlessness",
+              "url": "acim/text/14/chap1401",
+              "chapter": "Fourteen",
+              "ctitle": "Bringing Illusions to Truth",
+              "ref": "T14.1"
+            },
+            "chap1402": {
+              "title": "Out of the Darkness",
+              "url": "acim/text/14/chap1402",
+              "chapter": "Fourteen",
+              "ctitle": "Bringing Illusions to Truth",
+              "ref": "T14.2"
+            },
+            "chap1403": {
+              "title": "Perception without Deceit",
+              "url": "acim/text/14/chap1403",
+              "chapter": "Fourteen",
+              "ctitle": "Bringing Illusions to Truth",
+              "ref": "T14.3"
+            },
+            "chap1404": {
+              "title": "The Recognition of Holiness",
+              "url": "acim/text/14/chap1404",
+              "chapter": "Fourteen",
+              "ctitle": "Bringing Illusions to Truth",
+              "ref": "T14.4"
+            },
+            "chap1405": {
+              "title": "The Shift to Miracles",
+              "url": "acim/text/14/chap1405",
+              "chapter": "Fourteen",
+              "ctitle": "Bringing Illusions to Truth",
+              "ref": "T14.5"
+            },
+            "chap1406": {
+              "title": "The Test of Truth",
+              "url": "acim/text/14/chap1406",
+              "chapter": "Fourteen",
+              "ctitle": "Bringing Illusions to Truth",
+              "ref": "T14.6"
+            }
+          }
+        },
+        "15": {
+          "title": "The Purpose of Time",
+          "units": [
+            "chap1500",
+            "chap1501",
+            "chap1502",
+            "chap1503",
+            "chap1504",
+            "chap1505",
+            "chap1506",
+            "chap1507",
+            "chap1508",
+            "chap1509",
+            "chap1510"
+          ],
+          "unitInfo": {
+            "chap1500": {
+              "title": "The Purpose of Time",
+              "url": "acim/text/15/chap1500",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.0"
+            },
+            "chap1501": {
+              "title": "The Uses of Time",
+              "url": "acim/text/15/chap1501",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.1"
+            },
+            "chap1502": {
+              "title": "Time and Eternity",
+              "url": "acim/text/15/chap1502",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.2"
+            },
+            "chap1503": {
+              "title": "Littleness versus Magnitude",
+              "url": "acim/text/15/chap1503",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.3"
+            },
+            "chap1504": {
+              "title": "Practicing the Holy Instant",
+              "url": "acim/text/15/chap1504",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.4"
+            },
+            "chap1505": {
+              "title": "The Holy Instant and Special Relationships",
+              "url": "acim/text/15/chap1505",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.5"
+            },
+            "chap1506": {
+              "title": "The Holy Instant and the Laws of God",
+              "url": "acim/text/15/chap1506",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.6"
+            },
+            "chap1507": {
+              "title": "The Holy Instant and Communication",
+              "url": "acim/text/15/chap1507",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.7"
+            },
+            "chap1508": {
+              "title": "The Holy Instant and Real Relationships",
+              "url": "acim/text/15/chap1508",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.8"
+            },
+            "chap1509": {
+              "title": "The Time of Christ",
+              "url": "acim/text/15/chap1509",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.9"
+            },
+            "chap1510": {
+              "title": "The End of Sacrifice",
+              "url": "acim/text/15/chap1510",
+              "chapter": "Fifteen",
+              "ctitle": "The Purpose of Time",
+              "ref": "T15.10"
+            }
+          }
+        },
+        "16": {
+          "title": "The Forgiveness of Illusions",
+          "units": [
+            "chap1600",
+            "chap1601",
+            "chap1602",
+            "chap1603",
+            "chap1604",
+            "chap1605",
+            "chap1606",
+            "chap1607"
+          ],
+          "unitInfo": {
+            "chap1600": {
+              "title": "The Forgiveness of Illusions",
+              "url": "acim/text/16/chap1600",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.0"
+            },
+            "chap1601": {
+              "title": "True Empathy",
+              "url": "acim/text/16/chap1601",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.1"
+            },
+            "chap1602": {
+              "title": "The Magnitude of Holiness",
+              "url": "acim/text/16/chap1602",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.2"
+            },
+            "chap1603": {
+              "title": "The Reward of Teaching",
+              "url": "acim/text/16/chap1603",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.3"
+            },
+            "chap1604": {
+              "title": "Illusion and Reality of Love",
+              "url": "acim/text/16/chap1604",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.4"
+            },
+            "chap1605": {
+              "title": "Specialness and Guilt",
+              "url": "acim/text/16/chap1605",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.5"
+            },
+            "chap1606": {
+              "title": "The Bridge to the Real World",
+              "url": "acim/text/16/chap1606",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.6"
+            },
+            "chap1607": {
+              "title": "The End of Illusions",
+              "url": "acim/text/16/chap1607",
+              "chapter": "Sixteen",
+              "ctitle": "The Forgiveness of Illusions",
+              "ref": "T16.7"
+            }
+          }
+        },
+        "17": {
+          "title": "Forgiveness and Healing",
+          "units": [
+            "chap1700",
+            "chap1701",
+            "chap1702",
+            "chap1703",
+            "chap1704",
+            "chap1705",
+            "chap1706",
+            "chap1707",
+            "chap1708"
+          ],
+          "unitInfo": {
+            "chap1700": {
+              "title": "Forgiveness and Healing",
+              "url": "acim/text/17/chap1700",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.0"
+            },
+            "chap1701": {
+              "title": "Fantasy and Distorted Perception",
+              "url": "acim/text/17/chap1701",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.1"
+            },
+            "chap1702": {
+              "title": "The Forgiven World",
+              "url": "acim/text/17/chap1702",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.2"
+            },
+            "chap1703": {
+              "title": "Shadows of the Past",
+              "url": "acim/text/17/chap1703",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.3"
+            },
+            "chap1704": {
+              "title": "Perception and the Two Worlds",
+              "url": "acim/text/17/chap1704",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.4"
+            },
+            "chap1705": {
+              "title": "The Healed Relationship",
+              "url": "acim/text/17/chap1705",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.5"
+            },
+            "chap1706": {
+              "title": "Practical Forgiveness",
+              "url": "acim/text/17/chap1706",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.6"
+            },
+            "chap1707": {
+              "title": "The Need for Faith",
+              "url": "acim/text/17/chap1707",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.7"
+            },
+            "chap1708": {
+              "title": "The Conditions of Forgiveness",
+              "url": "acim/text/17/chap1708",
+              "chapter": "Seventeen",
+              "ctitle": "Forgiveness and Healing",
+              "ref": "T17.8"
+            }
+          }
+        },
+        "18": {
+          "title": "The Dream and the Reality",
+          "units": [
+            "chap1800",
+            "chap1801",
+            "chap1802",
+            "chap1803",
+            "chap1804",
+            "chap1805",
+            "chap1806",
+            "chap1807",
+            "chap1808",
+            "chap1809",
+            "chap1810"
+          ],
+          "unitInfo": {
+            "chap1800": {
+              "title": "The Dream and the Reality",
+              "url": "acim/text/18/chap1800",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.0"
+            },
+            "chap1801": {
+              "title": "Substitution as a Defense",
+              "url": "acim/text/18/chap1801",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.1"
+            },
+            "chap1802": {
+              "title": "The Basis of the Dream",
+              "url": "acim/text/18/chap1802",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.2"
+            },
+            "chap1803": {
+              "title": "Light in the Dream",
+              "url": "acim/text/18/chap1803",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.3"
+            },
+            "chap1804": {
+              "title": "The Little Willingness",
+              "url": "acim/text/18/chap1804",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.4"
+            },
+            "chap1805": {
+              "title": "The Happy Dream",
+              "url": "acim/text/18/chap1805",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.5"
+            },
+            "chap1806": {
+              "title": "Dreams and the Body",
+              "url": "acim/text/18/chap1806",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.6"
+            },
+            "chap1807": {
+              "title": "“I Need do Nothing.”",
+              "url": "acim/text/18/chap1807",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.7"
+            },
+            "chap1808": {
+              "title": "The Purpose of the Body",
+              "url": "acim/text/18/chap1808",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.8"
+            },
+            "chap1809": {
+              "title": "The Delusional Thought System",
+              "url": "acim/text/18/chap1809",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.9"
+            },
+            "chap1810": {
+              "title": "The Passing of the Dream",
+              "url": "acim/text/18/chap1810",
+              "chapter": "Eighteen",
+              "ctitle": "The Dream and the Reality",
+              "ref": "T18.10"
+            }
+          }
+        },
+        "19": {
+          "title": "Beyond the Body",
+          "units": [
+            "chap1900",
+            "chap1901",
+            "chap1902",
+            "chap1903",
+            "chap1904",
+            "chap1905",
+            "chap1906",
+            "chap1907",
+            "chap1908",
+            "chap1909",
+            "chap1910",
+            "chap1911"
+          ],
+          "unitInfo": {
+            "chap1900": {
+              "title": "Beyond the Body",
+              "url": "acim/text/19/chap1900",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.0"
+            },
+            "chap1901": {
+              "title": "Beyond the Body",
+              "url": "acim/text/19/chap1901",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.1"
+            },
+            "chap1902": {
+              "title": "Sin versus Error",
+              "url": "acim/text/19/chap1902",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.2"
+            },
+            "chap1903": {
+              "title": "The Unreality of Sin",
+              "url": "acim/text/19/chap1903",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.3"
+            },
+            "chap1904": {
+              "title": "Obstacles to Peace: I. The Desire to Get Rid of It",
+              "url": "acim/text/19/chap1904",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.4"
+            },
+            "chap1905": {
+              "title": "The Attraction of Guilt",
+              "url": "acim/text/19/chap1905",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.5"
+            },
+            "chap1906": {
+              "title": "Obstacles to Peace: II. The Belief the Body is Valuable for What it Offers",
+              "url": "acim/text/19/chap1906",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.6"
+            },
+            "chap1907": {
+              "title": "Pleasure and Pain",
+              "url": "acim/text/19/chap1907",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.7"
+            },
+            "chap1908": {
+              "title": "Obstacles to Peace: III. The Attraction of Death",
+              "url": "acim/text/19/chap1908",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.8"
+            },
+            "chap1909": {
+              "title": "The Incorruptible Body",
+              "url": "acim/text/19/chap1909",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.9"
+            },
+            "chap1910": {
+              "title": "Obstacles to Peace: IV. The Fear of God",
+              "url": "acim/text/19/chap1910",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.10"
+            },
+            "chap1911": {
+              "title": "The Lifting of the Veil",
+              "url": "acim/text/19/chap1911",
+              "chapter": "Nineteen",
+              "ctitle": "Beyond the Body",
+              "ref": "T19.11"
+            }
+          }
+        },
+        "20": {
+          "title": "The Promise of the Resurrection",
+          "units": [
+            "chap2000",
+            "chap2001",
+            "chap2002",
+            "chap2003",
+            "chap2004",
+            "chap2005",
+            "chap2006",
+            "chap2007",
+            "chap2008"
+          ],
+          "unitInfo": {
+            "chap2000": {
+              "title": "The Promise of the Resurrection",
+              "url": "acim/text/20/chap2000",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.0"
+            },
+            "chap2001": {
+              "title": "Holy Week",
+              "url": "acim/text/20/chap2001",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.1"
+            },
+            "chap2002": {
+              "title": "Thorns and Lilies",
+              "url": "acim/text/20/chap2002",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.2"
+            },
+            "chap2003": {
+              "title": "Sin as an Adjustment",
+              "url": "acim/text/20/chap2003",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.3"
+            },
+            "chap2004": {
+              "title": "Entering the Ark",
+              "url": "acim/text/20/chap2004",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.4"
+            },
+            "chap2005": {
+              "title": "Heralds of Eternity",
+              "url": "acim/text/20/chap2005",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.5"
+            },
+            "chap2006": {
+              "title": "The Temple of the Holy Spirit",
+              "url": "acim/text/20/chap2006",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.6"
+            },
+            "chap2007": {
+              "title": "The Consistency of Means and End",
+              "url": "acim/text/20/chap2007",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.7"
+            },
+            "chap2008": {
+              "title": "The Vision of Sinlessness",
+              "url": "acim/text/20/chap2008",
+              "chapter": "Twenty",
+              "ctitle": "The Promise of the Resurrection",
+              "ref": "T20.8"
+            }
+          }
+        },
+        "21": {
+          "title": "The Inner Picture",
+          "units": [
+            "chap2100",
+            "chap2101",
+            "chap2102",
+            "chap2103",
+            "chap2104",
+            "chap2105",
+            "chap2106",
+            "chap2107",
+            "chap2108"
+          ],
+          "unitInfo": {
+            "chap2100": {
+              "title": "The Inner Picture",
+              "url": "acim/text/21/chap2100",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.0"
+            },
+            "chap2101": {
+              "title": "The Imagined World",
+              "url": "acim/text/21/chap2101",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.1"
+            },
+            "chap2102": {
+              "title": "The Responsibility for Sight",
+              "url": "acim/text/21/chap2102",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.2"
+            },
+            "chap2103": {
+              "title": "Faith, Belief and Vision",
+              "url": "acim/text/21/chap2103",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.3"
+            },
+            "chap2104": {
+              "title": "The Fear to Look Within",
+              "url": "acim/text/21/chap2104",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.4"
+            },
+            "chap2105": {
+              "title": "Reason and Perception",
+              "url": "acim/text/21/chap2105",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.5"
+            },
+            "chap2106": {
+              "title": "Reason and Correction",
+              "url": "acim/text/21/chap2106",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.6"
+            },
+            "chap2107": {
+              "title": "Perception and Wishes",
+              "url": "acim/text/21/chap2107",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.7"
+            },
+            "chap2108": {
+              "title": "The Inner Shift",
+              "url": "acim/text/21/chap2108",
+              "chapter": "Twenty One",
+              "ctitle": "The Inner Picture",
+              "ref": "T21.8"
+            }
+          }
+        },
+        "22": {
+          "title": "Salvation and the Holy Relationship",
+          "units": [
+            "chap2200",
+            "chap2201",
+            "chap2202",
+            "chap2203",
+            "chap2204",
+            "chap2205",
+            "chap2206"
+          ],
+          "unitInfo": {
+            "chap2200": {
+              "title": "Salvation and the Holy Relationship",
+              "url": "acim/text/22/chap2200",
+              "chapter": "Twenty Two",
+              "ctitle": "Salvation and the Holy Relationship",
+              "ref": "T22.0"
+            },
+            "chap2201": {
+              "title": "The Message of the Holy Relationship",
+              "url": "acim/text/22/chap2201",
+              "chapter": "Twenty Two",
+              "ctitle": "Salvation and the Holy Relationship",
+              "ref": "T22.1"
+            },
+            "chap2202": {
+              "title": "Your Brother’s Sinlessness",
+              "url": "acim/text/22/chap2202",
+              "chapter": "Twenty Two",
+              "ctitle": "Salvation and the Holy Relationship",
+              "ref": "T22.2"
+            },
+            "chap2203": {
+              "title": "Reason and the Holy Relationship",
+              "url": "acim/text/22/chap2203",
+              "chapter": "Twenty Two",
+              "ctitle": "Salvation and the Holy Relationship",
+              "ref": "T22.3"
+            },
+            "chap2204": {
+              "title": "The Branching of the Road",
+              "url": "acim/text/22/chap2204",
+              "chapter": "Twenty Two",
+              "ctitle": "Salvation and the Holy Relationship",
+              "ref": "T22.4"
+            },
+            "chap2205": {
+              "title": "Weakness and Defensiveness",
+              "url": "acim/text/22/chap2205",
+              "chapter": "Twenty Two",
+              "ctitle": "Salvation and the Holy Relationship",
+              "ref": "T22.5"
+            },
+            "chap2206": {
+              "title": "Freedom and the Holy Spirit",
+              "url": "acim/text/22/chap2206",
+              "chapter": "Twenty Two",
+              "ctitle": "Salvation and the Holy Relationship",
+              "ref": "T22.6"
+            }
+          }
+        },
+        "23": {
+          "title": "The War Against Yourself",
+          "units": [
+            "chap2300",
+            "chap2301",
+            "chap2302",
+            "chap2303",
+            "chap2304"
+          ],
+          "unitInfo": {
+            "chap2300": {
+              "title": "The War Against Yourself",
+              "url": "acim/text/23/chap2300",
+              "chapter": "Twenty Three",
+              "ctitle": "The War Against Yourself",
+              "ref": "T23.0"
+            },
+            "chap2301": {
+              "title": "The Irreconcilable Beliefs",
+              "url": "acim/text/23/chap2301",
+              "chapter": "Twenty Three",
+              "ctitle": "The War Against Yourself",
+              "ref": "T23.1"
+            },
+            "chap2302": {
+              "title": "The Laws of Chaos",
+              "url": "acim/text/23/chap2302",
+              "chapter": "Twenty Three",
+              "ctitle": "The War Against Yourself",
+              "ref": "T23.2"
+            },
+            "chap2303": {
+              "title": "Salvation without Compromise",
+              "url": "acim/text/23/chap2303",
+              "chapter": "Twenty Three",
+              "ctitle": "The War Against Yourself",
+              "ref": "T23.3"
+            },
+            "chap2304": {
+              "title": "The Fear of Life",
+              "url": "acim/text/23/chap2304",
+              "chapter": "Twenty Three",
+              "ctitle": "The War Against Yourself",
+              "ref": "T23.4"
+            }
+          }
+        },
+        "24": {
+          "title": "Specialness and Separation",
+          "units": [
+            "chap2400",
+            "chap2401",
+            "chap2402",
+            "chap2403",
+            "chap2404",
+            "chap2405",
+            "chap2406",
+            "chap2407"
+          ],
+          "unitInfo": {
+            "chap2400": {
+              "title": "Specialness and Separation",
+              "url": "acim/text/24/chap2400",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.0"
+            },
+            "chap2401": {
+              "title": "Specialness as a Substitute for Love",
+              "url": "acim/text/24/chap2401",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.1"
+            },
+            "chap2402": {
+              "title": "The Treachery of Specialness",
+              "url": "acim/text/24/chap2402",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.2"
+            },
+            "chap2403": {
+              "title": "The Forgiveness of Specialness",
+              "url": "acim/text/24/chap2403",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.3"
+            },
+            "chap2404": {
+              "title": "Specialness and Salvation",
+              "url": "acim/text/24/chap2404",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.4"
+            },
+            "chap2405": {
+              "title": "The Resolution of the Dream",
+              "url": "acim/text/24/chap2405",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.5"
+            },
+            "chap2406": {
+              "title": "Salvation from Fear",
+              "url": "acim/text/24/chap2406",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.6"
+            },
+            "chap2407": {
+              "title": "The Meeting Place",
+              "url": "acim/text/24/chap2407",
+              "chapter": "Twenty Four",
+              "ctitle": "Specialness and Separation",
+              "ref": "T24.7"
+            }
+          }
+        },
+        "25": {
+          "title": "The Remedy",
+          "units": [
+            "chap2500",
+            "chap2501",
+            "chap2502",
+            "chap2503",
+            "chap2504",
+            "chap2505",
+            "chap2506",
+            "chap2507",
+            "chap2508",
+            "chap2509"
+          ],
+          "unitInfo": {
+            "chap2500": {
+              "title": "The Remedy",
+              "url": "acim/text/25/chap2500",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.0"
+            },
+            "chap2501": {
+              "title": "The Appointed Task",
+              "url": "acim/text/25/chap2501",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.1"
+            },
+            "chap2502": {
+              "title": "The Savior from the Dar",
+              "url": "acim/text/25/chap2502",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.2"
+            },
+            "chap2503": {
+              "title": "The Fundamental Law of Perception",
+              "url": "acim/text/25/chap2503",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.3"
+            },
+            "chap2504": {
+              "title": "The Joining of Minds",
+              "url": "acim/text/25/chap2504",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.4"
+            },
+            "chap2505": {
+              "title": "The State of Sinlessness",
+              "url": "acim/text/25/chap2505",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.5"
+            },
+            "chap2506": {
+              "title": "The Special Function",
+              "url": "acim/text/25/chap2506",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.6"
+            },
+            "chap2507": {
+              "title": "Commuting the Sentence",
+              "url": "acim/text/25/chap2507",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.7"
+            },
+            "chap2508": {
+              "title": "The Principle of Salvation",
+              "url": "acim/text/25/chap2508",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.8"
+            },
+            "chap2509": {
+              "title": "The Justice of Heaven",
+              "url": "acim/text/25/chap2509",
+              "chapter": "Twenty Five",
+              "ctitle": "The Remedy",
+              "ref": "T25.9"
+            }
+          }
+        },
+        "26": {
+          "title": "The Transition",
+          "units": [
+            "chap2600",
+            "chap2601",
+            "chap2602",
+            "chap2603",
+            "chap2604",
+            "chap2605",
+            "chap2606",
+            "chap2607",
+            "chap2608",
+            "chap2609",
+            "chap2610"
+          ],
+          "unitInfo": {
+            "chap2600": {
+              "title": "The Transition",
+              "url": "acim/text/26/chap2600",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.0"
+            },
+            "chap2601": {
+              "title": "The “Sacrifice” of Oneness",
+              "url": "acim/text/26/chap2601",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.1"
+            },
+            "chap2602": {
+              "title": "The Forms of Error",
+              "url": "acim/text/26/chap2602",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.2"
+            },
+            "chap2603": {
+              "title": "The Borderland",
+              "url": "acim/text/26/chap2603",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.3"
+            },
+            "chap2604": {
+              "title": "Where Sin has Left",
+              "url": "acim/text/26/chap2604",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.4"
+            },
+            "chap2605": {
+              "title": "The Little Hindrance",
+              "url": "acim/text/26/chap2605",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.5"
+            },
+            "chap2606": {
+              "title": "The Appointed Friend",
+              "url": "acim/text/26/chap2606",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.6"
+            },
+            "chap2607": {
+              "title": "Review of Principles",
+              "url": "acim/text/26/chap2607",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.7"
+            },
+            "chap2608": {
+              "title": "The Immediacy of Salvation",
+              "url": "acim/text/26/chap2608",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.8"
+            },
+            "chap2609": {
+              "title": "For they Have Come",
+              "url": "acim/text/26/chap2609",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.9"
+            },
+            "chap2610": {
+              "title": "The Remaining Task",
+              "url": "acim/text/26/chap2610",
+              "chapter": "Twenty Six",
+              "ctitle": "The Transition",
+              "ref": "T26.10"
+            }
+          }
+        },
+        "27": {
+          "title": "The Body and the Dream*",
+          "units": [
+            "chap2700",
+            "chap2701",
+            "chap2702",
+            "chap2703",
+            "chap2704",
+            "chap2705",
+            "chap2706",
+            "chap2707",
+            "chap2708"
+          ],
+          "unitInfo": {
+            "chap2700": {
+              "title": "The Body and the Dream*",
+              "url": "acim/text/27/chap2700",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream*",
+              "ref": "T27.0"
+            },
+            "chap2701": {
+              "title": "The Picture of the Crucifixion",
+              "url": "acim/text/27/chap2701",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream*",
+              "ref": "T27.1"
+            },
+            "chap2702": {
+              "title": "The Fear of Healing",
+              "url": "acim/text/27/chap2702",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream*",
+              "ref": "T27.2"
+            },
+            "chap2703": {
+              "title": "The Symbol of the Impossible",
+              "url": "acim/text/27/chap2703",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream*",
+              "ref": "T27.3"
+            },
+            "chap2704": {
+              "title": "The Quiet Answer",
+              "url": "acim/text/27/chap2704",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream*",
+              "ref": "T27.4"
+            },
+            "chap2705": {
+              "title": "The Healing Example",
+              "url": "acim/text/27/chap2705",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream*",
+              "ref": "T27.5"
+            },
+            "chap2706": {
+              "title": "The Purpose of Pain",
+              "url": "acim/text/27/chap2706",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream*",
+              "ref": "T27.6"
+            },
+            "chap2707": {
+              "title": "The Illusion of Suffering",
+              "url": "acim/text/27/chap2707",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream",
+              "ref": "T27.7"
+            },
+            "chap2708": {
+              "title": "The “Hero” of the Dream",
+              "url": "acim/text/27/chap2708",
+              "chapter": "Twenty Seven",
+              "ctitle": "The Body and the Dream",
+              "ref": "T27.8"
+            }
+          }
+        },
+        "28": {
+          "title": "The Undoing of Fear",
+          "units": [
+            "chap2800",
+            "chap2801",
+            "chap2802",
+            "chap2803",
+            "chap2804",
+            "chap2805",
+            "chap2806",
+            "chap2807"
+          ],
+          "unitInfo": {
+            "chap2800": {
+              "title": "The Undoing of Fear",
+              "url": "acim/text/28/chap2800",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.0"
+            },
+            "chap2801": {
+              "title": "The Present Memory",
+              "url": "acim/text/28/chap2801",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.1"
+            },
+            "chap2802": {
+              "title": "Reversing Effect and Cause",
+              "url": "acim/text/28/chap2802",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.2"
+            },
+            "chap2803": {
+              "title": "The Agreement to Join",
+              "url": "acim/text/28/chap2803",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.3"
+            },
+            "chap2804": {
+              "title": "The Greater Joining",
+              "url": "acim/text/28/chap2804",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.4"
+            },
+            "chap2805": {
+              "title": "The Alternate to Dreams of Fear",
+              "url": "acim/text/28/chap2805",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.5"
+            },
+            "chap2806": {
+              "title": "The Secret Vows",
+              "url": "acim/text/28/chap2806",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.6"
+            },
+            "chap2807": {
+              "title": "The Beautiful Relationship",
+              "url": "acim/text/28/chap2807",
+              "chapter": "Twenty Eight",
+              "ctitle": "The Undoing of Fear",
+              "ref": "T28.7"
+            }
+          }
+        },
+        "29": {
+          "title": "The Awakening",
+          "units": [
+            "chap2900",
+            "chap2901",
+            "chap2902",
+            "chap2903",
+            "chap2904",
+            "chap2905",
+            "chap2906",
+            "chap2907",
+            "chap2908",
+            "chap2909"
+          ],
+          "unitInfo": {
+            "chap2900": {
+              "title": "The Awakening",
+              "url": "acim/text/29/chap2900",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.0"
+            },
+            "chap2901": {
+              "title": "The Closing of the Gap",
+              "url": "acim/text/29/chap2901",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.1"
+            },
+            "chap2902": {
+              "title": "The Coming of the Guest",
+              "url": "acim/text/29/chap2902",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.2"
+            },
+            "chap2903": {
+              "title": "God’s Witnesses",
+              "url": "acim/text/29/chap2903",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.3"
+            },
+            "chap2904": {
+              "title": "Dream Roles",
+              "url": "acim/text/29/chap2904",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.4"
+            },
+            "chap2905": {
+              "title": "The Changeless Dwelling-Place",
+              "url": "acim/text/29/chap2905",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.5"
+            },
+            "chap2906": {
+              "title": "Forgiveness and Peace",
+              "url": "acim/text/29/chap2906",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.6"
+            },
+            "chap2907": {
+              "title": "The Lingering Illusion",
+              "url": "acim/text/29/chap2907",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.7"
+            },
+            "chap2908": {
+              "title": "Christ and Anti-Christ",
+              "url": "acim/text/29/chap2908",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.8"
+            },
+            "chap2909": {
+              "title": "The Forgiving Dream",
+              "url": "acim/text/29/chap2909",
+              "chapter": "Twenty Nine",
+              "ctitle": "The Awakening",
+              "ref": "T29.9"
+            }
+          }
+        },
+        "30": {
+          "title": "The New Beginning",
+          "units": [
+            "chap3000",
+            "chap3001",
+            "chap3002",
+            "chap3003",
+            "chap3004",
+            "chap3005",
+            "chap3006",
+            "chap3007",
+            "chap3008"
+          ],
+          "unitInfo": {
+            "chap3000": {
+              "title": "The New Beginning",
+              "url": "acim/text/30/chap3000",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.0"
+            },
+            "chap3001": {
+              "title": "Rules for Decision",
+              "url": "acim/text/30/chap3001",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.1"
+            },
+            "chap3002": {
+              "title": "Freedom of Will",
+              "url": "acim/text/30/chap3002",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.2"
+            },
+            "chap3003": {
+              "title": "Beyond all Idols",
+              "url": "acim/text/30/chap3003",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.3"
+            },
+            "chap3004": {
+              "title": "The Truth Behind Illusions",
+              "url": "acim/text/30/chap3004",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.4"
+            },
+            "chap3005": {
+              "title": "The Only Purpose",
+              "url": "acim/text/30/chap3005",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.5"
+            },
+            "chap3006": {
+              "title": "The Justification for Forgiveness",
+              "url": "acim/text/30/chap3006",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.6"
+            },
+            "chap3007": {
+              "title": "The New Interpretation",
+              "url": "acim/text/30/chap3007",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.7"
+            },
+            "chap3008": {
+              "title": "Changeless Reality",
+              "url": "acim/text/30/chap3008",
+              "chapter": "Thirty",
+              "ctitle": "The New Beginning",
+              "ref": "T30.8"
+            }
+          }
+        },
+        "31": {
+          "title": "The Simplicity of Salvation",
+          "units": [
+            "chap3100",
+            "chap3101",
+            "chap3102",
+            "chap3103",
+            "chap3104",
+            "chap3105",
+            "chap3106",
+            "chap3107"
+          ],
+          "unitInfo": {
+            "chap3100": {
+              "title": "The Simplicity of Salvation",
+              "url": "acim/text/31/chap3100",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.0"
+            },
+            "chap3101": {
+              "title": "The Illusion of an Enemy",
+              "url": "acim/text/31/chap3101",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.1"
+            },
+            "chap3102": {
+              "title": "The Self-Accused",
+              "url": "acim/text/31/chap3102",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.2"
+            },
+            "chap3103": {
+              "title": "The Real Alternative",
+              "url": "acim/text/31/chap3103",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.3"
+            },
+            "chap3104": {
+              "title": "Self Concept versus Self",
+              "url": "acim/text/31/chap3104",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.4"
+            },
+            "chap3105": {
+              "title": "Recognizing the Spirit",
+              "url": "acim/text/31/chap3105",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.5"
+            },
+            "chap3106": {
+              "title": "The Savior’s Vision",
+              "url": "acim/text/31/chap3106",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.6"
+            },
+            "chap3107": {
+              "title": "Choose Once Again",
+              "url": "acim/text/31/chap3107",
+              "chapter": "Thirty One",
+              "ctitle": "The Simplicity of Salvation",
+              "ref": "T31.7"
+            }
+          }
+        },
+        "01": {
+          "title": "Introduction to Miracles",
+          "units": [
+            "chap0100",
+            "chap0101",
+            "chap0102"
+          ],
+          "unitInfo": {
+            "chap0100": {
+              "title": "Introduction to Miracles",
+              "url": "acim/text/01/chap0100",
+              "chapter": "One",
+              "section": "Introduction to Miracles",
+              "ref": "T1.0"
+            },
+            "chap0101": {
+              "title": "Principles of Miracles",
+              "url": "acim/text/01/chap0101",
+              "chapter": "One",
+              "ref": "T1.1"
+            },
+            "chap0102": {
+              "title": "Distortions of Miracle Impulses",
+              "url": "acim/text/01/chap0102",
+              "chapter": "One",
+              "ctitle": "Introduction to Miracles",
+              "ref": "T1.2"
+            }
+          }
+        },
+        "02": {
+          "title": "The Illusion of Separation",
+          "units": [
+            "chap0200",
+            "chap0201",
+            "chap0202",
+            "chap0203",
+            "chap0204",
+            "chap0205"
+          ],
+          "unitInfo": {
+            "chap0200": {
+              "title": "The Illusion of Separation",
+              "url": "acim/text/02/chap0200",
+              "chapter": "Two",
+              "ctitle": "The Illusion of Separation",
+              "ref": "T2.0"
+            },
+            "chap0201": {
+              "title": "The Reinterpretation of Defenses",
+              "url": "acim/text/02/chap0201",
+              "chapter": "Two",
+              "ctitle": "The Illusion of Separation",
+              "ref": "T2.1"
+            },
+            "chap0202": {
+              "title": "Healing as Release from Fear",
+              "url": "acim/text/02/chap0202",
+              "chapter": "Two",
+              "ctitle": "The Illusion of Separation",
+              "ref": "T2.2"
+            },
+            "chap0203": {
+              "title": "Fear as Lack of Love",
+              "url": "acim/text/02/chap0203",
+              "chapter": "Two",
+              "ctitle": "The Illusion of Separation",
+              "ref": "T2.3"
+            },
+            "chap0204": {
+              "title": "The Correction for Lack of Love",
+              "url": "acim/text/02/chap0204",
+              "chapter": "Two",
+              "ctitle": "The Illusion of Separation",
+              "ref": "T2.4"
+            },
+            "chap0205": {
+              "title": "The Meaning of the Last Judgement",
+              "url": "acim/text/02/chap0205",
+              "chapter": "Two",
+              "ctitle": "The Illusion of Separation",
+              "ref": "T2.5"
+            }
+          }
+        },
+        "03": {
+          "title": "Retraining the Mind",
+          "units": [
+            "chap0300",
+            "chap0301",
+            "chap0302",
+            "chap0303",
+            "chap0304",
+            "chap0305",
+            "chap0306",
+            "chap0307",
+            "chap0308"
+          ],
+          "unitInfo": {
+            "chap0300": {
+              "title": "Retraining the Mind",
+              "url": "acim/text/03/chap0300",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.0"
+            },
+            "chap0301": {
+              "title": "Special Principles for Miracle Workers",
+              "url": "acim/text/03/chap0301",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.1"
+            },
+            "chap0302": {
+              "title": "Atonement without Sacrifice",
+              "url": "acim/text/03/chap0302",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.2"
+            },
+            "chap0303": {
+              "title": "Miracles as Accurate Perception",
+              "url": "acim/text/03/chap0303",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.3"
+            },
+            "chap0304": {
+              "title": "Perception versus Knowledge",
+              "url": "acim/text/03/chap0304",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.4"
+            },
+            "chap0305": {
+              "title": "Conflict and the Ego",
+              "url": "acim/text/03/chap0305",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.5"
+            },
+            "chap0306": {
+              "title": "The Loss of Certainty",
+              "url": "acim/text/03/chap0306",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.6"
+            },
+            "chap0307": {
+              "title": "Judgement and the Authority Problem",
+              "url": "acim/text/03/chap0307",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.7"
+            },
+            "chap0308": {
+              "title": "Creating versus the Self-Image",
+              "url": "acim/text/03/chap0308",
+              "chapter": "Three",
+              "ctitle": "Retraining the Mind",
+              "ref": "T3.8"
+            }
+          }
+        },
+        "04": {
+          "title": "The Root of all Evil",
+          "units": [
+            "chap0400",
+            "chap0401",
+            "chap0402",
+            "chap0403",
+            "chap0404",
+            "chap0405",
+            "chap0406",
+            "chap0407",
+            "chap0408"
+          ],
+          "unitInfo": {
+            "chap0400": {
+              "title": "The Root of all Evil",
+              "url": "acim/text/04/chap0400",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.0"
+            },
+            "chap0401": {
+              "title": "Right Teaching and Right Learning",
+              "url": "acim/text/04/chap0401",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.1"
+            },
+            "chap0402": {
+              "title": "The Ego and False Autonomy",
+              "url": "acim/text/04/chap0402",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.2"
+            },
+            "chap0403": {
+              "title": "Love without Conflict",
+              "url": "acim/text/04/chap0403",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.3"
+            },
+            "chap0404": {
+              "title": "The Escape from Fear",
+              "url": "acim/text/04/chap0404",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.4"
+            },
+            "chap0405": {
+              "title": "The Ego-Body Illusion",
+              "url": "acim/text/04/chap0405",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.5"
+            },
+            "chap0406": {
+              "title": "The Constant State",
+              "url": "acim/text/04/chap0406",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.6"
+            },
+            "chap0407": {
+              "title": "Creation and Communication",
+              "url": "acim/text/04/chap0407",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.7"
+            },
+            "chap0408": {
+              "title": "True Rehabilitation",
+              "url": "acim/text/04/chap0408",
+              "chapter": "Four",
+              "ctitle": "The Root of all Evil",
+              "ref": "T4.8"
+            }
+          }
+        },
+        "05": {
+          "title": "Healing and Wholeness",
+          "units": [
+            "chap0500",
+            "chap0501",
+            "chap0502",
+            "chap0503",
+            "chap0504",
+            "chap0505",
+            "chap0506",
+            "chap0507",
+            "chap0508"
+          ],
+          "unitInfo": {
+            "chap0500": {
+              "title": "Healing and Wholeness",
+              "url": "acim/text/05/chap0500",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.0"
+            },
+            "chap0501": {
+              "title": "Healing as Joining",
+              "url": "acim/text/05/chap0501",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.1"
+            },
+            "chap0502": {
+              "title": "The Mind of the Atonement",
+              "url": "acim/text/05/chap0502",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.2"
+            },
+            "chap0503": {
+              "title": "The Voice for God",
+              "url": "acim/text/05/chap0503",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.3"
+            },
+            "chap0504": {
+              "title": "The Guide to Salvation",
+              "url": "acim/text/05/chap0504",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.4"
+            },
+            "chap0505": {
+              "title": "Therapy and Teaching",
+              "url": "acim/text/05/chap0505",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.5"
+            },
+            "chap0506": {
+              "title": "The Two Decisions",
+              "url": "acim/text/05/chap0506",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.6"
+            },
+            "chap0507": {
+              "title": "Time and Eternity",
+              "url": "acim/text/05/chap0507",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.7"
+            },
+            "chap0508": {
+              "title": "The Eternal Fixation",
+              "url": "acim/text/05/chap0508",
+              "chapter": "Five",
+              "ctitle": "Healing and Wholeness",
+              "ref": "T5.8"
+            }
+          }
+        },
+        "06": {
+          "title": "Attack and Fear",
+          "units": [
+            "chap0600",
+            "chap0601",
+            "chap0602",
+            "chap0603",
+            "chap0604"
+          ],
+          "unitInfo": {
+            "chap0600": {
+              "title": "Attack and Fear",
+              "url": "acim/text/06/chap0600",
+              "chapter": "Six",
+              "ctitle": "Attack and Fear",
+              "ref": "T6.0"
+            },
+            "chap0601": {
+              "title": "The Message of the Crucifixion",
+              "url": "acim/text/06/chap0601",
+              "chapter": "Six",
+              "ctitle": "Attack and Fear",
+              "ref": "T6.1"
+            },
+            "chap0602": {
+              "title": "The Uses of Projection",
+              "url": "acim/text/06/chap0602",
+              "chapter": "Six",
+              "ctitle": "Attack and Fear",
+              "ref": "T6.2"
+            },
+            "chap0603": {
+              "title": "The Relinquishment of Attack",
+              "url": "acim/text/06/chap0603",
+              "chapter": "Six",
+              "ctitle": "Attack and Fear",
+              "ref": "T6.3"
+            },
+            "chap0604": {
+              "title": "The Only Answer",
+              "url": "acim/text/06/chap0604",
+              "chapter": "Six",
+              "ctitle": "Attack and Fear",
+              "ref": "T6.4",
+              "toc": ""
+            }
+          }
+        },
+        "07": {
+          "title": "The Consistency of the Kingdom",
+          "units": [
+            "chap0700",
+            "chap0701",
+            "chap0702",
+            "chap0703",
+            "chap0704",
+            "chap0705",
+            "chap0706",
+            "chap0707",
+            "chap0708",
+            "chap0709",
+            "chap0710",
+            "chap0711"
+          ],
+          "unitInfo": {
+            "chap0700": {
+              "title": "The Consistency of the Kingdom",
+              "url": "acim/text/07/chap0700",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.0"
+            },
+            "chap0701": {
+              "title": "Bargaining versus Healing",
+              "url": "acim/text/07/chap0701",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.1"
+            },
+            "chap0702": {
+              "title": "The Laws of Mind",
+              "url": "acim/text/07/chap0702",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.2"
+            },
+            "chap0703": {
+              "title": "The Unified Curriculum",
+              "url": "acim/text/07/chap0703",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.3"
+            },
+            "chap0704": {
+              "title": "The Recognition of Truth",
+              "url": "acim/text/07/chap0704",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.4"
+            },
+            "chap0705": {
+              "title": "Healing and the Changelessness of Mind",
+              "url": "acim/text/07/chap0705",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.5"
+            },
+            "chap0706": {
+              "title": "From Vigilance to Peace",
+              "url": "acim/text/07/chap0706",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.6"
+            },
+            "chap0707": {
+              "title": "The Total Commitment",
+              "url": "acim/text/07/chap0707",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.7"
+            },
+            "chap0708": {
+              "title": "The Defense of Conflict",
+              "url": "acim/text/07/chap0708",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.8"
+            },
+            "chap0709": {
+              "title": "The Extension of the Kingdom",
+              "url": "acim/text/07/chap0709",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.9"
+            },
+            "chap0710": {
+              "title": "The Confusion of Strength and Weakness",
+              "url": "acim/text/07/chap0710",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.10"
+            },
+            "chap0711": {
+              "title": "The State of Grace",
+              "url": "acim/text/07/chap0711",
+              "chapter": "Seven",
+              "ctitle": "The Consistency of the Kingdom",
+              "ref": "T7.11"
+            }
+          }
+        },
+        "08": {
+          "title": "The Journey Back",
+          "units": [
+            "chap0800",
+            "chap0801",
+            "chap0802",
+            "chap0803",
+            "chap0804",
+            "chap0805",
+            "chap0806",
+            "chap0807",
+            "chap0808",
+            "chap0809",
+            "chap0810"
+          ],
+          "unitInfo": {
+            "chap0800": {
+              "title": "The Journey Back",
+              "url": "acim/text/08/chap0800",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.0"
+            },
+            "chap0801": {
+              "title": "The Direction of the Curriculum",
+              "url": "acim/text/08/chap0801",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.1"
+            },
+            "chap0802": {
+              "title": "The Rationale for Choice",
+              "url": "acim/text/08/chap0802",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.2"
+            },
+            "chap0803": {
+              "title": "The Holy Encounter",
+              "url": "acim/text/08/chap0803",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.3"
+            },
+            "chap0804": {
+              "title": "The Light of the World",
+              "url": "acim/text/08/chap0804",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.4"
+            },
+            "chap0805": {
+              "title": "The Power of Joint Decision",
+              "url": "acim/text/08/chap0805",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.5"
+            },
+            "chap0806": {
+              "title": "Communication and the Ego-Body Equation",
+              "url": "acim/text/08/chap0806",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.6"
+            },
+            "chap0807": {
+              "title": "The Body as Means or End",
+              "url": "acim/text/08/chap0807",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.7"
+            },
+            "chap0808": {
+              "title": "Healing as Corrected Perception",
+              "url": "acim/text/08/chap0808",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.8"
+            },
+            "chap0809": {
+              "title": "The Acceptance of Reality",
+              "url": "acim/text/08/chap0809",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.9"
+            },
+            "chap0810": {
+              "title": "The Answer to Prayer",
+              "url": "acim/text/08/chap0810",
+              "chapter": "Eight",
+              "ctitle": "The Journey Back",
+              "ref": "T8.10"
+            }
+          }
+        },
+        "09": {
+          "title": "The Correction of Error",
+          "units": [
+            "chap0900",
+            "chap0901",
+            "chap0902",
+            "chap0903",
+            "chap0904",
+            "chap0905",
+            "chap0906",
+            "chap0907",
+            "chap0908",
+            "chap0909",
+            "chap0910"
+          ],
+          "unitInfo": {
+            "chap0900": {
+              "title": "The Correction of Error",
+              "url": "acim/text/09/chap0900",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.0"
+            },
+            "chap0901": {
+              "title": "Sanity and Perception",
+              "url": "acim/text/09/chap0901",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.1"
+            },
+            "chap0902": {
+              "title": "Atonement as a Lesson in Sharing",
+              "url": "acim/text/09/chap0902",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.2"
+            },
+            "chap0903": {
+              "title": "The Unhealed Healer",
+              "url": "acim/text/09/chap0903",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.3"
+            },
+            "chap0904": {
+              "title": "The Awareness of the Holy Spirit",
+              "url": "acim/text/09/chap0904",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.4"
+            },
+            "chap0905": {
+              "title": "Salvation and God’s Will",
+              "url": "acim/text/09/chap0905",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.5"
+            },
+            "chap0906": {
+              "title": "Grandeur versus Grandiosity",
+              "url": "acim/text/09/chap0906",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.6"
+            },
+            "chap0907": {
+              "title": "The Inclusiveness of Creation",
+              "url": "acim/text/09/chap0907",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.7"
+            },
+            "chap0908": {
+              "title": "The Decision to Forget",
+              "url": "acim/text/09/chap0908",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.8"
+            },
+            "chap0909": {
+              "title": "Magic versus Miracles",
+              "url": "acim/text/09/chap0909",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.9"
+            },
+            "chap0910": {
+              "title": "The Denial of God",
+              "url": "acim/text/09/chap0910",
+              "chapter": "Nine",
+              "ctitle": "The Correction of Error",
+              "ref": "T9.10"
+            }
+          }
+        }
+      }
+    },
+    "workbook": {
+      "title": "Workbook",
+      "description": "Workbook Volume",
+      "units": [
+        "body",
+        "christ",
+        "creation",
+        "ego",
+        "epilog",
+        "final",
+        "forgiveness",
+        "holyspirit",
+        "intro181",
+        "introp1",
+        "introp2",
+        "l001",
+        "l002",
+        "l003",
+        "l004",
+        "l005",
+        "l006",
+        "l007",
+        "l008",
+        "l009",
+        "l010",
+        "l011",
+        "l012",
+        "l013",
+        "l014",
+        "l015",
+        "l016",
+        "l017",
+        "l018",
+        "l019",
+        "l020",
+        "l021",
+        "l022",
+        "l023",
+        "l024",
+        "l025",
+        "l026",
+        "l027",
+        "l028",
+        "l029",
+        "l030",
+        "l031",
+        "l032",
+        "l033",
+        "l034",
+        "l035",
+        "l036",
+        "l037",
+        "l038",
+        "l039",
+        "l040",
+        "l041",
+        "l042",
+        "l043",
+        "l044",
+        "l045",
+        "l046",
+        "l047",
+        "l048",
+        "l049",
+        "l050",
+        "l051",
+        "l052",
+        "l053",
+        "l054",
+        "l055",
+        "l056",
+        "l057",
+        "l058",
+        "l059",
+        "l060",
+        "l061",
+        "l062",
+        "l063",
+        "l064",
+        "l065",
+        "l066",
+        "l067",
+        "l068",
+        "l069",
+        "l070",
+        "l071",
+        "l072",
+        "l073",
+        "l074",
+        "l075",
+        "l076",
+        "l077",
+        "l078",
+        "l079",
+        "l080",
+        "l081",
+        "l082",
+        "l083",
+        "l084",
+        "l085",
+        "l086",
+        "l087",
+        "l088",
+        "l089",
+        "l090",
+        "l091",
+        "l092",
+        "l093",
+        "l094",
+        "l095",
+        "l096",
+        "l097",
+        "l098",
+        "l099",
+        "l100",
+        "l101",
+        "l102",
+        "l103",
+        "l104",
+        "l105",
+        "l106",
+        "l107",
+        "l108",
+        "l109",
+        "l110",
+        "l111",
+        "l112",
+        "l113",
+        "l114",
+        "l115",
+        "l116",
+        "l117",
+        "l118",
+        "l119",
+        "l120",
+        "l121",
+        "l122",
+        "l123",
+        "l124",
+        "l125",
+        "l126",
+        "l127",
+        "l128",
+        "l129",
+        "l130",
+        "l131",
+        "l132",
+        "l133",
+        "l134",
+        "l135",
+        "l136",
+        "l137",
+        "l138",
+        "l139",
+        "l140",
+        "l141",
+        "l142",
+        "l143",
+        "l144",
+        "l145",
+        "l146",
+        "l147",
+        "l148",
+        "l149",
+        "l150",
+        "l151",
+        "l152",
+        "l153",
+        "l154",
+        "l155",
+        "l156",
+        "l157",
+        "l158",
+        "l159",
+        "l160",
+        "l161",
+        "l162",
+        "l163",
+        "l164",
+        "l165",
+        "l166",
+        "l167",
+        "l168",
+        "l169",
+        "l170",
+        "l171",
+        "l172",
+        "l173",
+        "l174",
+        "l175",
+        "l176",
+        "l177",
+        "l178",
+        "l179",
+        "l180",
+        "l181",
+        "l182",
+        "l183",
+        "l184",
+        "l185",
+        "l186",
+        "l187",
+        "l188",
+        "l189",
+        "l190",
+        "l191",
+        "l192",
+        "l193",
+        "l194",
+        "l195",
+        "l196",
+        "l197",
+        "l198",
+        "l199",
+        "l200",
+        "l201",
+        "l202",
+        "l203",
+        "l204",
+        "l205",
+        "l206",
+        "l207",
+        "l208",
+        "l209",
+        "l210",
+        "l211",
+        "l212",
+        "l213",
+        "l214",
+        "l215",
+        "l216",
+        "l217",
+        "l218",
+        "l219",
+        "l220",
+        "l221",
+        "l222",
+        "l223",
+        "l224",
+        "l225",
+        "l226",
+        "l227",
+        "l228",
+        "l229",
+        "l230",
+        "l231",
+        "l232",
+        "l233",
+        "l234",
+        "l235",
+        "l236",
+        "l237",
+        "l238",
+        "l239",
+        "l240",
+        "l241",
+        "l242",
+        "l243",
+        "l244",
+        "l245",
+        "l246",
+        "l247",
+        "l248",
+        "l249",
+        "l250",
+        "l251",
+        "l252",
+        "l253",
+        "l254",
+        "l255",
+        "l256",
+        "l257",
+        "l258",
+        "l259",
+        "l260",
+        "l261",
+        "l262",
+        "l263",
+        "l264",
+        "l265",
+        "l266",
+        "l267",
+        "l268",
+        "l269",
+        "l270",
+        "l271",
+        "l272",
+        "l273",
+        "l274",
+        "l275",
+        "l276",
+        "l277",
+        "l278",
+        "l279",
+        "l280",
+        "l281",
+        "l282",
+        "l283",
+        "l284",
+        "l285",
+        "l286",
+        "l287",
+        "l288",
+        "l289",
+        "l290",
+        "l291",
+        "l292",
+        "l293",
+        "l294",
+        "l295",
+        "l296",
+        "l297",
+        "l298",
+        "l299",
+        "l300",
+        "l301",
+        "l302",
+        "l303",
+        "l304",
+        "l305",
+        "l306",
+        "l307",
+        "l308",
+        "l309",
+        "l310",
+        "l311",
+        "l312",
+        "l313",
+        "l314",
+        "l315",
+        "l316",
+        "l317",
+        "l318",
+        "l319",
+        "l320",
+        "l321",
+        "l322",
+        "l323",
+        "l324",
+        "l325",
+        "l326",
+        "l327",
+        "l328",
+        "l329",
+        "l330",
+        "l331",
+        "l332",
+        "l333",
+        "l334",
+        "l335",
+        "l336",
+        "l337",
+        "l338",
+        "l339",
+        "l340",
+        "l341",
+        "l342",
+        "l343",
+        "l344",
+        "l345",
+        "l346",
+        "l347",
+        "l348",
+        "l349",
+        "l350",
+        "l351",
+        "l352",
+        "l353",
+        "l354",
+        "l355",
+        "l356",
+        "l357",
+        "l358",
+        "l359",
+        "l360",
+        "l361",
+        "lastjudgement",
+        "miracle",
+        "realworld",
+        "review1",
+        "review2",
+        "review3",
+        "review4",
+        "review5",
+        "review6",
+        "salvation",
+        "secondcoming",
+        "sin",
+        "whatami",
+        "world"
+      ],
+      "unitInfo": {
+        "body": {
+          "title": "What is the Body?",
+          "url": "acim/workbook/body",
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "christ": {
+          "title": "What is the Christ?",
+          "url": "acim/workbook/christ",
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "creation": {
+          "title": "What is Creation?",
+          "url": "acim/workbook/creation",
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "ego": {
+          "title": "What is the Ego?",
+          "url": "acim/workbook/ego",
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "epilog": {
+          "title": "Epilog",
+          "url": "acim/workbook/epilog",
+          "burl": "/acim/intro/workbook/#epilog"
+        },
+        "final": {
+          "title": "Final Lessons",
+          "url": "acim/workbook/final",
+          "burl": "/acim/intro/workbook/#finallessons"
+        },
+        "forgiveness": {
+          "title": "What is Forgiveness?",
+          "url": "acim/workbook/forgiveness",
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "holyspirit": {
+          "title": "What is the Holy Spirit?",
+          "url": "acim/workbook/holyspirit",
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "intro181": {
+          "title": "Lessons 181 - 200",
+          "url": "acim/workbook/intro181",
+          "ref": "Introduction",
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "introp1": {
+          "title": "Introduction",
+          "url": "acim/workbook/introp1",
+          "ref": "Workbook Introduction",
+          "burl": "/acim/intro/workbook/#intro"
+        },
+        "introp2": {
+          "title": "Part II: Introduction",
+          "url": "acim/workbook/introp2",
+          "burl": "/acim/intro/workbook/#p2intro"
+        },
+        "l001": {
+          "title": "Nothing I see in this room means anything.",
+          "url": "acim/workbook/l001",
+          "ref": 1,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l002": {
+          "title": "“I have given everything I see all the meaning that it has for me.”",
+          "url": "acim/workbook/l002",
+          "ref": 2,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l003": {
+          "title": "“I do not understand anything I see in this room.”",
+          "url": "acim/workbook/l003",
+          "ref": 3,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l004": {
+          "title": "“These thoughts do not mean anything.”",
+          "url": "acim/workbook/l004",
+          "ref": 4,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l005": {
+          "title": "“I am never upset for the reason I think.”",
+          "url": "acim/workbook/l005",
+          "ref": 5,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l006": {
+          "title": "“I am upset because I see something that is not there.”",
+          "url": "acim/workbook/l006",
+          "ref": 6,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l007": {
+          "title": "“I see only the past.\"",
+          "url": "acim/workbook/l007",
+          "ref": 7,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l008": {
+          "title": "My mind is preoccupied with past thoughts.",
+          "url": "acim/workbook/l008",
+          "ref": 8,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l009": {
+          "title": "“I see nothing as it is now.”",
+          "url": "acim/workbook/l009",
+          "ref": 9,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l010": {
+          "title": "“My thoughts do not mean anything.”",
+          "url": "acim/workbook/l010",
+          "ref": 10,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l011": {
+          "title": "“My meaningless thoughts are showing me a meaningless world.”",
+          "url": "acim/workbook/l011",
+          "ref": 11,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l012": {
+          "title": "“I am upset because I see a meaningless world.”",
+          "url": "acim/workbook/l012",
+          "ref": 12,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l013": {
+          "title": "“A meaningless world engenders fear.”",
+          "url": "acim/workbook/l013",
+          "ref": 13,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l014": {
+          "title": "“God did not create a meaningless world”",
+          "url": "acim/workbook/l014",
+          "ref": 14,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l015": {
+          "title": "My thoughts are images which I have made.",
+          "url": "acim/workbook/l015",
+          "ref": 15,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l016": {
+          "title": "“I have no neutral thoughts.”",
+          "url": "acim/workbook/l016",
+          "ref": 16,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l017": {
+          "title": "“I see no neutral things.”",
+          "url": "acim/workbook/l017",
+          "ref": 17,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l018": {
+          "title": "“I am not alone in experiencing the effects of my seeing.”",
+          "url": "acim/workbook/l018",
+          "ref": 18,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l019": {
+          "title": "“I am not alone in experiencing the effects of my thoughts.”",
+          "url": "acim/workbook/l019",
+          "ref": 19,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l020": {
+          "title": "“I am determined to see.”",
+          "url": "acim/workbook/l020",
+          "ref": 20,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l021": {
+          "title": "“I am determined to see things differently.”",
+          "url": "acim/workbook/l021",
+          "ref": 21,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l022": {
+          "title": "“What I see is a form of vengeance.”",
+          "url": "acim/workbook/l022",
+          "ref": 22,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l023": {
+          "title": "“I can escape from the world I see by giving up attack thoughts.”",
+          "url": "acim/workbook/l023",
+          "ref": 23,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l024": {
+          "title": "“I do not perceive my own best interests.”",
+          "url": "acim/workbook/l024",
+          "ref": 24,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l025": {
+          "title": "“I do not know what anything is for.”",
+          "url": "acim/workbook/l025",
+          "ref": 25,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l026": {
+          "title": "“My attack thoughts are attacking my invulnerability.”",
+          "url": "acim/workbook/l026",
+          "ref": 26,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l027": {
+          "title": "“Above all else I want to see.”",
+          "url": "acim/workbook/l027",
+          "ref": 27,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l028": {
+          "title": "“Above all else I want to see things differently.”",
+          "url": "acim/workbook/l028",
+          "ref": 28,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l029": {
+          "title": "“God is in everything I see.”",
+          "url": "acim/workbook/l029",
+          "ref": 29,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l030": {
+          "title": "“God is in everything I see because God is in my mind.”",
+          "url": "acim/workbook/l030",
+          "ref": 30,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l031": {
+          "title": "“I am not the victim of the world I see.”",
+          "url": "acim/workbook/l031",
+          "ref": 31,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l032": {
+          "title": "“I have invented the world I see.”",
+          "url": "acim/workbook/l032",
+          "ref": 32,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l033": {
+          "title": "“There is another way of looking at the world.”",
+          "url": "acim/workbook/l033",
+          "ref": 33,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l034": {
+          "title": "“I could see peace instead of this.”",
+          "url": "acim/workbook/l034",
+          "ref": 34,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l035": {
+          "title": "“My mind is part of God’s. I am very holy.”",
+          "url": "acim/workbook/l035",
+          "ref": 35,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l036": {
+          "title": "“My holiness envelops everything I see.”",
+          "url": "acim/workbook/l036",
+          "ref": 36,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l037": {
+          "title": "“My holiness blesses the world.”",
+          "url": "acim/workbook/l037",
+          "ref": 37,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l038": {
+          "title": "“There is nothing my holiness cannot do.”",
+          "url": "acim/workbook/l038",
+          "ref": 38,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l039": {
+          "title": "“My holiness is my salvation.”",
+          "url": "acim/workbook/l039",
+          "ref": 39,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l040": {
+          "title": "“I am blessed as a Son of God.”",
+          "url": "acim/workbook/l040",
+          "ref": 40,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l041": {
+          "title": "“God goes with me wherever I go.”",
+          "url": "acim/workbook/l041",
+          "ref": 41,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l042": {
+          "title": "“God is my strength. Vision is His gift.”",
+          "url": "acim/workbook/l042",
+          "ref": 42,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l043": {
+          "title": "“God is my Source. I cannot see apart from Him.”",
+          "url": "acim/workbook/l043",
+          "ref": 43,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l044": {
+          "title": "“God is the Light in which I see.”",
+          "url": "acim/workbook/l044",
+          "ref": 44,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l045": {
+          "title": "“God is the Mind with which I think.”",
+          "url": "acim/workbook/l045",
+          "ref": 45,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l046": {
+          "title": "“God is the Love in which I forgive.”",
+          "url": "acim/workbook/l046",
+          "ref": 46,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l047": {
+          "title": "“God is the Strength in which I trust.”",
+          "url": "acim/workbook/l047",
+          "ref": 47,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l048": {
+          "title": "“There is nothing to fear.”",
+          "url": "acim/workbook/l048",
+          "ref": 48,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l049": {
+          "title": "“God’s Voice speaks to me all through the day.”",
+          "url": "acim/workbook/l049",
+          "ref": 49,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l050": {
+          "title": "“I am sustained by the Love of God.”",
+          "url": "acim/workbook/l050",
+          "ref": 50,
+          "burl": "/acim/intro/workbook/#l1-50"
+        },
+        "l051": {
+          "title": "Review Lessons 1 - 5",
+          "url": "acim/workbook/l051",
+          "ref": 51,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l052": {
+          "title": "Review Lessons 6 - 10",
+          "url": "acim/workbook/l052",
+          "ref": 52,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l053": {
+          "title": "“Review Lessons 11 - 15”",
+          "url": "acim/workbook/l053",
+          "ref": 53,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l054": {
+          "title": "Review Lessons 16 - 20",
+          "url": "acim/workbook/l054",
+          "ref": 54,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l055": {
+          "title": "Review Lessons 21 - 25",
+          "url": "acim/workbook/l055",
+          "ref": 55,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l056": {
+          "title": "Review Lessons 26 - 30",
+          "url": "acim/workbook/l056",
+          "ref": 56,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l057": {
+          "title": "Review Lessons 31 - 35",
+          "url": "acim/workbook/l057",
+          "ref": 57,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l058": {
+          "title": "Review Lessons 36 - 40",
+          "url": "acim/workbook/l058",
+          "ref": 58,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l059": {
+          "title": "Review Lessons 41 - 45",
+          "url": "acim/workbook/l059",
+          "ref": 59,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l060": {
+          "title": "Review Lessons 46 - 50",
+          "url": "acim/workbook/l060",
+          "ref": 60,
+          "burl": "/intro/workbook/#r1"
+        },
+        "l061": {
+          "title": "I am the light of the world.",
+          "url": "acim/workbook/l061",
+          "ref": 61,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l062": {
+          "title": "Forgiveness is my function as the light of the world.",
+          "url": "acim/workbook/l062",
+          "ref": 62,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l063": {
+          "title": "The light of the world brings peace to every mind through my forgiveness.",
+          "url": "acim/workbook/l063",
+          "ref": 63,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l064": {
+          "title": "Let me not forget my function.",
+          "url": "acim/workbook/l064",
+          "ref": 64,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l065": {
+          "title": "My only function is the one God gave me.",
+          "url": "acim/workbook/l065",
+          "ref": 65,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l066": {
+          "title": "My happiness and my function are one.",
+          "url": "acim/workbook/l066",
+          "ref": 66,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l067": {
+          "title": "Love created me like Itself.",
+          "url": "acim/workbook/l067",
+          "ref": 67,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l068": {
+          "title": "Love holds no grievances.",
+          "url": "acim/workbook/l068",
+          "ref": 68,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l069": {
+          "title": "My grievances hide the light of the world in me.",
+          "url": "acim/workbook/l069",
+          "ref": 69,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l070": {
+          "title": "My salvation comes from me.",
+          "url": "acim/workbook/l070",
+          "ref": 70,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l071": {
+          "title": "Only God’s plan for salvation will work.",
+          "url": "acim/workbook/l071",
+          "ref": 71,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l072": {
+          "title": "Holding grievances is an attack on God’s plan for salvation.",
+          "url": "acim/workbook/l072",
+          "ref": 72,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l073": {
+          "title": "I will there be light.",
+          "url": "acim/workbook/l073",
+          "ref": 73,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l074": {
+          "title": "There is no will but God’s.",
+          "url": "acim/workbook/l074",
+          "ref": 74,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l075": {
+          "title": "The light has come.",
+          "url": "acim/workbook/l075",
+          "ref": 75,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l076": {
+          "title": "I am under no laws but God’s.",
+          "url": "acim/workbook/l076",
+          "ref": 76,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l077": {
+          "title": "I am entitled to miracles.",
+          "url": "acim/workbook/l077",
+          "ref": 77,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l078": {
+          "title": "Let miracles replace all grievances.",
+          "url": "acim/workbook/l078",
+          "ref": 78,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l079": {
+          "title": "Let me recognize the problem so it can be solved.",
+          "url": "acim/workbook/l079",
+          "ref": 79,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l080": {
+          "title": "Let me recognize my problems have been solved.",
+          "url": "acim/workbook/l080",
+          "ref": 80,
+          "burl": "/acim/intro/workbook/#l61-80"
+        },
+        "l081": {
+          "title": "Review Lessons 61 - 62",
+          "url": "acim/workbook/l081",
+          "ref": 81,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l082": {
+          "title": "Review Lessons 63 - 64",
+          "url": "acim/workbook/l082",
+          "ref": 82,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l083": {
+          "title": "Review Lessons 64 - 65",
+          "url": "acim/workbook/l083",
+          "ref": 83,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l084": {
+          "title": "Review Lessons 67 - 68",
+          "url": "acim/workbook/l084",
+          "ref": 84,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l085": {
+          "title": "Review Lessons 69 - 70",
+          "url": "acim/workbook/l085",
+          "ref": 85,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l086": {
+          "title": "Review Lessons 71 - 72",
+          "url": "acim/workbook/l086",
+          "ref": 86,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l087": {
+          "title": "Review Lessons 73 - 74",
+          "url": "acim/workbook/l087",
+          "ref": 87,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l088": {
+          "title": "Review Lessons 75 - 76",
+          "url": "acim/workbook/l088",
+          "ref": 88,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l089": {
+          "title": "Review Lessons 77 - 78",
+          "url": "acim/workbook/l089",
+          "ref": 89,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l090": {
+          "title": "Review Lessons 79 - 80",
+          "url": "acim/workbook/l090",
+          "ref": 90,
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "l091": {
+          "title": "Miracles are seen in light.",
+          "url": "acim/workbook/l091",
+          "ref": 91,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l092": {
+          "title": "Miracles are seen in light, and light and strength are one.",
+          "url": "acim/workbook/l092",
+          "ref": 92,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l093": {
+          "title": "Light and joy and peace abide in me.",
+          "url": "acim/workbook/l093",
+          "ref": 93,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l094": {
+          "title": "I am as God created me.",
+          "url": "acim/workbook/l094",
+          "ref": 94,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l095": {
+          "title": "I am One Self, united with my Creator.",
+          "url": "acim/workbook/l095",
+          "ref": 95,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l096": {
+          "title": "Salvation comes from my One Self.",
+          "url": "acim/workbook/l096",
+          "ref": 96,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l097": {
+          "title": "I am Spirit.",
+          "url": "acim/workbook/l097",
+          "ref": 97,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l098": {
+          "title": "I will accept my part in God’s plan for salvation.",
+          "url": "acim/workbook/l098",
+          "ref": 98,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l099": {
+          "title": "Salvation is my only function here.",
+          "url": "acim/workbook/l099",
+          "ref": 99,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l100": {
+          "title": "My part is essential to God’s plan for salvation.",
+          "url": "acim/workbook/l100",
+          "ref": 100,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l101": {
+          "title": "God’s Will for me is perfect happiness.",
+          "url": "acim/workbook/l101",
+          "ref": 101,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l102": {
+          "title": "I share God’s Will for happiness for me.",
+          "url": "acim/workbook/l102",
+          "ref": 102,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l103": {
+          "title": "God, being Love, is also happiness.",
+          "url": "acim/workbook/l103",
+          "ref": 103,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l104": {
+          "title": "I seek but what belongs to me in truth.",
+          "url": "acim/workbook/l104",
+          "ref": 104,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l105": {
+          "title": "God’s peace and joy are mine.",
+          "url": "acim/workbook/l105",
+          "ref": 105,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l106": {
+          "title": "Let me be still and listen to the truth.",
+          "url": "acim/workbook/l106",
+          "ref": 106,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l107": {
+          "title": "Truth will correct all errors in my mind.",
+          "url": "acim/workbook/l107",
+          "ref": 107,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l108": {
+          "title": "To give and to receive are one in truth.",
+          "url": "acim/workbook/l108",
+          "ref": 108,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l109": {
+          "title": "I rest in God.",
+          "url": "acim/workbook/l109",
+          "ref": 109,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l110": {
+          "title": "I am as God created me.",
+          "url": "acim/workbook/l110",
+          "ref": 110,
+          "burl": "/acim/intro/workbook/#l91-110"
+        },
+        "l111": {
+          "title": "Review Lessons 91 - 92",
+          "url": "acim/workbook/l111",
+          "ref": 111,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l112": {
+          "title": "Review Lessons 93 - 94",
+          "url": "acim/workbook/l112",
+          "ref": 112,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l113": {
+          "title": "Review Lessons 95 - 96",
+          "url": "acim/workbook/l113",
+          "ref": 113,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l114": {
+          "title": "Review Lessons 97 - 98",
+          "url": "acim/workbook/l114",
+          "ref": 114,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l115": {
+          "title": "Review Lessons 99 - 100",
+          "url": "acim/workbook/l115",
+          "ref": 115,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l116": {
+          "title": "Review Lessons 101 - 102",
+          "url": "acim/workbook/l116",
+          "ref": 116,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l117": {
+          "title": "Review Lessons 103 - 104",
+          "url": "acim/workbook/l117",
+          "ref": 117,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l118": {
+          "title": "Review Lessons 105 - 106",
+          "url": "acim/workbook/l118",
+          "ref": 118,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l119": {
+          "title": "Review Lessons 107 - 108",
+          "url": "acim/workbook/l119",
+          "ref": 119,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l120": {
+          "title": "Review Lessons 109 - 110",
+          "url": "acim/workbook/l120",
+          "ref": 120,
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "l121": {
+          "title": "Forgiveness is the key to happiness.",
+          "url": "acim/workbook/l121",
+          "ref": 121,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l122": {
+          "title": "Forgiveness offers everything I want.",
+          "url": "acim/workbook/l122",
+          "ref": 122,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l123": {
+          "title": "I thank my Father for His gifts to me.",
+          "url": "acim/workbook/l123",
+          "ref": 123,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l124": {
+          "title": "Let me remember I am one with God.",
+          "url": "acim/workbook/l124",
+          "ref": 124,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l125": {
+          "title": "In quiet I receive God’s Word today.",
+          "url": "acim/workbook/l125",
+          "ref": 125,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l126": {
+          "title": "All that I give is given to myself.",
+          "url": "acim/workbook/l126",
+          "ref": 126,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l127": {
+          "title": "There is no love but God’s.",
+          "url": "acim/workbook/l127",
+          "ref": 127,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l128": {
+          "title": "The world I see has nothing that I want.",
+          "url": "acim/workbook/l128",
+          "ref": 128,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l129": {
+          "title": "Beyond this world there is a world I want.",
+          "url": "acim/workbook/l129",
+          "ref": 129,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l130": {
+          "title": "It is impossible to see two worlds.",
+          "url": "acim/workbook/l130",
+          "ref": 130,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l131": {
+          "title": "No-one can fail who asks to reach the truth.",
+          "url": "acim/workbook/l131",
+          "ref": 131,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l132": {
+          "title": "I loose the world from all I thought it was.",
+          "url": "acim/workbook/l132",
+          "ref": 132,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l133": {
+          "title": "I will not value what is valueless.",
+          "url": "acim/workbook/l133",
+          "ref": 133,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l134": {
+          "title": "Let me perceive forgiveness as it is.",
+          "url": "acim/workbook/l134",
+          "ref": 134,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l135": {
+          "title": "If I defend myself I am attacked.",
+          "url": "acim/workbook/l135",
+          "ref": 135,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l136": {
+          "title": "Sickness is a defense against the truth.",
+          "url": "acim/workbook/l136",
+          "ref": 136,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l137": {
+          "title": "When I am healed I am not healed alone.",
+          "url": "acim/workbook/l137",
+          "ref": 137,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l138": {
+          "title": "Heaven is the decision I must make.",
+          "url": "acim/workbook/l138",
+          "ref": 138,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l139": {
+          "title": "I will accept Atonement for myself.",
+          "url": "acim/workbook/l139",
+          "ref": 139,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l140": {
+          "title": "Only salvation can be said to cure.",
+          "url": "acim/workbook/l140",
+          "ref": 140,
+          "burl": "/acim/intro/workbook/#l121-140"
+        },
+        "l141": {
+          "title": "Review Lessons 121 - 122",
+          "url": "acim/workbook/l141",
+          "ref": 141,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l142": {
+          "title": "Review Lessons 123 - 124",
+          "url": "acim/workbook/l142",
+          "ref": 142,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l143": {
+          "title": "Review Lessons 125 - 126",
+          "url": "acim/workbook/l143",
+          "ref": 143,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l144": {
+          "title": "Review Lessons 127 - 128",
+          "url": "acim/workbook/l144",
+          "ref": 144,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l145": {
+          "title": "Review Lessons 129 - 130",
+          "url": "acim/workbook/l145",
+          "ref": 145,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l146": {
+          "title": "Review Lessons 131 - 132",
+          "url": "acim/workbook/l146",
+          "ref": 146,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l147": {
+          "title": "Review Lessons 133 - 134",
+          "url": "acim/workbook/l147",
+          "ref": 147,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l148": {
+          "title": "Review Lessons 135 - 136",
+          "url": "acim/workbook/l148",
+          "ref": 148,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l149": {
+          "title": "Review Lessons 137 - 138",
+          "url": "acim/workbook/l149",
+          "ref": 149,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l150": {
+          "title": "Review Lessons 139 - 140",
+          "url": "acim/workbook/l150",
+          "ref": 150,
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "l151": {
+          "title": "All things are echoes of the Voice of God.",
+          "url": "acim/workbook/l151",
+          "ref": 151,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l152": {
+          "title": "The power of decision is my own.",
+          "url": "acim/workbook/l152",
+          "ref": 152,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l153": {
+          "title": "In my defenselessness my safety lies.",
+          "url": "acim/workbook/l153",
+          "ref": 153,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l154": {
+          "title": "I am among the ministers of God.",
+          "url": "acim/workbook/l154",
+          "ref": 154,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l155": {
+          "title": "I will step back and let Him lead the way.",
+          "url": "acim/workbook/l155",
+          "ref": 155,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l156": {
+          "title": "I walk with God in perfect holiness.",
+          "url": "acim/workbook/l156",
+          "ref": 156,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l157": {
+          "title": "Into His Presence would I enter now.",
+          "url": "acim/workbook/l157",
+          "ref": 157,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l158": {
+          "title": "Today I learn to give as I receive.",
+          "url": "acim/workbook/l158",
+          "ref": 158,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l159": {
+          "title": "I give the miracles I have received.",
+          "url": "acim/workbook/l159",
+          "ref": 159,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l160": {
+          "title": "I am at home. Fear is the stranger here.",
+          "url": "acim/workbook/l160",
+          "ref": 160,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l161": {
+          "title": "Give me your blessing, holy Son of God.",
+          "url": "acim/workbook/l161",
+          "ref": 161,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l162": {
+          "title": "I am as God created me.",
+          "url": "acim/workbook/l162",
+          "ref": 162,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l163": {
+          "title": "There is no death. The Son of God is free.",
+          "url": "acim/workbook/l163",
+          "ref": 163,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l164": {
+          "title": "Now are we One with Him Who is our Source.",
+          "url": "acim/workbook/l164",
+          "ref": 164,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l165": {
+          "title": "Let not my mind deny the Thought of God.",
+          "url": "acim/workbook/l165",
+          "ref": 165,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l166": {
+          "title": "I am entrusted with the gifts of God.",
+          "url": "acim/workbook/l166",
+          "ref": 166,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l167": {
+          "title": "There is one life, and that I share with God.",
+          "url": "acim/workbook/l167",
+          "ref": 167,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l168": {
+          "title": "Your grace is given me. I claim it now.",
+          "url": "acim/workbook/l168",
+          "ref": 168,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l169": {
+          "title": "By grace I live. By grace I am released.",
+          "url": "acim/workbook/l169",
+          "ref": 169,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l170": {
+          "title": "There is no cruelty in God and none in me.",
+          "url": "acim/workbook/l170",
+          "ref": 170,
+          "burl": "/acim/intro/workbook/#l151-170"
+        },
+        "l171": {
+          "title": "Review Lessons 151 - 152",
+          "url": "acim/workbook/l171",
+          "ref": 171,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l172": {
+          "title": "Review Lessons 153 - 154",
+          "url": "acim/workbook/l172",
+          "ref": 172,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l173": {
+          "title": "Review Lessons 155 - 156",
+          "url": "acim/workbook/l173",
+          "ref": 173,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l174": {
+          "title": "Review Lessons 157 - 158",
+          "url": "acim/workbook/l174",
+          "ref": 174,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l175": {
+          "title": "Review Lessons 159 - 160",
+          "url": "acim/workbook/l175",
+          "ref": 175,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l176": {
+          "title": "Review Lessons 161 - 162",
+          "url": "acim/workbook/l176",
+          "ref": 176,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l177": {
+          "title": "Review Lessons 163 - 164",
+          "url": "acim/workbook/l177",
+          "ref": 177,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l178": {
+          "title": "Review Lessons 165 - 166",
+          "url": "acim/workbook/l178",
+          "ref": 178,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l179": {
+          "title": "Review Lessons 167 - 168",
+          "url": "acim/workbook/l179",
+          "ref": 179,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l180": {
+          "title": "Review Lessons 169 - 170",
+          "url": "acim/workbook/l180",
+          "ref": 180,
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "l181": {
+          "title": "I trust my brothers, who are one with me.",
+          "url": "acim/workbook/l181",
+          "ref": 181,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l182": {
+          "title": "I will be still an instant and go home.",
+          "url": "acim/workbook/l182",
+          "ref": 182,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l183": {
+          "title": "I call upon God’s Name and on my own.",
+          "url": "acim/workbook/l183",
+          "ref": 183,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l184": {
+          "title": "The Name of God is my inheritance.",
+          "url": "acim/workbook/l184",
+          "ref": 184,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l185": {
+          "title": "I want the peace of God.",
+          "url": "acim/workbook/l185",
+          "ref": 185,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l186": {
+          "title": "Salvation of the world depends on me.",
+          "url": "acim/workbook/l186",
+          "ref": 186,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l187": {
+          "title": "I bless the world because I bless myself.",
+          "url": "acim/workbook/l187",
+          "ref": 187,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l188": {
+          "title": "The peace of God is shining in me now.",
+          "url": "acim/workbook/l188",
+          "ref": 188,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l189": {
+          "title": "I feel the Love of God within me now.",
+          "url": "acim/workbook/l189",
+          "ref": 189,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l190": {
+          "title": "I choose the joy of God instead of pain.",
+          "url": "acim/workbook/l190",
+          "ref": 190,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l191": {
+          "title": "I am the holy Son of God Himself.",
+          "url": "acim/workbook/l191",
+          "ref": 191,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l192": {
+          "title": "I have a function God would have me fill.",
+          "url": "acim/workbook/l192",
+          "ref": 192,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l193": {
+          "title": "All things are lessons God would have me learn.",
+          "url": "acim/workbook/l193",
+          "ref": 193,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l194": {
+          "title": "I place the future in the Hands of God.",
+          "url": "acim/workbook/l194",
+          "ref": 194,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l195": {
+          "title": "Love is the way I walk in gratitude.",
+          "url": "acim/workbook/l195",
+          "ref": 195,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l196": {
+          "title": "It can be but myself I crucify.",
+          "url": "acim/workbook/l196",
+          "ref": 196,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l197": {
+          "title": "It can be but my gratitude I earn.",
+          "url": "acim/workbook/l197",
+          "ref": 197,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l198": {
+          "title": "Only my condemnation injures me.",
+          "url": "acim/workbook/l198",
+          "ref": 198,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l199": {
+          "title": "I am not a body. I am free.",
+          "url": "acim/workbook/l199",
+          "ref": 199,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l200": {
+          "title": "There is no peace except the peace of God.",
+          "url": "acim/workbook/l200",
+          "ref": 200,
+          "burl": "/acim/intro/workbook/#l181-200"
+        },
+        "l201": {
+          "title": "Review Lesson 181",
+          "url": "acim/workbook/l201",
+          "ref": 201,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l202": {
+          "title": "Review Lesson 182",
+          "url": "acim/workbook/l202",
+          "ref": 202,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l203": {
+          "title": "Review Lesson 183",
+          "url": "acim/workbook/l203",
+          "ref": 203,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l204": {
+          "title": "Review Lesson 184",
+          "url": "acim/workbook/l204",
+          "ref": 204,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l205": {
+          "title": "Review Lesson 185",
+          "url": "acim/workbook/l205",
+          "ref": 205,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l206": {
+          "title": "Review Lesson 186",
+          "url": "acim/workbook/l206",
+          "ref": 206,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l207": {
+          "title": "Review Lesson 187",
+          "url": "acim/workbook/l207",
+          "ref": 207,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l208": {
+          "title": "Review Lesson 188",
+          "url": "acim/workbook/l208",
+          "ref": 208,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l209": {
+          "title": "Review Lesson 189",
+          "url": "acim/workbook/l209",
+          "ref": 209,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l210": {
+          "title": "Review Lesson 190",
+          "url": "acim/workbook/l210",
+          "ref": 210,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l211": {
+          "title": "Review Lesson 191",
+          "url": "acim/workbook/l211",
+          "ref": 211
+        },
+        "l212": {
+          "title": "Review Lesson 192",
+          "url": "acim/workbook/l212",
+          "ref": 212,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l213": {
+          "title": "Review Lesson 193",
+          "url": "acim/workbook/l213",
+          "ref": 213,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l214": {
+          "title": "Review Lesson 194",
+          "url": "acim/workbook/l214",
+          "ref": 214,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l215": {
+          "title": "Review Lesson 195",
+          "url": "acim/workbook/l215",
+          "ref": 215,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l216": {
+          "title": "Review Lesson 196",
+          "url": "acim/workbook/l216",
+          "ref": 216,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l217": {
+          "title": "Review Lesson 197",
+          "url": "acim/workbook/l217",
+          "ref": 217,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l218": {
+          "title": "Review Lesson 198",
+          "url": "acim/workbook/l218",
+          "ref": 218,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l219": {
+          "title": "Review Lesson 199",
+          "url": "acim/workbook/l219",
+          "ref": 219,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l220": {
+          "title": "Review Lesson 200",
+          "url": "acim/workbook/l220",
+          "ref": 220,
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "l221": {
+          "title": "Peace to my mind. Let all my thoughts be still.",
+          "url": "acim/workbook/l221",
+          "ref": 221,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l222": {
+          "title": "God is with me. I live and breathe in Him.",
+          "url": "acim/workbook/l222",
+          "ref": 222,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l223": {
+          "title": "God is my life. I have no life but His.",
+          "url": "acim/workbook/l223",
+          "ref": 223,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l224": {
+          "title": "God is my Father, and He loves His Son.",
+          "url": "acim/workbook/l224",
+          "ref": 224,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l225": {
+          "title": "God is my Father, and His Son loves Him.",
+          "url": "acim/workbook/l225",
+          "ref": 225,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l226": {
+          "title": "My home awaits me. I will hasten there.",
+          "url": "acim/workbook/l226",
+          "ref": 226,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l227": {
+          "title": "This is my holy instant of release.",
+          "url": "acim/workbook/l227",
+          "ref": 227,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l228": {
+          "title": "God has condemned me not. No more do I.",
+          "url": "acim/workbook/l228",
+          "ref": 228,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l229": {
+          "title": "Love, Which created me, is what I am.",
+          "url": "acim/workbook/l229",
+          "ref": 229,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l230": {
+          "title": "Now will I seek and find the peace of God.",
+          "url": "acim/workbook/l230",
+          "ref": 230,
+          "burl": "/acim/intro/workbook/#forgiveness"
+        },
+        "l231": {
+          "title": "Father, I will but to remember You.",
+          "url": "acim/workbook/l231",
+          "ref": 231,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l232": {
+          "title": "Be in my mind, my Father, through the day.",
+          "url": "acim/workbook/l232",
+          "ref": 232,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l233": {
+          "title": "I give my life to God to run today.",
+          "url": "acim/workbook/l233",
+          "ref": 233,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l234": {
+          "title": "Father, today I am Your Son again.",
+          "url": "acim/workbook/l234",
+          "ref": 234,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l235": {
+          "title": "God in His mercy wills that I be saved.",
+          "url": "acim/workbook/l235",
+          "ref": 235,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l236": {
+          "title": "I rule my mind, which I alone must rule.",
+          "url": "acim/workbook/l236",
+          "ref": 236,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l237": {
+          "title": "Now would I be as God created me.",
+          "url": "acim/workbook/l237",
+          "ref": 237,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l238": {
+          "title": "On my decision all salvation rests.",
+          "url": "acim/workbook/l238",
+          "ref": 238,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l239": {
+          "title": "The glory of my Father is my own.",
+          "url": "acim/workbook/l239",
+          "ref": 239,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l240": {
+          "title": "Fear is not justified in any form.",
+          "url": "acim/workbook/l240",
+          "ref": 240,
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "l241": {
+          "title": "This holy instant is salvation come.",
+          "url": "acim/workbook/l241",
+          "ref": 241,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l242": {
+          "title": "This day is God’s. It is my gift to Him.",
+          "url": "acim/workbook/l242",
+          "ref": 242,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l243": {
+          "title": "Today I will judge nothing that occurs.",
+          "url": "acim/workbook/l243",
+          "ref": 243,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l244": {
+          "title": "I am in danger nowhere in the world.",
+          "url": "acim/workbook/l244",
+          "ref": 244,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l245": {
+          "title": "Your peace is with me, Father. I am safe.",
+          "url": "acim/workbook/l245",
+          "ref": 245,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l246": {
+          "title": "To love my Father is to love His Son.",
+          "url": "acim/workbook/l246",
+          "ref": 246,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l247": {
+          "title": "Without forgiveness I will still be blind.",
+          "url": "acim/workbook/l247",
+          "ref": 247,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l248": {
+          "title": "Whatever suffers is not part of me.",
+          "url": "acim/workbook/l248",
+          "ref": 248,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l249": {
+          "title": "Forgiveness ends all suffering and loss.",
+          "url": "acim/workbook/l249",
+          "ref": 249,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l250": {
+          "title": "Let me not see myself as limited.",
+          "url": "acim/workbook/l250",
+          "ref": 250,
+          "burl": "/acim/intro/workbook/#world"
+        },
+        "l251": {
+          "title": "I am in need of nothing but the truth.",
+          "url": "acim/workbook/l251",
+          "ref": 251,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l252": {
+          "title": "The Son of God is my identity.",
+          "url": "acim/workbook/l252",
+          "ref": 252,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l253": {
+          "title": "My Self is ruler of the universe.",
+          "url": "acim/workbook/l253",
+          "ref": 253,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l254": {
+          "title": "Let every voice but God’s be still in me.",
+          "url": "acim/workbook/l254",
+          "ref": 254,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l255": {
+          "title": "This day I choose to spend in perfect peace.",
+          "url": "acim/workbook/l255",
+          "ref": 255,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l256": {
+          "title": "God is the only goal I have today.",
+          "url": "acim/workbook/l256",
+          "ref": 256,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l257": {
+          "title": "Let me remember what my purpose is.",
+          "url": "acim/workbook/l257",
+          "ref": 257,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l258": {
+          "title": "Let me remember that my goal is God.",
+          "url": "acim/workbook/l258",
+          "ref": 258,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l259": {
+          "title": "Let me remember that there is no sin.",
+          "url": "acim/workbook/l259",
+          "ref": 259,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l260": {
+          "title": "Let me remember God created me.",
+          "url": "acim/workbook/l260",
+          "ref": 260,
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "l261": {
+          "title": "God is my refuge and my security.",
+          "url": "acim/workbook/l261",
+          "ref": 261,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l262": {
+          "title": "Let me perceive no differences today.",
+          "url": "acim/workbook/l262",
+          "ref": 262,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l263": {
+          "title": "My holy vision sees all things as pure.",
+          "url": "acim/workbook/l263",
+          "ref": 263,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l264": {
+          "title": "I am surrounded by the Love of God.",
+          "url": "acim/workbook/l264",
+          "ref": 264,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l265": {
+          "title": "Creation’s gentleness is all I see.",
+          "url": "acim/workbook/l265",
+          "ref": 265,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l266": {
+          "title": "My holy Self abides in you, God’s Son.",
+          "url": "acim/workbook/l266",
+          "ref": 266,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l267": {
+          "title": "My heart is beating in the peace of God.",
+          "url": "acim/workbook/l267",
+          "ref": 267,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l268": {
+          "title": "Let all things be exactly as they are.",
+          "url": "acim/workbook/l268",
+          "ref": 268,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l269": {
+          "title": "My sight goes forth to look upon Christ’s face.",
+          "url": "acim/workbook/l269",
+          "ref": 269,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l270": {
+          "title": "I will not use the body’s eyes today.",
+          "url": "acim/workbook/l270",
+          "ref": 270,
+          "burl": "/acim/intro/workbook/#body"
+        },
+        "l271": {
+          "title": "Christ’s is the vision I will use today.",
+          "url": "acim/workbook/l271",
+          "ref": 271,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l272": {
+          "title": "How can illusions satisfy God’s Son?",
+          "url": "acim/workbook/l272",
+          "ref": 272,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l273": {
+          "title": "The stillness of the peace of God is mine.",
+          "url": "acim/workbook/l273",
+          "ref": 273,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l274": {
+          "title": "Today belongs to Love. Let me not fear.",
+          "url": "acim/workbook/l274",
+          "ref": 274,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l275": {
+          "title": "God’s healing Voice protects all things today.",
+          "url": "acim/workbook/l275",
+          "ref": 275,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l276": {
+          "title": "The Word of God is given me to speak.",
+          "url": "acim/workbook/l276",
+          "ref": 276,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l277": {
+          "title": "Let me not bind Your Son with laws I made.",
+          "url": "acim/workbook/l277",
+          "ref": 277,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l278": {
+          "title": "If I am bound, my Father is not free.",
+          "url": "acim/workbook/l278",
+          "ref": 278,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l279": {
+          "title": "Creation’s freedom promises my own.",
+          "url": "acim/workbook/l279",
+          "ref": 279,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l280": {
+          "title": "What limits can I lay upon God’s Son?",
+          "url": "acim/workbook/l280",
+          "ref": 280,
+          "burl": "/acim/intro/workbook/#christ"
+        },
+        "l281": {
+          "title": "I can be hurt by nothing but my thoughts.",
+          "url": "acim/workbook/l281",
+          "ref": 281,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l282": {
+          "title": "I will not be afraid of love today.",
+          "url": "acim/workbook/l282",
+          "ref": 282,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l283": {
+          "title": "My true Identity abides in You.",
+          "url": "acim/workbook/l283",
+          "ref": 283,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l284": {
+          "title": "I can elect to change all thoughts that hurt.",
+          "url": "acim/workbook/l284",
+          "ref": 284,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l285": {
+          "title": "My holiness shines bright and clear today.",
+          "url": "acim/workbook/l285",
+          "ref": 285,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l286": {
+          "title": "The hush of Heaven holds my heart today.",
+          "url": "acim/workbook/l286",
+          "ref": 286,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l287": {
+          "title": "You are my goal, my Father. Only You.",
+          "url": "acim/workbook/l287",
+          "ref": 287,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l288": {
+          "title": "Let me forget my brother’s past today.",
+          "url": "acim/workbook/l288",
+          "ref": 288,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l289": {
+          "title": "The past is over. It can touch me not.",
+          "url": "acim/workbook/l289",
+          "ref": 289,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l290": {
+          "title": "My present happiness is all I see.",
+          "url": "acim/workbook/l290",
+          "ref": 290,
+          "burl": "/acim/intro/workbook/#holyspirit"
+        },
+        "l291": {
+          "title": "This is a day of stillness and of peace.",
+          "url": "acim/workbook/l291",
+          "ref": 291,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l292": {
+          "title": "A happy outcome to all things is sure.",
+          "url": "acim/workbook/l292",
+          "ref": 292,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l293": {
+          "title": "All fear is past, and only love is here.",
+          "url": "acim/workbook/l293",
+          "ref": 293,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l294": {
+          "title": "My body is a wholly neutral thing.",
+          "url": "acim/workbook/l294",
+          "ref": 294,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l295": {
+          "title": "The Holy Spirit looks through me today.",
+          "url": "acim/workbook/l295",
+          "ref": 295,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l296": {
+          "title": "The Holy Spirit speaks through me today.",
+          "url": "acim/workbook/l296",
+          "ref": 296,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l297": {
+          "title": "Forgiveness is the only gift I give.",
+          "url": "acim/workbook/l297",
+          "ref": 297,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l298": {
+          "title": "I love You, Father, and I love Your Son.",
+          "url": "acim/workbook/l298",
+          "ref": 298,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l299": {
+          "title": "Eternal holiness abides in me.",
+          "url": "acim/workbook/l299",
+          "ref": 299,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l300": {
+          "title": "Only an instant does this world endure.",
+          "url": "acim/workbook/l300",
+          "ref": 300,
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "l301": {
+          "title": "And God Himself shall wipe away all tears.",
+          "url": "acim/workbook/l301",
+          "ref": 301,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l302": {
+          "title": "Where darkness was I look upon the light.",
+          "url": "acim/workbook/l302",
+          "ref": 302,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l303": {
+          "title": "The holy Christ is born in me today.",
+          "url": "acim/workbook/l303",
+          "ref": 303,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l304": {
+          "title": "Let not my world obscure the sight of Christ.",
+          "url": "acim/workbook/l304",
+          "ref": 304,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l305": {
+          "title": "There is a peace that Christ bestows on us.",
+          "url": "acim/workbook/l305",
+          "ref": 305,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l306": {
+          "title": "The gift of Christ is all I seek today.",
+          "url": "acim/workbook/l306",
+          "ref": 306,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l307": {
+          "title": "Conflicting wishes cannot be my will.",
+          "url": "acim/workbook/l307",
+          "ref": 307,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l308": {
+          "title": "This instant is the only time there is.",
+          "url": "acim/workbook/l308",
+          "ref": 308,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l309": {
+          "title": "I will not fear to look within today.",
+          "url": "acim/workbook/l309",
+          "ref": 309,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l310": {
+          "title": "In fearlessness and love I spend today.",
+          "url": "acim/workbook/l310",
+          "ref": 310,
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "l311": {
+          "title": "I judge all things as I would have them be.",
+          "url": "acim/workbook/l311",
+          "ref": 311,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l312": {
+          "title": "I see all things as I would have them be.",
+          "url": "acim/workbook/l312",
+          "ref": 312,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l313": {
+          "title": "Now let a new perception come to me.",
+          "url": "acim/workbook/l313",
+          "ref": 313,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l314": {
+          "title": "I seek a future different from the past.",
+          "url": "acim/workbook/l314",
+          "ref": 314,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l315": {
+          "title": "All gifts my brothers give belong to me.",
+          "url": "acim/workbook/l315",
+          "ref": 315,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l316": {
+          "title": "All gifts I give my brothers are my own.",
+          "url": "acim/workbook/l316",
+          "ref": 316,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l317": {
+          "title": "I follow in the way appointed me.",
+          "url": "acim/workbook/l317",
+          "ref": 317,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l318": {
+          "title": "In me salvation’s means and end are one.",
+          "url": "acim/workbook/l318",
+          "ref": 318,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l319": {
+          "title": "I came for the salvation of the world.",
+          "url": "acim/workbook/l319",
+          "ref": 319,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l320": {
+          "title": "My Father gives all power unto me.",
+          "url": "acim/workbook/l320",
+          "ref": 320,
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "l321": {
+          "title": "Father, my freedom is in You alone.",
+          "url": "acim/workbook/l321",
+          "ref": 321,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l322": {
+          "title": "I can give up but what was never real.",
+          "url": "acim/workbook/l322",
+          "ref": 322,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l323": {
+          "title": "I gladly make the ‘sacrifice’ of fear.",
+          "url": "acim/workbook/l323",
+          "ref": 323,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l324": {
+          "title": "I merely follow, for I would not lead.",
+          "url": "acim/workbook/l324",
+          "ref": 324,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l325": {
+          "title": "All things I think I see reflect ideas.",
+          "url": "acim/workbook/l325",
+          "ref": 325,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l326": {
+          "title": "I am forever an Effect of God.",
+          "url": "acim/workbook/l326",
+          "ref": 326,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l327": {
+          "title": "I need but call and You will answer me.",
+          "url": "acim/workbook/l327",
+          "ref": 327,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l328": {
+          "title": "I choose the second place to gain the first.",
+          "url": "acim/workbook/l328",
+          "ref": 328,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l329": {
+          "title": "I have already chosen what You will.",
+          "url": "acim/workbook/l329",
+          "ref": 329,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l330": {
+          "title": "I will not hurt myself again today.",
+          "url": "acim/workbook/l330",
+          "ref": 330,
+          "burl": "/acim/intro/workbook/#creation"
+        },
+        "l331": {
+          "title": "There is no conflict, for my will is Yours.",
+          "url": "acim/workbook/l331",
+          "ref": 331,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l332": {
+          "title": "Fear binds the world. Forgiveness sets it free.",
+          "url": "acim/workbook/l332",
+          "ref": 332,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l333": {
+          "title": "Forgiveness ends the dream of conflict here.",
+          "url": "acim/workbook/l333",
+          "ref": 333,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l334": {
+          "title": "Today I claim the gifts forgiveness gives.",
+          "url": "acim/workbook/l334",
+          "ref": 334,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l335": {
+          "title": "I choose to see my brother’s sinlessness.",
+          "url": "acim/workbook/l335",
+          "ref": 335,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l336": {
+          "title": "Forgiveness lets me know that minds are joined.",
+          "url": "acim/workbook/l336",
+          "ref": 336,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l337": {
+          "title": "My sinlessness protects me from all harm.",
+          "url": "acim/workbook/l337",
+          "ref": 337,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l338": {
+          "title": "I am affected only by my thoughts.",
+          "url": "acim/workbook/l338",
+          "ref": 338,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l339": {
+          "title": "I will receive whatever I request.",
+          "url": "acim/workbook/l339",
+          "ref": 339,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l340": {
+          "title": "I can be free of suffering today.",
+          "url": "acim/workbook/l340",
+          "ref": 340,
+          "burl": "/acim/intro/workbook/#ego"
+        },
+        "l341": {
+          "title": "I can attack but my own sinlessness,<br/>And it is only that which keeps me safe.",
+          "url": "acim/workbook/l341",
+          "ref": 341,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l342": {
+          "title": "I let forgiveness rest upon all things,<br/>For thus forgiveness will be given me.",
+          "url": "acim/workbook/l342",
+          "ref": 342,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l343": {
+          "title": "I am not asked to make a sacrifice<br/>To find the mercy and the peace of God.",
+          "url": "acim/workbook/l343",
+          "ref": 343,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l344": {
+          "title": "Today I learn the law of love; that what<br/>I give my brother is my gift to me.",
+          "url": "acim/workbook/l344",
+          "ref": 344,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l345": {
+          "title": "I offer only miracles today,<br/>For I would have them be returned to me.",
+          "url": "acim/workbook/l345",
+          "ref": 345,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l346": {
+          "title": "Today the peace of God envelops me,<br/>And I forget all things except His Love.",
+          "url": "acim/workbook/l346",
+          "ref": 346,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l347": {
+          "title": "Anger must come from judgement. Judgement is<br/>The weapon I would use against myself<br/>To keep all miracles away from me.",
+          "url": "acim/workbook/l347",
+          "ref": 347,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l348": {
+          "title": "I have no cause for anger or for fear,<br/>For You surround me. And in every need<br/>That I perceive Your grace suffices me.",
+          "url": "acim/workbook/l348",
+          "ref": 348,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l349": {
+          "title": "Today I let Christ’s vision look upon<br/>All things for me and judge them not, but give<br/>Each one a miracle of love instead.",
+          "url": "acim/workbook/l349",
+          "ref": 349,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l350": {
+          "title": "Miracles mirror God’s eternal Love.<br/>To offer them is to remember Him,<br/>And through His memory to save the world.",
+          "url": "acim/workbook/l350",
+          "ref": 350,
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "l351": {
+          "title": "My sinless brother is my guide to peace.<br/>My sinful brother is my guide to pain.<br/>And which I choose to see I will behold.",
+          "url": "acim/workbook/l351",
+          "ref": 351,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l352": {
+          "title": "Judgement and love are opposites. From one<br/>Come all the sorrows of the world. But from<br/>The Other comes the peace of God Himself.",
+          "url": "acim/workbook/l352",
+          "ref": 352,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l353": {
+          "title": "My eyes, my tongue, my hands, my feet today<br/>Have but one purpose; to be given Christ<br/>To use to bless the world with miracles.",
+          "url": "acim/workbook/l353",
+          "ref": 353,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l354": {
+          "title": "We stand together, Christ and I, in peace<br/>And certainty of purpose. And in Him<br/>Is His Creator, as He is in me.",
+          "url": "acim/workbook/l354",
+          "ref": 354,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l355": {
+          "title": "There is no end to all the peace and joy<br/>And all the miracles that I will give<br/>When I accept God’s Word. Why not today?",
+          "url": "acim/workbook/l355",
+          "ref": 355,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l356": {
+          "title": "Sickness is but another name for sin.<br/>Healing is but another Name for God.<br/>The miracle is thus a call to Him.",
+          "url": "acim/workbook/l356",
+          "ref": 356,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l357": {
+          "title": "Truth answers every call we make to God,<br/>Responding first with miracles, and then<br/>Returning unto us to be Itself.",
+          "url": "acim/workbook/l357",
+          "ref": 357,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l358": {
+          "title": "No call to God can be unheard nor left<br/>Unanswered. And of this I can be sure;<br/>His answer is the one I really want.",
+          "url": "acim/workbook/l358",
+          "ref": 358,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l359": {
+          "title": "God’s answer is some form of peace.<br/>All pain Is healed; all misery replaced with joy.<br/> All prison doors are opened. And all sin<br/>Is understood as merely a mistake.",
+          "url": "acim/workbook/l359",
+          "ref": 359,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l360": {
+          "title": "Peace be to me, the holy Son of God.<br/>Peace to my brother, who is one with me.<br/>Let all the world be blessed with peace through us.",
+          "url": "acim/workbook/l360",
+          "ref": 360,
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "l361": {
+          "title": "This holy instant would I give to You.<br/>Be You in charge. For I would follow You,<br/>Certain that Your direction gives me peace.",
+          "url": "acim/workbook/l361",
+          "ref": "361 - 365",
+          "burl": "/acim/intro/workbook/#finallessons"
+        },
+        "lastjudgement": {
+          "title": "What is the Last Judgement?",
+          "url": "acim/workbook/lastjudgement",
+          "burl": "/acim/intro/workbook/#lastjudgement"
+        },
+        "miracle": {
+          "title": "What is a Miracle?",
+          "url": "acim/workbook/miracle",
+          "burl": "/acim/intro/workbook/#miracle"
+        },
+        "realworld": {
+          "title": "What is the Real World?",
+          "url": "acim/workbook/realworld",
+          "burl": "/acim/intro/workbook/#realworld"
+        },
+        "review1": {
+          "title": "Review I: Lessons 1 - 50",
+          "url": "acim/workbook/review1",
+          "ref": "Introduction",
+          "burl": "/acim/intro/workbook/#r1"
+        },
+        "review2": {
+          "title": "Review II: Lessons 61 - 80",
+          "url": "acim/workbook/review2",
+          "ref": "Introduction",
+          "burl": "/acim/intro/workbook/#r2"
+        },
+        "review3": {
+          "title": "Review III: Lessons 91 - 110",
+          "url": "acim/workbook/review3",
+          "ref": "Introduction",
+          "burl": "/acim/intro/workbook/#r3"
+        },
+        "review4": {
+          "title": "Review IV: Lessons 121 - 140",
+          "url": "acim/workbook/review4",
+          "ref": "Introduction",
+          "burl": "/acim/intro/workbook/#r4"
+        },
+        "review5": {
+          "title": "Review V: Lessons 151 - 170",
+          "url": "acim/workbook/review5",
+          "ref": "Introduction",
+          "burl": "/acim/intro/workbook/#r5"
+        },
+        "review6": {
+          "title": "Review Lessons 181 - 200",
+          "url": "acim/workbook/review6",
+          "ref": "Introduction",
+          "burl": "/acim/intro/workbook/#r6"
+        },
+        "salvation": {
+          "title": "What is Salvation?",
+          "url": "acim/workbook/salvation",
+          "burl": "/acim/intro/workbook/#salvation"
+        },
+        "secondcoming": {
+          "title": "What is the Second Coming?",
+          "url": "acim/workbook/secondcoming",
+          "burl": "/acim/intro/workbook/#secondcoming"
+        },
+        "sin": {
+          "title": "What is Sin?",
+          "url": "acim/workbook/sin",
+          "burl": "/acim/intro/workbook/#sin"
+        },
+        "whatami": {
+          "title": "What am I?",
+          "url": "acim/workbook/whatami",
+          "burl": "/acim/intro/workbook/#whatami"
+        },
+        "world": {
+          "title": "What is the World?",
+          "url": "acim/workbook/world",
+          "burl": "/acim/intro/workbook/#world"
+        }
+      }
+    },
+    "manual": {
+      "title": "Manual for Teachers",
+      "description": "Manual for Teachers Volume",
+      "image": "/images/covers/acim/manual.jpg",
+      "units": [
+        "chap01",
+        "chap02",
+        "chap03",
+        "chap04",
+        "chap05",
+        "chap06",
+        "chap07",
+        "chap08",
+        "chap09",
+        "chap10",
+        "chap11",
+        "chap12",
+        "chap13",
+        "chap14",
+        "chap15",
+        "chap16",
+        "chap17",
+        "chap18",
+        "chap19",
+        "chap20",
+        "chap21",
+        "chap22",
+        "chap23",
+        "chap24",
+        "chap25",
+        "chap26",
+        "chap27",
+        "chap28",
+        "chap29",
+        "chap30",
+        "chap31"
+      ],
+      "unitInfo": {
+        "chap01": {
+          "title": "Introduction",
+          "url": "acim/manual/chap01"
+        },
+        "chap02": {
+          "title": "Who Are God's Teachers?",
+          "url": "acim/manual/chap02"
+        },
+        "chap03": {
+          "title": "Who are their Pupils?",
+          "url": "acim/manual/chap03"
+        },
+        "chap04": {
+          "title": "What are the Levels of Teaching?",
+          "url": "acim/manual/chap04"
+        },
+        "chap05": {
+          "title": "What are the Characteristics of God's Teachers?",
+          "url": "acim/manual/chap05"
+        },
+        "chap06": {
+          "title": "How is Healing Accomplished?",
+          "url": "acim/manual/chap06"
+        },
+        "chap07": {
+          "title": "Is Healing Certain?",
+          "url": "acim/manual/chap07"
+        },
+        "chap08": {
+          "title": "Should Healing be Repeated?",
+          "url": "acim/manual/chap08"
+        },
+        "chap09": {
+          "title": "How Can the Perception of Order of Difficulties be Avoided?",
+          "url": "acim/manual/chap09"
+        },
+        "chap10": {
+          "title": "Are Changes Required in the Life Situation of God's Teachers?",
+          "url": "acim/manual/chap10"
+        },
+        "chap11": {
+          "title": "How is Judgement Relinquished?",
+          "url": "acim/manual/chap11"
+        },
+        "chap12": {
+          "title": "How is Peace Possible in this World?",
+          "url": "acim/manual/chap12"
+        },
+        "chap13": {
+          "title": "How Many Teachers of God are Needed to Save the World?",
+          "url": "acim/manual/chap13"
+        },
+        "chap14": {
+          "title": "What is the Real Meaning of Sacrifice?",
+          "url": "acim/manual/chap14"
+        },
+        "chap15": {
+          "title": "How Will the World End?",
+          "url": "acim/manual/chap15"
+        },
+        "chap16": {
+          "title": "Is Each One to be Judged in the End?",
+          "url": "acim/manual/chap16"
+        },
+        "chap17": {
+          "title": "How Should the Teacher of God Spend His Day?",
+          "url": "acim/manual/chap17"
+        },
+        "chap18": {
+          "title": "How do God's Teachers Deal with their Pupils' Thoughts of Magic?",
+          "url": "acim/manual/chap18"
+        },
+        "chap19": {
+          "title": "How is Correction Made?",
+          "url": "acim/manual/chap19"
+        },
+        "chap20": {
+          "title": "What is Justice?",
+          "url": "acim/manual/chap20"
+        },
+        "chap21": {
+          "title": "What is the Peace of God?",
+          "url": "acim/manual/chap21"
+        },
+        "chap22": {
+          "title": "What is the Role of Words in Healing?",
+          "url": "acim/manual/chap22"
+        },
+        "chap23": {
+          "title": "How are Healing and Atonement Related?",
+          "url": "acim/manual/chap23"
+        },
+        "chap24": {
+          "title": "Does Jesus Have a Special Place in Healing?",
+          "url": "acim/manual/chap24"
+        },
+        "chap25": {
+          "title": "Is Reincarnation True?",
+          "url": "acim/manual/chap25"
+        },
+        "chap26": {
+          "title": "Are \"Phychic\" Powers Desirable?",
+          "url": "acim/manual/chap26"
+        },
+        "chap27": {
+          "title": "Can God be Reached Directly?",
+          "url": "acim/manual/chap27"
+        },
+        "chap28": {
+          "title": "What is Death?",
+          "url": "acim/manual/chap28"
+        },
+        "chap29": {
+          "title": "What is the Resurrection?",
+          "url": "acim/manual/chap29"
+        },
+        "chap30": {
+          "title": "As for the Rest&hellip;",
+          "url": "acim/manual/chap30"
+        },
+        "chap31": {
+          "title": "Forget Not&hellip;",
+          "url": "acim/manual/chap31"
+        }
+      }
+    }
+  }
+}
