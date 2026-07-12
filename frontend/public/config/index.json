@@ -17,16 +17,17 @@
     "oe": {
       "title": "A Course in Miracles - Original Edition",
       "description": "A good one paragraph description for OE",
+      "image": "/images/covers/site/oe.jpg",
       "books": [
         "text",
         "workbook",
         "manual"
-      ],
-      "image": "/images/covers/site/oe.jpg"
+      ]
     },
     "raj": {
       "title": "The Raj Material",
       "description": "Raj / Northwest Foundation for ACIM",
+      "image": "/images/covers/site/raj.jpg",
       "books": [
         "yaa",
         "grad",
@@ -48,12 +49,12 @@
         "sg2016",
         "sg2017",
         "sg2018"
-      ],
-      "image": "/images/covers/site/raj.jpg"
+      ]
     },
     "wom": {
       "title": "The Way of Mastery",
       "description": "The Way of Mastery",
+      "image": "/images/covers/site/wom.jpg",
       "books": [
         "early",
         "tjl",
@@ -62,31 +63,31 @@
         "wok",
         "wos",
         "questions"
-      ],
-      "image": "/images/covers/site/wom.jpg"
+      ]
     },
     "acol": {
       "title": " A Course of Love",
       "description": "A Course of Love",
+      "image": "/images/covers/site/acol.jpg",
       "books": [
         "course",
         "dialog",
         "treatise"
-      ],
-      "image": "/images/covers/site/acol.jpg"
+      ]
     },
     "ftcm": {
       "title": "From the Christ Mind",
       "description": "From the Christ Mind",
+      "image": "/images/covers/site/ftcm.jpg",
       "books": [
         "book1",
         "book2"
-      ],
-      "image": "/images/covers/site/ftcm.jpg"
+      ]
     },
     "col": {
       "title": "Choose Only Love",
       "description": "Choose Only Love",
+      "image": "/images/covers/site/col.jpg",
       "books": [
         "book1",
         "book2",
@@ -95,27 +96,26 @@
         "book5",
         "book6",
         "book7"
-      ],
-      "image": "/images/covers/site/col.jpg"
+      ]
     },
     "acim": {
       "title": "Sparkly Edition of A Course in Miracles",
       "description": "Also known as the Thetford edition or the Hugh Lynn Cayce edition (HLC)",
+      "image": "/images/covers/site/acim.jpg",
       "books": [
         "preface",
         "text",
         "workbook",
         "manual"
-      ],
-      "image": "/images/covers/site/acim.jpg"
+      ]
     },
     "jsb": {
       "title": "The Impersonal Life",
       "description": "The Jeshua Letters",
+      "image": "/images/covers/site/til.jpg",
       "books": [
         "til"
-      ],
-      "image": "/images/covers/site/til.jpg"
+      ]
     }
   }
 }

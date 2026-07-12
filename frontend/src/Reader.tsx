@@ -2,13 +2,22 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { buildReadLink } from './App';
 import type { SourceInfo, LibraryIndex } from './types';
 
 interface ReaderProps {
-  activeSourceId: string | undefined;
-  activeBookId: string | undefined;
-  activeGroupId: string | undefined;
-  activeUnitId: string | undefined;
+  resolvedContext: {
+    sectionId: string | undefined;
+    sourceId: string | undefined;
+    collectionId: string | undefined;
+    bookId: string | undefined;
+    groupId: string | undefined;
+    unitId: string | undefined;
+    activeBook: any;
+    activeGroup: any;
+    activeUnit: any;
+    s3PathSuffix: string;
+  };
   activeSourceConfig: SourceInfo | null;
   libraryIndex: LibraryIndex | null;
   isSidebarCollapsed?: boolean;
@@ -16,10 +25,7 @@ interface ReaderProps {
 }
 
 export const Reader: React.FC<ReaderProps> = ({
-  activeSourceId,
-  activeBookId,
-  activeGroupId,
-  activeUnitId,
+  resolvedContext,
   activeSourceConfig,
   libraryIndex,
   isSidebarCollapsed = false,
@@ -37,36 +43,30 @@ export const Reader: React.FC<ReaderProps> = ({
   const lastActiveParagraphRef = useRef<Element | null>(null);
   const isSeekingRef = useRef<boolean>(false);
 
+  const {
+    sectionId: activeSectionId,
+    sourceId: activeSourceId,
+    collectionId: activeCollectionId,
+    bookId: activeBookId,
+    groupId: activeGroupId,
+    unitId: activeUnitId,
+    activeBook,
+    activeUnit,
+    s3PathSuffix
+  } = resolvedContext;
+
   // Fetch HTML fragment when route changes
   useEffect(() => {
-    if (!activeSourceId || !activeBookId || !activeGroupId || !activeUnitId || !activeSourceConfig) {
+    if (!activeSourceId || !activeBookId || !activeUnitId || !activeUnit) {
       setHtmlContent('');
-      return;
-    }
-
-    const book = activeSourceConfig.bookInfo[activeBookId];
-    let unit = null;
-
-    if (book) {
-      if (book.groups && book.groupInfo && activeGroupId && activeGroupId !== 'index' && activeGroupId !== 'flat') {
-        const group = book.groupInfo[activeGroupId];
-        unit = group?.unitInfo[activeUnitId];
-      } else if (book.units && book.unitInfo) {
-        unit = book.unitInfo[activeUnitId];
-      }
-    }
-
-    if (!unit) {
-      setError('Selected lesson metadata could not be found.');
       return;
     }
 
     setLoading(true);
     setError(null);
 
-    // Fetch the precompiled HTML fragment from the local/public content folder
-    // Note: The relative link to our content folder is symlinked from _site
-    const contentUrl = `/content/${unit.url}.html`;
+    // Fetch the precompiled HTML fragment from the local/public content folder using unit.url
+    const contentUrl = `/content/${activeUnit.url}.html`;
 
     fetch(contentUrl)
       .then((res) => {
@@ -111,7 +111,7 @@ export const Reader: React.FC<ReaderProps> = ({
           walk(doc.body);
 
           // If this unit has an audio track, prepend a play indicator to all paragraphs and headings
-          if (unit.audiofn) {
+          if (activeUnit.audiofn) {
             const paragraphs = doc.querySelectorAll('p, h2, h3');
             paragraphs.forEach((p) => {
               const indicator = doc.createElement('span');
@@ -134,24 +134,21 @@ export const Reader: React.FC<ReaderProps> = ({
         setError('Failed to load text. Please check if the pipeline has processed this unit.');
         setLoading(false);
       });
-  }, [activeSourceId, activeBookId, activeGroupId, activeUnitId, activeSourceConfig]);
+  }, [activeSourceId, activeBookId, activeUnitId, activeUnit, activeSourceConfig]);
 
   // Handle Scroll to Hash and Highlight Target
   useEffect(() => {
     if (loading || !htmlContent || !hash) return;
 
-    // Small delay to ensure the DOM has updated and completed rendering
     const timer = setTimeout(() => {
-      const elementId = hash.substring(1); // Strip the leading '#'
+      const elementId = hash.substring(1);
       const element = document.getElementById(elementId);
 
       if (element) {
-        // Remove previous highlight classes
         document.querySelectorAll('.highlight-target').forEach((el) => {
           el.classList.remove('highlight-target');
         });
 
-        // Scroll to element and highlight
         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         element.classList.add('highlight-target');
       }
@@ -160,32 +157,13 @@ export const Reader: React.FC<ReaderProps> = ({
     return () => clearTimeout(timer);
   }, [loading, htmlContent, hash]);
 
-  // Get active unit metadata
-  let activeUnit: any = null;
-  if (activeSourceConfig && activeBookId && activeUnitId) {
-    const book = activeSourceConfig.bookInfo[activeBookId];
-    if (book) {
-      if (book.groups && book.groupInfo && activeGroupId && activeGroupId !== 'index' && activeGroupId !== 'flat') {
-        const group = book.groupInfo[activeGroupId];
-        activeUnit = group?.unitInfo[activeUnitId];
-      } else if (book.units && book.unitInfo) {
-        activeUnit = book.unitInfo[activeUnitId];
-      }
-    }
-  }
-
-  // Construct S3 URLs according to pattern: s3BucketURI/source/audio/book[/group]/unit
+  // Construct S3 URLs using the dynamically constructed path suffix from App.tsx
   const s3BucketUrl = import.meta.env.VITE_S3_AUDIO_BUCKET_URL || '';
-  const audioFileName = activeUnit?.audiofn || activeUnitId;
-  const pathSuffix = activeGroupId && activeGroupId !== 'index' && activeGroupId !== 'flat'
-    ? `${activeBookId}/${activeGroupId}/${audioFileName}`
-    : `${activeBookId}/${audioFileName}`;
-  
-  const audioUrl = s3BucketUrl && activeSourceId
-    ? `${s3BucketUrl}/${activeSourceId}/audio/${pathSuffix}.mp3`
+  const audioUrl = s3BucketUrl && activeSourceId && s3PathSuffix
+    ? `${s3BucketUrl}/${activeSourceId}/audio/${s3PathSuffix}.mp3`
     : '';
-  const vttUrl = s3BucketUrl && activeSourceId
-    ? `${s3BucketUrl}/${activeSourceId}/audio/${pathSuffix}.vtt`
+  const vttUrl = s3BucketUrl && activeSourceId && s3PathSuffix
+    ? `${s3BucketUrl}/${activeSourceId}/audio/${s3PathSuffix}.vtt`
     : '';
 
   // Reset scroll tracking and play states when switching units
@@ -202,14 +180,12 @@ export const Reader: React.FC<ReaderProps> = ({
     if (!audio) return;
 
     const handleCueChange = () => {
-      // Ignore updates if the player is currently seeking to prevent snapping and racing bugs
       if (audio.seeking || isSeekingRef.current) return;
 
       const track = audio.textTracks[0];
       if (!track) return;
       const activeCue = track.activeCues?.[0] as any;
 
-      // If no active cue, or cue text is empty, keep current highlight active to prevent flashing
       if (!activeCue || !activeCue.text) return;
 
       const rawCueText = activeCue.text.trim();
@@ -231,13 +207,10 @@ export const Reader: React.FC<ReaderProps> = ({
           .trim();
 
       const cleanCue = cleanString(cueText);
-      // Prevent matching on empty/punctuation cues which would trigger jump-to-bottom
       if (!cleanCue) return;
 
-      // Find parent paragraph directly if we have targetId
       const parentParagraph = targetId ? document.getElementById(targetId) : null;
 
-      // Try to find matching sentence span in the transcript (restricted to parent paragraph if available)
       const sentences = parentParagraph 
         ? parentParagraph.querySelectorAll('.cmi-sentence')
         : document.querySelectorAll('.cmi-sentence');
@@ -248,7 +221,6 @@ export const Reader: React.FC<ReaderProps> = ({
         const sText = s.textContent || '';
         const cleanS = cleanString(sText);
         
-        // Use loose containment check for natural playback
         if (cleanS && (cleanS.includes(cleanCue) || cleanCue.includes(cleanS))) {
           matchingSentences.push(s as HTMLElement);
         }
@@ -259,25 +231,19 @@ export const Reader: React.FC<ReaderProps> = ({
         if (matchingSentences.length === 1) {
           bestSentenceMatch = matchingSentences[0];
         } else {
-          // Proximity Matching: If there are multiple matches (common short phrases like "Yes"),
-          // find the one closest to our last active paragraph in linear document order.
           const lastPara = lastActiveParagraphRef.current || parentParagraph;
           if (lastPara) {
-            // 1. Is one of the matched sentences inside the current paragraph?
             const sameParaMatch = matchingSentences.find((s) => lastPara.contains(s));
             if (sameParaMatch) {
               bestSentenceMatch = sameParaMatch;
             } else {
-              // 2. Otherwise, find the next matched sentence positioned *after* the current paragraph
               const nextSequentialMatch = matchingSentences.find((s) => {
                 const position = lastPara.compareDocumentPosition(s);
                 return !!(position & Node.DOCUMENT_POSITION_FOLLOWING);
               });
-              // Fallback to the first match if no sequential ones exist
               bestSentenceMatch = nextSequentialMatch || matchingSentences[0];
             }
           } else {
-            // First run: Default to the first match in the document
             bestSentenceMatch = matchingSentences[0];
           }
         }
@@ -285,8 +251,6 @@ export const Reader: React.FC<ReaderProps> = ({
 
       let bestParagraphMatch: HTMLElement | null = parentParagraph;
 
-      // Fallback: If no single sentence matched perfectly (due to sentence boundary mismatch),
-      // let's fall back to paragraph matching so that at least something highlights!
       if (!bestSentenceMatch && !bestParagraphMatch) {
         const paragraphs = document.querySelectorAll('#cmi-transcript p');
         const matchingParagraphs: HTMLElement[] = [];
@@ -302,7 +266,6 @@ export const Reader: React.FC<ReaderProps> = ({
         if (matchingParagraphs.length > 0) {
           const lastPara = lastActiveParagraphRef.current;
           if (lastPara) {
-            // Find next sequential paragraph matching the text
             const nextPara = matchingParagraphs.find((p) => {
               const position = lastPara.compareDocumentPosition(p);
               return !!(position & Node.DOCUMENT_POSITION_FOLLOWING);
@@ -317,7 +280,6 @@ export const Reader: React.FC<ReaderProps> = ({
       const matchFound = bestSentenceMatch || bestParagraphMatch;
 
       if (matchFound) {
-        // Clear previous active highlights ONLY when we have a confirmed new match
         document.querySelectorAll('#cmi-transcript p.active-audio').forEach((el) => {
           el.classList.remove('active-audio');
         });
@@ -326,16 +288,11 @@ export const Reader: React.FC<ReaderProps> = ({
         });
 
         if (bestSentenceMatch) {
-          // Highlight active sentence span
           (bestSentenceMatch as HTMLElement).classList.add('active-sentence');
-          
-          // Highlight parent paragraph for structural context
           const finalParentParagraph = parentParagraph || (bestSentenceMatch as HTMLElement).closest('#cmi-transcript p') as HTMLElement | null;
           if (finalParentParagraph) {
             finalParentParagraph.classList.add('active-audio');
 
-            // SCROLL ONLY WHEN PARAGRAPH CHANGES
-            // This prevents "jumping/bobbing" scroll while reading sentences within the same paragraph!
             if (finalParentParagraph !== lastActiveParagraphRef.current) {
               lastActiveParagraphRef.current = finalParentParagraph;
               finalParentParagraph.scrollIntoView({
@@ -345,9 +302,7 @@ export const Reader: React.FC<ReaderProps> = ({
             }
           }
         } else if (bestParagraphMatch) {
-          // Fallback paragraph highlight
           (bestParagraphMatch as HTMLElement).classList.add('active-audio');
-          
           if (bestParagraphMatch !== lastActiveParagraphRef.current) {
             lastActiveParagraphRef.current = bestParagraphMatch;
             (bestParagraphMatch as HTMLElement).scrollIntoView({
@@ -364,7 +319,7 @@ export const Reader: React.FC<ReaderProps> = ({
     const setupTrackListener = () => {
       if (audio.textTracks && audio.textTracks.length > 0) {
         textTrack = audio.textTracks[0];
-        textTrack.mode = 'showing'; // Set mode to showing to receive events
+        textTrack.mode = 'showing';
         textTrack.addEventListener('cuechange', handleCueChange);
       }
     };
@@ -378,7 +333,6 @@ export const Reader: React.FC<ReaderProps> = ({
     const handlePause = () => setIsAudioPlaying(false);
     const handleEnded = () => setIsAudioPlaying(false);
 
-    // Attempt immediately and also listen to track load events
     setupTrackListener();
     audio.addEventListener('seeked', handleSeeked);
     audio.addEventListener('play', handlePlay);
@@ -401,7 +355,6 @@ export const Reader: React.FC<ReaderProps> = ({
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
       audio.removeEventListener('ended', handleEnded);
-      // Clean up highlights
       document.querySelectorAll('#cmi-transcript p.active-audio').forEach((el) => {
         el.classList.remove('active-audio');
       });
@@ -414,11 +367,8 @@ export const Reader: React.FC<ReaderProps> = ({
   // Handle click on paragraphs to seek audio playback
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
-    
-    // Find the closest paragraph or heading element
     const cmiElement = target.closest('#cmi-transcript p, #cmi-transcript h2, #cmi-transcript h3') as HTMLElement | null;
     
-    // Gated: Only allow click-to-seek if the audio is currently playing to prevent accidental playback triggers!
     if (cmiElement && activeUnit?.audiofn && audioRef.current && !audioRef.current.paused && audioRef.current.textTracks[0]) {
       const track = audioRef.current.textTracks[0];
       if (track && track.cues && track.cues.length > 0) {
@@ -427,7 +377,6 @@ export const Reader: React.FC<ReaderProps> = ({
         if (targetId) {
           let foundCue: VTTCue | null = null;
 
-          // Look for the FIRST cue that starts with targetId + "|"
           for (let i = 0; i < track.cues.length; i++) {
             const cue = track.cues[i] as VTTCue;
             if (cue.text && (cue.text.startsWith(targetId + '|') || cue.text === targetId)) {
@@ -437,16 +386,11 @@ export const Reader: React.FC<ReaderProps> = ({
           }
 
           if (foundCue) {
-            // Immediately update the last active paragraph reference to the clicked element.
-            // This aligns the proximity matching anchor immediately, preventing any backward highlights!
             lastActiveParagraphRef.current = cmiElement;
-
             audioRef.current.currentTime = foundCue.startTime;
             audioRef.current.play().catch((err) => {
               console.error("Playback failed:", err);
             });
-          } else {
-            console.warn(`No VTT cue found for paragraph ID: ${targetId}`);
           }
         }
       }
@@ -476,13 +420,15 @@ export const Reader: React.FC<ReaderProps> = ({
     );
   }
 
-  // Source-level Landing Page displaying its available books
+  // Source-level Landing Page displaying its available books/collections
   if (activeSourceId && activeSourceConfig && !activeBookId) {
+    // If sections are used, link back to Library Home, else default
+    const backButtonText = "← Back to Library Home";
+    
     return (
       <main className="reader-container">
         <div className="welcome-screen" style={{ textAlign: 'left', alignItems: 'flex-start', maxWidth: 'var(--max-content-width)', width: '100%' }}>
           
-          {/* Back to Library Home Dashboard Link */}
           <button 
             onClick={() => navigate('/')}
             style={{
@@ -493,13 +439,15 @@ export const Reader: React.FC<ReaderProps> = ({
               color: 'var(--accent-color)',
               fontWeight: 500,
               marginBottom: '2rem',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              background: 'none',
+              border: 'none',
+              padding: 0
             }}
           >
-            ← Back to Library Home
+            {backButtonText}
           </button>
 
-          {/* Source Intro Header Area */}
           <div className="source-intro-header" style={{
             display: 'flex',
             flexDirection: 'row',
@@ -509,7 +457,6 @@ export const Reader: React.FC<ReaderProps> = ({
             alignItems: 'flex-start',
             flexWrap: 'wrap'
           }}>
-            {/* Source Cover Image or CSS Fallback */}
             <div className="source-cover-wrapper" style={{ flexShrink: 0 }}>
               {activeSourceConfig.image ? (
                 <img 
@@ -525,12 +472,11 @@ export const Reader: React.FC<ReaderProps> = ({
                   }} 
                 />
               ) : (
-                /* Stylized Cover Placeholder with elegant deep gradient covers styling */
                 <div style={{
                   width: '140px',
                   height: '210px',
                   borderRadius: '6px',
-                  background: 'linear-gradient(135deg, #0F4C5C, var(--bg-tertiary))', /* Teal-oriented elegant look */
+                  background: 'linear-gradient(135deg, #0F4C5C, var(--bg-tertiary))',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -550,7 +496,6 @@ export const Reader: React.FC<ReaderProps> = ({
               )}
             </div>
 
-            {/* Source Details and description text */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexGrow: 1, minWidth: '240px' }}>
               <h1 style={{ fontSize: '2rem', color: 'var(--text-header)', margin: 0, fontFamily: 'var(--font-sans)', fontWeight: 700, borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
                 {activeSourceConfig.title}
@@ -563,7 +508,9 @@ export const Reader: React.FC<ReaderProps> = ({
             </div>
           </div>
           
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)' }}>Available Books</h2>
+          <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)' }}>
+            {activeSourceConfig.collections ? "Available Collections" : "Available Books"}
+          </h2>
           
           <div style={{
             display: 'grid',
@@ -572,55 +519,106 @@ export const Reader: React.FC<ReaderProps> = ({
             width: '100%',
             marginBottom: '3rem'
           }}>
-            {activeSourceConfig.books.map((bookId) => {
-              const book = activeSourceConfig.bookInfo[bookId];
-              if (!book) return null;
-              return (
-                <div 
-                  key={bookId}
-                  className="book-landing-card"
-                  style={{
-                    backgroundColor: 'var(--bg-secondary)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '12px',
-                    padding: '1.5rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    boxShadow: '0 4px 6px var(--shadow-color)',
-                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-                  }}
-                >
-                  {/* Centered Clickable Portrait Book Cover Area */}
+            {activeSourceConfig.collections ? (
+              // If collections are present, render them as landing cards
+              activeSourceConfig.collections.map((collId) => {
+                const collection = activeSourceConfig.collectionInfo?.[collId];
+                if (!collection) return null;
+                return (
                   <div 
-                    onClick={() => navigate(`/read/${activeSourceId}/${bookId}`)}
+                    key={collId}
+                    className="book-landing-card"
                     style={{
-                      cursor: 'pointer',
+                      backgroundColor: 'var(--bg-secondary)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
                       display: 'flex',
-                      justifyContent: 'center',
-                      marginBottom: '1.25rem'
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      boxShadow: '0 4px 6px var(--shadow-color)',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
                     }}
                   >
-                    {book.image ? (
-                      <img 
-                        src={book.image} 
-                        alt={book.title} 
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flexGrow: 1 }}>
+                      <div>
+                        <h3 
+                          onClick={() => navigate(buildReadLink({ section: activeSectionId, source: activeSourceId, collection: collId }))}
+                          style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                        >
+                          {collection.title}
+                        </h3>
+                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                          {collection.description || `Explore books and teachings inside the ${collection.title} collection.`}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => navigate(buildReadLink({ section: activeSectionId, source: activeSourceId, collection: collId }))}
                         style={{
-                          width: '130px',
-                          height: '195px',
-                          objectFit: 'cover',
+                          alignSelf: 'center',
+                          backgroundColor: 'var(--accent-color)',
+                          color: '#FFF',
+                          padding: '0.5rem 1.25rem',
                           borderRadius: '6px',
-                          boxShadow: '0 4px 8px var(--shadow-color)',
-                          border: '1px solid var(--border-color)',
-                          transition: 'transform 0.3s ease'
-                        }} 
-                        onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
-                        onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-                      />
-                    ) : (
-                      /* Beautiful CSS Fallback Portrait Gradient Cover */
-                      <div 
-                        style={{
+                          fontSize: '0.85rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          marginTop: 'auto',
+                          border: 'none'
+                        }}
+                      >
+                        Explore Collection
+                      </button>
+                    </div>
+                  </div>
+                );
+              })
+            ) : activeSourceConfig.books ? (
+              // Default books cards
+              activeSourceConfig.books.map((bookId) => {
+                const book = activeSourceConfig.bookInfo?.[bookId];
+                if (!book) return null;
+                const bookLink = buildReadLink({ section: activeSectionId, source: activeSourceId, book: bookId });
+                return (
+                  <div 
+                    key={bookId}
+                    className="book-landing-card"
+                    style={{
+                      backgroundColor: 'var(--bg-secondary)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      boxShadow: '0 4px 6px var(--shadow-color)',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                    }}
+                  >
+                    <div 
+                      onClick={() => navigate(bookLink)}
+                      style={{
+                        cursor: 'pointer',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginBottom: '1.25rem'
+                      }}
+                    >
+                      {book.image ? (
+                        <img 
+                          src={book.image} 
+                          alt={book.title} 
+                          style={{
+                            width: '130px',
+                            height: '195px',
+                            objectFit: 'cover',
+                            borderRadius: '6px',
+                            boxShadow: '0 4px 8px var(--shadow-color)',
+                            border: '1px solid var(--border-color)'
+                          }} 
+                        />
+                      ) : (
+                        <div style={{
                           width: '130px',
                           height: '195px',
                           borderRadius: '6px',
@@ -631,56 +629,52 @@ export const Reader: React.FC<ReaderProps> = ({
                           padding: '1rem',
                           color: '#FFF',
                           boxShadow: '0 4px 8px var(--shadow-color)',
-                          border: '1px solid var(--border-color)',
-                          transition: 'opacity 0.2s ease'
-                        }}
-                        onMouseOver={(e) => (e.currentTarget.style.opacity = '0.95')}
-                        onMouseOut={(e) => (e.currentTarget.style.opacity = '1')}
-                      >
-                        <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
-                          {activeSourceConfig.title.split(' ')[0]}
+                          border: '1px solid var(--border-color)'
+                        }}>
+                          <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
+                            {activeSourceConfig.title.split(' ')[0]}
+                          </div>
+                          <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
+                            {book.title}
+                          </div>
+                          <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
                         </div>
-                        <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
-                          {book.title}
-                        </div>
-                        <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Book Text Details */}
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
-                    <div style={{ textAlign: 'center' }}>
-                      <h3 
-                        onClick={() => navigate(`/read/${activeSourceId}/${bookId}`)}
-                        style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
-                      >
-                        {book.title}
-                      </h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
-                        {book.description || 'Explore the complete chapters, lessons, and spiritual collections inside.'}
-                      </p>
+                      )}
                     </div>
 
-                    <button
-                      onClick={() => navigate(`/read/${activeSourceId}/${bookId}`)}
-                      style={{
-                        alignSelf: 'center', /* Centered button to match the book cover layout */
-                        backgroundColor: 'var(--accent-color)',
-                        color: '#FFF',
-                        padding: '0.5rem 1.25rem',
-                        borderRadius: '6px',
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Explore Book
-                    </button>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <h3 
+                          onClick={() => navigate(bookLink)}
+                          style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                        >
+                          {book.title}
+                        </h3>
+                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                          {book.description || 'Explore the complete chapters, lessons, and spiritual collections inside.'}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => navigate(bookLink)}
+                        style={{
+                          alignSelf: 'center',
+                          backgroundColor: 'var(--accent-color)',
+                          color: '#FFF',
+                          padding: '0.5rem 1.25rem',
+                          borderRadius: '6px',
+                          fontSize: '0.85rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          border: 'none'
+                        }}
+                      >
+                        Explore Book
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })
+            ) : null}
           </div>
         </div>
       </main>
@@ -688,16 +682,19 @@ export const Reader: React.FC<ReaderProps> = ({
   }
 
   // Book-level Landing Page displaying its available chapters (groups) or flat lessons (units)
-  if (activeSourceId && activeSourceConfig && activeBookId && !activeGroupId) {
-    const book = activeSourceConfig.bookInfo[activeBookId];
+  if (activeSourceId && activeSourceConfig && activeBookId && !activeGroupId && !activeUnitId) {
+    const book = activeBook;
     if (book) {
+      const backLink = activeCollectionId
+        ? buildReadLink({ section: activeSectionId, source: activeSourceId, collection: activeCollectionId })
+        : buildReadLink({ section: activeSectionId, source: activeSourceId });
+
       return (
         <main className="reader-container">
           <div className="welcome-screen" style={{ textAlign: 'left', alignItems: 'flex-start', maxWidth: 'var(--max-content-width)', width: '100%' }}>
             
-            {/* Back to Source Dashboard Link */}
             <button 
-              onClick={() => navigate(`/read/${activeSourceId}`)}
+              onClick={() => navigate(backLink)}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -706,13 +703,15 @@ export const Reader: React.FC<ReaderProps> = ({
                 color: 'var(--accent-color)',
                 fontWeight: 500,
                 marginBottom: '2rem',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                background: 'none',
+                border: 'none',
+                padding: 0
               }}
             >
-              ← Back to {activeSourceConfig.title}
+              ← Back to {activeCollectionId ? "Collection Dashboard" : activeSourceConfig.title}
             </button>
 
-            {/* Book Intro Header Area */}
             <div className="book-intro-header" style={{
               display: 'flex',
               flexDirection: 'row',
@@ -722,7 +721,6 @@ export const Reader: React.FC<ReaderProps> = ({
               alignItems: 'flex-start',
               flexWrap: 'wrap'
             }}>
-              {/* Cover Image or CSS Fallback */}
               <div className="book-cover-wrapper" style={{ flexShrink: 0 }}>
                 {book.image ? (
                   <img 
@@ -738,7 +736,6 @@ export const Reader: React.FC<ReaderProps> = ({
                     }} 
                   />
                 ) : (
-                  /* Stylized Cover Placeholder with warm gradient cover styling */
                   <div style={{
                     width: '140px',
                     height: '210px',
@@ -763,7 +760,6 @@ export const Reader: React.FC<ReaderProps> = ({
                 )}
               </div>
 
-              {/* Book Details and description text */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', flexGrow: 1, minWidth: '240px' }}>
                 <h1 style={{ fontSize: '2rem', color: 'var(--text-header)', margin: 0, fontFamily: 'var(--font-sans)', fontWeight: 700 }}>
                   {book.title}
@@ -774,33 +770,30 @@ export const Reader: React.FC<ReaderProps> = ({
               </div>
             </div>
 
-            {/* Render chapters or flat lessons dynamically */}
             {book.groups ? (
-              /* Grouped Book Layout: Table of Contents for Chapters and their Sections */
               <>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>Table of Contents</h2>
                 <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '3rem' }}>
-                  {book.groups.map((groupId) => {
-                    const group = book.groupInfo?.[groupId];
+                  {book.groups.map((gId: string) => {
+                    const group = book.groupInfo?.[gId];
                     if (!group) return null;
                     return (
-                      <div key={groupId} style={{ marginBottom: '2.5rem' }}>
-                        {/* Chapter Title Header */}
+                      <div key={gId} style={{ marginBottom: '2.5rem' }}>
                         <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', marginBottom: '0.75rem' }}>
                           <h3 style={{ fontSize: '1.25rem', color: 'var(--text-header)', fontFamily: 'var(--font-sans)', fontWeight: 700 }}>
                             {group.title}
                           </h3>
                         </div>
                         
-                        {/* Nested Clickable Sections List */}
                         <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: '1.5rem' }}>
-                          {group.units.map((unitId) => {
-                            const unit = group.unitInfo?.[unitId];
+                          {group.units.map((uId: string) => {
+                            const unit = group.unitInfo?.[uId];
                             if (!unit) return null;
+                            const unitLink = buildReadLink({ section: activeSectionId, source: activeSourceId, collection: activeCollectionId, book: activeBookId, group: gId, unit: uId });
                             return (
                               <div 
-                                key={unitId} 
-                                onClick={() => navigate(`/read/${activeSourceId}/${activeBookId}/${groupId}/${unitId}`)}
+                                key={uId} 
+                                onClick={() => navigate(unitLink)}
                                 style={{
                                   padding: '0.6rem 0',
                                   borderBottom: '1px dashed var(--border-color)',
@@ -832,17 +825,17 @@ export const Reader: React.FC<ReaderProps> = ({
                 </div>
               </>
             ) : book.units ? (
-              /* Flat Book Layout: Table of Contents for Lessons directly */
               <>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>Table of Contents</h2>
                 <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '3rem' }}>
-                  {book.units.map((unitId) => {
-                    const unit = book.unitInfo?.[unitId];
+                  {book.units.map((uId: string) => {
+                    const unit = book.unitInfo?.[uId];
                     if (!unit) return null;
+                    const unitLink = buildReadLink({ section: activeSectionId, source: activeSourceId, collection: activeCollectionId, book: activeBookId, group: 'index', unit: uId });
                     return (
-                      <div key={unitId} style={{ borderBottom: '1px solid var(--border-color)', padding: '1rem 0' }}>
+                      <div key={uId} style={{ borderBottom: '1px solid var(--border-color)', padding: '1rem 0' }}>
                         <div 
-                          onClick={() => navigate(`/read/${activeSourceId}/${activeBookId}/index/${unitId}`)}
+                          onClick={() => navigate(unitLink)}
                           style={{
                             cursor: 'pointer',
                             color: 'var(--text-header)',
@@ -873,7 +866,6 @@ export const Reader: React.FC<ReaderProps> = ({
       <main className="reader-container">
         <div className="welcome-screen" style={{ textAlign: 'center', alignItems: 'center', maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
           
-          {/* Large Brand Site Logo */}
           <img 
             src="/cmi-logo.svg" 
             alt="cmiLibrary Logo" 
@@ -881,7 +873,6 @@ export const Reader: React.FC<ReaderProps> = ({
               height: '80px',
               width: 'auto',
               marginBottom: '1.5rem',
-              animation: 'fadeIn 0.5s ease',
               display: 'block'
             }} 
           />
@@ -893,68 +884,182 @@ export const Reader: React.FC<ReaderProps> = ({
             An immersive reading and study environment for the Christ Mind Teachings. Choose a teaching source below to begin your study.
           </p>
 
-          <h2 style={{ fontSize: '1.75rem', marginBottom: '2rem', fontFamily: 'var(--font-sans)', alignSelf: 'flex-start', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%', textAlign: 'left' }}>
-            Available Sources
-          </h2>
+          {libraryIndex && libraryIndex.sections ? (
+            // If sections are present, group available sources by sections elegantly on the dashboard!
+            libraryIndex.sections.map((sectId) => {
+              const section = libraryIndex.sectionInfo?.[sectId];
+              if (!section) return null;
+              return (
+                <div key={sectId} style={{ width: '100%', textAlign: 'left', marginBottom: '4rem' }}>
+                  <h2 style={{ fontSize: '1.75rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
+                    {section.title}
+                  </h2>
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                    gap: '2rem',
+                    width: '100%'
+                  }}>
+                    {section.sources.map((sourceId) => {
+                      const source = section.sourceInfo?.[sourceId];
+                      if (!source) return null;
+                      return (
+                        <div 
+                          key={sourceId}
+                          className="source-landing-card"
+                          style={{
+                            backgroundColor: 'var(--bg-secondary)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '12px',
+                            padding: '1.5rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            boxShadow: '0 4px 6px var(--shadow-color)',
+                            transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                          }}
+                        >
+                          <div 
+                            onClick={() => navigate(buildReadLink({ section: sectId, source: sourceId }))}
+                            style={{
+                              cursor: 'pointer',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              marginBottom: '1.25rem'
+                            }}
+                          >
+                            {source.image ? (
+                              <img 
+                                src={source.image} 
+                                alt={source.title} 
+                                style={{
+                                  width: '130px',
+                                  height: '195px',
+                                  objectFit: 'cover',
+                                  borderRadius: '6px',
+                                  boxShadow: '0 4px 8px var(--shadow-color)',
+                                  border: '1px solid var(--border-color)'
+                                }} 
+                              />
+                            ) : (
+                              <div style={{
+                                width: '130px',
+                                height: '195px',
+                                borderRadius: '6px',
+                                background: 'linear-gradient(135deg, #0F4C5C, var(--bg-tertiary))',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                padding: '1rem',
+                                color: '#FFF',
+                                boxShadow: '0 4px 8px var(--shadow-color)',
+                                border: '1px solid var(--border-color)'
+                              }}>
+                                <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
+                                  Source Teaching
+                                </div>
+                                <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
+                                  {source.title}
+                                </div>
+                                <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
+                              </div>
+                            )}
+                          </div>
 
-          {libraryIndex ? (
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '2rem',
-              width: '100%',
-              marginBottom: '3rem',
-              textAlign: 'left'
-            }}>
-              {libraryIndex.sources.map((sourceId) => {
-                const source = libraryIndex.sourceInfo[sourceId];
-                if (!source) return null;
-                return (
-                  <div 
-                    key={sourceId}
-                    className="source-landing-card"
-                    style={{
-                      backgroundColor: 'var(--bg-secondary)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '12px',
-                      padding: '1.5rem',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      boxShadow: '0 4px 6px var(--shadow-color)',
-                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-                    }}
-                  >
-                    {/* Centered Clickable Portrait Source Cover Area */}
+                          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
+                            <div style={{ textAlign: 'center' }}>
+                              <h3 
+                                onClick={() => navigate(buildReadLink({ section: sectId, source: sourceId }))}
+                                style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                              >
+                                {source.title}
+                              </h3>
+                              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                                {source.description || 'Explore the complete collections and teachings within this spiritual source.'}
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => navigate(buildReadLink({ section: sectId, source: sourceId }))}
+                              style={{
+                                alignSelf: 'center',
+                                backgroundColor: 'var(--accent-color)',
+                                color: '#FFF',
+                                padding: '0.5rem 1.25rem',
+                                borderRadius: '6px',
+                                fontSize: '0.85rem',
+                                fontWeight: 600,
+                                cursor: 'pointer',
+                                border: 'none'
+                              }}
+                            >
+                              Explore Teachings
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })
+          ) : libraryIndex && libraryIndex.sources ? (
+            // Default flat sources rendering
+            <>
+              <h2 style={{ fontSize: '1.75rem', marginBottom: '2rem', fontFamily: 'var(--font-sans)', alignSelf: 'flex-start', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%', textAlign: 'left' }}>
+                Available Sources
+              </h2>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                gap: '2rem',
+                width: '100%',
+                marginBottom: '3rem',
+                textAlign: 'left'
+              }}>
+                {libraryIndex.sources.map((sourceId) => {
+                  const source = libraryIndex.sourceInfo?.[sourceId];
+                  if (!source) return null;
+                  const sourceLink = buildReadLink({ source: sourceId });
+                  return (
                     <div 
-                      onClick={() => navigate(`/read/${sourceId}`)}
+                      key={sourceId}
+                      className="source-landing-card"
                       style={{
-                        cursor: 'pointer',
+                        backgroundColor: 'var(--bg-secondary)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: '12px',
+                        padding: '1.5rem',
                         display: 'flex',
-                        justifyContent: 'center',
-                        marginBottom: '1.25rem'
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        boxShadow: '0 4px 6px var(--shadow-color)',
+                        transition: 'transform 0.2s ease, box-shadow 0.2s ease'
                       }}
                     >
-                      {source.image ? (
-                        <img 
-                          src={source.image} 
-                          alt={source.title} 
-                          style={{
-                            width: '130px',
-                            height: '195px',
-                            objectFit: 'cover',
-                            borderRadius: '6px',
-                            boxShadow: '0 4px 8px var(--shadow-color)',
-                            border: '1px solid var(--border-color)',
-                            transition: 'transform 0.3s ease'
-                          }} 
-                          onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
-                          onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-                        />
-                      ) : (
-                        /* Beautiful CSS Fallback Portrait Gradient Cover */
-                        <div 
-                          style={{
+                      <div 
+                        onClick={() => navigate(sourceLink)}
+                        style={{
+                          cursor: 'pointer',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          marginBottom: '1.25rem'
+                        }}
+                      >
+                        {source.image ? (
+                          <img 
+                            src={source.image} 
+                            alt={source.title} 
+                            style={{
+                              width: '130px',
+                              height: '195px',
+                              objectFit: 'cover',
+                              borderRadius: '6px',
+                              boxShadow: '0 4px 8px var(--shadow-color)',
+                              border: '1px solid var(--border-color)'
+                            }} 
+                          />
+                        ) : (
+                          <div style={{
                             width: '130px',
                             height: '195px',
                             borderRadius: '6px',
@@ -965,57 +1070,53 @@ export const Reader: React.FC<ReaderProps> = ({
                             padding: '1rem',
                             color: '#FFF',
                             boxShadow: '0 4px 8px var(--shadow-color)',
-                            border: '1px solid var(--border-color)',
-                            transition: 'opacity 0.2s ease'
-                          }}
-                          onMouseOver={(e) => (e.currentTarget.style.opacity = '0.95')}
-                          onMouseOut={(e) => (e.currentTarget.style.opacity = '1')}
-                        >
-                          <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
-                            Source Teaching
+                            border: '1px solid var(--border-color)'
+                          }}>
+                            <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
+                              Source Teaching
+                            </div>
+                            <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
+                              {source.title}
+                            </div>
+                            <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
                           </div>
-                          <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
-                            {source.title}
-                          </div>
-                          <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Source Text Details */}
-                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
-                      <div style={{ textAlign: 'center' }}>
-                        <h3 
-                          onClick={() => navigate(`/read/${sourceId}`)}
-                          style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
-                        >
-                          {source.title}
-                        </h3>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
-                          {source.description || 'Explore the complete collections and teachings within this spiritual source.'}
-                        </p>
+                        )}
                       </div>
 
-                      <button
-                        onClick={() => navigate(`/read/${sourceId}`)}
-                        style={{
-                          alignSelf: 'center', /* Centered button to match the cover layout */
-                          backgroundColor: 'var(--accent-color)',
-                          color: '#FFF',
-                          padding: '0.5rem 1.25rem',
-                          borderRadius: '6px',
-                          fontSize: '0.85rem',
-                          fontWeight: 600,
-                          cursor: 'pointer'
-                        }}
-                      >
-                        Explore Teachings
-                      </button>
+                      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
+                        <div style={{ textAlign: 'center' }}>
+                          <h3 
+                            onClick={() => navigate(sourceLink)}
+                            style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                          >
+                            {source.title}
+                          </h3>
+                          <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                            {source.description || 'Explore the complete collections and teachings within this spiritual source.'}
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => navigate(sourceLink)}
+                          style={{
+                            alignSelf: 'center',
+                            backgroundColor: 'var(--accent-color)',
+                            color: '#FFF',
+                            padding: '0.5rem 1.25rem',
+                            borderRadius: '6px',
+                            fontSize: '0.85rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            border: 'none'
+                          }}
+                        >
+                          Explore Teachings
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            </>
           ) : (
             <div className="loader-container">
               <div className="spinner"></div>
@@ -1042,7 +1143,7 @@ export const Reader: React.FC<ReaderProps> = ({
     );
   }
 
-  // Compute adjacent sections for sequential navigation (Table of Contents / Lessons navigation)
+  // Compute adjacent sections for sequential navigation (ToC / Lessons navigation)
   let prevLink = null;
   let nextLink = null;
   let bookLink = null;
@@ -1050,17 +1151,16 @@ export const Reader: React.FC<ReaderProps> = ({
   let nextTitle = '';
 
   if (activeSourceId && activeBookId && activeUnitId && activeSourceConfig && htmlContent) {
-    bookLink = `/read/${activeSourceId}/${activeBookId}`;
-    const book = activeSourceConfig.bookInfo[activeBookId];
+    bookLink = buildReadLink({ section: activeSectionId, source: activeSourceId, collection: activeCollectionId, book: activeBookId });
+    const book = activeBook;
     if (book) {
-      // Flatten all units into a sequential list
       const sequentialUnits: { groupId: string; unitId: string; title: string }[] = [];
       
       if (book.groups) {
-        book.groups.forEach((gId) => {
+        book.groups.forEach((gId: string) => {
           const group = book.groupInfo?.[gId];
           if (group && group.units) {
-            group.units.forEach((uId) => {
+            group.units.forEach((uId: string) => {
               const uMeta = group.unitInfo?.[uId];
               if (uMeta) {
                 sequentialUnits.push({ groupId: gId, unitId: uId, title: uMeta.title });
@@ -1069,7 +1169,7 @@ export const Reader: React.FC<ReaderProps> = ({
           }
         });
       } else if (book.units) {
-        book.units.forEach((uId) => {
+        book.units.forEach((uId: string) => {
           const uMeta = book.unitInfo?.[uId];
           if (uMeta) {
             sequentialUnits.push({ groupId: 'index', unitId: uId, title: uMeta.title });
@@ -1077,20 +1177,33 @@ export const Reader: React.FC<ReaderProps> = ({
         });
       }
 
-      // Find current index
       const currentIndex = sequentialUnits.findIndex(
-        (u) => u.unitId === activeUnitId && (u.groupId === activeGroupId || activeGroupId === 'index' || activeGroupId === 'flat')
+        (u) => u.unitId === activeUnitId && (u.groupId === activeGroupId || activeGroupId === 'index' || activeGroupId === 'flat' || !activeGroupId)
       );
 
       if (currentIndex > 0) {
         const prev = sequentialUnits[currentIndex - 1];
-        prevLink = `/read/${activeSourceId}/${activeBookId}/${prev.groupId}/${prev.unitId}`;
+        prevLink = buildReadLink({
+          section: activeSectionId,
+          source: activeSourceId,
+          collection: activeCollectionId,
+          book: activeBookId,
+          group: prev.groupId,
+          unit: prev.unitId
+        });
         prevTitle = prev.title;
       }
 
       if (currentIndex !== -1 && currentIndex < sequentialUnits.length - 1) {
         const next = sequentialUnits[currentIndex + 1];
-        nextLink = `/read/${activeSourceId}/${activeBookId}/${next.groupId}/${next.unitId}`;
+        nextLink = buildReadLink({
+          section: activeSectionId,
+          source: activeSourceId,
+          collection: activeCollectionId,
+          book: activeBookId,
+          group: next.groupId,
+          unit: next.unitId
+        });
         nextTitle = next.title;
       }
     }
@@ -1099,13 +1212,11 @@ export const Reader: React.FC<ReaderProps> = ({
   return (
     <main className={`reader-container ${activeUnit?.audiofn ? 'has-audio-player' : ''} ${isAudioPlaying ? 'audio-is-playing' : ''} ${showIds ? 'show-cmi-ids' : ''} ${activeSourceId ? 'source-' + activeSourceId : ''}`} ref={containerRef} onClick={handleContainerClick}>
       <article className="reader-column">
-        {/* Inject precompiled, styled HTML fragment securely */}
         <div 
           dangerouslySetInnerHTML={{ __html: htmlContent }} 
           style={{ width: '100%' }}
         />
 
-        {/* Sequential Section Navigation Bar */}
         {bookLink && (
           <nav style={{
             display: 'grid',
@@ -1117,7 +1228,6 @@ export const Reader: React.FC<ReaderProps> = ({
             width: '100%',
             gap: '1.25rem'
           }}>
-            {/* Previous Button */}
             {prevLink ? (
               <button
                 onClick={() => navigate(prevLink!)}
@@ -1130,7 +1240,7 @@ export const Reader: React.FC<ReaderProps> = ({
                   cursor: 'pointer',
                   fontSize: '0.9rem',
                   textAlign: 'left',
-                  minWidth: 0, /* Crucial for CSS Grid ellipsis truncation */
+                  minWidth: 0,
                   width: '100%',
                   background: 'none',
                   border: 'none',
@@ -1149,10 +1259,9 @@ export const Reader: React.FC<ReaderProps> = ({
                 </div>
               </button>
             ) : (
-              <div style={{ width: '100%' }} /> /* Spacer */
+              <div style={{ width: '100%' }} />
             )}
 
-            {/* Back to Book Table of Contents */}
             <button
               onClick={() => navigate(bookLink!)}
               style={{
@@ -1176,7 +1285,6 @@ export const Reader: React.FC<ReaderProps> = ({
               <span>Table of Contents</span>
             </button>
 
-            {/* Next Button */}
             {nextLink ? (
               <button
                 onClick={() => navigate(nextLink!)}
@@ -1190,7 +1298,7 @@ export const Reader: React.FC<ReaderProps> = ({
                   cursor: 'pointer',
                   fontSize: '0.9rem',
                   textAlign: 'right',
-                  minWidth: 0, /* Crucial for CSS Grid ellipsis truncation */
+                  minWidth: 0,
                   width: '100%',
                   background: 'none',
                   border: 'none',
@@ -1209,13 +1317,12 @@ export const Reader: React.FC<ReaderProps> = ({
                 <ChevronRight size={18} style={{ flexShrink: 0 }} />
               </button>
             ) : (
-              <div style={{ width: '100%' }} /> /* Spacer */
+              <div style={{ width: '100%' }} />
             )}
           </nav>
         )}
       </article>
 
-      {/* Sticky Audio Player */}
       {activeUnit?.audiofn && (
         <div className={`sticky-audio-container ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
           <audio

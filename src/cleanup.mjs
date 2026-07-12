@@ -2,15 +2,20 @@ import { QueryCommand, DeleteCommand } from "@aws-sdk/lib-dynamodb";
 
 /**
  * Checks and deletes existing records in the database with the same partition key
- * and whose range keys start with `${book}/${unit}/`.
+ * and whose range keys start with `${collection}/${book}/${group}/`.
  *
  * @param {DynamoDBDocumentClient} docClient 
  * @param {string} tableName 
- * @param {object} options - CLI options (source, book, unit)
+ * @param {object} options - CLI options (source, section, collection, book, group, unit)
  */
 export async function cleanExistingRecords(docClient, tableName, options) {
-  const bookPrefix = `${options.book}/`;
-  console.log(`Checking for existing records under source="${options.source}" for book="${options.book}" and unit="${options.unit}"...`);
+  const pathParts = [];
+  if (options.collection) pathParts.push(options.collection);
+  pathParts.push(options.book);
+  if (options.group) pathParts.push(options.group);
+
+  const skPrefix = pathParts.join('/') + '/';
+  console.log(`Checking for existing records under source="${options.source}" with prefix="${skPrefix}" and unit="${options.unit}"...`);
 
   const queryParams = {
     TableName: tableName,
@@ -21,18 +26,18 @@ export async function cleanExistingRecords(docClient, tableName, options) {
     },
     ExpressionAttributeValues: {
       ":source": options.source,
-      ":skPrefix": bookPrefix
+      ":skPrefix": skPrefix
     }
   };
   
   const queryResult = await docClient.send(new QueryCommand(queryParams));
   if (queryResult.Items && queryResult.Items.length > 0) {
-    // Filter items in memory to match the target unit (handling optional sequence prefix)
+    // Filter items in memory to match the target unit (handling optional nested path tiers)
     const itemsToDelete = queryResult.Items.filter(item => {
       const skParts = item.sk.split('/');
-      if (skParts.length >= 2) {
-        const unitPart = skParts[1];
-        const cleanUnit = unitPart.includes(':') ? unitPart.split(':')[1] : unitPart;
+      const unitPart = skParts.find(part => part.includes(':') && !part.includes('#'));
+      if (unitPart) {
+        const cleanUnit = unitPart.split(':')[1];
         return cleanUnit === options.unit;
       }
       return false;

@@ -7023,7 +7023,7 @@
               "audiofn": "Just_one"
             },
             "Justice_needs_a_voice": {
-              "title": "No title",
+              "title": "Justice_needs_a_voice",
               "url": "raj/shorts/Justice_needs_a_voice"
             },
             "Kick_my_butt": {
@@ -7042,7 +7042,7 @@
               "audiofn": "Knowledge"
             },
             "Knowledge_knowing": {
-              "title": "No title",
+              "title": "Knowledge_knowing",
               "url": "raj/shorts/Knowledge_knowing"
             },
             "LET_every_occasion": {
@@ -7051,7 +7051,7 @@
               "audiofn": "LET_every_occasion"
             },
             "Lame_beggar": {
-              "title": "No title",
+              "title": "Lame_beggar",
               "url": "raj/shorts/Lame_beggar"
             },
             "Language_of_awareness": {
@@ -10442,7 +10442,7 @@
           }
         },
         "sg2012": {
-          "title": "No title",
+          "title": "Sg2012",
           "description": "No description",
           "units": [
             "010712",
@@ -11874,7 +11874,7 @@
                   "contents": "early"
                 },
                 "q2": {
-                  "title": "No title",
+                  "title": "Q2",
                   "url": "wom/questions/lht/q2"
                 },
                 "q3": {
@@ -14360,7 +14360,7 @@
           }
         },
         "book5": {
-          "title": "No title",
+          "title": "Book5",
           "description": "No description",
           "units": [
             "chap01",
@@ -14542,7 +14542,7 @@
           }
         },
         "book6": {
-          "title": "No title",
+          "title": "Book6",
           "description": "No description",
           "units": [
             "chap01",
@@ -14615,7 +14615,7 @@
               "subtitle": "A message from Archangel Raphael"
             },
             "chap08": {
-              "title": "No title",
+              "title": "Chap08",
               "url": "col/book6/chap08"
             },
             "chap09": {
@@ -14717,7 +14717,7 @@
           }
         },
         "book7": {
-          "title": "No title",
+          "title": "Book7",
           "description": "No description",
           "units": [
             "about",

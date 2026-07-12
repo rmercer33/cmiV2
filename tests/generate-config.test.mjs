@@ -207,3 +207,148 @@ Content.`
     assert.strictEqual(group2.unitInfo.g2unit1.url, "src2/groupedbook/group2/g2unit1");
   });
 });
+
+describe("Config Generator Script - Sections & Collections Expansion Tests", () => {
+  const tempSectionDir = path.join(__dirname, "temp-section-content");
+  const tempOutputFile = path.join(__dirname, "temp-section-config.json");
+
+  before(() => {
+    fs.mkdirSync(tempSectionDir, { recursive: true });
+
+    // Root info.json with sections
+    fs.writeFileSync(
+      path.join(tempSectionDir, "info.json"),
+      JSON.stringify({
+        title: "Sectioned Library",
+        sections: ["classical", "modern"]
+      }, null, 2)
+    );
+
+    // Section 1: classical
+    const classicalDir = path.join(tempSectionDir, "classical");
+    fs.mkdirSync(classicalDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(classicalDir, "info.json"),
+      JSON.stringify({
+        title: "Classical Teachings",
+        sources: ["acim"]
+      }, null, 2)
+    );
+
+    // Section 2: modern
+    const modernDir = path.join(tempSectionDir, "modern");
+    fs.mkdirSync(modernDir, { recursive: true });
+
+    // Source under classical: acim (with collections)
+    const acimDir = path.join(classicalDir, "acim");
+    fs.mkdirSync(acimDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(acimDir, "info.json"),
+      JSON.stringify({
+        title: "A Course in Miracles",
+        collections: ["core", "supplements"]
+      }, null, 2)
+    );
+
+    // Collection: core
+    const coreDir = path.join(acimDir, "core");
+    fs.mkdirSync(coreDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(coreDir, "info.json"),
+      JSON.stringify({
+        title: "Core Curriculum",
+        books: ["text"]
+      }, null, 2)
+    );
+
+    // Collection: supplements
+    const supplementsDir = path.join(acimDir, "supplements");
+    fs.mkdirSync(supplementsDir, { recursive: true });
+
+    // Book: text (with group)
+    const textDir = path.join(coreDir, "text");
+    fs.mkdirSync(textDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(textDir, "info.json"),
+      JSON.stringify({
+        title: "Text",
+        groups: ["ch1"]
+      }, null, 2)
+    );
+
+    // Group: ch1
+    const ch1Dir = path.join(textDir, "ch1");
+    fs.mkdirSync(ch1Dir, { recursive: true });
+    fs.writeFileSync(
+      path.join(ch1Dir, "info.json"),
+      JSON.stringify({
+        title: "Chapter 1",
+        units: ["sec1"]
+      }, null, 2)
+    );
+
+    // Unit: sec1.md
+    fs.writeFileSync(
+      path.join(ch1Dir, "sec1.md"),
+      `---
+title: "Section 1 Title"
+---
+Content of Section 1.`
+    );
+  });
+
+  after(() => {
+    if (fs.existsSync(tempSectionDir)) {
+      fs.rmSync(tempSectionDir, { recursive: true, force: true });
+    }
+    if (fs.existsSync(tempOutputFile)) {
+      fs.rmSync(tempOutputFile, { force: true });
+    }
+  });
+
+  test("Should parse sections and collections hierarchy correctly and generate deep URLs", () => {
+    const cmd = `node scripts/generate-config.js "${tempSectionDir}" "${tempOutputFile}"`;
+    const execOutput = execSync(cmd).toString();
+
+    assert.match(execOutput, /Success! Configuration generated and saved to/);
+    assert.strictEqual(fs.existsSync(tempOutputFile), true);
+
+    const config = JSON.parse(fs.readFileSync(tempOutputFile, "utf8"));
+
+    // Verify sections lists
+    assert.deepStrictEqual(config.sections, ["classical", "modern"]);
+    assert.ok(config.sectionInfo.classical, "classical section info must exist");
+    assert.strictEqual(config.sectionInfo.classical.title, "Classical Teachings");
+    assert.deepStrictEqual(config.sectionInfo.classical.sources, ["acim"]);
+
+    // Verify nested source info
+    const acimSource = config.sectionInfo.classical.sourceInfo.acim;
+    assert.ok(acimSource, "acim source info must exist under classical section");
+    assert.strictEqual(acimSource.title, "A Course in Miracles");
+    assert.deepStrictEqual(acimSource.collections, ["core", "supplements"]);
+
+    // Verify nested collection info
+    const coreCollection = acimSource.collectionInfo.core;
+    assert.ok(coreCollection, "core collection must exist under acim");
+    assert.strictEqual(coreCollection.title, "Core Curriculum");
+    assert.deepStrictEqual(coreCollection.books, ["text"]);
+
+    // Verify nested book info
+    const textBook = coreCollection.bookInfo.text;
+    assert.ok(textBook, "text book must exist under core collection");
+    assert.strictEqual(textBook.title, "Text");
+    assert.deepStrictEqual(textBook.groups, ["ch1"]);
+
+    // Verify nested group info
+    const ch1Group = textBook.groupInfo.ch1;
+    assert.ok(ch1Group, "ch1 group must exist under text book");
+    assert.strictEqual(ch1Group.title, "Chapter 1");
+    assert.deepStrictEqual(ch1Group.units, ["sec1"]);
+
+    // Verify nested unit info and URL
+    const sec1Unit = ch1Group.unitInfo.sec1;
+    assert.ok(sec1Unit, "sec1 unit must exist");
+    assert.strictEqual(sec1Unit.title, "Section 1 Title");
+    assert.strictEqual(sec1Unit.url, "classical/acim/core/text/ch1/sec1");
+  });
+});

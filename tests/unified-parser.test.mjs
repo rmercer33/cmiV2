@@ -289,3 +289,115 @@ Paragraph inside chapter one.`
     }
   });
 });
+
+describe("Unified Parser - Sections & Collections Integration Tests", () => {
+  const tempSectionDir = path.join(__dirname, "temp-parser-section-content");
+  const tempOutputDir = path.join(__dirname, "temp-parser-section-output-html");
+  const tempConfigFile = path.join(__dirname, "temp-parser-section-config.json");
+
+  before(() => {
+    fs.mkdirSync(tempSectionDir, { recursive: true });
+
+    // Root info.json with sections
+    fs.writeFileSync(
+      path.join(tempSectionDir, "info.json"),
+      JSON.stringify({
+        title: "Sectioned Library",
+        sections: ["classical"]
+      }, null, 2)
+    );
+
+    // Section 1: classical
+    const classicalDir = path.join(tempSectionDir, "classical");
+    fs.mkdirSync(classicalDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(classicalDir, "info.json"),
+      JSON.stringify({
+        title: "Classical Teachings",
+        sources: ["acim"]
+      }, null, 2)
+    );
+
+    // Source under classical: acim (with collections)
+    const acimDir = path.join(classicalDir, "acim");
+    fs.mkdirSync(acimDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(acimDir, "info.json"),
+      JSON.stringify({
+        title: "A Course in Miracles",
+        collections: ["core"]
+      }, null, 2)
+    );
+
+    // Collection: core
+    const coreDir = path.join(acimDir, "core");
+    fs.mkdirSync(coreDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(coreDir, "info.json"),
+      JSON.stringify({
+        title: "Core Curriculum",
+        books: ["text"]
+      }, null, 2)
+    );
+
+    // Book: text (flat)
+    const textDir = path.join(coreDir, "text");
+    fs.mkdirSync(textDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(textDir, "info.json"),
+      JSON.stringify({
+        title: "Text Volume",
+        units: ["sec1"]
+      }, null, 2)
+    );
+
+    // Unit: sec1.md
+    fs.writeFileSync(
+      path.join(textDir, "sec1.md"),
+      `---
+title: "Section 1 Title"
+---
+# First Heading
+Content of Section 1.`
+    );
+
+    // Parser config JSON
+    fs.writeFileSync(
+      tempConfigFile,
+      JSON.stringify({
+        contentRoot: tempSectionDir,
+        outputRoot: tempOutputDir,
+        wrapperTag: "div",
+        wrapperId: "cmi-content"
+      }, null, 2)
+    );
+  });
+
+  after(() => {
+    if (fs.existsSync(tempSectionDir)) {
+      fs.rmSync(tempSectionDir, { recursive: true, force: true });
+    }
+    if (fs.existsSync(tempOutputDir)) {
+      fs.rmSync(tempOutputDir, { recursive: true, force: true });
+    }
+    if (fs.existsSync(tempConfigFile)) {
+      fs.rmSync(tempConfigFile, { force: true });
+    }
+  });
+
+  test("Should parse sectioned content, output to correct deep HTML folder structure", () => {
+    const cmd = `node src/index.mjs --config "${tempConfigFile}"`;
+    const output = execSync(cmd).toString();
+
+    assert.match(output, /Starting processing for 1 markdown file\(s\)/);
+    assert.match(output, /Generated HTML:/);
+
+    // HTML output file should exist at the correct nested path matching relPath
+    const htmlPath = path.join(tempOutputDir, "classical/acim/core/text/sec1.html");
+    assert.strictEqual(fs.existsSync(htmlPath), true, "HTML output should be placed in classical/acim/core/text/sec1.html");
+
+    const htmlContent = fs.readFileSync(htmlPath, "utf8");
+    assert.match(htmlContent, /<h1 id="h1">First Heading<\/h1>/);
+    assert.match(htmlContent, /<p id="p1">Content of Section 1\.<\/p>/);
+  });
+});

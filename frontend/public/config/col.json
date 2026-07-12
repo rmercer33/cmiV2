@@ -741,7 +741,7 @@
       }
     },
     "book5": {
-      "title": "No title",
+      "title": "Book5",
       "description": "No description",
       "units": [
         "chap01",
@@ -923,7 +923,7 @@
       }
     },
     "book6": {
-      "title": "No title",
+      "title": "Book6",
       "description": "No description",
       "units": [
         "chap01",
@@ -996,7 +996,7 @@
           "subtitle": "A message from Archangel Raphael"
         },
         "chap08": {
-          "title": "No title",
+          "title": "Chap08",
           "url": "col/book6/chap08"
         },
         "chap09": {
@@ -1098,7 +1098,7 @@
       }
     },
     "book7": {
-      "title": "No title",
+      "title": "Book7",
       "description": "No description",
       "units": [
         "about",

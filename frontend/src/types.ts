@@ -1,21 +1,5 @@
 // types.ts - cmiLibrary TypeScript Definitions
 
-export interface LibraryIndex {
-  title: string;
-  description: string;
-  contact?: string;
-  email?: string;
-  sources: string[];
-  sourceInfo: {
-    [sourceId: string]: {
-      title: string;
-      description: string;
-      books: string[];
-      image?: string; // Source logo or cover URL
-    };
-  };
-}
-
 export interface UnitInfo {
   title: string;
   url: string;
@@ -50,6 +34,15 @@ export interface BookInfo {
   };
 }
 
+export interface CollectionInfo {
+  title: string;
+  description: string;
+  books: string[];
+  bookInfo: {
+    [bookId: string]: BookInfo;
+  };
+}
+
 export interface SourceInfo {
   title: string;
   description: string;
@@ -60,8 +53,48 @@ export interface SourceInfo {
   email1?: string;
   email2?: string;
   copyright?: string;
-  books: string[];
-  bookInfo: {
+  books?: string[];
+  bookInfo?: {
     [bookId: string]: BookInfo;
+  };
+  collections?: string[];
+  collectionInfo?: {
+    [collectionId: string]: CollectionInfo;
+  };
+}
+
+export interface SectionInfo {
+  title: string;
+  description: string;
+  sources: string[];
+  sourceInfo: {
+    [sourceId: string]: {
+      title: string;
+      description: string;
+      books?: string[];
+      collections?: string[];
+      image?: string; // Source logo or cover URL
+    };
+  };
+}
+
+export interface LibraryIndex {
+  title: string;
+  description: string;
+  contact?: string;
+  email?: string;
+  sections?: string[];
+  sectionInfo?: {
+    [sectionId: string]: SectionInfo;
+  };
+  sources?: string[];
+  sourceInfo?: {
+    [sourceId: string]: {
+      title: string;
+      description: string;
+      books?: string[];
+      collections?: string[];
+      image?: string; // Source logo or cover URL
+    };
   };
 }

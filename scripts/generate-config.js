@@ -128,192 +128,252 @@ function readInfoJson(dirPath) {
   return null;
 }
 
+/**
+ * Scans a directory and returns names of its direct subdirectories.
+ */
+function getSubdirectories(dirPath) {
+  if (!fs.existsSync(dirPath)) return [];
+  return fs.readdirSync(dirPath).filter(name => {
+    if (name.startsWith('.')) return false;
+    const fullPath = path.join(dirPath, name);
+    return fs.statSync(fullPath).isDirectory();
+  });
+}
+
+/**
+ * Processes an individual Markdown unit.
+ */
+function processUnit(unitFilePath, unitId, urlParts) {
+  let unitTitle = capitalize(unitId);
+  let extraData = {};
+
+  try {
+    const content = fs.readFileSync(unitFilePath, 'utf8');
+    const parsed = parseFrontmatter(content);
+    extraData = parsed.data;
+    unitTitle = parsed.data.title || capitalize(unitId);
+  } catch (err) {
+    console.warn(`[Warning] Failed to parse frontmatter for unit "${unitFilePath}": ${err.message}`);
+  }
+
+  const unitObj = {
+    title: unitTitle,
+    url: urlParts.join('/'),
+    ...extraData
+  };
+
+  unitObj.title = unitTitle;
+  unitObj.url = urlParts.join('/');
+
+  return unitObj;
+}
+
+/**
+ * Processes a Book level directory.
+ */
+function processBook(bookPath, bookId, urlParts) {
+  const bookInfo = readInfoJson(bookPath) || {};
+  const defaultBookMeta = DEFAULT_METADATA.books[bookId] || {};
+
+  const bookNode = {
+    title: defaultBookMeta.title || capitalize(bookId),
+    description: defaultBookMeta.description || defaultBookMeta.title || "No description",
+    ...bookInfo
+  };
+
+  const bookEntries = fs.readdirSync(bookPath).filter(name => !name.startsWith('.'));
+  const subdirectories = [];
+  const markdownFiles = [];
+
+  for (const entry of bookEntries) {
+    const entryPath = path.join(bookPath, entry);
+    if (fs.statSync(entryPath).isDirectory()) {
+      subdirectories.push(entry);
+    } else if (entry.endsWith('.md')) {
+      markdownFiles.push(entry);
+    }
+  }
+
+  const hasGroups = subdirectories.length > 0;
+
+  if (hasGroups) {
+    bookNode.groups = sortItems(subdirectories, bookInfo.groups);
+    bookNode.groupInfo = {};
+
+    for (const groupId of bookNode.groups) {
+      const groupPath = path.join(bookPath, groupId);
+      const groupInfo = readInfoJson(groupPath) || {};
+
+      const physicalUnits = fs.readdirSync(groupPath).filter(name => {
+        return !name.startsWith('.') && name.endsWith('.md');
+      });
+
+      const unitIds = physicalUnits.map(name => name.slice(0, -3));
+      const sortedUnitIds = sortItems(unitIds, groupInfo.units);
+
+      let groupTitle = groupInfo.title;
+      let firstUnitFM = null;
+
+      if (!groupTitle && sortedUnitIds.length > 0) {
+        const firstUnitPath = path.join(groupPath, `${sortedUnitIds[0]}.md`);
+        try {
+          const content = fs.readFileSync(firstUnitPath, 'utf8');
+          firstUnitFM = parseFrontmatter(content).data;
+        } catch (err) {}
+      }
+
+      bookNode.groupInfo[groupId] = {
+        title: groupTitle || getGroupTitle(groupId, firstUnitFM) || "No title",
+        ...groupInfo,
+        units: sortedUnitIds,
+        unitInfo: {}
+      };
+
+      for (const unitId of sortedUnitIds) {
+        const unitFilePath = path.join(groupPath, `${unitId}.md`);
+        bookNode.groupInfo[groupId].unitInfo[unitId] = processUnit(
+          unitFilePath,
+          unitId,
+          urlParts.concat([groupId, unitId])
+        );
+      }
+    }
+  } else {
+    const unitIds = markdownFiles.map(name => name.slice(0, -3));
+    bookNode.units = sortItems(unitIds, bookInfo.units);
+    bookNode.unitInfo = {};
+
+    for (const unitId of bookNode.units) {
+      const unitFilePath = path.join(bookPath, `${unitId}.md`);
+      bookNode.unitInfo[unitId] = processUnit(
+        unitFilePath,
+        unitId,
+        urlParts.concat([unitId])
+      );
+    }
+  }
+
+  return bookNode;
+}
+
+/**
+ * Processes a Source level directory.
+ */
+function processSource(sourcePath, sourceId, urlParts) {
+  const sourceInfo = readInfoJson(sourcePath) || {};
+  const defaultSourceMeta = DEFAULT_METADATA.sources[sourceId] || {};
+
+  const sourceNode = {
+    title: defaultSourceMeta.title || capitalize(sourceId),
+    description: defaultSourceMeta.description || defaultSourceMeta.title || "No description",
+    ...sourceInfo
+  };
+
+  const physicalSubdirs = getSubdirectories(sourcePath);
+
+  if (Array.isArray(sourceInfo.collections)) {
+    sourceNode.collections = sortItems(physicalSubdirs, sourceInfo.collections);
+    sourceNode.collectionInfo = {};
+
+    for (const collectionId of sourceNode.collections) {
+      const collectionPath = path.join(sourcePath, collectionId);
+      const collectionInfo = readInfoJson(collectionPath) || {};
+
+      const collectionNode = {
+        title: collectionInfo.title || capitalize(collectionId),
+        description: collectionInfo.description || capitalize(collectionId),
+        ...collectionInfo,
+        books: [],
+        bookInfo: {}
+      };
+
+      const physicalBooks = getSubdirectories(collectionPath);
+      collectionNode.books = sortItems(physicalBooks, collectionInfo.books);
+
+      for (const bookId of collectionNode.books) {
+        collectionNode.bookInfo[bookId] = processBook(
+          path.join(collectionPath, bookId),
+          bookId,
+          urlParts.concat([collectionId, bookId])
+        );
+      }
+
+      sourceNode.collectionInfo[collectionId] = collectionNode;
+    }
+  } else {
+    sourceNode.books = sortItems(physicalSubdirs, sourceInfo.books);
+    sourceNode.bookInfo = {};
+
+    for (const bookId of sourceNode.books) {
+      sourceNode.bookInfo[bookId] = processBook(
+        path.join(sourcePath, bookId),
+        bookId,
+        urlParts.concat([bookId])
+      );
+    }
+  }
+
+  return sourceNode;
+}
+
 function generateConfig() {
   console.log(`Content Directory: ${contentDir}`);
   console.log(`Output File: ${outputFilePath}`);
   console.log('Generating config.json...');
 
-  // Initialize config object with any properties in content/info.json
-  const rootInfo = readInfoJson(contentDir) || {};
-  const config = {
-    title: "cmiLibrary",
-    description: "cmiLibrary Website Configuration",
-    ...rootInfo,
-    sources: [],
-    sourceInfo: {}
-  };
-
-  // Find physical sources (subdirectories under content/)
   if (!fs.existsSync(contentDir)) {
     console.error(`Error: Content directory "${contentDir}" does not exist.`);
     process.exit(1);
   }
 
-  const physicalSources = fs.readdirSync(contentDir).filter(name => {
-    if (name.startsWith('.')) return false;
-    const fullPath = path.join(contentDir, name);
-    return fs.statSync(fullPath).isDirectory();
-  });
+  const rootInfo = readInfoJson(contentDir) || {};
+  const config = {
+    title: "cmiLibrary",
+    description: "cmiLibrary Website Configuration",
+    ...rootInfo
+  };
 
-  // Sort sources
-  config.sources = sortItems(physicalSources, rootInfo.sources);
+  const physicalSubdirs = getSubdirectories(contentDir);
 
-  // Traverse each source
-  for (const sourceId of config.sources) {
-    const sourcePath = path.join(contentDir, sourceId);
-    const sourceInfo = readInfoJson(sourcePath) || {};
-    const defaultSourceMeta = DEFAULT_METADATA.sources[sourceId] || {};
+  if (Array.isArray(rootInfo.sections)) {
+    config.sections = sortItems(physicalSubdirs, rootInfo.sections);
+    config.sectionInfo = {};
 
-    config.sourceInfo[sourceId] = {
-      title: defaultSourceMeta.title || "No title",
-      description: defaultSourceMeta.description || "No description",
-      ...sourceInfo,
-      books: [],
-      bookInfo: {}
-    };
+    for (const sectionId of config.sections) {
+      const sectionPath = path.join(contentDir, sectionId);
+      const sectionInfo = readInfoJson(sectionPath) || {};
 
-    // Find physical books
-    const physicalBooks = fs.readdirSync(sourcePath).filter(name => {
-      if (name.startsWith('.')) return false;
-      const fullPath = path.join(sourcePath, name);
-      return fs.statSync(fullPath).isDirectory();
-    });
-
-    config.sourceInfo[sourceId].books = sortItems(physicalBooks, sourceInfo.books);
-
-    // Traverse each book
-    for (const bookId of config.sourceInfo[sourceId].books) {
-      const bookPath = path.join(sourcePath, bookId);
-      const bookInfo = readInfoJson(bookPath) || {};
-      const defaultBookMeta = DEFAULT_METADATA.books[bookId] || {};
-
-      const bookNode = {
-        title: defaultBookMeta.title || "No title",
-        description: defaultBookMeta.description || "No description",
-        ...bookInfo
+      const sectionNode = {
+        title: sectionInfo.title || capitalize(sectionId),
+        description: sectionInfo.description || capitalize(sectionId),
+        ...sectionInfo,
+        sources: [],
+        sourceInfo: {}
       };
 
-      // Determine if book contains groups or is flat
-      // Scan directory entries
-      const bookEntries = fs.readdirSync(bookPath).filter(name => !name.startsWith('.'));
-      
-      const subdirectories = [];
-      const markdownFiles = [];
+      const physicalSources = getSubdirectories(sectionPath);
+      sectionNode.sources = sortItems(physicalSources, sectionInfo.sources);
 
-      for (const entry of bookEntries) {
-        const entryPath = path.join(bookPath, entry);
-        if (fs.statSync(entryPath).isDirectory()) {
-          subdirectories.push(entry);
-        } else if (entry.endsWith('.md')) {
-          markdownFiles.push(entry);
-        }
+      for (const sourceId of sectionNode.sources) {
+        sectionNode.sourceInfo[sourceId] = processSource(
+          path.join(sectionPath, sourceId),
+          sourceId,
+          [sectionId, sourceId]
+        );
       }
 
-      const hasGroups = subdirectories.length > 0;
+      config.sectionInfo[sectionId] = sectionNode;
+    }
+  } else {
+    config.sources = sortItems(physicalSubdirs, rootInfo.sources);
+    config.sourceInfo = {};
 
-      if (hasGroups) {
-        // Book has groups
-        bookNode.groups = sortItems(subdirectories, bookInfo.groups);
-        bookNode.groupInfo = {};
-
-        // Traverse groups
-        for (const groupId of bookNode.groups) {
-          const groupPath = path.join(bookPath, groupId);
-          const groupInfo = readInfoJson(groupPath) || {};
-
-          // Find physical markdown units in this group
-          const physicalUnits = fs.readdirSync(groupPath).filter(name => {
-            return !name.startsWith('.') && name.endsWith('.md');
-          });
-
-          const unitIds = physicalUnits.map(name => name.slice(0, -3));
-          const sortedUnitIds = sortItems(unitIds, groupInfo.units);
-
-          // Get group title fallback using the first unit's frontmatter if groupInfo lacks title
-          let groupTitle = groupInfo.title;
-          let firstUnitFM = null;
-
-          if (!groupTitle && sortedUnitIds.length > 0) {
-            const firstUnitPath = path.join(groupPath, `${sortedUnitIds[0]}.md`);
-            try {
-              const content = fs.readFileSync(firstUnitPath, 'utf8');
-              firstUnitFM = parseFrontmatter(content).data;
-            } catch (err) {
-              // Ignore read errors for fallback title determination
-            }
-          }
-
-          bookNode.groupInfo[groupId] = {
-            title: groupTitle || getGroupTitle(groupId, firstUnitFM) || "No title",
-            ...groupInfo,
-            units: sortedUnitIds,
-            unitInfo: {}
-          };
-
-          // Populate unitInfo for each unit in group
-          for (const unitId of sortedUnitIds) {
-            const unitFilePath = path.join(groupPath, `${unitId}.md`);
-            let unitTitle = "No title";
-            let extraData = {};
-
-            try {
-              const content = fs.readFileSync(unitFilePath, 'utf8');
-              const parsed = parseFrontmatter(content);
-              extraData = parsed.data;
-              unitTitle = parsed.data.title || "No title";
-            } catch (err) {
-              console.warn(`[Warning] Failed to parse frontmatter for unit "${unitFilePath}": ${err.message}`);
-            }
-
-            // Clean up title and define basic unit fields
-            const unitObj = {
-              title: unitTitle,
-              url: `${sourceId}/${bookId}/${groupId}/${unitId}`,
-              ...extraData
-            };
-            
-            // Avoid duplicate url or title fields from extraData
-            unitObj.title = unitTitle;
-            unitObj.url = `${sourceId}/${bookId}/${groupId}/${unitId}`;
-
-            bookNode.groupInfo[groupId].unitInfo[unitId] = unitObj;
-          }
-        }
-      } else {
-        // Book is flat (no groups)
-        const unitIds = markdownFiles.map(name => name.slice(0, -3));
-        bookNode.units = sortItems(unitIds, bookInfo.units);
-        bookNode.unitInfo = {};
-
-        // Populate unitInfo directly under book
-        for (const unitId of bookNode.units) {
-          const unitFilePath = path.join(bookPath, `${unitId}.md`);
-          let unitTitle = "No title";
-          let extraData = {};
-
-          try {
-            const content = fs.readFileSync(unitFilePath, 'utf8');
-            const parsed = parseFrontmatter(content);
-            extraData = parsed.data;
-            unitTitle = parsed.data.title || "No title";
-          } catch (err) {
-            console.warn(`[Warning] Failed to parse frontmatter for unit "${unitFilePath}": ${err.message}`);
-          }
-
-          const unitObj = {
-            title: unitTitle,
-            url: `${sourceId}/${bookId}/${unitId}`,
-            ...extraData
-          };
-
-          unitObj.title = unitTitle;
-          unitObj.url = `${sourceId}/${bookId}/${unitId}`;
-
-          bookNode.unitInfo[unitId] = unitObj;
-        }
-      }
-
-      config.sourceInfo[sourceId].bookInfo[bookId] = bookNode;
+    for (const sourceId of config.sources) {
+      config.sourceInfo[sourceId] = processSource(
+        path.join(contentDir, sourceId),
+        sourceId,
+        [sourceId]
+      );
     }
   }
 

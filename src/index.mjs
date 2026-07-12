@@ -70,38 +70,107 @@ async function getSingleFileSequence(filepath) {
 
 /**
  * Traverses directories recursively to find markdown files, respecting any ordering rules in info.json files.
+ * Re-built to handle optional sections and collections recursively with 100% backward compatibility.
  */
-async function getMarkdownFiles(dir) {
+async function getMarkdownFiles(contentRoot) {
   const results = [];
-  
-  async function traverse(currentDir) {
+
+  async function traverse(currentDir, context) {
     const info = await readInfoJson(currentDir) || {};
     const entries = await readdir(currentDir, { withFileTypes: true });
 
     const dirs = entries.filter(e => e.isDirectory()).map(e => e.name);
     const files = entries.filter(e => e.isFile() && e.name.endsWith(".md")).map(e => e.name);
 
-    const orderRules = info.books || info.groups;
+    // Identify what this folder represents and how we sort its subdirectories
+    let orderRules;
+    let nextContextBuilder = (dirName) => ({ ...context });
+
+    if (context.isRoot) {
+      if (Array.isArray(info.sections)) {
+        orderRules = info.sections;
+        nextContextBuilder = (dirName) => ({
+          ...context,
+          isRoot: false,
+          section: dirName
+        });
+      } else {
+        orderRules = info.sources;
+        nextContextBuilder = (dirName) => ({
+          ...context,
+          isRoot: false,
+          source: dirName
+        });
+      }
+    } else if (context.section && !context.source) {
+      orderRules = info.sources;
+      nextContextBuilder = (dirName) => ({
+        ...context,
+        source: dirName
+      });
+    } else if (context.source && !context.collection && !context.book) {
+      if (Array.isArray(info.collections)) {
+        orderRules = info.collections;
+        nextContextBuilder = (dirName) => ({
+          ...context,
+          collection: dirName
+        });
+      } else {
+        orderRules = info.books;
+        nextContextBuilder = (dirName) => ({
+          ...context,
+          book: dirName
+        });
+      }
+    } else if (context.collection && !context.book) {
+      orderRules = info.books;
+      nextContextBuilder = (dirName) => ({
+        ...context,
+        book: dirName
+      });
+    } else if (context.book && !context.group) {
+      orderRules = info.groups;
+      nextContextBuilder = (dirName) => ({
+        ...context,
+        group: dirName
+      });
+    }
+
     const sortedDirs = sortItems(dirs, orderRules);
 
     const fileBasenames = files.map(f => f.slice(0, -3));
     const sortedBasenames = sortItems(fileBasenames, info.units);
     const sortedFiles = sortedBasenames.map(name => `${name}.md`);
 
+    // Depth-first traversal
     for (const dirName of sortedDirs) {
-      await traverse(path.join(currentDir, dirName));
+      await traverse(path.join(currentDir, dirName), nextContextBuilder(dirName));
     }
-    for (let i = 0; i < sortedFiles.length; i++) {
-      const fileName = sortedFiles[i];
-      const seqStr = String(i + 1).padStart(3, "0");
-      results.push({
-        filepath: path.join(currentDir, fileName),
-        sequence: seqStr
-      });
+
+    // Process files in this directory (only if it represents a valid unit inside a book)
+    if (context.source && context.book) {
+      for (let i = 0; i < sortedFiles.length; i++) {
+        const fileName = sortedFiles[i];
+        const seqStr = String(i + 1).padStart(3, "0");
+        const unitId = fileName.slice(0, -3);
+
+        const fileContext = { ...context, unit: unitId };
+        delete fileContext.isRoot;
+
+        const filepath = path.join(currentDir, fileName);
+        const relPath = path.relative(contentRoot, filepath);
+
+        results.push({
+          filepath,
+          sequence: seqStr,
+          relPath,
+          ...fileContext
+        });
+      }
     }
   }
 
-  await traverse(dir);
+  await traverse(contentRoot, { isRoot: true });
   return results;
 }
 
@@ -243,41 +312,38 @@ async function run() {
       }
       const absFilePath = path.resolve(filepath);
       
-      // Determine source, book, unit from options or derive from file name/path
-      const relPath = path.relative(contentRoot, absFilePath);
-      const segments = relPath.split(path.sep);
-
-      let derivedSource = options.source;
-      let derivedBook = options.book;
-      let derivedUnit = options.unit;
-
-      if (!derivedSource || !derivedBook || !derivedUnit) {
-        if (segments.length >= 3) {
-          derivedSource = derivedSource || segments[0];
-          derivedBook = derivedBook || segments[1];
-          if (segments.length === 4) {
-            derivedUnit = derivedUnit || segments[3].replace(/\.md$/, "");
-          } else {
-            derivedUnit = derivedUnit || segments[2].replace(/\.md$/, "");
-          }
-        } else {
-          // If not enough segments, fallback to defaults or input options
-          derivedSource = derivedSource || "unknown";
-          derivedBook = derivedBook || "unknown";
-          derivedUnit = derivedUnit || path.basename(filepath, ".md");
-        }
+      let fileObj = null;
+      try {
+        const allFiles = await getMarkdownFiles(contentRoot);
+        fileObj = allFiles.find(f => f.filepath === absFilePath);
+      } catch (err) {
+        // Fallback or ignore
       }
 
-      const fileSeq = await getSingleFileSequence(absFilePath);
-
-      filesToProcess.push({
-        filepath: absFilePath,
-        source: derivedSource,
-        book: derivedBook,
-        unit: derivedUnit,
-        sequence: fileSeq,
-        relPath: path.join(derivedSource, derivedBook, path.basename(filepath))
-      });
+      if (fileObj) {
+        filesToProcess.push({
+          ...fileObj,
+          section: options.section || fileObj.section,
+          source: options.source || fileObj.source,
+          collection: options.collection || fileObj.collection,
+          book: options.book || fileObj.book,
+          group: options.group || fileObj.group,
+          unit: options.unit || fileObj.unit
+        });
+      } else {
+        // Fallback for files outside content root or missing metadata
+        const fileSeq = await getSingleFileSequence(absFilePath);
+        const relPath = path.relative(contentRoot, absFilePath);
+        const basename = path.basename(absFilePath, ".md");
+        filesToProcess.push({
+          filepath: absFilePath,
+          source: options.source || "unknown",
+          book: options.book || "unknown",
+          unit: options.unit || basename,
+          sequence: fileSeq,
+          relPath
+        });
+      }
     } else {
       // Directory Mode
       if (!fs.existsSync(contentRoot)) {
@@ -288,41 +354,15 @@ async function run() {
       const allFiles = await getMarkdownFiles(contentRoot);
       
       for (const fileObj of allFiles) {
-        const file = fileObj.filepath;
-        const relPath = path.relative(contentRoot, file);
-        
         // Filter by --path option if specified
         if (options.path) {
           const normFilter = path.normalize(options.path);
-          if (!relPath.startsWith(normFilter)) {
+          if (!fileObj.relPath.startsWith(normFilter)) {
             continue;
           }
         }
 
-        const segments = relPath.split(path.sep);
-        if (segments.length < 3) {
-          // Skip top-level or structurally invalid markdown files
-          continue;
-        }
-
-        const derivedSource = segments[0];
-        const derivedBook = segments[1];
-        let derivedUnit;
-
-        if (segments.length === 4) {
-          derivedUnit = segments[3].replace(/\.md$/, "");
-        } else {
-          derivedUnit = segments[2].replace(/\.md$/, "");
-        }
-
-        filesToProcess.push({
-          filepath: file,
-          source: derivedSource,
-          book: derivedBook,
-          unit: derivedUnit,
-          sequence: fileObj.sequence,
-          relPath
-        });
+        filesToProcess.push(fileObj);
       }
     }
 
@@ -399,11 +439,9 @@ async function run() {
         return match;
       });
 
-      // Determine HTML output file path
-      // Mirror the source hierarchy
-      let outFilePath;
+      // Determine HTML output file path (using relPath to perfectly mirror source hierarchy)
       const htmRelPath = fileInfo.relPath.replace(/\.md$/, ".html");
-      outFilePath = path.join(outputRoot, htmRelPath);
+      const outFilePath = path.join(outputRoot, htmRelPath);
 
       // Ensure output directory exists and write HTML
       await mkdir(path.dirname(outFilePath), { recursive: true });
@@ -415,21 +453,41 @@ async function run() {
         // Clean up existing records first
         await cleanExistingRecords(docClient, tableName, {
           source: fileInfo.source,
+          section: fileInfo.section,
+          collection: fileInfo.collection,
           book: fileInfo.book,
+          group: fileInfo.group,
           unit: fileInfo.unit
         });
 
         // Insert new records
         for (const item of items) {
-          const sk = `${fileInfo.book}/${fileInfo.sequence}:${fileInfo.unit}/${item.key}`;
+          // Construct the fully-qualified path Sort Key (SK) after source
+          const skParts = [];
+          if (fileInfo.collection) skParts.push(fileInfo.collection);
+          skParts.push(fileInfo.book);
+          if (fileInfo.group) skParts.push(fileInfo.group);
+          skParts.push(`${fileInfo.sequence}:${fileInfo.unit}`);
+          skParts.push(item.key);
+
+          const sk = skParts.join('/');
+
+          const putItem = {
+            source: fileInfo.source,
+            sk: sk,
+            type: item.type,
+            text: item.text,
+            book: fileInfo.book,
+            unit: fileInfo.unit
+          };
+
+          if (fileInfo.section) putItem.section = fileInfo.section;
+          if (fileInfo.collection) putItem.collection = fileInfo.collection;
+          if (fileInfo.group) putItem.group = fileInfo.group;
+
           const putParams = {
             TableName: tableName,
-            Item: {
-              source: fileInfo.source,
-              sk: sk,
-              type: item.type,
-              text: item.text,
-            }
+            Item: putItem
           };
 
           const command = new PutCommand(putParams);

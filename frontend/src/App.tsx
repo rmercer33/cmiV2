@@ -1,19 +1,34 @@
 // App.tsx - cmiLibrary SPA Shell and State Coordinator
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter, Routes, Route, useParams, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Menu, Settings } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { Reader } from './Reader';
 import type { LibraryIndex, SourceInfo } from './types';
 
+// Helper to construct URLs dynamically for any layout depth
+export function buildReadLink(parts: {
+  section?: string;
+  source?: string;
+  collection?: string;
+  book?: string;
+  group?: string;
+  unit?: string;
+}) {
+  const segments = [];
+  if (parts.section) segments.push(parts.section);
+  if (parts.source) segments.push(parts.source);
+  if (parts.collection) segments.push(parts.collection);
+  if (parts.book) segments.push(parts.book);
+  if (parts.group && parts.group !== 'index' && parts.group !== 'flat') segments.push(parts.group);
+  if (parts.unit) segments.push(parts.unit);
+  return `/read/${segments.join('/')}`;
+}
+
 // Child component that resides inside the BrowserRouter context, allowing hooks to function
 const AppContent: React.FC = () => {
-  const { sourceId, bookId, groupId, unitId } = useParams<{
-    sourceId?: string;
-    bookId?: string;
-    groupId?: string;
-    unitId?: string;
-  }>();
+  const location = useLocation();
+  const segments = location.pathname.split('/').filter((s) => s && s !== 'read');
 
   const [libraryIndex, setLibraryIndex] = useState<LibraryIndex | null>(null);
   const [activeSourceConfig, setActiveSourceConfig] = useState<SourceInfo | null>(null);
@@ -53,31 +68,99 @@ const AppContent: React.FC = () => {
     setTheme(savedTheme);
   }, []);
 
-  // 2. Fetch full source configuration on-demand when active sourceId changes
+  // Central Path Resolver: computed dynamically on render based on current URL path segments
+  let resolvedSectionId: string | undefined = undefined;
+  let resolvedSourceId: string | undefined = undefined;
+  let resolvedCollectionId: string | undefined = undefined;
+  let resolvedBookId: string | undefined = undefined;
+  let resolvedGroupId: string | undefined = undefined;
+  let resolvedUnitId: string | undefined = undefined;
+
+  if (libraryIndex && segments.length > 0) {
+    let segmentIndex = 0;
+    const firstSegment = segments[segmentIndex];
+
+    // Determine if first segment is a Section or Source
+    if (libraryIndex.sections && libraryIndex.sections.includes(firstSegment)) {
+      resolvedSectionId = firstSegment;
+      segmentIndex++;
+      if (segmentIndex < segments.length) {
+        resolvedSourceId = segments[segmentIndex];
+        segmentIndex++;
+      }
+    } else if (libraryIndex.sources && libraryIndex.sources.includes(firstSegment)) {
+      resolvedSourceId = firstSegment;
+      segmentIndex++;
+    }
+
+    // Determine collections, books, groups, and units if source is resolved and config is loaded
+    if (resolvedSourceId && activeSourceConfig) {
+      if (segmentIndex < segments.length) {
+        const nextSegment = segments[segmentIndex];
+
+        if (activeSourceConfig.collections && activeSourceConfig.collections.includes(nextSegment)) {
+          resolvedCollectionId = nextSegment;
+          segmentIndex++;
+          if (segmentIndex < segments.length) {
+            resolvedBookId = segments[segmentIndex];
+            segmentIndex++;
+          }
+        } else if (activeSourceConfig.books && activeSourceConfig.books.includes(nextSegment)) {
+          resolvedBookId = nextSegment;
+          segmentIndex++;
+        }
+      }
+
+      if (resolvedBookId) {
+        const bookMeta = activeSourceConfig.bookInfo?.[resolvedBookId];
+        if (bookMeta) {
+          if (segmentIndex < segments.length) {
+            const nextSegment = segments[segmentIndex];
+
+            if (bookMeta.groups && bookMeta.groups.includes(nextSegment)) {
+              resolvedGroupId = nextSegment;
+              segmentIndex++;
+              if (segmentIndex < segments.length) {
+                resolvedUnitId = segments[segmentIndex];
+              }
+            } else if (bookMeta.units && bookMeta.units.includes(nextSegment)) {
+              resolvedUnitId = nextSegment;
+            } else {
+              // Backward compatibility check for implicit "index" or "flat" groups
+              if (nextSegment === 'index' || nextSegment === 'flat') {
+                resolvedGroupId = nextSegment;
+                segmentIndex++;
+                if (segmentIndex < segments.length) {
+                  resolvedUnitId = segments[segmentIndex];
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 2. Fetch full source configuration on-demand when resolvedSourceId changes
   useEffect(() => {
-    if (!sourceId) {
+    if (!resolvedSourceId) {
       setActiveSourceConfig(null);
       return;
     }
 
-    // Only load if it's different from the already active config
-    if (activeSourceConfig && sourceId === sourceId) {
-      // In TS, sourceId from useParams is a string. If it matches current, skip fetch.
-    }
-
-    fetch(`/config/${sourceId}.json`)
+    fetch(`/config/${resolvedSourceId}.json`)
       .then((res) => {
-        if (!res.ok) throw new Error(`Failed to load config for source: ${sourceId}`);
+        if (!res.ok) throw new Error(`Failed to load config for source: ${resolvedSourceId}`);
         return res.json();
       })
       .then((data: SourceInfo) => {
         setActiveSourceConfig(data);
       })
       .catch((err) => {
-        console.error(`Error loading source config (${sourceId}):`, err);
+        console.error(`Error loading source config (${resolvedSourceId}):`, err);
         setActiveSourceConfig(null);
       });
-  }, [sourceId]);
+  }, [resolvedSourceId]);
 
   // 3. Reflect theme state changes to document DOM root
   useEffect(() => {
@@ -89,14 +172,48 @@ const AppContent: React.FC = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed);
   };
 
-  // Resolve active structures in a type-safe manner for headers/breadcrumbs lookup
-  const activeBook = bookId && activeSourceConfig ? activeSourceConfig.bookInfo[bookId] : null;
-  const activeGroup = activeBook && groupId && activeBook.groupInfo ? activeBook.groupInfo[groupId] : null;
-  const activeUnit = activeBook && unitId 
-    ? (groupId === 'index' || groupId === 'flat' 
-        ? activeBook.unitInfo?.[unitId] 
-        : activeGroup?.unitInfo?.[unitId])
+  // Centralized Breadcrumb, Title & Media definitions
+  const activeBook = resolvedBookId && activeSourceConfig
+    ? (resolvedCollectionId && activeSourceConfig.collectionInfo
+        ? activeSourceConfig.collectionInfo[resolvedCollectionId]?.bookInfo[resolvedBookId]
+        : activeSourceConfig.bookInfo?.[resolvedBookId])
     : null;
+
+  const activeGroup = activeBook && resolvedGroupId && activeBook.groupInfo
+    ? activeBook.groupInfo[resolvedGroupId]
+    : null;
+
+  const activeUnit = activeBook && resolvedUnitId
+    ? (resolvedGroupId === 'index' || resolvedGroupId === 'flat' || !resolvedGroupId
+        ? activeBook.unitInfo?.[resolvedUnitId]
+        : activeGroup?.unitInfo?.[resolvedUnitId])
+    : null;
+
+  // Compute clean S3/local media suffix dynamically starting from collection or book folder down to audio file
+  const audioParts: string[] = [];
+  if (resolvedCollectionId) audioParts.push(resolvedCollectionId);
+  if (resolvedBookId) audioParts.push(resolvedBookId);
+  if (resolvedGroupId && resolvedGroupId !== 'index' && resolvedGroupId !== 'flat') {
+    audioParts.push(resolvedGroupId);
+  }
+  const audioFileName = activeUnit?.audiofn || resolvedUnitId;
+  if (audioFileName) audioParts.push(audioFileName);
+
+  const s3PathSuffix = audioParts.join('/');
+
+  // Create clean ResolvedContext wrapper prop for downstream child views
+  const resolvedContext = {
+    sectionId: resolvedSectionId,
+    sourceId: resolvedSourceId,
+    collectionId: resolvedCollectionId,
+    bookId: resolvedBookId,
+    groupId: resolvedGroupId,
+    unitId: resolvedUnitId,
+    activeBook,
+    activeGroup,
+    activeUnit,
+    s3PathSuffix
+  };
 
   // 4. Update HTML Document Title contextually
   useEffect(() => {
@@ -131,7 +248,7 @@ const AppContent: React.FC = () => {
             </Link>
           </div>
 
-          {isSidebarCollapsed && sourceId && activeSourceConfig && (
+          {isSidebarCollapsed && resolvedSourceId && activeSourceConfig && (
             <div className="header-breadcrumbs-stacked">
               <div className="crumb-line-source">
                 {activeSourceConfig.title}
@@ -140,7 +257,7 @@ const AppContent: React.FC = () => {
                 {activeBook && (
                   <span className="crumb-book">{activeBook.title}</span>
                 )}
-                {activeGroup && groupId !== 'index' && groupId !== 'flat' && (
+                {activeGroup && resolvedGroupId !== 'index' && resolvedGroupId !== 'flat' && (
                   <>
                     <span className="crumb-separator">›</span>
                     <span className="crumb-group">{activeGroup.title}</span>
@@ -207,10 +324,7 @@ const AppContent: React.FC = () => {
         {/* Dynamic Sidebar menu */}
         <Sidebar
           libraryIndex={libraryIndex}
-          activeSourceId={sourceId}
-          activeBookId={bookId}
-          activeGroupId={groupId}
-          activeUnitId={unitId}
+          resolvedContext={resolvedContext}
           activeSourceConfig={activeSourceConfig}
           isCollapsed={isSidebarCollapsed}
           setIsCollapsed={setIsSidebarCollapsed}
@@ -218,10 +332,7 @@ const AppContent: React.FC = () => {
 
         {/* Immersive Reader display */}
         <Reader
-          activeSourceId={sourceId}
-          activeBookId={bookId}
-          activeGroupId={groupId}
-          activeUnitId={unitId}
+          resolvedContext={resolvedContext}
           activeSourceConfig={activeSourceConfig}
           libraryIndex={libraryIndex}
           isSidebarCollapsed={isSidebarCollapsed}
@@ -232,15 +343,13 @@ const AppContent: React.FC = () => {
   );
 };
 
-// Route wrapper that maps both the root index page and nested content routes
+// Catch-all URL routing configuration matching arbitrary depth levels
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppContent />} />
-        <Route path="/read/:sourceId" element={<AppContent />} />
-        <Route path="/read/:sourceId/:bookId" element={<AppContent />} />
-        <Route path="/read/:sourceId/:bookId/:groupId/:unitId" element={<AppContent />} />
+        <Route path="/read/*" element={<AppContent />} />
         {/* Fallback routing */}
         <Route path="*" element={<AppContent />} />
       </Routes>

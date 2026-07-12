@@ -2,54 +2,271 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, X, Book } from 'lucide-react';
+import { buildReadLink } from './App';
 import type { LibraryIndex, SourceInfo } from './types';
 
 interface SidebarProps {
   libraryIndex: LibraryIndex | null;
-  activeSourceId: string | undefined;
-  activeBookId: string | undefined;
-  activeGroupId: string | undefined;
-  activeUnitId: string | undefined;
+  resolvedContext: {
+    sectionId: string | undefined;
+    sourceId: string | undefined;
+    collectionId: string | undefined;
+    bookId: string | undefined;
+    groupId: string | undefined;
+    unitId: string | undefined;
+  };
   activeSourceConfig: SourceInfo | null;
   isCollapsed: boolean;
   setIsCollapsed: (collapsed: boolean) => void;
 }
 
+interface SidebarNodeProps {
+  id: string;
+  title: string;
+  type: 'section' | 'source' | 'collection' | 'book' | 'group' | 'unit';
+  pathParts: string[];
+  accumulatedParts: {
+    section?: string;
+    source?: string;
+    collection?: string;
+    book?: string;
+    group?: string;
+    unit?: string;
+  };
+  nodeData: any;
+  resolvedContext: any;
+  activeSourceConfig: SourceInfo | null;
+  expandedNodes: { [key: string]: boolean };
+  setExpandedNodes: React.Dispatch<React.SetStateAction<{ [key: string]: boolean }>>;
+}
+
+const SidebarNode: React.FC<SidebarNodeProps> = ({
+  id,
+  title,
+  type,
+  pathParts,
+  accumulatedParts,
+  nodeData,
+  resolvedContext,
+  activeSourceConfig,
+  expandedNodes,
+  setExpandedNodes,
+}) => {
+  const navigate = useNavigate();
+  const currentPathKey = [...pathParts, id].join('/');
+  const isExpanded = !!expandedNodes[currentPathKey];
+
+  // Helper to determine if this node is active
+  const isActive = (() => {
+    switch (type) {
+      case 'section': return resolvedContext.sectionId === id;
+      case 'source': return resolvedContext.sourceId === id;
+      case 'collection': return resolvedContext.collectionId === id;
+      case 'book': return resolvedContext.bookId === id && resolvedContext.sourceId === accumulatedParts.source;
+      case 'group': return resolvedContext.groupId === id && resolvedContext.bookId === accumulatedParts.book;
+      case 'unit': return resolvedContext.unitId === id && (resolvedContext.groupId === id || resolvedContext.groupId === 'index' || resolvedContext.groupId === 'flat' || !resolvedContext.groupId || resolvedContext.groupId === accumulatedParts.group);
+      default: return false;
+    }
+  })();
+
+  const handleToggle = () => {
+    if (type === 'unit') {
+      navigate(buildReadLink({ ...accumulatedParts, unit: id }));
+      return;
+    }
+
+    setExpandedNodes((prev) => {
+      const isCurrentlyExpanded = !!prev[currentPathKey];
+      const updated = { ...prev };
+      if (isCurrentlyExpanded) {
+        delete updated[currentPathKey];
+      } else {
+        // Solo Accordion toggle: close siblings of this same level
+        const levelPrefix = pathParts.join('/');
+        for (const k of Object.keys(updated)) {
+          if (k.startsWith(levelPrefix) && k.split('/').length === currentPathKey.split('/').length) {
+            delete updated[k];
+          }
+        }
+        updated[currentPathKey] = true;
+      }
+      return updated;
+    });
+
+    // Navigate to landing page if applicable (Sections and Groups don't have HTML landing views)
+    if (type === 'source' || type === 'collection' || type === 'book') {
+      const parts = { ...accumulatedParts };
+      if (type === 'source') parts.source = id;
+      if (type === 'collection') parts.collection = id;
+      if (type === 'book') parts.book = id;
+      navigate(buildReadLink(parts));
+    }
+  };
+
+  // Determine children to render recursively
+  let children: string[] = [];
+  let childType: 'source' | 'collection' | 'book' | 'group' | 'unit' | null = null;
+  let getChildNodeData: (childId: string) => any = () => null;
+
+  if (type === 'section') {
+    children = nodeData.sources || [];
+    childType = 'source';
+    getChildNodeData = (childId) => nodeData.sourceInfo?.[childId];
+  } else if (type === 'source') {
+    if (isActive && activeSourceConfig) {
+      if (activeSourceConfig.collections) {
+        children = activeSourceConfig.collections;
+        childType = 'collection';
+        getChildNodeData = (childId) => activeSourceConfig.collectionInfo?.[childId];
+      } else if (activeSourceConfig.books) {
+        children = activeSourceConfig.books;
+        childType = 'book';
+        getChildNodeData = (childId) => activeSourceConfig.bookInfo?.[childId];
+      }
+    }
+  } else if (type === 'collection') {
+    children = nodeData.books || [];
+    childType = 'book';
+    getChildNodeData = (childId) => nodeData.bookInfo?.[childId];
+  } else if (type === 'book') {
+    if (nodeData.groups) {
+      children = nodeData.groups;
+      childType = 'group';
+      getChildNodeData = (childId) => nodeData.groupInfo?.[childId];
+    } else if (nodeData.units) {
+      children = nodeData.units;
+      childType = 'unit';
+      getChildNodeData = (childId) => nodeData.unitInfo?.[childId];
+    }
+  } else if (type === 'group') {
+    children = nodeData.units || [];
+    childType = 'unit';
+    getChildNodeData = (childId) => nodeData.unitInfo?.[childId];
+  }
+
+  // Unit (leaf) item
+  if (type === 'unit') {
+    // Legacy support for implicit "index" URL segment if the unit has a flat layout
+    const finalAccumulated = { ...accumulatedParts, unit: id };
+    if (!accumulatedParts.group && activeSourceConfig && resolvedContext.bookId) {
+      const book = activeSourceConfig.bookInfo?.[resolvedContext.bookId];
+      if (book && book.units && !book.groups) {
+        finalAccumulated.group = 'index';
+      }
+    }
+    const unitLink = buildReadLink(finalAccumulated);
+    const isUnitActive = resolvedContext.unitId === id && resolvedContext.bookId === accumulatedParts.book;
+
+    return (
+      <Link
+        to={unitLink}
+        className={`unit-item ${isUnitActive ? 'active' : ''}`}
+        style={{ paddingLeft: `${pathParts.length * 0.75 + 1.25}rem` }}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+    );
+  }
+
+  // Container item (with collapsing button)
+  return (
+    <div className={`tree-node ${type}-node ${type}-item`}>
+      <button
+        className={`node-trigger ${type}-trigger ${isActive ? 'active' : ''}`}
+        onClick={handleToggle}
+        style={{ paddingLeft: `${pathParts.length * 0.75 + 0.5}rem` }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: 0, overflow: 'hidden' }}>
+          {type === 'source' && <Book size={18} className="brand-icon" style={{ flexShrink: 0 }} />}
+          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</span>
+        </div>
+        {children.length > 0 && (
+          <ChevronRight
+            size={16 - pathParts.length * 2}
+            className={`node-chevron ${isExpanded ? 'expanded' : ''}`}
+            style={{ flexShrink: 0 }}
+          />
+        )}
+      </button>
+
+      {/* Recurse child elements */}
+      {isExpanded && children.length > 0 && (
+        <div className={`node-children ${type}-children`} style={{ display: 'block', maxHeight: 'none' }}>
+          {children.map((childId) => {
+            const childData = getChildNodeData(childId);
+            if (!childData) return null;
+
+            const nextAccumulated = { ...accumulatedParts };
+            if (type === 'section') nextAccumulated.source = childId;
+            if (type === 'source' && childType === 'collection') nextAccumulated.collection = childId;
+            if (type === 'source' && childType === 'book') nextAccumulated.book = childId;
+            if (type === 'collection') nextAccumulated.book = childId;
+            if (type === 'book') nextAccumulated.group = childId;
+
+            return (
+              <SidebarNode
+                key={childId}
+                id={childId}
+                title={(childData as any).title}
+                type={childType!}
+                pathParts={[...pathParts, id]}
+                accumulatedParts={nextAccumulated}
+                nodeData={childData}
+                resolvedContext={resolvedContext}
+                activeSourceConfig={activeSourceConfig}
+                expandedNodes={expandedNodes}
+                setExpandedNodes={setExpandedNodes}
+              />
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const Sidebar: React.FC<SidebarProps> = ({
   libraryIndex,
-  activeSourceId,
-  activeBookId,
-  activeGroupId,
-  activeUnitId,
+  resolvedContext,
   activeSourceConfig,
   isCollapsed,
   setIsCollapsed,
 }) => {
-  const navigate = useNavigate();
-  const [expandedSources, setExpandedSources] = useState<{ [key: string]: boolean }>({});
-  const [expandedBooks, setExpandedBooks] = useState<{ [key: string]: boolean }>({});
-  const [expandedGroups, setExpandedGroups] = useState<{ [key: string]: boolean }>({});
+  const [expandedNodes, setExpandedNodes] = useState<{ [key: string]: boolean }>({});
 
-  // Auto-expand active source, book, and group when route changes, and collapse others (Solo Accordion)
+  // Solo Accordion auto-expansion on route/URL changes
   useEffect(() => {
-    if (activeSourceId) {
-      setExpandedSources({ [activeSourceId]: true });
-    } else {
-      setExpandedSources({});
+    const newExpanded: { [key: string]: boolean } = {};
+    const pathParts: string[] = [];
+
+    if (resolvedContext.sectionId) {
+      pathParts.push(resolvedContext.sectionId);
+      newExpanded[pathParts.join('/')] = true;
+    }
+    if (resolvedContext.sourceId) {
+      pathParts.push(resolvedContext.sourceId);
+      newExpanded[pathParts.join('/')] = true;
+    }
+    if (resolvedContext.collectionId) {
+      pathParts.push(resolvedContext.collectionId);
+      newExpanded[pathParts.join('/')] = true;
+    }
+    if (resolvedContext.bookId) {
+      pathParts.push(resolvedContext.bookId);
+      newExpanded[pathParts.join('/')] = true;
+    }
+    if (resolvedContext.groupId && resolvedContext.groupId !== 'index' && resolvedContext.groupId !== 'flat') {
+      pathParts.push(resolvedContext.groupId);
+      newExpanded[pathParts.join('/')] = true;
     }
 
-    if (activeBookId) {
-      setExpandedBooks({ [activeBookId]: true });
-    } else {
-      setExpandedBooks({});
-    }
-
-    if (activeGroupId) {
-      setExpandedGroups({ [activeGroupId]: true });
-    } else {
-      setExpandedGroups({});
-    }
-  }, [activeSourceId, activeBookId, activeGroupId]);
+    setExpandedNodes(newExpanded);
+  }, [
+    resolvedContext.sectionId,
+    resolvedContext.sourceId,
+    resolvedContext.collectionId,
+    resolvedContext.bookId,
+    resolvedContext.groupId
+  ]);
 
   if (!libraryIndex) {
     return (
@@ -62,61 +279,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
     );
   }
 
-  const toggleSource = (sourceId: string) => {
-    const isSourceActive = activeSourceId === sourceId;
-    const isAtLandingPage = isSourceActive && !activeBookId;
-    const isCurrentlyExpanded = !!expandedSources[sourceId];
-
-    if (isSourceActive) {
-      if (isAtLandingPage) {
-        // If we are already on the landing page of this source, toggle the accordion open/closed
-        if (isCurrentlyExpanded) {
-          setExpandedSources({});
-        } else {
-          setExpandedSources({ [sourceId]: true });
-        }
-      } else {
-        // If we are currently reading a unit, clicking the active source header returns us to its landing page
-        navigate(`/read/${sourceId}`);
-      }
-    } else {
-      // If we click an inactive source, automatically expand only it and collapse other sources
-      setExpandedSources({ [sourceId]: true });
-      navigate(`/read/${sourceId}`);
-    }
-  };
-
-  const toggleBook = (bookId: string) => {
-    const isBookActive = activeBookId === bookId;
-    const isAtBookLanding = isBookActive && !activeGroupId;
-    const isCurrentlyExpanded = !!expandedBooks[bookId];
-
-    if (isBookActive) {
-      if (isAtBookLanding) {
-        // Toggle collapse
-        if (isCurrentlyExpanded) {
-          setExpandedBooks({});
-        } else {
-          setExpandedBooks({ [bookId]: true });
-        }
-      } else {
-        // Return to book landing page
-        navigate(`/read/${activeSourceId}/${bookId}`);
-      }
-    } else {
-      // Expand and navigate to book landing page
-      setExpandedBooks({ [bookId]: true });
-      navigate(`/read/${activeSourceId}/${bookId}`);
-    }
-  };
-
-  const toggleGroup = (groupId: string) => {
-    setExpandedGroups((prev) => {
-      const isCurrentlyExpanded = !!prev[groupId];
-      return isCurrentlyExpanded ? {} : { [groupId]: true };
-    });
-  };
-
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
@@ -127,156 +289,52 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       <div className="sidebar-tree">
-        {libraryIndex.sources.map((sourceId) => {
-          const sourceMeta = libraryIndex.sourceInfo[sourceId];
-          if (!sourceMeta) return null;
+        {libraryIndex.sections ? (
+          // Render sectioned root
+          libraryIndex.sections.map((sectionId) => {
+            const sectionMeta = libraryIndex.sectionInfo?.[sectionId];
+            if (!sectionMeta) return null;
 
-          const isSourceExpanded = !!expandedSources[sourceId];
-          const isSourceActive = activeSourceId === sourceId;
+            return (
+              <SidebarNode
+                key={sectionId}
+                id={sectionId}
+                title={sectionMeta.title}
+                type="section"
+                pathParts={[]}
+                accumulatedParts={{ section: sectionId }}
+                nodeData={sectionMeta}
+                resolvedContext={resolvedContext}
+                activeSourceConfig={activeSourceConfig}
+                expandedNodes={expandedNodes}
+                setExpandedNodes={setExpandedNodes}
+              />
+            );
+          })
+        ) : libraryIndex.sources ? (
+          // Render flat, backward-compatible sources root
+          libraryIndex.sources.map((sourceId) => {
+            const sourceMeta = libraryIndex.sourceInfo?.[sourceId];
+            if (!sourceMeta) return null;
 
-          return (
-            <div key={sourceId} className="tree-node source-node">
-              <button 
-                className={`node-trigger source-trigger ${isSourceActive ? 'active' : ''}`}
-                onClick={() => toggleSource(sourceId)}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Book size={18} className="brand-icon" />
-                  <span>{sourceMeta.title}</span>
-                </div>
-                <ChevronRight 
-                  size={16} 
-                  className={`node-chevron ${isSourceExpanded ? 'expanded' : ''}`} 
-                />
-              </button>
-
-              {/* Collapsible Source Content */}
-              {isSourceExpanded && (
-                <div className="node-children source-children" style={{ maxHeight: 'none', display: 'block' }}>
-                  {isSourceActive && activeSourceConfig ? (
-                    // Render fully loaded nested tree for the active source
-                    activeSourceConfig.books.map((bookId) => {
-                      const bookMeta = activeSourceConfig.bookInfo[bookId];
-                      if (!bookMeta) return null;
-
-                      const isBookExpanded = !!expandedBooks[bookId];
-                      const isBookActive = activeBookId === bookId;
-
-                      return (
-                        <div key={bookId} className="tree-node book-node book-item">
-                          <button 
-                            className={`node-trigger book-trigger ${isBookActive ? 'active' : ''}`}
-                            onClick={() => toggleBook(bookId)}
-                          >
-                            <span>{bookMeta.title}</span>
-                            <ChevronRight 
-                              size={14} 
-                              className={`node-chevron ${isBookExpanded ? 'expanded' : ''}`} 
-                            />
-                          </button>
-
-                          {/* Collapsible Book Content */}
-                          {isBookExpanded && (
-                            <div className="node-children book-children" style={{ maxHeight: 'none', display: 'block' }}>
-                              {bookMeta.groups ? (
-                                // Grouped Book Layout (e.g. Text with Chapters)
-                                bookMeta.groups.map((groupId) => {
-                                  const groupMeta = bookMeta.groupInfo?.[groupId];
-                                  if (!groupMeta) return null;
-
-                                  const isGroupExpanded = !!expandedGroups[groupId];
-                                  const isGroupActive = activeGroupId === groupId;
-
-                                  return (
-                                    <div key={groupId} className="tree-node group-node group-item">
-                                      <button 
-                                        className={`node-trigger group-trigger ${isGroupActive ? 'active' : ''}`}
-                                        onClick={() => toggleGroup(groupId)}
-                                        style={{ fontSize: '0.9rem', fontWeight: 500 }}
-                                      >
-                                        <span>{groupMeta.title}</span>
-                                        <ChevronRight 
-                                          size={12} 
-                                          className={`node-chevron ${isGroupExpanded ? 'expanded' : ''}`} 
-                                        />
-                                      </button>
-
-                                      {/* Collapsible Group Content (Units) */}
-                                      {isGroupExpanded && (
-                                        <div className="node-children group-children" style={{ maxHeight: 'none', display: 'block' }}>
-                                          {groupMeta.units.map((unitId) => {
-                                            const unitMeta = groupMeta.unitInfo[unitId];
-                                            if (!unitMeta) return null;
-
-                                            const isUnitActive = activeUnitId === unitId && isGroupActive && isBookActive;
-
-                                            return (
-                                              <Link
-                                                key={unitId}
-                                                to={`/read/${sourceId}/${bookId}/${groupId}/${unitId}`}
-                                                className={`unit-item ${isUnitActive ? 'active' : ''}`}
-                                                dangerouslySetInnerHTML={{ __html: unitMeta.title }}
-                                              />
-                                            );
-                                          })}
-                                        </div>
-                                      )}
-                                    </div>
-                                  );
-                                })
-                              ) : bookMeta.units ? (
-                                // Flat Book Layout (e.g. Workbook / Manual with Lessons directly)
-                                bookMeta.units.map((unitId) => {
-                                  const unitMeta = bookMeta.unitInfo?.[unitId];
-                                  if (!unitMeta) return null;
-
-                                  const isUnitActive = activeUnitId === unitId && isBookActive && activeGroupId === 'index';
-
-                                  return (
-                                    <Link
-                                      key={unitId}
-                                      to={`/read/${sourceId}/${bookId}/index/${unitId}`}
-                                      className={`unit-item ${isUnitActive ? 'active' : ''}`}
-                                      style={{ paddingLeft: '1.5rem' }} // Shift left because there is no intermediate level
-                                      dangerouslySetInnerHTML={{ __html: unitMeta.title }}
-                                    />
-                                  );
-                                })
-                              ) : null}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })
-                  ) : (
-                    // Light placeholder while loading the full source config
-                    <div style={{ padding: '0.75rem 1.5rem', color: varColor('--text-secondary'), fontSize: '0.85rem' }}>
-                      {isSourceActive ? (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <div className="spinner" style={{ width: '12px', height: '12px', border: '2px solid var(--border-color)', borderTopColor: 'var(--accent-color)' }}></div>
-                          <span>Loading books...</span>
-                        </div>
-                      ) : (
-                        <button 
-                          onClick={() => navigate(`/read/${sourceId}`)}
-                          style={{ color: 'var(--accent-color)', textDecoration: 'underline', width: '100%', textAlign: 'left' }}
-                        >
-                          Open teachings
-                        </button>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          );
-        })}
+            return (
+              <SidebarNode
+                key={sourceId}
+                id={sourceId}
+                title={sourceMeta.title}
+                type="source"
+                pathParts={[]}
+                accumulatedParts={{ source: sourceId }}
+                nodeData={sourceMeta}
+                resolvedContext={resolvedContext}
+                activeSourceConfig={activeSourceConfig}
+                expandedNodes={expandedNodes}
+                setExpandedNodes={setExpandedNodes}
+              />
+            );
+          })
+        ) : null}
       </div>
     </aside>
   );
 };
-
-// Simple helper to safely get var values or fallback in JSX
-function varColor(variableName: string) {
-  return `var(${variableName})`;
-}
