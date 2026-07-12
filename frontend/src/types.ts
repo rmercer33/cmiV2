@@ -23,6 +23,7 @@ export interface UnitInfo {
   chapter?: string;
   ctitle?: string;
   ref?: string;
+  pageTitle?: string;
   [key: string]: any; // Allow custom flexible frontmatter fields
 }
 
@@ -37,6 +38,7 @@ export interface GroupInfo {
 export interface BookInfo {
   title: string;
   description: string;
+  pageTitle?: string;
   image?: string; // Book cover image URL
   groups?: string[];
   groupInfo?: {
@@ -51,6 +53,7 @@ export interface BookInfo {
 export interface SourceInfo {
   title: string;
   description: string;
+  pageTitle?: string;
   image?: string; // Source logo or cover URL
   website?: string;
   contact?: string;

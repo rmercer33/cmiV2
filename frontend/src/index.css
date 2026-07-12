@@ -664,3 +664,115 @@ a:hover {
   border-radius: 4px;
   padding: 0 2px;
 }
+
+/* ---------------------------------------------------- */
+/* 11. Settings Dropdown & ID Display                  */
+/* ---------------------------------------------------- */
+
+.settings-menu-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.settings-menu-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.settings-dropdown-container {
+  position: relative;
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  padding: 1rem;
+  width: 240px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.settings-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.settings-group.toggle-group {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-select-inline {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+/* CMI IDs Display Toggle via CSS ::before pseudo-element */
+.show-cmi-ids #cmi-transcript p[id]::before,
+.show-cmi-ids #cmi-transcript h1[id]::before,
+.show-cmi-ids #cmi-transcript h2[id]::before,
+.show-cmi-ids #cmi-transcript h3[id]::before {
+  content: "(" attr(id) ") ";
+  color: var(--accent-color);
+  font-size: 0.8em;
+  font-weight: normal;
+  opacity: 0.7;
+  margin-right: 0.4rem;
+}
+
+/* ---------------------------------------------------- */
+/* 12. Source-Specific Style Overrides                  */
+/* ---------------------------------------------------- */
+
+/* 
+   By prefixing your overrides with the dynamic .source-[sourceId] class,
+   your CSS rules will automatically have higher specificity to style individual sources uniquely.
+   
+   Example (ACIM Source Override):
+   .reader-container.source-acim #cmi-transcript p {
+     margin-bottom: 2rem;
+     line-height: 1.8;
+   }
+*/
+
+/* WOM Source Overrides: Italic & Indented Blockquotes */
+.reader-container.source-wom #cmi-transcript blockquote {
+  font-style: italic;
+  margin: 1.5rem 0 1.5rem 2rem;
+  padding: 0;
+}
+
+.reader-container.source-wom #cmi-transcript blockquote p {
+  font-style: italic;
+}

@@ -4,69 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { SourceInfo, LibraryIndex } from './types';
 
-// Helper to determine if two text snippets are a close match, rejecting tiny partial fragments (false positives)
-// but highly tolerant to minor transcription differences (contractions, spelling, split cues)
-const isCloseMatch = (str1: string, str2: string): boolean => {
-  const normalizeWords = (str: string) => {
-    let s = str.toLowerCase();
-    s = s.replace(/what['’]s/g, 'what is');
-    s = s.replace(/it['’]s/g, 'it is');
-    s = s.replace(/that['’]s/g, 'that is');
-    s = s.replace(/he['’]s/g, 'he is');
-    s = s.replace(/she['’]s/g, 'she is');
-    s = s.replace(/there['’]s/g, 'there is');
-    s = s.replace(/who['’]s/g, 'who is');
-    s = s.replace(/i['’]m/g, 'i am');
-    s = s.replace(/you['’]re/g, 'you are');
-    s = s.replace(/we['’]re/g, 'we are');
-    s = s.replace(/they['’]re/g, 'they are');
-    s = s.replace(/isn['’]t/g, 'is not');
-    s = s.replace(/aren['’]t/g, 'are not');
-    s = s.replace(/don['’]t/g, 'do not');
-    s = s.replace(/doesn['’]t/g, 'does not');
-    s = s.replace(/can['’]t/g, 'cannot');
-    s = s.replace(/won['’]t/g, 'will not');
-    s = s.replace(/wouldn['’]t/g, 'would not');
-    s = s.replace(/shouldn['’]t/g, 'should not');
-    s = s.replace(/couldn['’]t/g, 'could not');
-    s = s.replace(/didn['’]t/g, 'did not');
-    s = s.replace(/haven['’]t/g, 'have not');
-    s = s.replace(/hasn['’]t/g, 'has not');
-    s = s.replace(/hadn['’]t/g, 'had not');
-    s = s.replace(/let['’]s/g, 'let us');
-    return s.replace(/[^\w\s]/g, '').split(/\s+/).filter(Boolean);
-  };
-
-  const words1 = normalizeWords(str1);
-  const words2 = normalizeWords(str2);
-  
-  if (words1.length === 0 || words2.length === 0) return false;
-
-  const shorter = words1.length < words2.length ? words1 : words2;
-  const longer = words1.length < words2.length ? words2 : words1;
-  const longerSet = new Set(longer);
-
-  let commonCount = 0;
-  shorter.forEach((w) => {
-    if (longerSet.has(w)) {
-      commonCount++;
-    }
-  });
-
-  const overlapRatio = commonCount / shorter.length;
-  const lengthRatio = shorter.length / longer.length;
-
-  // For very short sentences (1-2 words), require 100% overlap AND the longer string can't be huge (prevents random false matches)
-  if (shorter.length <= 2) {
-    return overlapRatio === 1 && lengthRatio >= 0.5;
-  }
-
-  // For longer sentences, require 80% overlap and length ratio >= 0.2
-  // An 80% word overlap is extremely robust: it allows perfect matching on contiguous split cues (which are 100% subsets)
-  // while strictly rejecting false-positive cues that contain words from adjacent paragraphs (like "I come not" vs "I come to...").
-  return overlapRatio >= 0.8 && lengthRatio >= 0.2;
-};
-
 interface ReaderProps {
   activeSourceId: string | undefined;
   activeBookId: string | undefined;
@@ -75,6 +12,7 @@ interface ReaderProps {
   activeSourceConfig: SourceInfo | null;
   libraryIndex: LibraryIndex | null;
   isSidebarCollapsed?: boolean;
+  showIds?: boolean;
 }
 
 export const Reader: React.FC<ReaderProps> = ({
@@ -85,6 +23,7 @@ export const Reader: React.FC<ReaderProps> = ({
   activeSourceConfig,
   libraryIndex,
   isSidebarCollapsed = false,
+  showIds = false,
 }) => {
   const { hash } = useLocation();
   const navigate = useNavigate();
@@ -273,8 +212,17 @@ export const Reader: React.FC<ReaderProps> = ({
       // If no active cue, or cue text is empty, keep current highlight active to prevent flashing
       if (!activeCue || !activeCue.text) return;
 
-      const cueText = activeCue.text.trim();
-      if (!cueText) return;
+      const rawCueText = activeCue.text.trim();
+      if (!rawCueText) return;
+
+      let targetId: string | null = null;
+      let cueText = rawCueText;
+
+      const pipeIdx = rawCueText.indexOf('|');
+      if (pipeIdx !== -1) {
+        targetId = rawCueText.substring(0, pipeIdx);
+        cueText = rawCueText.substring(pipeIdx + 1);
+      }
 
       const cleanString = (str: string) => 
         str.toLowerCase()
@@ -286,16 +234,21 @@ export const Reader: React.FC<ReaderProps> = ({
       // Prevent matching on empty/punctuation cues which would trigger jump-to-bottom
       if (!cleanCue) return;
 
-      // Try to find matching sentence span in the transcript
-      const sentences = document.querySelectorAll('.cmi-sentence');
+      // Find parent paragraph directly if we have targetId
+      const parentParagraph = targetId ? document.getElementById(targetId) : null;
+
+      // Try to find matching sentence span in the transcript (restricted to parent paragraph if available)
+      const sentences = parentParagraph 
+        ? parentParagraph.querySelectorAll('.cmi-sentence')
+        : document.querySelectorAll('.cmi-sentence');
+        
       const matchingSentences: HTMLElement[] = [];
 
       for (const s of Array.from(sentences)) {
         const sText = s.textContent || '';
         const cleanS = cleanString(sText);
         
-        // Use loose containment check for natural playback (proximity matching handles distant jumps).
-        // This ensures smaller spoken WebVTT cue fragments correctly highlight the larger DOM sentences!
+        // Use loose containment check for natural playback
         if (cleanS && (cleanS.includes(cleanCue) || cleanCue.includes(cleanS))) {
           matchingSentences.push(s as HTMLElement);
         }
@@ -308,7 +261,7 @@ export const Reader: React.FC<ReaderProps> = ({
         } else {
           // Proximity Matching: If there are multiple matches (common short phrases like "Yes"),
           // find the one closest to our last active paragraph in linear document order.
-          const lastPara = lastActiveParagraphRef.current;
+          const lastPara = lastActiveParagraphRef.current || parentParagraph;
           if (lastPara) {
             // 1. Is one of the matched sentences inside the current paragraph?
             const sameParaMatch = matchingSentences.find((s) => lastPara.contains(s));
@@ -330,11 +283,11 @@ export const Reader: React.FC<ReaderProps> = ({
         }
       }
 
-      let bestParagraphMatch: HTMLElement | null = null;
+      let bestParagraphMatch: HTMLElement | null = parentParagraph;
 
       // Fallback: If no single sentence matched perfectly (due to sentence boundary mismatch),
       // let's fall back to paragraph matching so that at least something highlights!
-      if (!bestSentenceMatch) {
+      if (!bestSentenceMatch && !bestParagraphMatch) {
         const paragraphs = document.querySelectorAll('#cmi-transcript p');
         const matchingParagraphs: HTMLElement[] = [];
 
@@ -377,15 +330,15 @@ export const Reader: React.FC<ReaderProps> = ({
           (bestSentenceMatch as HTMLElement).classList.add('active-sentence');
           
           // Highlight parent paragraph for structural context
-          const parentParagraph = (bestSentenceMatch as HTMLElement).closest('#cmi-transcript p') as HTMLElement | null;
-          if (parentParagraph) {
-            parentParagraph.classList.add('active-audio');
+          const finalParentParagraph = parentParagraph || (bestSentenceMatch as HTMLElement).closest('#cmi-transcript p') as HTMLElement | null;
+          if (finalParentParagraph) {
+            finalParentParagraph.classList.add('active-audio');
 
             // SCROLL ONLY WHEN PARAGRAPH CHANGES
             // This prevents "jumping/bobbing" scroll while reading sentences within the same paragraph!
-            if (parentParagraph !== lastActiveParagraphRef.current) {
-              lastActiveParagraphRef.current = parentParagraph;
-              parentParagraph.scrollIntoView({
+            if (finalParentParagraph !== lastActiveParagraphRef.current) {
+              lastActiveParagraphRef.current = finalParentParagraph;
+              finalParentParagraph.scrollIntoView({
                 behavior: 'smooth',
                 block: 'center'
               });
@@ -469,158 +422,31 @@ export const Reader: React.FC<ReaderProps> = ({
     if (cmiElement && activeUnit?.audiofn && audioRef.current && !audioRef.current.paused && audioRef.current.textTracks[0]) {
       const track = audioRef.current.textTracks[0];
       if (track && track.cues && track.cues.length > 0) {
-        // We extract the true first sentence from the paragraph's plain text content.
-        // This is 100% robust against nested HTML tags (like bold/italics) which would otherwise split spans into tiny fragments and fail similarity ratio checks!
-        const plainText = cmiElement.textContent || '';
-        const rawSentences = plainText.split(/([.!?]+(?:\s+|$))/);
-        const firstSentenceText = (rawSentences[0] || '') + (rawSentences[1] || '');
-        // Strip out the visual "▶" play indicator from the start
-        const targetText = firstSentenceText.replace(/^▶\s*/, '').trim();
+        const targetId = cmiElement.id;
 
-        if (targetText) {
-          const cleanString = (str: string) => 
-            str.toLowerCase()
-              .replace(/[^\w\s]/g, '')
-              .replace(/\s+/g, ' ')
-              .trim();
+        if (targetId) {
+          let foundCue: VTTCue | null = null;
 
-          const targetClean = cleanString(targetText);
-
-          if (targetClean) {
-            const allElements = Array.from(document.querySelectorAll('#cmi-transcript p, #cmi-transcript h2, #cmi-transcript h3'));
-            const targetIdx = allElements.indexOf(cmiElement);
-            const activeIdx = lastActiveParagraphRef.current ? allElements.indexOf(lastActiveParagraphRef.current) : -1;
-
-            let foundCue: VTTCue | null = null;
-            let currentCueIndex = 0;
-
-            // Determine the current cue index based on the audio's physical current time
-            if (audioRef.current.currentTime > 0) {
-              for (let i = 0; i < track.cues.length; i++) {
-                if (track.cues[i].endTime >= audioRef.current.currentTime) {
-                  currentCueIndex = i;
-                  break;
-                }
-              }
+          // Look for the FIRST cue that starts with targetId + "|"
+          for (let i = 0; i < track.cues.length; i++) {
+            const cue = track.cues[i] as VTTCue;
+            if (cue.text && (cue.text.startsWith(targetId + '|') || cue.text === targetId)) {
+              foundCue = cue;
+              break;
             }
+          }
 
-            // 1. BOUNDED DIRECTIONAL SEARCH (as requested by user)
-            // If we know the clicked paragraph is strictly AFTER or BEFORE the active paragraph,
-            // we constrain the VTT search strictly from the current audio time forward/backward!
-            if (activeIdx !== -1 && targetIdx !== -1 && activeIdx !== targetIdx) {
-              if (targetIdx > activeIdx) {
-                // Seeking Forward: Calculate relative occurrences BETWEEN the active and clicked paragraphs
-                let relativeOccurrenceIndex = 0;
-                for (let i = activeIdx + 1; i < targetIdx; i++) {
-                  const elPlainText = allElements[i].textContent || '';
-                  const elRawSentences = elPlainText.split(/([.!?]+(?:\s+|$))/);
-                  const elFirstSentence = ((elRawSentences[0] || '') + (elRawSentences[1] || '')).replace(/^▶\s*/, '').trim();
-                  if (isCloseMatch(elFirstSentence, targetText)) {
-                    relativeOccurrenceIndex++;
-                  }
-                }
+          if (foundCue) {
+            // Immediately update the last active paragraph reference to the clicked element.
+            // This aligns the proximity matching anchor immediately, preventing any backward highlights!
+            lastActiveParagraphRef.current = cmiElement;
 
-                let matchCount = 0;
-                let lastMatchedCueIndex = -5;
-                // Add a small safe buffer (-2 cues) in case current time was slightly lagging the DOM transition
-                const safeStartIndex = Math.max(0, currentCueIndex - 2);
-
-                for (let i = safeStartIndex; i < track.cues.length; i++) {
-                  const cue = track.cues[i] as VTTCue;
-                  if (isCloseMatch(cue.text, targetText)) {
-                    // Contiguous cue deduplication: If VTT splits the same paragraph into adjacent cues, count it as ONE occurrence!
-                    if (i - lastMatchedCueIndex <= 2) {
-                      lastMatchedCueIndex = i;
-                      continue;
-                    }
-                    if (matchCount === relativeOccurrenceIndex) {
-                      foundCue = cue;
-                      break;
-                    }
-                    matchCount++;
-                    lastMatchedCueIndex = i;
-                  }
-                }
-              } else {
-                // Seeking Backward: Calculate relative occurrences BETWEEN the clicked and active paragraphs
-                let relativeOccurrenceIndex = 0;
-                for (let i = activeIdx - 1; i > targetIdx; i--) {
-                  const elPlainText = allElements[i].textContent || '';
-                  const elRawSentences = elPlainText.split(/([.!?]+(?:\s+|$))/);
-                  const elFirstSentence = ((elRawSentences[0] || '') + (elRawSentences[1] || '')).replace(/^▶\s*/, '').trim();
-                  if (isCloseMatch(elFirstSentence, targetText)) {
-                    relativeOccurrenceIndex++;
-                  }
-                }
-
-                let matchCount = 0;
-                let lastMatchedCueIndex = track.cues.length + 5;
-                // Add a small safe buffer (+2 cues) to current time index
-                const safeStartIndex = Math.min(track.cues.length - 1, currentCueIndex + 2);
-
-                for (let i = safeStartIndex; i >= 0; i--) {
-                  const cue = track.cues[i] as VTTCue;
-                  if (isCloseMatch(cue.text, targetText)) {
-                    // Contiguous cue deduplication
-                    if (lastMatchedCueIndex - i <= 2) {
-                      lastMatchedCueIndex = i;
-                      continue;
-                    }
-                    if (matchCount === relativeOccurrenceIndex) {
-                      foundCue = cue;
-                      break;
-                    }
-                    matchCount++;
-                    lastMatchedCueIndex = i;
-                  }
-                }
-              }
-            }
-
-            // 2. ABSOLUTE FALLBACK SEARCH
-            // If bounded search fails, or if we clicked the same paragraph, or no active paragraph exists yet:
-            // We search from the absolute beginning, tracking global occurrences.
-            if (!foundCue) {
-              let absoluteOccurrenceIndex = 0;
-              for (let i = 0; i < targetIdx; i++) {
-                const elPlainText = allElements[i].textContent || '';
-                const elRawSentences = elPlainText.split(/([.!?]+(?:\s+|$))/);
-                const elFirstSentence = ((elRawSentences[0] || '') + (elRawSentences[1] || '')).replace(/^▶\s*/, '').trim();
-                if (isCloseMatch(elFirstSentence, targetText)) {
-                  absoluteOccurrenceIndex++;
-                }
-              }
-
-              let matchCount = 0;
-              let lastMatchedCueIndex = -5;
-              for (let i = 0; i < track.cues.length; i++) {
-                const cue = track.cues[i] as VTTCue;
-                if (isCloseMatch(cue.text, targetText)) {
-                  // Contiguous cue deduplication
-                  if (i - lastMatchedCueIndex <= 2) {
-                    lastMatchedCueIndex = i;
-                    continue;
-                  }
-                  if (matchCount === absoluteOccurrenceIndex) {
-                    foundCue = cue;
-                    break;
-                  }
-                  matchCount++;
-                  lastMatchedCueIndex = i;
-                }
-              }
-            }
-
-            if (foundCue) {
-              // Immediately update the last active paragraph reference to the clicked element.
-              // This aligns the proximity matching anchor immediately, preventing any backward highlights!
-              lastActiveParagraphRef.current = cmiElement;
-
-              audioRef.current.currentTime = foundCue.startTime;
-              audioRef.current.play().catch((err) => {
-                console.error("Playback failed:", err);
-              });
-            }
+            audioRef.current.currentTime = foundCue.startTime;
+            audioRef.current.play().catch((err) => {
+              console.error("Playback failed:", err);
+            });
+          } else {
+            console.warn(`No VTT cue found for paragraph ID: ${targetId}`);
           }
         }
       }
@@ -1271,7 +1097,7 @@ export const Reader: React.FC<ReaderProps> = ({
   }
 
   return (
-    <main className={`reader-container ${activeUnit?.audiofn ? 'has-audio-player' : ''} ${isAudioPlaying ? 'audio-is-playing' : ''}`} ref={containerRef} onClick={handleContainerClick}>
+    <main className={`reader-container ${activeUnit?.audiofn ? 'has-audio-player' : ''} ${isAudioPlaying ? 'audio-is-playing' : ''} ${showIds ? 'show-cmi-ids' : ''} ${activeSourceId ? 'source-' + activeSourceId : ''}`} ref={containerRef} onClick={handleContainerClick}>
       <article className="reader-column">
         {/* Inject precompiled, styled HTML fragment securely */}
         <div 

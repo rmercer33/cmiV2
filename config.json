@@ -16,12 +16,13 @@
   "sourceInfo": {
     "oe": {
       "title": "A Course in Miracles - Original Edition",
-      "description": "ACIM Original Edition",
+      "description": "A good one paragraph description for OE",
       "website": "https://www.jcim.net",
       "contact": "Rev Reja Joy Green",
       "email1": "reja-joy@jcim.net",
       "email2": "cims@jcim.net",
       "copyright": "Course in Miracles Society",
+      "image": "/images/covers/site/oe.jpg",
       "books": [
         "text",
         "workbook",
@@ -29,8 +30,9 @@
       ],
       "bookInfo": {
         "text": {
-          "title": "Text",
-          "description": "Text Volume",
+          "title": "ACIM Text",
+          "description": "Description of Text",
+          "image": "/images/covers/oe/text.jpg",
           "groups": [
             "front",
             "01",
@@ -2399,8 +2401,9 @@
           }
         },
         "workbook": {
-          "title": "Workbook",
-          "description": "Workbook Volume",
+          "title": "ACIM Workbook",
+          "description": "Workbook description",
+          "image": "/images/covers/oe/workbook.jpg",
           "units": [
             "introp1",
             "l001",
@@ -4734,7 +4737,8 @@
         },
         "manual": {
           "title": "Manual for Teachers",
-          "description": "Manual for Teachers Volume",
+          "description": "Description",
+          "image": "/images/covers/oe/manual.jpg",
           "units": [
             "intro",
             "chap01",
@@ -4898,6 +4902,7 @@
       "channel": "Paul Tuttle",
       "contact": "Christ Tuttle",
       "email": "ctut@geektweak.com",
+      "image": "/images/covers/site/raj.jpg",
       "books": [
         "yaa",
         "grad",
@@ -4922,8 +4927,9 @@
       ],
       "bookInfo": {
         "yaa": {
-          "title": "No title",
-          "description": "No description",
+          "title": "You are the Answer: A Journey of Awakening",
+          "description": "Paul meets Raj, 1982",
+          "image": "/images/covers/raj/yaa.jpg",
           "units": [
             "020782",
             "020882",
@@ -5320,8 +5326,9 @@
           }
         },
         "grad": {
-          "title": "No title",
-          "description": "No description",
+          "title": "Graduation: The End of Illusions",
+          "description": "Paul's relationship with Raj after nine years",
+          "image": "/images/covers/raj/grad.jpg",
           "units": [
             "g000002",
             "g000003",
@@ -5518,8 +5525,9 @@
           }
         },
         "shorts": {
-          "title": "No title",
-          "description": "No description",
+          "title": "Audio Shorts",
+          "description": "Highlights from Raj, not to be missed.",
+          "image": "/images/covers/raj/shorts.jpg",
           "units": [
             "Abandoning_Thinking_1",
             "Abandoning_Thinking_2",
@@ -8032,8 +8040,9 @@
           }
         },
         "sg2002": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2002",
           "description": "No description",
+          "image": "/images/covers/raj/sg2002.jpg",
           "units": [
             "061202",
             "073102",
@@ -8154,8 +8163,9 @@
           }
         },
         "sg2003": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2003",
           "description": "No description",
+          "image": "/images/covers/raj/sg2003.jpg",
           "units": [
             "010203",
             "010903",
@@ -8469,8 +8479,9 @@
           }
         },
         "sg2004": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2004",
           "description": "No description",
+          "image": "/images/covers/raj/sg2004.jpg",
           "units": [
             "011104",
             "011804",
@@ -8777,8 +8788,9 @@
           }
         },
         "sg2005": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2005",
           "description": "No description",
+          "image": "/images/covers/raj/sg2005.jpg",
           "units": [
             "010205",
             "011605",
@@ -9063,8 +9075,9 @@
           }
         },
         "sg2006": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2006",
           "description": "No description",
+          "image": "/images/covers/raj/sg2006.jpg",
           "units": [
             "010806",
             "011506",
@@ -9314,8 +9327,9 @@
           }
         },
         "sg2007": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2007",
           "description": "No description",
+          "image": "/images/covers/raj/sg2007.jpg",
           "units": [
             "081807",
             "082507",
@@ -9412,8 +9426,9 @@
           }
         },
         "sg2008": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2008",
           "description": "No description",
+          "image": "/images/covers/raj/sg2008.jpg",
           "units": [
             "012008",
             "012708",
@@ -9651,8 +9666,9 @@
           }
         },
         "sg2009": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2009",
           "description": "No description",
+          "image": "/images/covers/raj/sg2009.jpg",
           "units": [
             "010309",
             "011009",
@@ -9901,8 +9917,9 @@
           }
         },
         "sg2010": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2010",
           "description": "No description",
+          "image": "/images/covers/raj/sg2010.jpg",
           "units": [
             "010210",
             "011610",
@@ -10143,8 +10160,9 @@
           }
         },
         "sg2011": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2011",
           "description": "No description",
+          "image": "/images/covers/raj/sg2011.jpg",
           "units": [
             "010111",
             "010811",
@@ -10640,8 +10658,9 @@
           }
         },
         "sg2013": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2013",
           "description": "No description",
+          "image": "/images/covers/raj/sg2013.jpg",
           "units": [
             "042713",
             "050413",
@@ -10821,8 +10840,9 @@
           }
         },
         "sg2014": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2014",
           "description": "No description",
+          "image": "/images/covers/raj/sg2014.jpg",
           "units": [
             "010614",
             "011414",
@@ -10890,8 +10910,9 @@
           }
         },
         "sg2015": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2015",
           "description": "No description",
+          "image": "/images/covers/raj/sg2015.jpg",
           "units": [
             "041815",
             "042515",
@@ -11020,8 +11041,9 @@
           }
         },
         "sg2016": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2016",
           "description": "No description",
+          "image": "/images/covers/raj/sg2016.jpg",
           "units": [
             "070316",
             "071616",
@@ -11048,8 +11070,9 @@
           }
         },
         "sg2017": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2017",
           "description": "No description",
+          "image": "/images/covers/raj/sg2017.jpg",
           "units": [
             "040817",
             "041617",
@@ -11128,8 +11151,9 @@
           }
         },
         "sg2018": {
-          "title": "No title",
+          "title": "ACIM Study Group: 2018",
           "description": "No description",
+          "image": "/images/covers/raj/sg2018.jpg",
           "units": [
             "013118",
             "031118",
@@ -11166,263 +11190,402 @@
       "description": "The Way of Mastery",
       "website": "https://wayofmastery.com/",
       "contact": "sandy@wayofmastery.com",
+      "image": "/images/covers/site/wom.jpg",
       "books": [
         "early",
-        "wos",
+        "tjl",
         "woh",
         "wot",
         "wok",
+        "wos",
         "questions"
       ],
       "bookInfo": {
         "early": {
-          "title": "No title",
-          "description": "No description",
+          "title": "The Early Years",
+          "description": "Messages given before The Way of Mastery Series",
+          "image": "/images/covers/wom/early.jpg",
+          "groups": [
+            "hoe"
+          ],
+          "groupInfo": {
+            "hoe": {
+              "title": "No title",
+              "units": [
+                "ble",
+                "c2s",
+                "hoe",
+                "ign"
+              ],
+              "unitInfo": {
+                "ble": {
+                  "title": "The Blessing of Forgiveness",
+                  "url": "wom/early/hoe/ble",
+                  "received": "Unknown",
+                  "fb": "",
+                  "desc": "The offering of true forgiveness is a gift given to oneself.",
+                  "image": "",
+                  "toc": ""
+                },
+                "c2s": {
+                  "title": "Choose to See",
+                  "url": "wom/early/hoe/c2s",
+                  "received": "Oct 1994",
+                  "fb": "",
+                  "image": "",
+                  "toc": ""
+                },
+                "hoe": {
+                  "title": "Heaven on Earth",
+                  "url": "wom/early/hoe/hoe",
+                  "received": "Aug 30, 1994",
+                  "fb": "",
+                  "image": "",
+                  "toc": ""
+                },
+                "ign": {
+                  "title": "Ignorance is Bliss",
+                  "url": "wom/early/hoe/ign",
+                  "received": "Sep 1994",
+                  "fb": "",
+                  "image": ""
+                }
+              }
+            }
+          }
+        },
+        "tjl": {
+          "title": "The Jeshua Letters",
+          "description": "Jayem's account of first meeting Jeshua",
+          "image": "/images/covers/wom/tjl.jpg",
           "units": [
-            "ble",
-            "c2s",
-            "com",
-            "dbc",
-            "doorway",
-            "dth",
-            "easter",
-            "fem",
-            "freedom",
-            "gar",
-            "hea",
-            "hoe",
-            "hoi",
-            "holyr",
-            "hsp",
-            "ign",
-            "illusions",
-            "joy1",
-            "joy2",
-            "lht",
-            "light",
-            "moa",
-            "mot",
-            "peace",
-            "perception",
-            "pow",
-            "purpose",
-            "seeking",
-            "shr",
-            "teach",
-            "toc",
-            "wak",
-            "wlk"
+            "ack",
+            "chap01",
+            "chap02",
+            "chap03",
+            "chap04",
+            "chap05",
+            "chap06",
+            "chap07",
+            "chap08",
+            "chap09",
+            "chap10",
+            "chap11",
+            "chap12",
+            "epilogue",
+            "foreword",
+            "preface"
           ],
           "unitInfo": {
-            "ble": {
-              "title": "The Blessing of Forgiveness",
-              "url": "wom/early/ble",
-              "received": "Unknown",
-              "fb": "",
-              "desc": "The offering of true forgiveness is a gift given to oneself.",
-              "image": "",
+            "ack": {
+              "title": "Acknowledgements",
+              "url": "wom/tjl/ack"
+            },
+            "chap01": {
+              "title": "One",
+              "url": "wom/tjl/chap01"
+            },
+            "chap02": {
+              "title": "Two",
+              "url": "wom/tjl/chap02"
+            },
+            "chap03": {
+              "title": "Three",
+              "url": "wom/tjl/chap03"
+            },
+            "chap04": {
+              "title": "Four",
+              "url": "wom/tjl/chap04"
+            },
+            "chap05": {
+              "title": "Five",
+              "url": "wom/tjl/chap05"
+            },
+            "chap06": {
+              "title": "Six",
+              "url": "wom/tjl/chap06"
+            },
+            "chap07": {
+              "title": "Seven",
+              "url": "wom/tjl/chap07"
+            },
+            "chap08": {
+              "title": "Eight",
+              "url": "wom/tjl/chap08"
+            },
+            "chap09": {
+              "title": "Nine",
+              "url": "wom/tjl/chap09"
+            },
+            "chap10": {
+              "title": "Ten",
+              "url": "wom/tjl/chap10"
+            },
+            "chap11": {
+              "title": "Eleven",
+              "url": "wom/tjl/chap11"
+            },
+            "chap12": {
+              "title": "Twelve",
+              "url": "wom/tjl/chap12"
+            },
+            "epilogue": {
+              "title": "Epilogue",
+              "url": "wom/tjl/epilogue"
+            },
+            "foreword": {
+              "title": "Foreword",
+              "url": "wom/tjl/foreword"
+            },
+            "preface": {
+              "title": "Preface",
+              "url": "wom/tjl/preface"
+            }
+          }
+        },
+        "woh": {
+          "title": "Way of the Heart",
+          "description": "No description",
+          "descriptiion": "Year One of the Way to Mastery Series",
+          "image": "/images/covers/wom/woh.jpg",
+          "units": [
+            "l01",
+            "l02",
+            "l03",
+            "l04",
+            "l05",
+            "l06",
+            "l07",
+            "l08",
+            "l09",
+            "l10",
+            "l11",
+            "l12"
+          ],
+          "unitInfo": {
+            "l01": {
+              "title": "Lesson One",
+              "url": "wom/woh/l01",
+              "audiofn": "L01"
+            },
+            "l02": {
+              "title": "Lesson Two",
+              "url": "wom/woh/l02",
+              "audiofn": "L02"
+            },
+            "l03": {
+              "title": "Lesson Three",
+              "url": "wom/woh/l03",
+              "audiofn": "L03"
+            },
+            "l04": {
+              "title": "Lesson Four",
+              "url": "wom/woh/l04",
+              "audiofn": "L04"
+            },
+            "l05": {
+              "title": "Lesson Five",
+              "url": "wom/woh/l05",
+              "audiofn": "L05"
+            },
+            "l06": {
+              "title": "Lesson Six",
+              "url": "wom/woh/l06",
+              "audiofn": "L06"
+            },
+            "l07": {
+              "title": "Lesson Seven",
+              "url": "wom/woh/l07",
+              "audiofn": "L07"
+            },
+            "l08": {
+              "title": "Lesson Eight",
+              "url": "wom/woh/l08",
+              "audiofn": "L08"
+            },
+            "l09": {
+              "title": "Lesson Nine",
+              "url": "wom/woh/l09",
+              "audiofn": "L09"
+            },
+            "l10": {
+              "title": "Lesson Ten",
+              "url": "wom/woh/l10",
+              "audiofn": "L10"
+            },
+            "l11": {
+              "title": "Lesson Eleven",
+              "url": "wom/woh/l11",
+              "audiofn": "L11"
+            },
+            "l12": {
+              "title": "Lesson Twelve",
+              "url": "wom/woh/l12",
+              "audiofn": "L12"
+            }
+          }
+        },
+        "wot": {
+          "title": "Way of Transformation",
+          "description": "The second year of the Way of Mastery series.",
+          "image": "/images/covers/wom/wot.jpg",
+          "units": [
+            "l13",
+            "l14",
+            "l15",
+            "l16",
+            "l17",
+            "l18",
+            "l19",
+            "l20",
+            "l21",
+            "l22",
+            "l23",
+            "l24"
+          ],
+          "unitInfo": {
+            "l13": {
+              "title": "Lesson One",
+              "url": "wom/wot/l13",
+              "audiofn": "L13"
+            },
+            "l14": {
+              "title": "Lesson Two",
+              "url": "wom/wot/l14",
+              "audiofn": "L14"
+            },
+            "l15": {
+              "title": "Lesson Three",
+              "url": "wom/wot/l15",
+              "audiofn": "L15"
+            },
+            "l16": {
+              "title": "Lesson Four",
+              "url": "wom/wot/l16",
+              "audiofn": "L16"
+            },
+            "l17": {
+              "title": "Lesson Five",
+              "url": "wom/wot/l17",
+              "audiofn": "L17"
+            },
+            "l18": {
+              "title": "Lesson Six",
+              "url": "wom/wot/l18",
+              "audiofn": "l18",
               "toc": ""
             },
-            "c2s": {
-              "title": "Choose to See",
-              "url": "wom/early/c2s",
-              "received": "Oct 1994",
-              "fb": "",
-              "image": "",
-              "toc": ""
+            "l19": {
+              "title": "Lesson Seven",
+              "url": "wom/wot/l19",
+              "audiofn": "L19.md"
             },
-            "com": {
-              "title": "Mastering Communication",
-              "url": "wom/early/com",
-              "toc": "",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Mastering Communication"
+            "l20": {
+              "title": "Lesson Eight",
+              "url": "wom/wot/l20",
+              "audiofn": "L20"
             },
-            "dbc": {
-              "title": "Decide to be Christ",
-              "url": "wom/early/dbc",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Decide to be Christ"
+            "l21": {
+              "title": "Lesson Nine",
+              "url": "wom/wot/l21",
+              "audiofn": "L21"
             },
-            "doorway": {
-              "title": "Doorway to Self Love",
-              "url": "wom/early/doorway",
-              "received": "Unknown"
+            "l22": {
+              "title": "Lesson Ten",
+              "url": "wom/wot/l22",
+              "audiofn": "L22"
             },
-            "dth": {
-              "title": "Death and Earth Changes",
-              "url": "wom/early/dth",
-              "toc": "",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Death and Earth Changes"
+            "l23": {
+              "title": "Lesson Eleven",
+              "url": "wom/wot/l23",
+              "audiofn": "L23"
             },
-            "easter": {
-              "title": "Easter",
-              "url": "wom/early/easter",
-              "received": "April 19, 1992"
+            "l24": {
+              "title": "Lesson Twelve",
+              "url": "wom/wot/l24",
+              "audiofn": "L24"
+            }
+          }
+        },
+        "wok": {
+          "title": "Way of Knowing",
+          "description": "The third and final year of the Way of Mastery series.",
+          "image": "/images/covers/wom/wok.jpg",
+          "units": [
+            "l25",
+            "l26",
+            "l27",
+            "l28",
+            "l29",
+            "l30",
+            "l31",
+            "l32",
+            "l33",
+            "l34",
+            "l35"
+          ],
+          "unitInfo": {
+            "l25": {
+              "title": "Lesson One",
+              "url": "wom/wok/l25",
+              "audiofn": "L25"
             },
-            "fem": {
-              "title": "The Divine Feminine",
-              "url": "wom/early/fem"
+            "l26": {
+              "title": "Lesson Two",
+              "url": "wom/wok/l26",
+              "audiofn": "L26"
             },
-            "freedom": {
-              "title": "Freedom and Forgiveness",
-              "url": "wom/early/freedom",
-              "received": "Jan 30, 1993"
+            "l27": {
+              "title": "Lesson Three",
+              "url": "wom/wok/l27",
+              "audiofn": "L27"
             },
-            "gar": {
-              "title": "Grace as Reality",
-              "url": "wom/early/gar"
+            "l28": {
+              "title": "Lesson Four",
+              "url": "wom/wok/l28",
+              "audiofn": "L28"
             },
-            "hea": {
-              "title": "Healing",
-              "url": "wom/early/hea",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Healing"
+            "l29": {
+              "title": "Lesson Five",
+              "url": "wom/wok/l29",
+              "audiofn": "L29"
             },
-            "hoe": {
-              "title": "Heaven on Earth",
-              "url": "wom/early/hoe",
-              "received": "Aug 30, 1994",
-              "fb": "",
-              "image": "",
-              "toc": ""
+            "l30": {
+              "title": "Lesson Six",
+              "url": "wom/wok/l30",
+              "audiofn": "L30"
             },
-            "hoi": {
-              "title": "The Holy Instant",
-              "url": "wom/early/hoi",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - The Holy Instant"
+            "l31": {
+              "title": "Lesson Seven",
+              "url": "wom/wok/l31",
+              "audiofn": "L31"
             },
-            "holyr": {
-              "title": "Holy Relationship",
-              "url": "wom/early/holyr",
-              "received": "Unknown"
+            "l32": {
+              "title": "Lesson Eight",
+              "url": "wom/wok/l32",
+              "audiofn": "L32"
             },
-            "hsp": {
-              "title": "The Holy Spirit",
-              "url": "wom/early/hsp",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - The Holy Spirit"
+            "l33": {
+              "title": "Lesson Nine",
+              "url": "wom/wok/l33",
+              "audiofn": "L33"
             },
-            "ign": {
-              "title": "Ignorance is Bliss",
-              "url": "wom/early/ign",
-              "received": "Sep 1994",
-              "fb": "",
-              "image": ""
+            "l34": {
+              "title": "Lesson Ten",
+              "url": "wom/wok/l34",
+              "audiofn": "L34"
             },
-            "illusions": {
-              "title": "Healing the Illusions of Hurt",
-              "url": "wom/early/illusions",
-              "received": "Nov 17, 1992"
-            },
-            "joy1": {
-              "title": "Joy I",
-              "url": "wom/early/joy1",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Joy I"
-            },
-            "joy2": {
-              "title": "Joy II",
-              "url": "wom/early/joy2",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Joy II"
-            },
-            "lht": {
-              "title": "Love Heals All Things",
-              "url": "wom/early/lht",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Love Heals All Things"
-            },
-            "light": {
-              "title": "The Light that You Are",
-              "url": "wom/early/light",
-              "received": "Nov 20, 1992"
-            },
-            "moa": {
-              "title": "The Meaning of Ascension",
-              "url": "wom/early/moa",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - The Meaning of Ascension"
-            },
-            "mot": {
-              "title": "Become the Master of Time",
-              "url": "wom/early/mot",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Become the Master of Time"
-            },
-            "peace": {
-              "title": "Peace",
-              "url": "wom/early/peace",
-              "received": "August 21, 1992"
-            },
-            "perception": {
-              "title": "Perception",
-              "url": "wom/early/perception",
-              "received": "March 20, 1992"
-            },
-            "pow": {
-              "title": "The Purpose of the World",
-              "url": "wom/early/pow",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - The Purpose of the World",
-              "date": "Feb 5, 1993",
-              "formatted": "Ken",
-              "source": "Dave Kopsel"
-            },
-            "purpose": {
-              "title": "Now Is My Purpose Before Me",
-              "url": "wom/early/purpose",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Now Is My Purpose Before Me",
-              "date": "Jan 1, 1993",
-              "formatted": "Sharon",
-              "source": "Dave Kopsel"
-            },
-            "seeking": {
-              "title": "The End of Seeking is Upon Us",
-              "url": "wom/early/seeking",
-              "received": "Jan 27, 1993"
-            },
-            "shr": {
-              "title": "Special and Holy Relationships",
-              "url": "wom/early/shr",
-              "received": "June 26, 1992"
-            },
-            "teach": {
-              "title": "Teach Only Love",
-              "url": "wom/early/teach",
-              "received": "Unknown"
-            },
-            "toc": {
-              "title": "A Time of Celebration",
-              "url": "wom/early/toc",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - A Time of Celebration",
-              "date": "Jan 22, 1993",
-              "formatted": "Ken Hoover",
-              "place": "Kauai, HI",
-              "source": "Dave Kopsel"
-            },
-            "wak": {
-              "title": "Awakening",
-              "url": "wom/early/wak",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Awakening"
-            },
-            "wlk": {
-              "title": "Walk with Me",
-              "url": "wom/early/wlk",
-              "fb": "",
-              "desc": "Way of Mastery: The Early Years - Walk with Me",
-              "image": "wom/wlk.jpg"
+            "l35": {
+              "title": "Lesson Eleven",
+              "url": "wom/wok/l35",
+              "audiofn": "L35"
             }
           }
         },
         "wos": {
-          "title": "No title",
-          "description": "No description",
+          "title": "Way of the Servant",
+          "description": "A poetic description of the journey of awakening",
+          "image": "/images/covers/wom/wos.jpg",
           "units": [
             "afterwords",
             "chap01",
@@ -11473,222 +11636,10 @@
             }
           }
         },
-        "woh": {
-          "title": "No title",
-          "description": "No description",
-          "units": [
-            "l01",
-            "l02",
-            "l03",
-            "l04",
-            "l05",
-            "l06",
-            "l07",
-            "l08",
-            "l09",
-            "l10",
-            "l11",
-            "l12"
-          ],
-          "unitInfo": {
-            "l01": {
-              "title": "Lesson One",
-              "url": "wom/woh/l01"
-            },
-            "l02": {
-              "title": "Lesson Two",
-              "url": "wom/woh/l02"
-            },
-            "l03": {
-              "title": "Lesson Three",
-              "url": "wom/woh/l03"
-            },
-            "l04": {
-              "title": "Lesson Four",
-              "url": "wom/woh/l04"
-            },
-            "l05": {
-              "title": "Lesson Five",
-              "url": "wom/woh/l05"
-            },
-            "l06": {
-              "title": "Lesson Six",
-              "url": "wom/woh/l06"
-            },
-            "l07": {
-              "title": "Lesson Seven",
-              "url": "wom/woh/l07"
-            },
-            "l08": {
-              "title": "Lesson Eight",
-              "url": "wom/woh/l08"
-            },
-            "l09": {
-              "title": "Lesson Nine",
-              "url": "wom/woh/l09"
-            },
-            "l10": {
-              "title": "Lesson Ten",
-              "url": "wom/woh/l10"
-            },
-            "l11": {
-              "title": "Lesson Eleven",
-              "url": "wom/woh/l11"
-            },
-            "l12": {
-              "title": "Lesson Twelve",
-              "url": "wom/woh/l12"
-            }
-          }
-        },
-        "wot": {
-          "title": "No title",
-          "description": "No description",
-          "units": [
-            "l01",
-            "l02",
-            "l03",
-            "l04",
-            "l05",
-            "l06",
-            "l07",
-            "l08",
-            "l09",
-            "l10",
-            "l11",
-            "l12"
-          ],
-          "unitInfo": {
-            "l01": {
-              "title": "Lesson One",
-              "url": "wom/wot/l01",
-              "toc": ""
-            },
-            "l02": {
-              "title": "Lesson Two",
-              "url": "wom/wot/l02",
-              "footer": "",
-              "display": true,
-              "donate": false,
-              "source": "wom"
-            },
-            "l03": {
-              "title": "Lesson Three",
-              "url": "wom/wot/l03"
-            },
-            "l04": {
-              "title": "Lesson Four",
-              "url": "wom/wot/l04"
-            },
-            "l05": {
-              "title": "Lesson Five",
-              "url": "wom/wot/l05"
-            },
-            "l06": {
-              "title": "Lesson Six",
-              "url": "wom/wot/l06",
-              "toc": ""
-            },
-            "l07": {
-              "title": "Lesson Seven",
-              "url": "wom/wot/l07",
-              "toc": ""
-            },
-            "l08": {
-              "title": "Lesson Eight",
-              "url": "wom/wot/l08"
-            },
-            "l09": {
-              "title": "Lesson Nine",
-              "url": "wom/wot/l09",
-              "toc": ""
-            },
-            "l10": {
-              "title": "Lesson Ten",
-              "url": "wom/wot/l10"
-            },
-            "l11": {
-              "title": "Lesson Eleven",
-              "url": "wom/wot/l11",
-              "toc": ""
-            },
-            "l12": {
-              "title": "Lesson Twelve",
-              "url": "wom/wot/l12"
-            }
-          }
-        },
-        "wok": {
-          "title": "No title",
-          "description": "No description",
-          "units": [
-            "l01",
-            "l02",
-            "l03",
-            "l04",
-            "l05",
-            "l06",
-            "l07",
-            "l08",
-            "l09",
-            "l10",
-            "l11"
-          ],
-          "unitInfo": {
-            "l01": {
-              "title": "Way of Knowing - Lesson One",
-              "url": "wom/wok/l01"
-            },
-            "l02": {
-              "title": "Way of Knowing - Lesson Two",
-              "url": "wom/wok/l02",
-              "toc": ""
-            },
-            "l03": {
-              "title": "Way of Knowing - Lesson Three",
-              "url": "wom/wok/l03",
-              "toc": ""
-            },
-            "l04": {
-              "title": "Way of Knowing - Lesson Four",
-              "url": "wom/wok/l04",
-              "toc": ""
-            },
-            "l05": {
-              "title": "Way of Knowing - Lesson Five",
-              "url": "wom/wok/l05"
-            },
-            "l06": {
-              "title": "Way of Knowing - Lesson Six",
-              "url": "wom/wok/l06",
-              "toc": ""
-            },
-            "l07": {
-              "title": "Way of Knowing - Lesson Seven",
-              "url": "wom/wok/l07"
-            },
-            "l08": {
-              "title": "Way of Knowing - Lesson Eight",
-              "url": "wom/wok/l08"
-            },
-            "l09": {
-              "title": "Way of Knowing - Lesson Nine",
-              "url": "wom/wok/l09"
-            },
-            "l10": {
-              "title": "Way of Knowing - Lesson Ten",
-              "url": "wom/wok/l10",
-              "toc": ""
-            },
-            "l11": {
-              "title": "Way of Knowing - Lesson Eleven",
-              "url": "wom/wok/l11"
-            }
-          }
-        },
         "questions": {
-          "title": "No title",
-          "description": "No description",
+          "title": "Q&A with Jeshua",
+          "description": "Jeshua answers questions after channeled sessions",
+          "image": "/images/covers/wom/qa.svg",
           "groups": [
             "ble",
             "c2s",
@@ -12396,6 +12347,7 @@
       "author-website": "https://mariperron.com/",
       "publisher": "Take Heart Publications",
       "publisher-website": "https://takeheartpublications.org/",
+      "image": "/images/covers/site/acol.jpg",
       "books": [
         "course",
         "dialog",
@@ -12403,8 +12355,9 @@
       ],
       "bookInfo": {
         "course": {
-          "title": "No title",
+          "title": "Book One: The Course",
           "description": "No description",
+          "image": "/images/covers/acol/course.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -12628,8 +12581,9 @@
           }
         },
         "dialog": {
-          "title": "No title",
+          "title": "Book Three: Dialogues",
           "description": "No description",
+          "image": "/images/covers/acol/dialog.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -13033,8 +12987,9 @@
           }
         },
         "treatise": {
-          "title": "No title",
+          "title": "Book Two: The Treatise",
           "description": "No description",
+          "image": "/images/covers/acol/treatise.jpg",
           "units": [
             "learning2",
             "t1chap01",
@@ -13452,14 +13407,16 @@
       "author": "Darrell Morley Price",
       "contact": "Gerald Bausek",
       "email": "doctorofsoul@gmail.com",
+      "image": "/images/covers/site/ftcm.jpg",
       "books": [
         "book1",
         "book2"
       ],
       "bookInfo": {
         "book1": {
-          "title": "No title",
+          "title": "From the Christ Mind: Book I",
           "description": "No description",
+          "image": "/images/covers/ftcm/book1.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -13549,8 +13506,9 @@
           }
         },
         "book2": {
-          "title": "No title",
+          "title": "From the Christ Mind: Book 2",
           "description": "No description",
+          "image": "/images/covers/ftcm/book2.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -13592,8 +13550,9 @@
               "ref": "Chapter Four"
             },
             "chap05": {
-              "title": "No title",
-              "url": "ftcm/book2/chap05"
+              "title": "Love and Peace",
+              "url": "ftcm/book2/chap05",
+              "ref": "Chapter Five"
             },
             "chap06": {
               "title": "Remember Your Father",
@@ -13606,8 +13565,9 @@
               "ref": "Chapter Seven"
             },
             "chap08": {
-              "title": "No title",
-              "url": "ftcm/book2/chap08"
+              "title": "The Holy Instant",
+              "url": "ftcm/book2/chap08",
+              "ref": "Chapter Eight"
             },
             "chap09": {
               "title": "Time and Purpose",
@@ -13663,6 +13623,7 @@
       "author": "Sebastian Blaksley",
       "publisher": "Take Heart Publications",
       "publisher-website": "https://takeheartpublications.org/",
+      "image": "/images/covers/site/col.jpg",
       "books": [
         "book1",
         "book2",
@@ -13674,8 +13635,9 @@
       ],
       "bookInfo": {
         "book1": {
-          "title": "No title",
+          "title": "Echoes of Holiness",
           "description": "No description",
+          "image": "/images/covers/col/book1.jpg",
           "units": [
             "appendix",
             "chap01",
@@ -13858,8 +13820,9 @@
           }
         },
         "book2": {
-          "title": "No title",
+          "title": "Let Yourself Be Loved",
           "description": "No description",
+          "image": "/images/covers/col/book2.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -14035,8 +13998,9 @@
           }
         },
         "book3": {
-          "title": "No title",
+          "title": "Homo-Christus Deo",
           "description": "No description",
+          "image": "/images/covers/col/book3.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -14212,8 +14176,9 @@
           }
         },
         "book4": {
-          "title": "No title",
+          "title": "Book4: Wisdom",
           "description": "No description",
+          "image": "/images/covers/col/book4.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -14925,10 +14890,10 @@
     },
     "acim": {
       "title": "Sparkly Edition of A Course in Miracles",
-      "description": "A Course in Miracles",
-      "aka": "Also known as the Thetford edition or the Hugh Lynn Cayce edition (HLC)",
+      "description": "Also known as the Thetford edition or the Hugh Lynn Cayce edition (HLC)",
       "website": "https://theborderlandfoundation.com/",
       "audio-available": "https://theborderlandfoundation.com/listen-to-sparkly-acim-audiobook/",
+      "image": "/images/covers/site/acim.jpg",
       "books": [
         "preface",
         "text",
@@ -20061,6 +20026,7 @@
         "manual": {
           "title": "Manual for Teachers",
           "description": "Manual for Teachers Volume",
+          "image": "/images/covers/acim/manual.jpg",
           "units": [
             "chap01",
             "chap02",
@@ -20228,13 +20194,15 @@
       "description": "The Jeshua Letters",
       "author": "Joseph S. Benner",
       "website": "https://theimpersonallife.weebly.com/the-impersonal-life.html",
+      "image": "/images/covers/site/til.jpg",
       "books": [
         "til"
       ],
       "bookInfo": {
         "til": {
-          "title": "No title",
-          "description": "No description",
+          "title": "The Impersonal Life",
+          "description": "Joseph S. Benner, 1914",
+          "image": "/images/covers/jsb/til.jpg",
           "units": [
             "chap01",
             "chap02",

@@ -1,7 +1,7 @@
 // App.tsx - cmiLibrary SPA Shell and State Coordinator
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useParams, Link } from 'react-router-dom';
-import { Menu } from 'lucide-react';
+import { Menu, Settings } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { Reader } from './Reader';
 import type { LibraryIndex, SourceInfo } from './types';
@@ -19,6 +19,20 @@ const AppContent: React.FC = () => {
   const [activeSourceConfig, setActiveSourceConfig] = useState<SourceInfo | null>(null);
   const [theme, setTheme] = useState<string>('light');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
+  const [showIds, setShowIds] = useState<boolean>(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+  const settingsRef = useRef<HTMLDivElement>(null);
+
+  // Close settings dropdown on outside clicks
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (settingsRef.current && !settingsRef.current.contains(e.target as Node)) {
+        setIsSettingsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // 1. Fetch lightweight index.json on initial app mount
   useEffect(() => {
@@ -84,6 +98,24 @@ const AppContent: React.FC = () => {
         : activeGroup?.unitInfo?.[unitId])
     : null;
 
+  // 4. Update HTML Document Title contextually
+  useEffect(() => {
+    let newTitle = 'cmiLibrary';
+    if (activeUnit) {
+      if (activeUnit.pageTitle) {
+        newTitle = activeUnit.pageTitle;
+      } else {
+        const fallbackContext = activeBook?.pageTitle || activeBook?.title || activeSourceConfig?.pageTitle || activeSourceConfig?.title || 'cmiLibrary';
+        newTitle = `${activeUnit.title} | ${fallbackContext}`;
+      }
+    } else if (activeBook) {
+      newTitle = activeBook.pageTitle || activeBook.title || 'cmiLibrary';
+    } else if (activeSourceConfig) {
+      newTitle = activeSourceConfig.pageTitle || activeSourceConfig.title || 'cmiLibrary';
+    }
+    document.title = newTitle;
+  }, [activeSourceConfig, activeBook, activeUnit]);
+
   return (
     <div className="app-shell">
       {/* 1. Global App Header */}
@@ -128,17 +160,45 @@ const AppContent: React.FC = () => {
           )}
         </div>
 
-        <div className="header-controls">
-          {/* Theme Dropdown Selector */}
-          <select 
-            className="theme-select" 
-            value={theme} 
-            onChange={(e) => setTheme(e.target.value)}
-          >
-            <option value="light">Warm Parchment (Light)</option>
-            <option value="dark">Midnight Slate (Dark)</option>
-            <option value="sepia">Warm Sepia</option>
-          </select>
+        <div className="header-controls" ref={settingsRef}>
+          <div className="settings-dropdown-container">
+            <button 
+              className="settings-menu-btn" 
+              onClick={() => setIsSettingsOpen(!isSettingsOpen)}
+              title="Settings"
+            >
+              <Settings size={20} />
+            </button>
+
+            {isSettingsOpen && (
+              <div className="settings-dropdown">
+                <div className="settings-group">
+                  <label>Theme</label>
+                  <select 
+                    className="theme-select-inline" 
+                    value={theme} 
+                    onChange={(e) => {
+                      setTheme(e.target.value);
+                      localStorage.setItem('cmi-theme', e.target.value);
+                    }}
+                  >
+                    <option value="light">Warm Parchment (Light)</option>
+                    <option value="dark">Midnight Slate (Dark)</option>
+                    <option value="sepia">Warm Sepia</option>
+                  </select>
+                </div>
+                <div className="settings-group toggle-group">
+                  <label htmlFor="show-ids-toggle">Show Paragraph IDs</label>
+                  <input 
+                    type="checkbox" 
+                    id="show-ids-toggle" 
+                    checked={showIds} 
+                    onChange={(e) => setShowIds(e.target.checked)} 
+                  />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
@@ -165,6 +225,7 @@ const AppContent: React.FC = () => {
           activeSourceConfig={activeSourceConfig}
           libraryIndex={libraryIndex}
           isSidebarCollapsed={isSidebarCollapsed}
+          showIds={showIds}
         />
       </div>
     </div>

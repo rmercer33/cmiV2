@@ -142,7 +142,7 @@ Paragraph inside chapter one.`
 
     // Verification of custom classes, sequence stripping, and sequential DOM IDs
     assert.match(html1, /<h2 id="h2" class="custom-style">Second Heading Level 2<\/h2>/);
-    assert.match(html1, /<p id="p3">This is paragraph 2&#x3C;sup>1&#x3C;\/sup>\.<\/p>/);
+    assert.match(html1, /<p id="p3">This is paragraph 2<sup>1<\/sup>\.<\/p>/);
   });
 
   test("Should support path filtering (e.g. limiting to oe/workbook)", () => {

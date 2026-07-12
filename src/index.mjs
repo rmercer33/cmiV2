@@ -389,6 +389,16 @@ async function run() {
       // Wrap in wrapper tag with configured id
       const wrappedHtml = `<${wrapperTag} id="${wrapperId}">\n${rawHtml}\n</${wrapperTag}>\n`;
 
+      // Unescape HTML tags that were escaped by rehype-stringify (e.g. sup, br, b, i, span)
+      const cleanedHtml = wrappedHtml.replace(/(?:&#x3C;|&lt;)(\/?\w+(?:\s+[^>]*?)?\/?)(?:&#x3E;|&gt;|>)/gi, (match, tagAndAttrs) => {
+        const tagName = tagAndAttrs.replace(/^\//, '').replace(/\/$/, '').trim().split(/\s+/)[0].toLowerCase();
+        const allowedTags = new Set(['sup', 'sub', 'br', 'span', 'b', 'i', 'em', 'strong', 'div', 'p', 'a']);
+        if (allowedTags.has(tagName)) {
+          return `<${tagAndAttrs}>`;
+        }
+        return match;
+      });
+
       // Determine HTML output file path
       // Mirror the source hierarchy
       let outFilePath;
@@ -397,7 +407,7 @@ async function run() {
 
       // Ensure output directory exists and write HTML
       await mkdir(path.dirname(outFilePath), { recursive: true });
-      await writeFile(outFilePath, wrappedHtml, "utf8");
+      await writeFile(outFilePath, cleanedHtml, "utf8");
       console.log(`Generated HTML: ${outFilePath}`);
 
       // 5. DynamoDB Insertion (if flag specified)

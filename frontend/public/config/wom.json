@@ -183,125 +183,140 @@
         },
         "l02": {
           "title": "Lesson Two",
-          "url": "wom/woh/l02"
+          "url": "wom/woh/l02",
+          "audiofn": "L02"
         },
         "l03": {
           "title": "Lesson Three",
-          "url": "wom/woh/l03"
+          "url": "wom/woh/l03",
+          "audiofn": "L03"
         },
         "l04": {
           "title": "Lesson Four",
-          "url": "wom/woh/l04"
+          "url": "wom/woh/l04",
+          "audiofn": "L04"
         },
         "l05": {
           "title": "Lesson Five",
-          "url": "wom/woh/l05"
+          "url": "wom/woh/l05",
+          "audiofn": "L05"
         },
         "l06": {
           "title": "Lesson Six",
-          "url": "wom/woh/l06"
+          "url": "wom/woh/l06",
+          "audiofn": "L06"
         },
         "l07": {
           "title": "Lesson Seven",
-          "url": "wom/woh/l07"
+          "url": "wom/woh/l07",
+          "audiofn": "L07"
         },
         "l08": {
           "title": "Lesson Eight",
-          "url": "wom/woh/l08"
+          "url": "wom/woh/l08",
+          "audiofn": "L08"
         },
         "l09": {
           "title": "Lesson Nine",
-          "url": "wom/woh/l09"
+          "url": "wom/woh/l09",
+          "audiofn": "L09"
         },
         "l10": {
           "title": "Lesson Ten",
-          "url": "wom/woh/l10"
+          "url": "wom/woh/l10",
+          "audiofn": "L10"
         },
         "l11": {
           "title": "Lesson Eleven",
-          "url": "wom/woh/l11"
+          "url": "wom/woh/l11",
+          "audiofn": "L11"
         },
         "l12": {
           "title": "Lesson Twelve",
-          "url": "wom/woh/l12"
+          "url": "wom/woh/l12",
+          "audiofn": "L12"
         }
       }
     },
     "wot": {
-      "title": "Wau of Transformation",
+      "title": "Way of Transformation",
       "description": "The second year of the Way of Mastery series.",
       "image": "/images/covers/wom/wot.jpg",
       "units": [
-        "l01",
-        "l02",
-        "l03",
-        "l04",
-        "l05",
-        "l06",
-        "l07",
-        "l08",
-        "l09",
-        "l10",
-        "l11",
-        "l12"
+        "l13",
+        "l14",
+        "l15",
+        "l16",
+        "l17",
+        "l18",
+        "l19",
+        "l20",
+        "l21",
+        "l22",
+        "l23",
+        "l24"
       ],
       "unitInfo": {
-        "l01": {
+        "l13": {
           "title": "Lesson One",
-          "url": "wom/wot/l01",
-          "toc": ""
+          "url": "wom/wot/l13",
+          "audiofn": "L13"
         },
-        "l02": {
+        "l14": {
           "title": "Lesson Two",
-          "url": "wom/wot/l02",
-          "footer": "",
-          "display": true,
-          "donate": false,
-          "source": "wom"
+          "url": "wom/wot/l14",
+          "audiofn": "L14"
         },
-        "l03": {
+        "l15": {
           "title": "Lesson Three",
-          "url": "wom/wot/l03"
+          "url": "wom/wot/l15",
+          "audiofn": "L15"
         },
-        "l04": {
+        "l16": {
           "title": "Lesson Four",
-          "url": "wom/wot/l04"
+          "url": "wom/wot/l16",
+          "audiofn": "L16"
         },
-        "l05": {
+        "l17": {
           "title": "Lesson Five",
-          "url": "wom/wot/l05"
+          "url": "wom/wot/l17",
+          "audiofn": "L17"
         },
-        "l06": {
+        "l18": {
           "title": "Lesson Six",
-          "url": "wom/wot/l06",
+          "url": "wom/wot/l18",
+          "audiofn": "l18",
           "toc": ""
         },
-        "l07": {
+        "l19": {
           "title": "Lesson Seven",
-          "url": "wom/wot/l07",
-          "toc": ""
+          "url": "wom/wot/l19",
+          "audiofn": "L19.md"
         },
-        "l08": {
+        "l20": {
           "title": "Lesson Eight",
-          "url": "wom/wot/l08"
+          "url": "wom/wot/l20",
+          "audiofn": "L20"
         },
-        "l09": {
+        "l21": {
           "title": "Lesson Nine",
-          "url": "wom/wot/l09",
-          "toc": ""
+          "url": "wom/wot/l21",
+          "audiofn": "L21"
         },
-        "l10": {
+        "l22": {
           "title": "Lesson Ten",
-          "url": "wom/wot/l10"
+          "url": "wom/wot/l22",
+          "audiofn": "L22"
         },
-        "l11": {
+        "l23": {
           "title": "Lesson Eleven",
-          "url": "wom/wot/l11",
-          "toc": ""
+          "url": "wom/wot/l23",
+          "audiofn": "L23"
         },
-        "l12": {
+        "l24": {
           "title": "Lesson Twelve",
-          "url": "wom/wot/l12"
+          "url": "wom/wot/l24",
+          "audiofn": "L24"
         }
       }
     },
@@ -310,67 +325,73 @@
       "description": "The third and final year of the Way of Mastery series.",
       "image": "/images/covers/wom/wok.jpg",
       "units": [
-        "l01",
-        "l02",
-        "l03",
-        "l04",
-        "l05",
-        "l06",
-        "l07",
-        "l08",
-        "l09",
-        "l10",
-        "l11"
+        "l25",
+        "l26",
+        "l27",
+        "l28",
+        "l29",
+        "l30",
+        "l31",
+        "l32",
+        "l33",
+        "l34",
+        "l35"
       ],
       "unitInfo": {
-        "l01": {
-          "title": "Way of Knowing - Lesson One",
-          "url": "wom/wok/l01"
+        "l25": {
+          "title": "Lesson One",
+          "url": "wom/wok/l25",
+          "audiofn": "L25"
         },
-        "l02": {
-          "title": "Way of Knowing - Lesson Two",
-          "url": "wom/wok/l02",
-          "toc": ""
+        "l26": {
+          "title": "Lesson Two",
+          "url": "wom/wok/l26",
+          "audiofn": "L26"
         },
-        "l03": {
-          "title": "Way of Knowing - Lesson Three",
-          "url": "wom/wok/l03",
-          "toc": ""
+        "l27": {
+          "title": "Lesson Three",
+          "url": "wom/wok/l27",
+          "audiofn": "L27"
         },
-        "l04": {
-          "title": "Way of Knowing - Lesson Four",
-          "url": "wom/wok/l04",
-          "toc": ""
+        "l28": {
+          "title": "Lesson Four",
+          "url": "wom/wok/l28",
+          "audiofn": "L28"
         },
-        "l05": {
-          "title": "Way of Knowing - Lesson Five",
-          "url": "wom/wok/l05"
+        "l29": {
+          "title": "Lesson Five",
+          "url": "wom/wok/l29",
+          "audiofn": "L29"
         },
-        "l06": {
-          "title": "Way of Knowing - Lesson Six",
-          "url": "wom/wok/l06",
-          "toc": ""
+        "l30": {
+          "title": "Lesson Six",
+          "url": "wom/wok/l30",
+          "audiofn": "L30"
         },
-        "l07": {
-          "title": "Way of Knowing - Lesson Seven",
-          "url": "wom/wok/l07"
+        "l31": {
+          "title": "Lesson Seven",
+          "url": "wom/wok/l31",
+          "audiofn": "L31"
         },
-        "l08": {
-          "title": "Way of Knowing - Lesson Eight",
-          "url": "wom/wok/l08"
+        "l32": {
+          "title": "Lesson Eight",
+          "url": "wom/wok/l32",
+          "audiofn": "L32"
         },
-        "l09": {
-          "title": "Way of Knowing - Lesson Nine",
-          "url": "wom/wok/l09"
+        "l33": {
+          "title": "Lesson Nine",
+          "url": "wom/wok/l33",
+          "audiofn": "L33"
         },
-        "l10": {
-          "title": "Way of Knowing - Lesson Ten",
-          "url": "wom/wok/l10",
-          "toc": ""
+        "l34": {
+          "title": "Lesson Ten",
+          "url": "wom/wok/l34",
+          "audiofn": "L34"
         },
-        "l11": {
-          "title": "Way of Knowing - Lesson Eleven",
-          "url": "wom/wok/l11"
+        "l35": {
+          "title": "Lesson Eleven",
+          "url": "wom/wok/l35",
+          "audiofn": "L35"
         }
       }
     },

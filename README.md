@@ -106,3 +106,41 @@ The test suite validates:
 1.  **Metadata Config Generator Tests**: Verifies recursive schema mapping, custom YAML frontmatter parsing, and sorting arrays.
 2.  **Original Ingestion Integration Tests**: Verifies single file parsing, duplicate prevention, and local DynamoDB population.
 3.  **Unified Ingestion Pipeline Tests**: Verifies recursive traversal, path filtering, configuration wrapper injection, sequence-stripped HTML element IDs, and opt-in database indexing.
+
+---
+
+## 5. React SPA Frontend Website
+
+An immersive, modern, responsive Single-Page Application (SPA) frontend is included inside the `frontend/` folder to view and read the generated teachings.
+
+### Development Server
+To launch the frontend locally for development and reading:
+```bash
+cd frontend
+npm run dev
+```
+The application will start at `http://localhost:5173/`.
+
+### Synchronizing Re-generated Data
+If you have recreated `config.json` (metadata config) or compiled new HTML files into `_site/`:
+
+1. **Synchronize Config Metadata:**
+   Run the following splitter script from the **project root folder**:
+   ```bash
+   node scripts/split-config.mjs
+   ```
+   This splits your massive metadata `config.json` into a super lightweight initial index file and optimized source chunks inside `frontend/public/config/`.
+
+2. **Synchronize HTML Content:**
+   **No action is needed!** Because we've set up a relative symlink from `_site/` to `frontend/public/content`, any freshly compiled HTML fragments inside `_site/` are instantly and automatically served to the React app in real-time.
+
+Simply **refresh your browser** after running the config splitter to see your newest content!
+
+### Production Build
+To build and optimize the frontend for production hosting:
+```bash
+cd frontend
+npm run build
+```
+This builds static assets into `frontend/dist/` ready to be served from any static host (such as AWS S3, Vercel, Netlify, or GitHub Pages).
+
