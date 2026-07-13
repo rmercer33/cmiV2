@@ -16,9 +16,7 @@ import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 import { parseArguments } from "./cli.mjs";
 import { cleanExistingRecords } from "./cleanup.mjs";
 
-const rehypeProcessor = unified()
-  .use(remarkRehype)
-  .use(rehypeStringify);
+const rehypeProcessor = unified().use(remarkRehype).use(rehypeStringify);
 
 /**
  * Safely reads and parses info.json if it exists.
@@ -41,8 +39,8 @@ function sortItems(found, ordered) {
     return [...found].sort();
   }
   const orderedSet = new Set(ordered);
-  const matched = ordered.filter(item => found.includes(item));
-  const remaining = found.filter(item => !orderedSet.has(item)).sort();
+  const matched = ordered.filter((item) => found.includes(item));
+  const remaining = found.filter((item) => !orderedSet.has(item)).sort();
   return [...matched, ...remaining];
 }
 
@@ -51,11 +49,13 @@ function sortItems(found, ordered) {
  */
 async function getSingleFileSequence(filepath) {
   const dirPath = path.dirname(filepath);
-  const info = await readInfoJson(dirPath) || {};
+  const info = (await readInfoJson(dirPath)) || {};
   try {
     const entries = await readdir(dirPath, { withFileTypes: true });
-    const files = entries.filter(e => e.isFile() && e.name.endsWith(".md")).map(e => e.name);
-    const fileBasenames = files.map(f => f.slice(0, -3));
+    const files = entries
+      .filter((e) => e.isFile() && e.name.endsWith(".md"))
+      .map((e) => e.name);
+    const fileBasenames = files.map((f) => f.slice(0, -3));
     const sortedBasenames = sortItems(fileBasenames, info.units);
     const basename = path.basename(filepath, ".md");
     const index = sortedBasenames.indexOf(basename);
@@ -76,75 +76,90 @@ async function getMarkdownFiles(contentRoot) {
   const results = [];
 
   async function traverse(currentDir, context) {
-    const info = await readInfoJson(currentDir) || {};
+    const info = (await readInfoJson(currentDir)) || {};
     const entries = await readdir(currentDir, { withFileTypes: true });
 
-    const dirs = entries.filter(e => e.isDirectory()).map(e => e.name);
-    const files = entries.filter(e => e.isFile() && e.name.endsWith(".md")).map(e => e.name);
+    const dirs = entries.filter((e) => e.isDirectory()).map((e) => e.name);
+    const files = entries
+      .filter((e) => e.isFile() && e.name.endsWith(".md"))
+      .map((e) => e.name);
 
     // Identify what this folder represents and how we sort its subdirectories
     let orderRules;
     let nextContextBuilder = (dirName) => ({ ...context });
 
     if (context.isRoot) {
-      if (Array.isArray(info.sections)) {
-        orderRules = info.sections;
-        nextContextBuilder = (dirName) => ({
-          ...context,
-          isRoot: false,
-          section: dirName
-        });
-      } else {
-        orderRules = info.sources;
-        nextContextBuilder = (dirName) => ({
-          ...context,
-          isRoot: false,
-          source: dirName
-        });
-      }
+      const sectionsList = Array.isArray(info.sections) ? info.sections : [];
+      nextContextBuilder = (dirName) => {
+        if (sectionsList.includes(dirName)) {
+          return {
+            ...context,
+            isRoot: false,
+            section: dirName,
+          };
+        } else {
+          return {
+            ...context,
+            isRoot: false,
+            source: dirName,
+          };
+        }
+      };
+      orderRules = sectionsList.concat(
+        Array.isArray(info.sources) ? info.sources : [],
+      );
     } else if (context.section && !context.source) {
       orderRules = info.sources;
       nextContextBuilder = (dirName) => ({
         ...context,
-        source: dirName
+        source: dirName,
       });
     } else if (context.source && !context.collection && !context.book) {
-      if (Array.isArray(info.collections)) {
-        orderRules = info.collections;
-        nextContextBuilder = (dirName) => ({
-          ...context,
-          collection: dirName
-        });
-      } else {
-        orderRules = info.books;
-        nextContextBuilder = (dirName) => ({
-          ...context,
-          book: dirName
-        });
-      }
+      const collectionsList = Array.isArray(info.collections)
+        ? info.collections
+        : [];
+      nextContextBuilder = (dirName) => {
+        if (collectionsList.includes(dirName)) {
+          return {
+            ...context,
+            collection: dirName,
+          };
+        } else {
+          return {
+            ...context,
+            book: dirName,
+          };
+        }
+      };
+      orderRules = collectionsList.concat(
+        Array.isArray(info.books) ? info.books : [],
+      );
     } else if (context.collection && !context.book) {
       orderRules = info.books;
       nextContextBuilder = (dirName) => ({
         ...context,
-        book: dirName
+        book: dirName,
       });
     } else if (context.book && !context.group) {
       orderRules = info.groups;
       nextContextBuilder = (dirName) => ({
         ...context,
-        group: dirName
+        group: dirName,
       });
     }
 
     const sortedDirs = sortItems(dirs, orderRules);
 
-    const fileBasenames = files.map(f => f.slice(0, -3));
+    const fileBasenames = files.map((f) => f.slice(0, -3));
     const sortedBasenames = sortItems(fileBasenames, info.units);
-    const sortedFiles = sortedBasenames.map(name => `${name}.md`);
+    const sortedFiles = sortedBasenames.map((name) => `${name}.md`);
 
     // Depth-first traversal
     for (const dirName of sortedDirs) {
-      await traverse(path.join(currentDir, dirName), nextContextBuilder(dirName));
+      await traverse(
+        path.join(currentDir, dirName),
+        nextContextBuilder(dirName),
+      );
     }
 
     // Process files in this directory (only if it represents a valid unit inside a book)
@@ -164,7 +179,7 @@ async function getMarkdownFiles(contentRoot) {
           filepath,
           sequence: seqStr,
           relPath,
-          ...fileContext
+          ...fileContext,
         });
       }
     }
@@ -193,7 +208,7 @@ function processAst(ast, frontmatter) {
       }
 
       const type = node.type === "heading" ? "h" : "p";
-      
+
       // Replace newlines in paragraph nodes with spaces
       if (type === "p") {
         text = text.replace(/\r?\n/g, " ");
@@ -212,11 +227,11 @@ function processAst(ast, frontmatter) {
       if (directiveMatch) {
         // Strip the directive from the text being rendered/saved
         text = text.replace(/\{:\s*(.*?)\s*\}$/, "").trim();
-        
+
         // Extract the value (e.g. '.omit' or '.custom-class')
         const directive = directiveMatch[1].trim();
         htmlClass = directive.replace(/^\./, "");
-        
+
         if (htmlClass.toLowerCase() === "omit") {
           omitFromDb = true;
         }
@@ -262,7 +277,9 @@ function processAst(ast, frontmatter) {
   if (nodesToRemove.size > 0) {
     const removeOmitted = (parent) => {
       if (parent.children) {
-        parent.children = parent.children.filter(child => !nodesToRemove.has(child));
+        parent.children = parent.children.filter(
+          (child) => !nodesToRemove.has(child),
+        );
         parent.children.forEach(removeOmitted);
       }
     };
@@ -282,7 +299,7 @@ async function run() {
       contentRoot: "../cmiContent/content",
       outputRoot: "./public/content",
       wrapperTag: "div",
-      wrapperId: "cmi-content"
+      wrapperId: "cmi-content",
     };
 
     if (options.config) {
@@ -290,8 +307,14 @@ async function run() {
         const configRaw = await readFile(path.resolve(options.config), "utf8");
         config = { ...config, ...JSON.parse(configRaw) };
       } catch (err) {
-        if (options.config !== "./parser-config.json" || err.code !== "ENOENT") {
-          console.warn(`[Warning] Could not read config file "${options.config}":`, err.message);
+        if (
+          options.config !== "./parser-config.json" ||
+          err.code !== "ENOENT"
+        ) {
+          console.warn(
+            `[Warning] Could not read config file "${options.config}":`,
+            err.message,
+          );
         }
       }
     }
@@ -311,11 +334,11 @@ async function run() {
         process.exit(1);
       }
       const absFilePath = path.resolve(filepath);
-      
+
       let fileObj = null;
       try {
         const allFiles = await getMarkdownFiles(contentRoot);
-        fileObj = allFiles.find(f => f.filepath === absFilePath);
+        fileObj = allFiles.find((f) => f.filepath === absFilePath);
       } catch (err) {
         // Fallback or ignore
       }
@@ -328,7 +351,7 @@ async function run() {
           collection: options.collection || fileObj.collection,
           book: options.book || fileObj.book,
           group: options.group || fileObj.group,
-          unit: options.unit || fileObj.unit
+          unit: options.unit || fileObj.unit,
         });
       } else {
         // Fallback for files outside content root or missing metadata
@@ -341,18 +364,20 @@ async function run() {
           book: options.book || "unknown",
           unit: options.unit || basename,
           sequence: fileSeq,
-          relPath
+          relPath,
         });
       }
     } else {
       // Directory Mode
       if (!fs.existsSync(contentRoot)) {
-        console.error(`Error: Content directory "${contentRoot}" does not exist.`);
+        console.error(
+          `Error: Content directory "${contentRoot}" does not exist.`,
+        );
         process.exit(1);
       }
 
       const allFiles = await getMarkdownFiles(contentRoot);
-      
+
       for (const fileObj of allFiles) {
         // Filter by --path option if specified
         if (options.path) {
@@ -371,7 +396,9 @@ async function run() {
       return;
     }
 
-    console.log(`Starting processing for ${filesToProcess.length} markdown file(s)...`);
+    console.log(
+      `Starting processing for ${filesToProcess.length} markdown file(s)...`,
+    );
 
     // Setup DynamoDB client if DB ingestion is requested
     let docClient;
@@ -390,16 +417,17 @@ async function run() {
     }
 
     // 4. Process each file
-    const processor = unified()
-      .use(remarkParse)
-      .use(remarkFrontmatter);
+    const processor = unified().use(remarkParse).use(remarkFrontmatter);
 
     for (const fileInfo of filesToProcess) {
       let content;
       try {
         content = await readFile(fileInfo.filepath, "utf8");
       } catch (err) {
-        console.error(`Error reading file "${fileInfo.filepath}":`, err.message);
+        console.error(
+          `Error reading file "${fileInfo.filepath}":`,
+          err.message,
+        );
         continue;
       }
 
@@ -408,7 +436,7 @@ async function run() {
 
       // Extract frontmatter attributes
       const frontmatter = {};
-      const yamlNode = ast.children.find(node => node.type === "yaml");
+      const yamlNode = ast.children.find((node) => node.type === "yaml");
       if (yamlNode && yamlNode.value) {
         const lines = yamlNode.value.split("\n");
         for (const line of lines) {
@@ -430,14 +458,34 @@ async function run() {
       const wrappedHtml = `<${wrapperTag} id="${wrapperId}">\n${rawHtml}\n</${wrapperTag}>\n`;
 
       // Unescape HTML tags that were escaped by rehype-stringify (e.g. sup, br, b, i, span)
-      const cleanedHtml = wrappedHtml.replace(/(?:&#x3C;|&lt;)(\/?\w+(?:\s+[^>]*?)?\/?)(?:&#x3E;|&gt;|>)/gi, (match, tagAndAttrs) => {
-        const tagName = tagAndAttrs.replace(/^\//, '').replace(/\/$/, '').trim().split(/\s+/)[0].toLowerCase();
-        const allowedTags = new Set(['sup', 'sub', 'br', 'span', 'b', 'i', 'em', 'strong', 'div', 'p', 'a']);
-        if (allowedTags.has(tagName)) {
-          return `<${tagAndAttrs}>`;
-        }
-        return match;
-      });
+      const cleanedHtml = wrappedHtml.replace(
+        /(?:&#x3C;|&lt;)(\/?\w+(?:\s+[^>]*?)?\/?)(?:&#x3E;|&gt;|>)/gi,
+        (match, tagAndAttrs) => {
+          const tagName = tagAndAttrs
+            .replace(/^\//, "")
+            .replace(/\/$/, "")
+            .trim()
+            .split(/\s+/)[0]
+            .toLowerCase();
+          const allowedTags = new Set([
+            "sup",
+            "sub",
+            "br",
+            "span",
+            "b",
+            "i",
+            "em",
+            "strong",
+            "div",
+            "p",
+            "a",
+          ]);
+          if (allowedTags.has(tagName)) {
+            return `<${tagAndAttrs}>`;
+          }
+          return match;
+        },
+      );
 
       // Determine HTML output file path (using relPath to perfectly mirror source hierarchy)
       const htmRelPath = fileInfo.relPath.replace(/\.md$/, ".html");
@@ -457,7 +505,7 @@ async function run() {
           collection: fileInfo.collection,
           book: fileInfo.book,
           group: fileInfo.group,
-          unit: fileInfo.unit
+          unit: fileInfo.unit,
         });
 
         // Insert new records
@@ -470,7 +518,7 @@ async function run() {
           skParts.push(`${fileInfo.sequence}:${fileInfo.unit}`);
           skParts.push(item.key);
 
-          const sk = skParts.join('/');
+          const sk = skParts.join("/");
 
           const putItem = {
             source: fileInfo.source,
@@ -478,7 +526,7 @@ async function run() {
             type: item.type,
             text: item.text,
             book: fileInfo.book,
-            unit: fileInfo.unit
+            unit: fileInfo.unit,
           };
 
           if (fileInfo.section) putItem.section = fileInfo.section;
@@ -487,19 +535,25 @@ async function run() {
 
           const putParams = {
             TableName: tableName,
-            Item: putItem
+            Item: putItem,
           };
 
           const command = new PutCommand(putParams);
           await docClient.send(command);
         }
-        console.log(`Ingested ${items.length} items into DynamoDB table cmiSearch for ${fileInfo.source}/${fileInfo.book}/${fileInfo.unit}`);
+        console.log(
+          `Ingested ${items.length} items into DynamoDB table cmiSearch for ${fileInfo.source}/${fileInfo.book}/${fileInfo.unit}`,
+        );
       }
     }
 
     console.log("Processing completed successfully.");
   } catch (error) {
-    if (error.code !== "commander.missingArgument" && error.code !== "commander.helpDisplayed" && error.code !== "commander.unknownOption") {
+    if (
+      error.code !== "commander.missingArgument" &&
+      error.code !== "commander.helpDisplayed" &&
+      error.code !== "commander.unknownOption"
+    ) {
       console.error("Error executing parser:", error);
     }
     process.exit(1);

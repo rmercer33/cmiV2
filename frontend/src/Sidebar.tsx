@@ -1,7 +1,7 @@
 // Sidebar.tsx - cmiLibrary Dynamic Sidebar Navigation Tree
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronRight, X, Book } from 'lucide-react';
+import { ChevronRight, X, Book, Folder, Layers, BookOpen } from 'lucide-react';
 import { buildReadLink } from './App';
 import type { LibraryIndex, SourceInfo } from './types';
 
@@ -38,6 +38,11 @@ interface SidebarNodeProps {
   activeSourceConfig: SourceInfo | null;
   expandedNodes: { [key: string]: boolean };
   setExpandedNodes: React.Dispatch<React.SetStateAction<{ [key: string]: boolean }>>;
+}
+
+interface ChildNode {
+  id: string;
+  type: 'source' | 'collection' | 'book' | 'group' | 'unit';
 }
 
 const SidebarNode: React.FC<SidebarNodeProps> = ({
@@ -103,50 +108,43 @@ const SidebarNode: React.FC<SidebarNodeProps> = ({
     }
   };
 
-  // Determine children to render recursively
-  let children: string[] = [];
-  let childType: 'source' | 'collection' | 'book' | 'group' | 'unit' | null = null;
-  let getChildNodeData: (childId: string) => any = () => null;
+  // Determine children to render recursively (generalised as { id, type } to support mixtures of node types)
+  let children: ChildNode[] = [];
+  let getChildNodeData: (childId: string, childType: string) => any = () => null;
 
   if (type === 'section') {
-    children = nodeData.sources || [];
-    childType = 'source';
+    children = (nodeData.sources || []).map((childId: string) => ({ id: childId, type: 'source' }));
     getChildNodeData = (childId) => nodeData.sourceInfo?.[childId];
   } else if (type === 'source') {
     if (isActive && activeSourceConfig) {
-      if (activeSourceConfig.collections) {
-        children = activeSourceConfig.collections;
-        childType = 'collection';
-        getChildNodeData = (childId) => activeSourceConfig.collectionInfo?.[childId];
-      } else if (activeSourceConfig.books) {
-        children = activeSourceConfig.books;
-        childType = 'book';
-        getChildNodeData = (childId) => activeSourceConfig.bookInfo?.[childId];
-      }
+      const colls: ChildNode[] = (activeSourceConfig.collections || []).map((childId: string) => ({ id: childId, type: 'collection' }));
+      const bks: ChildNode[] = (activeSourceConfig.books || []).map((childId: string) => ({ id: childId, type: 'book' }));
+      children = [...colls, ...bks];
+      getChildNodeData = (childId, childType) => {
+        return childType === 'collection'
+          ? activeSourceConfig.collectionInfo?.[childId]
+          : activeSourceConfig.bookInfo?.[childId];
+      };
     }
   } else if (type === 'collection') {
-    children = nodeData.books || [];
-    childType = 'book';
+    children = (nodeData.books || []).map((childId: string) => ({ id: childId, type: 'book' }));
     getChildNodeData = (childId) => nodeData.bookInfo?.[childId];
   } else if (type === 'book') {
-    if (nodeData.groups) {
-      children = nodeData.groups;
-      childType = 'group';
-      getChildNodeData = (childId) => nodeData.groupInfo?.[childId];
-    } else if (nodeData.units) {
-      children = nodeData.units;
-      childType = 'unit';
-      getChildNodeData = (childId) => nodeData.unitInfo?.[childId];
-    }
+    const grps: ChildNode[] = (nodeData.groups || []).map((childId: string) => ({ id: childId, type: 'group' }));
+    const unts: ChildNode[] = (nodeData.units || []).map((childId: string) => ({ id: childId, type: 'unit' }));
+    children = [...grps, ...unts];
+    getChildNodeData = (childId, childType) => {
+      return childType === 'group'
+        ? nodeData.groupInfo?.[childId]
+        : nodeData.unitInfo?.[childId];
+    };
   } else if (type === 'group') {
-    children = nodeData.units || [];
-    childType = 'unit';
+    children = (nodeData.units || []).map((childId: string) => ({ id: childId, type: 'unit' }));
     getChildNodeData = (childId) => nodeData.unitInfo?.[childId];
   }
 
   // Unit (leaf) item
   if (type === 'unit') {
-    // Legacy support for implicit "index" URL segment if the unit has a flat layout
     const finalAccumulated = { ...accumulatedParts, unit: id };
     if (!accumulatedParts.group && activeSourceConfig && resolvedContext.bookId) {
       const book = activeSourceConfig.bookInfo?.[resolvedContext.bookId];
@@ -176,7 +174,10 @@ const SidebarNode: React.FC<SidebarNodeProps> = ({
         style={{ paddingLeft: `${pathParts.length * 0.75 + 0.5}rem` }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: 0, overflow: 'hidden' }}>
+          {type === 'section' && <Folder size={18} className="section-icon" style={{ flexShrink: 0, color: 'var(--accent-color)' }} />}
           {type === 'source' && <Book size={18} className="brand-icon" style={{ flexShrink: 0 }} />}
+          {type === 'collection' && <Layers size={16} className="collection-icon" style={{ flexShrink: 0, color: 'var(--text-secondary)' }} />}
+          {type === 'book' && <BookOpen size={16} className="book-icon" style={{ flexShrink: 0, color: 'var(--text-secondary)' }} />}
           <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{title}</span>
         </div>
         {children.length > 0 && (
@@ -191,8 +192,8 @@ const SidebarNode: React.FC<SidebarNodeProps> = ({
       {/* Recurse child elements */}
       {isExpanded && children.length > 0 && (
         <div className={`node-children ${type}-children`} style={{ display: 'block', maxHeight: 'none' }}>
-          {children.map((childId) => {
-            const childData = getChildNodeData(childId);
+          {children.map(({ id: childId, type: childType }) => {
+            const childData = getChildNodeData(childId, childType);
             if (!childData) return null;
 
             const nextAccumulated = { ...accumulatedParts };
@@ -200,14 +201,14 @@ const SidebarNode: React.FC<SidebarNodeProps> = ({
             if (type === 'source' && childType === 'collection') nextAccumulated.collection = childId;
             if (type === 'source' && childType === 'book') nextAccumulated.book = childId;
             if (type === 'collection') nextAccumulated.book = childId;
-            if (type === 'book') nextAccumulated.group = childId;
+            if (type === 'book' && childType === 'group') nextAccumulated.group = childId;
 
             return (
               <SidebarNode
                 key={childId}
                 id={childId}
                 title={(childData as any).title}
-                type={childType!}
+                type={childType}
                 pathParts={[...pathParts, id]}
                 accumulatedParts={nextAccumulated}
                 nodeData={childData}
@@ -289,51 +290,49 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       <div className="sidebar-tree">
-        {libraryIndex.sections ? (
-          // Render sectioned root
-          libraryIndex.sections.map((sectionId) => {
-            const sectionMeta = libraryIndex.sectionInfo?.[sectionId];
-            if (!sectionMeta) return null;
+        {/* Render sections if they exist in the library catalog */}
+        {libraryIndex.sections && libraryIndex.sections.map((sectionId) => {
+          const sectionMeta = libraryIndex.sectionInfo?.[sectionId];
+          if (!sectionMeta) return null;
 
-            return (
-              <SidebarNode
-                key={sectionId}
-                id={sectionId}
-                title={sectionMeta.title}
-                type="section"
-                pathParts={[]}
-                accumulatedParts={{ section: sectionId }}
-                nodeData={sectionMeta}
-                resolvedContext={resolvedContext}
-                activeSourceConfig={activeSourceConfig}
-                expandedNodes={expandedNodes}
-                setExpandedNodes={setExpandedNodes}
-              />
-            );
-          })
-        ) : libraryIndex.sources ? (
-          // Render flat, backward-compatible sources root
-          libraryIndex.sources.map((sourceId) => {
-            const sourceMeta = libraryIndex.sourceInfo?.[sourceId];
-            if (!sourceMeta) return null;
+          return (
+            <SidebarNode
+              key={sectionId}
+              id={sectionId}
+              title={sectionMeta.title}
+              type="section"
+              pathParts={[]}
+              accumulatedParts={{ section: sectionId }}
+              nodeData={sectionMeta}
+              resolvedContext={resolvedContext}
+              activeSourceConfig={activeSourceConfig}
+              expandedNodes={expandedNodes}
+              setExpandedNodes={setExpandedNodes}
+            />
+          );
+        })}
 
-            return (
-              <SidebarNode
-                key={sourceId}
-                id={sourceId}
-                title={sourceMeta.title}
-                type="source"
-                pathParts={[]}
-                accumulatedParts={{ source: sourceId }}
-                nodeData={sourceMeta}
-                resolvedContext={resolvedContext}
-                activeSourceConfig={activeSourceConfig}
-                expandedNodes={expandedNodes}
-                setExpandedNodes={setExpandedNodes}
-              />
-            );
-          })
-        ) : null}
+        {/* Render root-level unsectioned flat sources in the library catalog */}
+        {libraryIndex.sources && libraryIndex.sources.map((sourceId) => {
+          const sourceMeta = libraryIndex.sourceInfo?.[sourceId];
+          if (!sourceMeta) return null;
+
+          return (
+            <SidebarNode
+              key={sourceId}
+              id={sourceId}
+              title={sourceMeta.title}
+              type="source"
+              pathParts={[]}
+              accumulatedParts={{ source: sourceId }}
+              nodeData={sourceMeta}
+              resolvedContext={resolvedContext}
+              activeSourceConfig={activeSourceConfig}
+              expandedNodes={expandedNodes}
+              setExpandedNodes={setExpandedNodes}
+            />
+          );
+        })}
       </div>
     </aside>
   );

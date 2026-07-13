@@ -3,54 +3,64 @@
   "description": "cmiLibrary Website Configuration",
   "contact": "Rick Mercer",
   "email": "rmercer33@gmail.con",
+  "sections": [
+    "acim-related"
+  ],
+  "sectionInfo": {
+    "acim-related": {
+      "title": "ACIM Related Teachings",
+      "description": "A collection of ACIM and related teachings.",
+      "sources": [
+        "oe",
+        "raj",
+        "acim"
+      ],
+      "sourceInfo": {
+        "oe": {
+          "title": "A Course in Miracles - Original Edition",
+          "description": "A good one paragraph description for OE",
+          "image": "/images/covers/site/oe.jpg",
+          "books": [
+            "text",
+            "workbook",
+            "manual"
+          ]
+        },
+        "raj": {
+          "title": "The Raj Material",
+          "description": "Raj / Northwest Foundation for ACIM",
+          "image": "/images/covers/site/raj.jpg",
+          "books": [
+            "yaa",
+            "grad",
+            "shorts"
+          ],
+          "collections": [
+            "study-group"
+          ]
+        },
+        "acim": {
+          "title": "Sparkly Edition of A Course in Miracles",
+          "description": "Also known as the Thetford edition or the Hugh Lynn Cayce edition (HLC)",
+          "image": "/images/covers/site/acim.jpg",
+          "books": [
+            "preface",
+            "text",
+            "workbook",
+            "manual"
+          ]
+        }
+      }
+    }
+  },
   "sources": [
-    "oe",
-    "raj",
     "wom",
-    "acol",
     "ftcm",
     "col",
-    "acim",
-    "jsb"
+    "jsb",
+    "acol"
   ],
   "sourceInfo": {
-    "oe": {
-      "title": "A Course in Miracles - Original Edition",
-      "description": "A good one paragraph description for OE",
-      "image": "/images/covers/site/oe.jpg",
-      "books": [
-        "text",
-        "workbook",
-        "manual"
-      ]
-    },
-    "raj": {
-      "title": "The Raj Material",
-      "description": "Raj / Northwest Foundation for ACIM",
-      "image": "/images/covers/site/raj.jpg",
-      "books": [
-        "yaa",
-        "grad",
-        "shorts",
-        "sg2002",
-        "sg2003",
-        "sg2004",
-        "sg2005",
-        "sg2006",
-        "sg2007",
-        "sg2008",
-        "sg2009",
-        "sg2010",
-        "sg2011",
-        "sg2012",
-        "sg2013",
-        "sg2014",
-        "sg2015",
-        "sg2016",
-        "sg2017",
-        "sg2018"
-      ]
-    },
     "wom": {
       "title": "The Way of Mastery",
       "description": "The Way of Mastery",
@@ -63,16 +73,6 @@
         "wok",
         "wos",
         "questions"
-      ]
-    },
-    "acol": {
-      "title": " A Course of Love",
-      "description": "A Course of Love",
-      "image": "/images/covers/site/acol.jpg",
-      "books": [
-        "course",
-        "dialog",
-        "treatise"
       ]
     },
     "ftcm": {
@@ -98,23 +98,22 @@
         "book7"
       ]
     },
-    "acim": {
-      "title": "Sparkly Edition of A Course in Miracles",
-      "description": "Also known as the Thetford edition or the Hugh Lynn Cayce edition (HLC)",
-      "image": "/images/covers/site/acim.jpg",
-      "books": [
-        "preface",
-        "text",
-        "workbook",
-        "manual"
-      ]
-    },
     "jsb": {
       "title": "The Impersonal Life",
       "description": "The Jeshua Letters",
       "image": "/images/covers/site/til.jpg",
       "books": [
         "til"
+      ]
+    },
+    "acol": {
+      "title": " A Course of Love",
+      "description": "A Course of Love",
+      "image": "/images/covers/site/acol.jpg",
+      "books": [
+        "course",
+        "dialog",
+        "treatise"
       ]
     }
   }

@@ -56,21 +56,24 @@ test("Integration Test - Parse and Insert to Local DynamoDB", async () => {
   assert.strictEqual(headings.length, 2);
   assert.strictEqual(paragraphs.length, 3);
 
-  assert.strictEqual(headings[0].sk, "wok/002:l01/0001#h1");
+  // Extract the generated sequence to avoid hardcoded dependency on other project files
+  const seq = headings[0].sk.split("/")[1].split(":")[0];
+
+  assert.strictEqual(headings[0].sk, `wok/${seq}:l01/0001#h1`);
   assert.strictEqual(headings[0].text, "Heading Level 1 (My Special Title)");
 
   // Heading level 2 is after the omitted paragraph (sequence 3), so its sequence is 4 (h2)
-  assert.strictEqual(headings[1].sk, "wok/002:l01/0004#h2");
+  assert.strictEqual(headings[1].sk, `wok/${seq}:l01/0004#h2`);
   assert.strictEqual(headings[1].text, "Heading Level 2");
 
-  assert.strictEqual(paragraphs[0].sk, "wok/002:l01/0002#p1");
+  assert.strictEqual(paragraphs[0].sk, `wok/${seq}:l01/0002#p1`);
   assert.strictEqual(paragraphs[0].text, "This is the first paragraph by Author Name. It is quite interesting.");
 
   // Sequence 3 is consumed by the omitted paragraph (p2)
-  assert.strictEqual(paragraphs[1].sk, "wok/002:l01/0005#p3");
+  assert.strictEqual(paragraphs[1].sk, `wok/${seq}:l01/0005#p3`);
   assert.strictEqual(paragraphs[1].text, "This is the second paragraph. It contains more exciting details.");
 
-  assert.strictEqual(paragraphs[2].sk, "wok/002:l01/0006#p4");
+  assert.strictEqual(paragraphs[2].sk, `wok/${seq}:l01/0006#p4`);
   assert.strictEqual(paragraphs[2].text, "This is the third paragraph, following immediately after the second paragraph.");
 });
 

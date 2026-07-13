@@ -4,6 +4,7 @@ _site
 vtt
 audio/__pycache__
 commit-msg.md
+dynamodbdata
 
 
 # Local Netlify folder

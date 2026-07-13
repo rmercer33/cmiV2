@@ -271,8 +271,12 @@ function processSource(sourcePath, sourceId, urlParts) {
 
   const physicalSubdirs = getSubdirectories(sourcePath);
 
-  if (Array.isArray(sourceInfo.collections)) {
-    sourceNode.collections = sortItems(physicalSubdirs, sourceInfo.collections);
+  const collectionsList = Array.isArray(sourceInfo.collections) ? sourceInfo.collections : [];
+  const hasCollections = collectionsList.length > 0;
+
+  if (hasCollections) {
+    const physicalCollections = physicalSubdirs.filter(d => collectionsList.includes(d));
+    sourceNode.collections = sortItems(physicalCollections, sourceInfo.collections);
     sourceNode.collectionInfo = {};
 
     for (const collectionId of sourceNode.collections) {
@@ -299,6 +303,21 @@ function processSource(sourcePath, sourceId, urlParts) {
       }
 
       sourceNode.collectionInfo[collectionId] = collectionNode;
+    }
+
+    // Treat any other subdirectories as flat books directly under this source
+    const flatBooks = physicalSubdirs.filter(d => !collectionsList.includes(d));
+    if (flatBooks.length > 0) {
+      sourceNode.books = sortItems(flatBooks, sourceInfo.books);
+      sourceNode.bookInfo = {};
+
+      for (const bookId of sourceNode.books) {
+        sourceNode.bookInfo[bookId] = processBook(
+          path.join(sourcePath, bookId),
+          bookId,
+          urlParts.concat([bookId])
+        );
+      }
     }
   } else {
     sourceNode.books = sortItems(physicalSubdirs, sourceInfo.books);
@@ -335,8 +354,13 @@ function generateConfig() {
 
   const physicalSubdirs = getSubdirectories(contentDir);
 
-  if (Array.isArray(rootInfo.sections)) {
-    config.sections = sortItems(physicalSubdirs, rootInfo.sections);
+  const sectionsList = Array.isArray(rootInfo.sections) ? rootInfo.sections : [];
+  const hasSections = sectionsList.length > 0;
+
+  if (hasSections) {
+    // Only treat subdirectories explicitly listed in rootInfo.sections as sections
+    const physicalSections = physicalSubdirs.filter(d => sectionsList.includes(d));
+    config.sections = sortItems(physicalSections, rootInfo.sections);
     config.sectionInfo = {};
 
     for (const sectionId of config.sections) {
@@ -363,6 +387,21 @@ function generateConfig() {
       }
 
       config.sectionInfo[sectionId] = sectionNode;
+    }
+
+    // Treat any other subdirectories as root-level flat sources
+    const flatSources = physicalSubdirs.filter(d => !sectionsList.includes(d));
+    if (flatSources.length > 0) {
+      config.sources = sortItems(flatSources, rootInfo.sources);
+      config.sourceInfo = {};
+
+      for (const sourceId of config.sources) {
+        config.sourceInfo[sourceId] = processSource(
+          path.join(contentDir, sourceId),
+          sourceId,
+          [sourceId]
+        );
+      }
     }
   } else {
     config.sources = sortItems(physicalSubdirs, rootInfo.sources);

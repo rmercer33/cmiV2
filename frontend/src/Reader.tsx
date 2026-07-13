@@ -76,6 +76,10 @@ export const Reader: React.FC<ReaderProps> = ({
         return res.text();
       })
       .then((html) => {
+        // Detect SPA fallback routing (e.g. Vite serving index.html for missing assets)
+        if (html.trim().startsWith('<!DOCTYPE html>') || html.includes('id="root"')) {
+          throw new Error(`Content file not found on the server. Please ensure you have run the parser (e.g., node src/index.mjs) to compile your markdown files into HTML.`);
+        }
         try {
           // Pre-process HTML in memory using DOMParser to wrap sentences in spans natively
           const parser = new DOMParser();
@@ -420,17 +424,162 @@ export const Reader: React.FC<ReaderProps> = ({
     );
   }
 
+  // Section-level Landing Page displaying its available sources
+  if (activeSectionId && !activeSourceId) {
+    const section = libraryIndex?.sectionInfo?.[activeSectionId];
+    if (section) {
+      return (
+        <main className="reader-container">
+          <div className="welcome-screen" style={{ textAlign: 'left', alignItems: 'flex-start', maxWidth: 'var(--max-content-width)', width: '100%' }}>
+            
+            <button 
+              onClick={() => navigate('/')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.9rem',
+                color: 'var(--accent-color)',
+                fontWeight: 500,
+                marginBottom: '2rem',
+                cursor: 'pointer',
+                background: 'none',
+                border: 'none',
+                padding: 0
+              }}
+            >
+              ← Back to Library Home
+            </button>
+
+            <h1 style={{ fontSize: '2.5rem', color: 'var(--text-header)', marginBottom: '0.5rem', fontFamily: 'var(--font-sans)', fontWeight: 800 }}>
+              {section.title}
+            </h1>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '3rem' }}>
+              {section.description || "Explore available source teachings in this section."}
+            </p>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '2rem',
+              width: '100%'
+            }}>
+              {section.sources.map((sourceId) => {
+                const source = section.sourceInfo?.[sourceId];
+                if (!source) return null;
+                return (
+                  <div 
+                    key={sourceId}
+                    className="source-landing-card"
+                    style={{
+                      backgroundColor: 'var(--bg-secondary)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: '12px',
+                      padding: '1.5rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      boxShadow: '0 4px 6px var(--shadow-color)',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                    }}
+                  >
+                    <div 
+                      onClick={() => navigate(buildReadLink({ section: activeSectionId, source: sourceId }))}
+                      style={{
+                        cursor: 'pointer',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginBottom: '1.25rem'
+                      }}
+                    >
+                      {source.image ? (
+                        <img 
+                          src={source.image} 
+                          alt={source.title} 
+                          style={{
+                            width: '130px',
+                            height: '195px',
+                            objectFit: 'cover',
+                            borderRadius: '6px',
+                            boxShadow: '0 4px 8px var(--shadow-color)',
+                            border: '1px solid var(--border-color)'
+                          }} 
+                        />
+                      ) : (
+                        <div style={{
+                          width: '130px',
+                          height: '195px',
+                          borderRadius: '6px',
+                          background: 'linear-gradient(135deg, #0F4C5C, var(--bg-tertiary))',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'space-between',
+                          padding: '1rem',
+                          color: '#FFF',
+                          boxShadow: '0 4px 8px var(--shadow-color)',
+                          border: '1px solid var(--border-color)'
+                        }}>
+                          <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
+                            Source Teaching
+                          </div>
+                          <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
+                            {source.title}
+                          </div>
+                          <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <h3 
+                          onClick={() => navigate(buildReadLink({ section: activeSectionId, source: sourceId }))}
+                          style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                        >
+                          {source.title}
+                        </h3>
+                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                          {source.description || 'Explore the complete collections and teachings within this spiritual source.'}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => navigate(buildReadLink({ section: activeSectionId, source: sourceId }))}
+                        style={{
+                          alignSelf: 'center',
+                          backgroundColor: 'var(--accent-color)',
+                          color: '#FFF',
+                          padding: '0.5rem 1.25rem',
+                          borderRadius: '6px',
+                          fontSize: '0.85rem',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          border: 'none'
+                        }}
+                      >
+                        Explore Teachings
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </main>
+      );
+    }
+  }
+
   // Source-level Landing Page displaying its available books/collections
-  if (activeSourceId && activeSourceConfig && !activeBookId) {
-    // If sections are used, link back to Library Home, else default
-    const backButtonText = "← Back to Library Home";
+  if (activeSourceId && activeSourceConfig && !activeCollectionId && !activeBookId) {
+    const backButtonText = activeSectionId ? "← Back to Section Dashboard" : "← Back to Library Home";
+    const backLink = activeSectionId ? buildReadLink({ section: activeSectionId }) : "/";
     
     return (
       <main className="reader-container">
         <div className="welcome-screen" style={{ textAlign: 'left', alignItems: 'flex-start', maxWidth: 'var(--max-content-width)', width: '100%' }}>
           
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => navigate(backLink)}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -508,8 +657,8 @@ export const Reader: React.FC<ReaderProps> = ({
             </div>
           </div>
           
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)' }}>
-            {activeSourceConfig.collections ? "Available Collections" : "Available Books"}
+          <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
+            Catalog Content
           </h2>
           
           <div style={{
@@ -519,66 +668,211 @@ export const Reader: React.FC<ReaderProps> = ({
             width: '100%',
             marginBottom: '3rem'
           }}>
-            {activeSourceConfig.collections ? (
-              // If collections are present, render them as landing cards
-              activeSourceConfig.collections.map((collId) => {
-                const collection = activeSourceConfig.collectionInfo?.[collId];
-                if (!collection) return null;
-                return (
+            {/* 1. Render Collections (if they exist) as Cards */}
+            {activeSourceConfig.collections && activeSourceConfig.collections.map((collId) => {
+              const collection = activeSourceConfig.collectionInfo?.[collId];
+              if (!collection) return null;
+              return (
+                <div 
+                  key={collId}
+                  className="book-landing-card"
+                  style={{
+                    backgroundColor: 'var(--bg-secondary)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    padding: '1.5rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 4px 6px var(--shadow-color)',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                  }}
+                >
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flexGrow: 1 }}>
+                    <div>
+                      <h3 
+                        onClick={() => navigate(buildReadLink({ section: activeSectionId, source: activeSourceId, collection: collId }))}
+                        style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                      >
+                        {collection.title}
+                      </h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                        {collection.description || `Explore books and teachings inside the ${collection.title} collection.`}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => navigate(buildReadLink({ section: activeSectionId, source: activeSourceId, collection: collId }))}
+                      style={{
+                        alignSelf: 'center',
+                        backgroundColor: 'var(--accent-color)',
+                        color: '#FFF',
+                        padding: '0.5rem 1.25rem',
+                        borderRadius: '6px',
+                        fontSize: '0.85rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        marginTop: 'auto',
+                        border: 'none'
+                      }}
+                    >
+                      Explore Collection
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* 2. Render flat, uncollectioned books (if they exist) as Cards */}
+            {activeSourceConfig.books && activeSourceConfig.books.map((bookId) => {
+              const book = activeSourceConfig.bookInfo?.[bookId];
+              if (!book) return null;
+              const bookLink = buildReadLink({ section: activeSectionId, source: activeSourceId, book: bookId });
+              return (
+                <div 
+                  key={bookId}
+                  className="book-landing-card"
+                  style={{
+                    backgroundColor: 'var(--bg-secondary)',
+                    border: '1px solid var(--border-color)',
+                    borderRadius: '12px',
+                    padding: '1.5rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 4px 6px var(--shadow-color)',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                  }}
+                >
                   <div 
-                    key={collId}
-                    className="book-landing-card"
+                    onClick={() => navigate(bookLink)}
                     style={{
-                      backgroundColor: 'var(--bg-secondary)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: '12px',
-                      padding: '1.5rem',
+                      cursor: 'pointer',
                       display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'space-between',
-                      boxShadow: '0 4px 6px var(--shadow-color)',
-                      transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                      justifyContent: 'center',
+                      marginBottom: '1.25rem'
                     }}
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flexGrow: 1 }}>
-                      <div>
-                        <h3 
-                          onClick={() => navigate(buildReadLink({ section: activeSectionId, source: activeSourceId, collection: collId }))}
-                          style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
-                        >
-                          {collection.title}
-                        </h3>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
-                          {collection.description || `Explore books and teachings inside the ${collection.title} collection.`}
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => navigate(buildReadLink({ section: activeSectionId, source: activeSourceId, collection: collId }))}
+                    {book.image ? (
+                      <img 
+                        src={book.image} 
+                        alt={book.title} 
                         style={{
-                          alignSelf: 'center',
-                          backgroundColor: 'var(--accent-color)',
-                          color: '#FFF',
-                          padding: '0.5rem 1.25rem',
+                          width: '130px',
+                          height: '195px',
+                          objectFit: 'cover',
                           borderRadius: '6px',
-                          fontSize: '0.85rem',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          marginTop: 'auto',
-                          border: 'none'
-                        }}
-                      >
-                        Explore Collection
-                      </button>
-                    </div>
+                          boxShadow: '0 4px 8px var(--shadow-color)',
+                          border: '1px solid var(--border-color)'
+                        }} 
+                      />
+                    ) : (
+                      <div style={{
+                        width: '130px',
+                        height: '195px',
+                        borderRadius: '6px',
+                        background: 'linear-gradient(135deg, var(--accent-color), var(--bg-tertiary))',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        padding: '1rem',
+                        color: '#FFF',
+                        boxShadow: '0 4px 8px var(--shadow-color)',
+                        border: '1px solid var(--border-color)'
+                      }}>
+                        <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
+                          {activeSourceConfig.title.split(' ')[0]}
+                        </div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
+                          {book.title}
+                        </div>
+                        <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
+                      </div>
+                    )}
                   </div>
-                );
-              })
-            ) : activeSourceConfig.books ? (
-              // Default books cards
-              activeSourceConfig.books.map((bookId) => {
-                const book = activeSourceConfig.bookInfo?.[bookId];
+
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
+                    <div style={{ textAlign: 'center' }}>
+                      <h3 
+                        onClick={() => navigate(bookLink)}
+                        style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                      >
+                        {book.title}
+                      </h3>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                        {book.description || 'Explore the complete chapters, lessons, and spiritual collections inside.'}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => navigate(bookLink)}
+                      style={{
+                        alignSelf: 'center',
+                        backgroundColor: 'var(--accent-color)',
+                        color: '#FFF',
+                        padding: '0.5rem 1.25rem',
+                        borderRadius: '6px',
+                        fontSize: '0.85rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        border: 'none'
+                      }}
+                    >
+                      Explore Book
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  // Collection-level Landing Page displaying its available books
+  if (activeSourceId && activeSourceConfig && activeCollectionId && !activeBookId) {
+    const collection = activeSourceConfig.collectionInfo?.[activeCollectionId];
+    if (collection) {
+      const backLink = buildReadLink({ section: activeSectionId, source: activeSourceId });
+      return (
+        <main className="reader-container">
+          <div className="welcome-screen" style={{ textAlign: 'left', alignItems: 'flex-start', maxWidth: 'var(--max-content-width)', width: '100%' }}>
+            
+            <button 
+              onClick={() => navigate(backLink)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.9rem',
+                color: 'var(--accent-color)',
+                fontWeight: 500,
+                marginBottom: '2rem',
+                cursor: 'pointer',
+                background: 'none',
+                border: 'none',
+                padding: 0
+              }}
+            >
+              ← Back to {activeSourceConfig.title}
+            </button>
+
+            <h1 style={{ fontSize: '2.5rem', color: 'var(--text-header)', marginBottom: '0.5rem', fontFamily: 'var(--font-sans)', fontWeight: 800 }}>
+              {collection.title}
+            </h1>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '3rem' }}>
+              {collection.description || "Explore available books inside this collection."}
+            </p>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '2rem',
+              width: '100%'
+            }}>
+              {collection.books.map((bookId) => {
+                const book = collection.bookInfo?.[bookId];
                 if (!book) return null;
-                const bookLink = buildReadLink({ section: activeSectionId, source: activeSourceId, book: bookId });
+                const bookLink = buildReadLink({ section: activeSectionId, source: activeSourceId, collection: activeCollectionId, book: bookId });
                 return (
                   <div 
                     key={bookId}
@@ -673,12 +967,12 @@ export const Reader: React.FC<ReaderProps> = ({
                     </div>
                   </div>
                 );
-              })
-            ) : null}
+              })}
+            </div>
           </div>
-        </div>
-      </main>
-    );
+        </main>
+      );
+    }
   }
 
   // Book-level Landing Page displaying its available chapters (groups) or flat lessons (units)
@@ -861,7 +1155,7 @@ export const Reader: React.FC<ReaderProps> = ({
   }
 
   // Site-level Main Welcome Dashboard
-  if (!activeSourceId) {
+  if (!activeSourceId && !activeSectionId) {
     return (
       <main className="reader-container">
         <div className="welcome-screen" style={{ textAlign: 'center', alignItems: 'center', maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
@@ -881,18 +1175,17 @@ export const Reader: React.FC<ReaderProps> = ({
             Library of Christ Mind Teachings
           </h1>
           <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '50ch', marginBottom: '3.5rem', textAlign: 'center' }}>
-            An immersive reading and study environment for the Christ Mind Teachings. Choose a teaching source below to begin your study.
+            An immersive reading and study environment for the Christ Mind Teachings. Choose a section or teaching below to begin your study.
           </p>
 
-          {libraryIndex && libraryIndex.sections ? (
-            // If sections are present, group available sources by sections elegantly on the dashboard!
-            libraryIndex.sections.map((sectId) => {
-              const section = libraryIndex.sectionInfo?.[sectId];
-              if (!section) return null;
-              return (
-                <div key={sectId} style={{ width: '100%', textAlign: 'left', marginBottom: '4rem' }}>
+          {libraryIndex && (
+            <div style={{ display: 'flex', flexDirection: 'column', width: '100%', gap: '4rem', textAlign: 'left' }}>
+              
+              {/* 1. Render Sections (if they exist) as standalone landing cards */}
+              {libraryIndex.sections && libraryIndex.sections.length > 0 && (
+                <div>
                   <h2 style={{ fontSize: '1.75rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
-                    {section.title}
+                    Library Sections
                   </h2>
                   <div style={{
                     display: 'grid',
@@ -900,9 +1193,110 @@ export const Reader: React.FC<ReaderProps> = ({
                     gap: '2rem',
                     width: '100%'
                   }}>
-                    {section.sources.map((sourceId) => {
-                      const source = section.sourceInfo?.[sourceId];
+                    {libraryIndex.sections.map((sectId) => {
+                      const section = libraryIndex.sectionInfo?.[sectId];
+                      if (!section) return null;
+                      return (
+                        <div 
+                          key={sectId}
+                          className="source-landing-card"
+                          style={{
+                            backgroundColor: 'var(--bg-secondary)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '12px',
+                            padding: '1.5rem',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            boxShadow: '0 4px 6px var(--shadow-color)',
+                            transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                          }}
+                        >
+                          <div 
+                            onClick={() => navigate(buildReadLink({ section: sectId }))}
+                            style={{
+                              cursor: 'pointer',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              marginBottom: '1.25rem'
+                            }}
+                          >
+                            <div style={{
+                              width: '130px',
+                              height: '195px',
+                              borderRadius: '6px',
+                              background: 'linear-gradient(135deg, var(--accent-color), var(--bg-tertiary))',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              justifyContent: 'space-between',
+                              padding: '1rem',
+                              color: '#FFF',
+                              boxShadow: '0 4px 8px var(--shadow-color)',
+                              border: '1px solid var(--border-color)'
+                            }}>
+                              <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
+                                Library Section
+                              </div>
+                              <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
+                                {section.title}
+                              </div>
+                              <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
+                            </div>
+                          </div>
+
+                          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
+                            <div style={{ textAlign: 'center' }}>
+                              <h3 
+                                onClick={() => navigate(buildReadLink({ section: sectId }))}
+                                style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
+                              >
+                                {section.title}
+                              </h3>
+                              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                                {section.description || 'Explore teachings grouped within this library section.'}
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => navigate(buildReadLink({ section: sectId }))}
+                              style={{
+                                alignSelf: 'center',
+                                backgroundColor: 'var(--accent-color)',
+                                color: '#FFF',
+                                padding: '0.5rem 1.25rem',
+                                borderRadius: '6px',
+                                fontSize: '0.85rem',
+                                fontWeight: 600,
+                                cursor: 'pointer',
+                                border: 'none'
+                              }}
+                            >
+                              Open Section
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* 2. Render root-level unsectioned flat sources (if they exist) as standalone landing cards */}
+              {libraryIndex.sources && libraryIndex.sources.length > 0 && (
+                <div>
+                  <h2 style={{ fontSize: '1.75rem', marginBottom: '2rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
+                    Available Sources
+                  </h2>
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                    gap: '2rem',
+                    width: '100%',
+                    marginBottom: '3rem'
+                  }}>
+                    {libraryIndex.sources.map((sourceId) => {
+                      const source = libraryIndex.sourceInfo?.[sourceId];
                       if (!source) return null;
+                      const sourceLink = buildReadLink({ source: sourceId });
                       return (
                         <div 
                           key={sourceId}
@@ -920,7 +1314,7 @@ export const Reader: React.FC<ReaderProps> = ({
                           }}
                         >
                           <div 
-                            onClick={() => navigate(buildReadLink({ section: sectId, source: sourceId }))}
+                            onClick={() => navigate(sourceLink)}
                             style={{
                               cursor: 'pointer',
                               display: 'flex',
@@ -969,7 +1363,7 @@ export const Reader: React.FC<ReaderProps> = ({
                           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
                             <div style={{ textAlign: 'center' }}>
                               <h3 
-                                onClick={() => navigate(buildReadLink({ section: sectId, source: sourceId }))}
+                                onClick={() => navigate(sourceLink)}
                                 style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
                               >
                                 {source.title}
@@ -979,7 +1373,7 @@ export const Reader: React.FC<ReaderProps> = ({
                               </p>
                             </div>
                             <button
-                              onClick={() => navigate(buildReadLink({ section: sectId, source: sourceId }))}
+                              onClick={() => navigate(sourceLink)}
                               style={{
                                 alignSelf: 'center',
                                 backgroundColor: 'var(--accent-color)',
@@ -1000,127 +1394,7 @@ export const Reader: React.FC<ReaderProps> = ({
                     })}
                   </div>
                 </div>
-              );
-            })
-          ) : libraryIndex && libraryIndex.sources ? (
-            // Default flat sources rendering
-            <>
-              <h2 style={{ fontSize: '1.75rem', marginBottom: '2rem', fontFamily: 'var(--font-sans)', alignSelf: 'flex-start', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%', textAlign: 'left' }}>
-                Available Sources
-              </h2>
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-                gap: '2rem',
-                width: '100%',
-                marginBottom: '3rem',
-                textAlign: 'left'
-              }}>
-                {libraryIndex.sources.map((sourceId) => {
-                  const source = libraryIndex.sourceInfo?.[sourceId];
-                  if (!source) return null;
-                  const sourceLink = buildReadLink({ source: sourceId });
-                  return (
-                    <div 
-                      key={sourceId}
-                      className="source-landing-card"
-                      style={{
-                        backgroundColor: 'var(--bg-secondary)',
-                        border: '1px solid var(--border-color)',
-                        borderRadius: '12px',
-                        padding: '1.5rem',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        boxShadow: '0 4px 6px var(--shadow-color)',
-                        transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-                      }}
-                    >
-                      <div 
-                        onClick={() => navigate(sourceLink)}
-                        style={{
-                          cursor: 'pointer',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          marginBottom: '1.25rem'
-                        }}
-                      >
-                        {source.image ? (
-                          <img 
-                            src={source.image} 
-                            alt={source.title} 
-                            style={{
-                              width: '130px',
-                              height: '195px',
-                              objectFit: 'cover',
-                              borderRadius: '6px',
-                              boxShadow: '0 4px 8px var(--shadow-color)',
-                              border: '1px solid var(--border-color)'
-                            }} 
-                          />
-                        ) : (
-                          <div style={{
-                            width: '130px',
-                            height: '195px',
-                            borderRadius: '6px',
-                            background: 'linear-gradient(135deg, #0F4C5C, var(--bg-tertiary))',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'space-between',
-                            padding: '1rem',
-                            color: '#FFF',
-                            boxShadow: '0 4px 8px var(--shadow-color)',
-                            border: '1px solid var(--border-color)'
-                          }}>
-                            <div style={{ fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', opacity: 0.85 }}>
-                              Source Teaching
-                            </div>
-                            <div style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-sans)', lineHeight: '1.2' }}>
-                              {source.title}
-                            </div>
-                            <div style={{ height: '3px', width: '16px', backgroundColor: '#FFF', opacity: 0.6 }}></div>
-                          </div>
-                        )}
-                      </div>
-
-                      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', flexGrow: 1 }}>
-                        <div style={{ textAlign: 'center' }}>
-                          <h3 
-                            onClick={() => navigate(sourceLink)}
-                            style={{ fontSize: '1.25rem', color: 'var(--text-header)', margin: '0 0 0.5rem 0', fontFamily: 'var(--font-sans)', fontWeight: 700, cursor: 'pointer' }}
-                          >
-                            {source.title}
-                          </h3>
-                          <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
-                            {source.description || 'Explore the complete collections and teachings within this spiritual source.'}
-                          </p>
-                        </div>
-                        <button
-                          onClick={() => navigate(sourceLink)}
-                          style={{
-                            alignSelf: 'center',
-                            backgroundColor: 'var(--accent-color)',
-                            color: '#FFF',
-                            padding: '0.5rem 1.25rem',
-                            borderRadius: '6px',
-                            fontSize: '0.85rem',
-                            fontWeight: 600,
-                            cursor: 'pointer',
-                            border: 'none'
-                          }}
-                        >
-                          Explore Teachings
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </>
-          ) : (
-            <div className="loader-container">
-              <div className="spinner"></div>
-              <p>Loading spiritual catalog...</p>
+              )}
             </div>
           )}
         </div>

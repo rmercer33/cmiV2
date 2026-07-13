@@ -1,0 +1,54 @@
+{
+  "title": "The Early Years",
+  "description": "Messages given before The Way of Mastery Series",
+  "image": "/images/covers/wom/early.jpg",
+  "books": [
+    "hoe"
+  ],
+  "bookInfo": {
+    "hoe": {
+      "title": "Hoe",
+      "description": "No description",
+      "units": [
+        "ble",
+        "c2s",
+        "hoe",
+        "ign"
+      ],
+      "unitInfo": {
+        "ble": {
+          "title": "The Blessing of Forgiveness",
+          "url": "wom/early/hoe/ble",
+          "received": "Unknown",
+          "fb": "",
+          "desc": "The offering of true forgiveness is a gift given to oneself.",
+          "image": "",
+          "toc": ""
+        },
+        "c2s": {
+          "title": "Choose to See",
+          "url": "wom/early/hoe/c2s",
+          "received": "Oct 1994",
+          "fb": "",
+          "image": "",
+          "toc": ""
+        },
+        "hoe": {
+          "title": "Heaven on Earth",
+          "url": "wom/early/hoe/hoe",
+          "received": "Aug 30, 1994",
+          "fb": "",
+          "image": "",
+          "toc": ""
+        },
+        "ign": {
+          "title": "Ignorance is Bliss",
+          "url": "wom/early/hoe/ign",
+          "received": "Sep 1994",
+          "fb": "",
+          "image": ""
+        }
+      }
+    }
+  }
+}

@@ -69,12 +69,14 @@ function splitConfig() {
         writeSourceFile(sourceId, sourceData);
       }
     }
-  } else {
-    indexConfig.sources = config.sources || [];
+  }
+
+  if (Array.isArray(config.sources)) {
+    indexConfig.sources = config.sources;
     indexConfig.sourceInfo = {};
 
     for (const sourceId of config.sources) {
-      const sourceData = config.sourceInfo[sourceId];
+      const sourceData = config.sourceInfo?.[sourceId];
       if (!sourceData) {
         console.warn(`Warning: Source metadata for "${sourceId}" not found in config.json.`);
         continue;

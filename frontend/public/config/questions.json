@@ -1,0 +1,726 @@
+{
+  "title": "Q&A with Jeshua",
+  "description": "Jeshua answers questions after channeled sessions",
+  "image": "/images/covers/wom/qa.svg",
+  "books": [
+    "ble",
+    "c2s",
+    "com",
+    "dth",
+    "hoe",
+    "lht",
+    "wohl01",
+    "wohl02",
+    "wohl06",
+    "wohl07",
+    "wohl08",
+    "wohl09",
+    "wohl10",
+    "wohl11",
+    "wohl12",
+    "wokl02",
+    "wokl03",
+    "wokl04",
+    "wokl06",
+    "wokl10",
+    "wotl01",
+    "wotl06",
+    "wotl07",
+    "wotl09",
+    "wotl11"
+  ],
+  "bookInfo": {
+    "ble": {
+      "title": "Ble",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "The Blessing of Forgiveness - <small><a href='/wom/early/ble/#question-one'>Question One</a></small>",
+          "url": "wom/questions/ble/q1",
+          "contents": "early",
+          "fb": "",
+          "image": ""
+        },
+        "q2": {
+          "title": "The Blessing of Forgiveness - Question Two",
+          "url": "wom/questions/ble/q2",
+          "contents": "early",
+          "fb": "",
+          "image": ""
+        },
+        "q3": {
+          "title": "The Blessing of Forgiveness - Question Three",
+          "url": "wom/questions/ble/q3",
+          "contents": "early",
+          "fb": "",
+          "image": ""
+        },
+        "q4": {
+          "title": "The Blessing of Forgiveness - Question Four",
+          "url": "wom/questions/ble/q4",
+          "contents": "early",
+          "fb": "",
+          "image": ""
+        }
+      }
+    },
+    "c2s": {
+      "title": "C2s",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "Choose to See - Question One",
+          "url": "wom/questions/c2s/q1",
+          "contents": "early"
+        },
+        "q2": {
+          "title": "Choose to See - Question Two",
+          "url": "wom/questions/c2s/q2",
+          "contents": "early"
+        },
+        "q3": {
+          "title": "Choose to See - Question Three",
+          "url": "wom/questions/c2s/q3",
+          "contents": "early"
+        },
+        "q4": {
+          "title": "Choose to See - Question Four",
+          "url": "wom/questions/c2s/q4",
+          "contents": "early"
+        },
+        "q5": {
+          "title": "Choose to See - Question Five",
+          "url": "wom/questions/c2s/q5",
+          "contents": "early"
+        }
+      }
+    },
+    "com": {
+      "title": "Com",
+      "description": "No description",
+      "units": [
+        "q1"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "Mastering Communication - Question One",
+          "url": "wom/questions/com/q1",
+          "contents": "early"
+        }
+      }
+    },
+    "dth": {
+      "title": "Dth",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q10",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "Death and Earth Changes - Question One",
+          "url": "wom/questions/dth/q1",
+          "contents": "early"
+        },
+        "q10": {
+          "title": "Death and Earth Changes - Question Ten",
+          "url": "wom/questions/dth/q10",
+          "contents": "early"
+        },
+        "q2": {
+          "title": "Death and Earth Changes - Question Two",
+          "url": "wom/questions/dth/q2",
+          "contents": "early"
+        },
+        "q3": {
+          "title": "Death and Earth Changes - Question Three",
+          "url": "wom/questions/dth/q3",
+          "contents": "early"
+        },
+        "q4": {
+          "title": "Death and Earth Changes - Question Four",
+          "url": "wom/questions/dth/q4",
+          "contents": "early"
+        },
+        "q5": {
+          "title": "Death and Earth Changes - Question Five",
+          "url": "wom/questions/dth/q5",
+          "contents": "early"
+        },
+        "q6": {
+          "title": "Death and Earth Changes - Question Six",
+          "url": "wom/questions/dth/q6",
+          "contents": "early"
+        },
+        "q7": {
+          "title": "Death and Earth Changes - Question Seven",
+          "url": "wom/questions/dth/q7",
+          "contents": "early"
+        },
+        "q8": {
+          "title": "Death and Earth Changes - Question Eight",
+          "url": "wom/questions/dth/q8",
+          "contents": "early"
+        },
+        "q9": {
+          "title": "Death and Earth Changes - Question Nine",
+          "url": "wom/questions/dth/q9",
+          "contents": "early"
+        }
+      }
+    },
+    "hoe": {
+      "title": "Hoe",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "Heaven on Earth - Question One",
+          "url": "wom/questions/hoe/q1",
+          "contents": "early"
+        },
+        "q2": {
+          "title": "Heaven on Earth - Question Two",
+          "url": "wom/questions/hoe/q2",
+          "contents": "early"
+        },
+        "q3": {
+          "title": "Heaven on Earth - Question Three",
+          "url": "wom/questions/hoe/q3",
+          "contents": "early"
+        },
+        "q4": {
+          "title": "Heaven on Earth - Question Four",
+          "url": "wom/questions/hoe/q4",
+          "contents": "early"
+        }
+      }
+    },
+    "lht": {
+      "title": "Lht",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "Love Heals All Things - Question One",
+          "url": "wom/questions/lht/q1",
+          "contents": "early"
+        },
+        "q2": {
+          "title": "Q2",
+          "url": "wom/questions/lht/q2"
+        },
+        "q3": {
+          "title": "Love Heals All Things - Question Three",
+          "url": "wom/questions/lht/q3",
+          "contents": "early"
+        },
+        "q4": {
+          "title": "Love Heals All Things - Question Four",
+          "url": "wom/questions/lht/q4",
+          "contents": "early"
+        },
+        "q5": {
+          "title": "Love Heals All Things - Question Five",
+          "url": "wom/questions/lht/q5",
+          "contents": "early"
+        },
+        "q6": {
+          "title": "Love Heals All Things - Question Six",
+          "url": "wom/questions/lht/q6",
+          "contents": "early"
+        },
+        "q7": {
+          "title": "Love Heals All Things - Question Seven",
+          "url": "wom/questions/lht/q7",
+          "contents": "early"
+        },
+        "q8": {
+          "title": "Love Heals All Things - Question Eight",
+          "url": "wom/questions/lht/q8",
+          "contents": "early"
+        }
+      }
+    },
+    "wohl01": {
+      "title": "Wohl01",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson One - Question One",
+          "url": "wom/questions/wohl01/q1",
+          "contents": "woh"
+        },
+        "q2": {
+          "title": "WOH Lesson One - Question Two",
+          "url": "wom/questions/wohl01/q2",
+          "contents": "woh"
+        },
+        "q3": {
+          "title": "WOH Lesson One - Question Three",
+          "url": "wom/questions/wohl01/q3",
+          "fb": "",
+          "desc": "\"Insight into a life of spirituality and its effect on illness",
+          "image": ""
+        }
+      }
+    },
+    "wohl02": {
+      "title": "Wohl02",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Two - Question One",
+          "url": "wom/questions/wohl02/q1",
+          "contents": "woh"
+        },
+        "q2": {
+          "title": "WOH Lesson Two - Question Two",
+          "url": "wom/questions/wohl02/q2",
+          "contents": "woh"
+        }
+      }
+    },
+    "wohl06": {
+      "title": "Wohl06",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Six - Question One",
+          "url": "wom/questions/wohl06/q1",
+          "contents": "woh"
+        },
+        "q2": {
+          "title": "WOH Lesson Six - Question Two",
+          "url": "wom/questions/wohl06/q2",
+          "contents": "woh"
+        },
+        "q3": {
+          "title": "WOH Lesson Six - Question Three",
+          "url": "wom/questions/wohl06/q3",
+          "contents": "woh"
+        }
+      }
+    },
+    "wohl07": {
+      "title": "Wohl07",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Seven - Question One",
+          "url": "wom/questions/wohl07/q1",
+          "contents": "woh"
+        },
+        "q2": {
+          "title": "WOH Lesson Seven - Question Two",
+          "url": "wom/questions/wohl07/q2",
+          "contents": "woh"
+        },
+        "q3": {
+          "title": "WOH Lesson Seven - Question Three",
+          "url": "wom/questions/wohl07/q3",
+          "contents": "woh"
+        },
+        "q4": {
+          "title": "WOH Lesson Seven - Question Four",
+          "url": "wom/questions/wohl07/q4",
+          "contents": "woh"
+        },
+        "q5": {
+          "title": "WOH Lesson Seven - Question Five",
+          "url": "wom/questions/wohl07/q5",
+          "contents": "woh"
+        }
+      }
+    },
+    "wohl08": {
+      "title": "Wohl08",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Eight - Question One",
+          "url": "wom/questions/wohl08/q1",
+          "contents": "woh"
+        },
+        "q2": {
+          "title": "WOH Lesson Eight - Question Two",
+          "url": "wom/questions/wohl08/q2",
+          "contents": "woh"
+        }
+      }
+    },
+    "wohl09": {
+      "title": "Wohl09",
+      "description": "No description",
+      "units": [
+        "q1"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Nine - Question One",
+          "url": "wom/questions/wohl09/q1",
+          "contents": "woh"
+        }
+      }
+    },
+    "wohl10": {
+      "title": "Wohl10",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Ten - Question One",
+          "url": "wom/questions/wohl10/q1",
+          "contents": "woh"
+        },
+        "q2": {
+          "title": "WOH Lesson Ten - Question Two",
+          "url": "wom/questions/wohl10/q2",
+          "contents": "woh"
+        },
+        "q3": {
+          "title": "WOH Lesson Ten - Question Three",
+          "url": "wom/questions/wohl10/q3",
+          "contents": "woh"
+        }
+      }
+    },
+    "wohl11": {
+      "title": "Wohl11",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Eleven - Question One",
+          "url": "wom/questions/wohl11/q1",
+          "contents": "woh",
+          "fb": "",
+          "desc": "\"Way of the Heart: Lesson Eleven - Question One, About our",
+          "image": ""
+        },
+        "q2": {
+          "title": "WOH Lesson Eleven - Question Two",
+          "url": "wom/questions/wohl11/q2",
+          "contents": "woh"
+        },
+        "q3": {
+          "title": "WOH Lesson Eleven - Question Three",
+          "url": "wom/questions/wohl11/q3",
+          "contents": "woh"
+        }
+      }
+    },
+    "wohl12": {
+      "title": "Wohl12",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOH Lesson Twelve - Question One",
+          "url": "wom/questions/wohl12/q1",
+          "contents": "woh"
+        },
+        "q2": {
+          "title": "WOH Lesson Twelve - Question Two",
+          "url": "wom/questions/wohl12/q2",
+          "contents": "woh"
+        },
+        "q3": {
+          "title": "WOH Lesson Twelve - Question Three",
+          "url": "wom/questions/wohl12/q3",
+          "contents": "woh"
+        },
+        "q4": {
+          "title": "WOH Lesson Twelve - Test Question",
+          "url": "wom/questions/wohl12/q4",
+          "contents": "woh"
+        }
+      }
+    },
+    "wokl02": {
+      "title": "Wokl02",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOK Lesson Two - Question One",
+          "url": "wom/questions/wokl02/q1",
+          "contents": "wok"
+        },
+        "q2": {
+          "title": "WOK Lesson Two - Question Two",
+          "url": "wom/questions/wokl02/q2",
+          "contents": "wok"
+        }
+      }
+    },
+    "wokl03": {
+      "title": "Wokl03",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOK Lesson Three - Question One",
+          "url": "wom/questions/wokl03/q1",
+          "contents": "wok"
+        },
+        "q2": {
+          "title": "WOK Lesson Three - Question Two",
+          "url": "wom/questions/wokl03/q2",
+          "contents": "wok"
+        }
+      }
+    },
+    "wokl04": {
+      "title": "Wokl04",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOK Lesson Four - Question One",
+          "url": "wom/questions/wokl04/q1",
+          "contents": "wok"
+        },
+        "q2": {
+          "title": "WOK Lesson Four - Question Two",
+          "url": "wom/questions/wokl04/q2",
+          "contents": "wok"
+        }
+      }
+    },
+    "wokl06": {
+      "title": "Wokl06",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOK Lesson Six - Question One",
+          "url": "wom/questions/wokl06/q1",
+          "contents": "wok"
+        },
+        "q2": {
+          "title": "WOK Lesson Six - Question Two",
+          "url": "wom/questions/wokl06/q2",
+          "contents": "wok"
+        }
+      }
+    },
+    "wokl10": {
+      "title": "Wokl10",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOK Lesson Ten - Question One",
+          "url": "wom/questions/wokl10/q1",
+          "contents": "wok"
+        },
+        "q2": {
+          "title": "WOK Lesson Ten - Question Two",
+          "url": "wom/questions/wokl10/q2",
+          "contents": "wok"
+        }
+      }
+    },
+    "wotl01": {
+      "title": "Wotl01",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOT Lesson One - Question One",
+          "url": "wom/questions/wotl01/q1",
+          "contents": "wot"
+        },
+        "q2": {
+          "title": "WOT Lesson One - Question Two",
+          "url": "wom/questions/wotl01/q2",
+          "contents": "wot"
+        }
+      }
+    },
+    "wotl06": {
+      "title": "Wotl06",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOT Lesson Six - Question One",
+          "url": "wom/questions/wotl06/q1",
+          "contents": "wot"
+        },
+        "q2": {
+          "title": "WOT Lesson Six - Question Two",
+          "url": "wom/questions/wotl06/q2",
+          "contents": "wot"
+        }
+      }
+    },
+    "wotl07": {
+      "title": "Wotl07",
+      "description": "No description",
+      "units": [
+        "q1"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOT Lesson Seven - Question One",
+          "url": "wom/questions/wotl07/q1",
+          "contents": "wot"
+        }
+      }
+    },
+    "wotl09": {
+      "title": "Wotl09",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOT Lesson Nine - Question One",
+          "url": "wom/questions/wotl09/q1",
+          "contents": "wot"
+        },
+        "q2": {
+          "title": "WOT Lesson Nine - Question Two",
+          "url": "wom/questions/wotl09/q2",
+          "contents": "wot"
+        },
+        "q3": {
+          "title": "WOT Lesson Nine - Question Three",
+          "url": "wom/questions/wotl09/q3",
+          "contents": "wot"
+        },
+        "q4": {
+          "title": "WOT Lesson Nine - Question Four",
+          "url": "wom/questions/wotl09/q4",
+          "contents": "wot"
+        }
+      }
+    },
+    "wotl11": {
+      "title": "Wotl11",
+      "description": "No description",
+      "units": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "unitInfo": {
+        "q1": {
+          "title": "WOT Lesson Eleven - Question One",
+          "url": "wom/questions/wotl11/q1",
+          "contents": "wot"
+        },
+        "q2": {
+          "title": "WOT Lesson Eleven - Question Two",
+          "url": "wom/questions/wotl11/q2",
+          "contents": "wot"
+        },
+        "q3": {
+          "title": "WOT Lesson Eleven - Question Three",
+          "url": "wom/questions/wotl11/q3",
+          "contents": "wot"
+        }
+      }
+    }
+  }
+}

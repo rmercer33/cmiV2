@@ -11,12 +11,70 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, "..");
 
 describe("Config Splitter Script Integration Tests", () => {
+  const configPath = path.resolve(projectRoot, "config.json");
+  const backupConfigPath = path.resolve(projectRoot, "config.json.bak");
   const outputDir = path.join(projectRoot, "frontend", "public", "config");
   const indexFilePath = path.join(outputDir, "index.json");
+  const womFilePath = path.join(outputDir, "wom.json");
+
+  let originalConfigExists = false;
 
   before(() => {
-    // Ensure we start with a clean split of the original config.json
+    // 1. Backup original config.json if it exists
+    if (fs.existsSync(configPath)) {
+      fs.renameSync(configPath, backupConfigPath);
+      originalConfigExists = true;
+    }
+
+    // 2. Write a mock legacy config.json
+    const mockLegacyConfig = {
+      title: "Library of Christ Mind Teachings",
+      description: "cmiLibrary Website Configuration",
+      sources: ["wom"],
+      sourceInfo: {
+        wom: {
+          title: "The Way of Mastery",
+          description: "Teachings of Jeshua",
+          image: "wom_cover.jpg",
+          books: ["text"],
+          bookInfo: {
+            text: {
+              title: "The Way of Heart",
+              description: "First Volume",
+              groups: ["ch01"],
+              groupInfo: {
+                ch01: {
+                  title: "Chapter 1",
+                  units: ["l01"],
+                  unitInfo: {
+                    l01: {
+                      title: "Lesson 1",
+                      url: "wom/text/ch01/l01"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    };
+    fs.writeFileSync(configPath, JSON.stringify(mockLegacyConfig, null, 2), "utf8");
+
+    // 3. Ensure we start with a clean split of this legacy config.json
     execSync("node scripts/split-config.mjs", { cwd: projectRoot });
+  });
+
+  after(() => {
+    // Clean up temporary config.json
+    if (fs.existsSync(configPath)) {
+      fs.rmSync(configPath, { force: true });
+    }
+
+    // Restore original config.json
+    if (originalConfigExists && fs.existsSync(backupConfigPath)) {
+      fs.renameSync(backupConfigPath, configPath);
+    }
   });
 
   test("Should verify the output files exist", () => {
@@ -57,7 +115,7 @@ describe("Config Splitter Script Integration Tests", () => {
   test("Should verify individual source configs contain full detailed hierarchy", () => {
     const rawIndex = fs.readFileSync(indexFilePath, "utf-8");
     const indexConfig = JSON.parse(rawIndex);
-    const firstSourceId = indexConfig.sources[0]; // e.g. "oe"
+    const firstSourceId = indexConfig.sources[0]; // e.g. "wom"
 
     const sourcePath = path.join(outputDir, `${firstSourceId}.json`);
     const rawSource = fs.readFileSync(sourcePath, "utf-8");
