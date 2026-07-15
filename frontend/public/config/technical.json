@@ -1,0 +1,43 @@
+{
+  "title": "Digital Library Technical Documents",
+  "description": "Developer guide to the Digital Library",
+  "image": "/images/covers/_dl/tech/developer-guide-cover.svg",
+  "books": [
+    "data",
+    "markdown"
+  ],
+  "bookInfo": {
+    "data": {
+      "title": "Data",
+      "description": "No description",
+      "units": [],
+      "unitInfo": {}
+    },
+    "markdown": {
+      "title": "Using Markdown",
+      "description": "How to use markdown in the Digital Library",
+      "units": [
+        "markdown-guide",
+        "custom-classes",
+        "example"
+      ],
+      "unitInfo": {
+        "markdown-guide": {
+          "title": "Markdown Style Guide",
+          "url": "technical/markdown/markdown-guide",
+          "description": "Digital Library Markdown authoring and style guide"
+        },
+        "custom-classes": {
+          "title": "Using Custom Classes",
+          "url": "technical/markdown/custom-classes",
+          "description": "Guide for custom classes"
+        },
+        "example": {
+          "title": "Example Markdown Features",
+          "url": "technical/markdown/example",
+          "description": "An example of how markdown is used in the Digital Library"
+        }
+      }
+    }
+  }
+}

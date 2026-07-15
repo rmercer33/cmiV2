@@ -1,119 +1,23 @@
 {
-  "title": "Library of Christ Mind Teachings",
-  "description": "cmiLibrary Website Configuration",
-  "contact": "Rick Mercer",
-  "email": "rmercer33@gmail.con",
-  "sections": [
-    "acim-related"
-  ],
-  "sectionInfo": {
-    "acim-related": {
-      "title": "ACIM Related Teachings",
-      "description": "A collection of ACIM and related teachings.",
-      "sources": [
-        "oe",
-        "raj",
-        "acim"
-      ],
-      "sourceInfo": {
-        "oe": {
-          "title": "A Course in Miracles - Original Edition",
-          "description": "A good one paragraph description for OE",
-          "image": "/images/covers/site/oe.jpg",
-          "books": [
-            "text",
-            "workbook",
-            "manual"
-          ]
-        },
-        "raj": {
-          "title": "The Raj Material",
-          "description": "Raj / Northwest Foundation for ACIM",
-          "image": "/images/covers/site/raj.jpg",
-          "books": [
-            "yaa",
-            "grad",
-            "shorts"
-          ],
-          "collections": [
-            "study-group"
-          ]
-        },
-        "acim": {
-          "title": "Sparkly Edition of A Course in Miracles",
-          "description": "Also known as the Thetford edition or the Hugh Lynn Cayce edition (HLC)",
-          "image": "/images/covers/site/acim.jpg",
-          "books": [
-            "preface",
-            "text",
-            "workbook",
-            "manual"
-          ]
-        }
-      }
-    }
-  },
+  "title": "Digital Library Usage and Operation Manual",
+  "description": "The concept and usage of the Digital Library",
   "sources": [
-    "wom",
-    "ftcm",
-    "col",
-    "jsb",
-    "acol"
+    "concept",
+    "technical"
   ],
   "sourceInfo": {
-    "wom": {
-      "title": "The Way of Mastery",
-      "description": "The Way of Mastery",
-      "image": "/images/covers/site/wom.jpg",
-      "books": [
-        "early",
-        "tjl",
-        "woh",
-        "wot",
-        "wok",
-        "wos",
-        "questions"
-      ]
+    "concept": {
+      "title": "Concept",
+      "description": "No description",
+      "books": []
     },
-    "ftcm": {
-      "title": "From the Christ Mind",
-      "description": "From the Christ Mind",
-      "image": "/images/covers/site/ftcm.jpg",
+    "technical": {
+      "title": "Digital Library Technical Documents",
+      "description": "Developer guide to the Digital Library",
+      "image": "/images/covers/_dl/tech/developer-guide-cover.svg",
       "books": [
-        "book1",
-        "book2"
-      ]
-    },
-    "col": {
-      "title": "Choose Only Love",
-      "description": "Choose Only Love",
-      "image": "/images/covers/site/col.jpg",
-      "books": [
-        "book1",
-        "book2",
-        "book3",
-        "book4",
-        "book5",
-        "book6",
-        "book7"
-      ]
-    },
-    "jsb": {
-      "title": "The Impersonal Life",
-      "description": "The Jeshua Letters",
-      "image": "/images/covers/site/til.jpg",
-      "books": [
-        "til"
-      ]
-    },
-    "acol": {
-      "title": " A Course of Love",
-      "description": "A Course of Love",
-      "image": "/images/covers/site/acol.jpg",
-      "books": [
-        "course",
-        "dialog",
-        "treatise"
+        "data",
+        "markdown"
       ]
     }
   }

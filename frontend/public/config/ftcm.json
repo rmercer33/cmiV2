@@ -1,6 +1,6 @@
 {
   "title": "From the Christ Mind",
-  "description": "From the Christ Mind",
+  "description": "From the Christ Mind Book 1 and Book 2",
   "author": "Darrell Morley Price",
   "contact": "Gerald Bausek",
   "email": "doctorofsoul@gmail.com",
@@ -12,203 +12,53 @@
   "bookInfo": {
     "book1": {
       "title": "From the Christ Mind: Book I",
-      "description": "No description",
+      "description": "Book1 description",
       "image": "/images/covers/ftcm/book1.jpg",
       "units": [
+        "foreword",
         "chap01",
-        "chap02",
-        "chap03",
-        "chap04",
-        "chap05",
-        "chap06",
-        "chap07",
-        "chap08",
-        "chap09",
-        "chap10",
-        "chap11",
-        "chap12",
-        "epilog",
-        "foreword"
+        "epilog"
       ],
       "unitInfo": {
+        "foreword": {
+          "title": "Foreword",
+          "url": "ftcm/book1/foreword",
+          "hideTitle": true
+        },
         "chap01": {
           "title": "Truth Returns",
           "url": "ftcm/book1/chap01",
           "ref": "Chapter One"
         },
-        "chap02": {
-          "title": "The Arrival of Truth",
-          "url": "ftcm/book1/chap02",
-          "ref": "Chapter Two"
-        },
-        "chap03": {
-          "title": "The End of Time",
-          "url": "ftcm/book1/chap03",
-          "ref": "Chapter Three"
-        },
-        "chap04": {
-          "title": "Beginning Again",
-          "url": "ftcm/book1/chap04",
-          "ref": "Chapter Four"
-        },
-        "chap05": {
-          "title": "The Rise of Truth",
-          "url": "ftcm/book1/chap05",
-          "ref": "Chapter Five"
-        },
-        "chap06": {
-          "title": "The Pursuit of Truth",
-          "url": "ftcm/book1/chap06",
-          "ref": "Chapter Six"
-        },
-        "chap07": {
-          "title": "The Time of Change",
-          "url": "ftcm/book1/chap07",
-          "ref": "Chapter Seven"
-        },
-        "chap08": {
-          "title": "Love",
-          "url": "ftcm/book1/chap08",
-          "ref": "Chapter Eight"
-        },
-        "chap09": {
-          "title": "The Way Back",
-          "url": "ftcm/book1/chap09",
-          "ref": "Chapter Nine"
-        },
-        "chap10": {
-          "title": "The Return of Wholeness",
-          "url": "ftcm/book1/chap10",
-          "ref": "Chapter Ten"
-        },
-        "chap11": {
-          "title": "Truth and Freedom",
-          "url": "ftcm/book1/chap11",
-          "ref": "Chapter Eleven"
-        },
-        "chap12": {
-          "title": "The Peace of God",
-          "url": "ftcm/book1/chap12",
-          "ref": "Chapter Twelve"
-        },
         "epilog": {
           "title": "Epilogue",
           "url": "ftcm/book1/epilog"
-        },
-        "foreword": {
-          "title": "Foreword",
-          "url": "ftcm/book1/foreword",
-          "hideTitle": true
         }
       }
     },
     "book2": {
       "title": "From the Christ Mind: Book 2",
-      "description": "No description",
+      "description": "Book 2 description",
       "image": "/images/covers/ftcm/book2.jpg",
       "units": [
+        "foreword",
         "chap01",
-        "chap02",
-        "chap03",
-        "chap04",
-        "chap05",
-        "chap06",
-        "chap07",
-        "chap08",
-        "chap09",
-        "chap10",
-        "chap11",
-        "chap12",
-        "chap13",
-        "chap14",
-        "chap15",
-        "epilog",
-        "foreword"
+        "epilog"
       ],
       "unitInfo": {
+        "foreword": {
+          "title": "Foreword",
+          "url": "ftcm/book2/foreword",
+          "hideTitle": true
+        },
         "chap01": {
           "title": "Salvation",
           "url": "ftcm/book2/chap01",
           "ref": "Chapter One"
         },
-        "chap02": {
-          "title": "What You Desire",
-          "url": "ftcm/book2/chap02",
-          "ref": "Chapter Two"
-        },
-        "chap03": {
-          "title": "The Gifts of God",
-          "url": "ftcm/book2/chap03",
-          "ref": "Chapter Three"
-        },
-        "chap04": {
-          "title": "Decision Making",
-          "url": "ftcm/book2/chap04",
-          "ref": "Chapter Four"
-        },
-        "chap05": {
-          "title": "Love and Peace",
-          "url": "ftcm/book2/chap05",
-          "ref": "Chapter Five"
-        },
-        "chap06": {
-          "title": "Remember Your Father",
-          "url": "ftcm/book2/chap06",
-          "ref": "Chapter Six"
-        },
-        "chap07": {
-          "title": "Purpose and the Ego",
-          "url": "ftcm/book2/chap07",
-          "ref": "Chapter Seven"
-        },
-        "chap08": {
-          "title": "The Holy Instant",
-          "url": "ftcm/book2/chap08",
-          "ref": "Chapter Eight"
-        },
-        "chap09": {
-          "title": "Time and Purpose",
-          "url": "ftcm/book2/chap09",
-          "ref": "Chapter Nine"
-        },
-        "chap10": {
-          "title": "You Are Not Alone",
-          "url": "ftcm/book2/chap10",
-          "ref": "Chapter Ten"
-        },
-        "chap11": {
-          "title": "God and You",
-          "url": "ftcm/book2/chap11",
-          "ref": "Chapter Eleven"
-        },
-        "chap12": {
-          "title": "Two Answers",
-          "url": "ftcm/book2/chap12",
-          "ref": "Chapter Twelve"
-        },
-        "chap13": {
-          "title": "The Way to Heaven",
-          "url": "ftcm/book2/chap13",
-          "ref": "Chapter Thirteen"
-        },
-        "chap14": {
-          "title": "Light and Creation",
-          "url": "ftcm/book2/chap14",
-          "ref": "Chapter Fourteen"
-        },
-        "chap15": {
-          "title": "Lessons",
-          "url": "ftcm/book2/chap15",
-          "ref": "Chapter Fifteen"
-        },
         "epilog": {
           "title": "Epilogue",
           "url": "ftcm/book2/epilog"
-        },
-        "foreword": {
-          "title": "Foreword",
-          "url": "ftcm/book2/foreword",
-          "hideTitle": true
         }
       }
     }

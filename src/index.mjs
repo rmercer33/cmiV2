@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-import { readFile, writeFile, mkdir, readdir } from "fs/promises";
+import { readFile, writeFile, mkdir, readdir, copyFile } from "fs/promises";
 import fs from "fs";
 import path from "path";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
@@ -79,7 +80,9 @@ async function getMarkdownFiles(contentRoot) {
     const info = (await readInfoJson(currentDir)) || {};
     const entries = await readdir(currentDir, { withFileTypes: true });
 
-    const dirs = entries.filter((e) => e.isDirectory()).map((e) => e.name);
+    const dirs = entries
+      .filter((e) => e.isDirectory() && e.name !== "images" && e.name !== "assets")
+      .map((e) => e.name);
     const files = entries
       .filter((e) => e.isFile() && e.name.endsWith(".md"))
       .map((e) => e.name);
@@ -190,6 +193,54 @@ async function getMarkdownFiles(contentRoot) {
 }
 
 /**
+ * Recursively find the last text-yielding node in the subtree of the given node.
+ */
+function findLastTextNode(node) {
+  if (node.type === "text") {
+    return node;
+  }
+  if (node.children && node.children.length > 0) {
+    for (let i = node.children.length - 1; i >= 0; i--) {
+      const found = findLastTextNode(node.children[i]);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+
+/**
+ * Recursively perform newlines to spaces and frontmatter substitutions on all text nodes in a subtree.
+ * Also converts raw "html" nodes to "text" nodes so they are preserved through rehype and unescaped by regex.
+ */
+function processSubtreeTextNodes(currentNode, type, frontmatter) {
+  if (currentNode.type === "html") {
+    currentNode.type = "text";
+  }
+
+  if (currentNode.type === "text") {
+    let val = currentNode.value;
+
+    // Replace newlines in paragraph text nodes with spaces
+    if (type === "p") {
+      val = val.replace(/\r?\n/g, " ");
+    }
+
+    // Perform frontmatter variable substitutions
+    val = val.replace(/\{\{\s*page\.([\w\-]+)\s*\}\}/g, (match, key) => {
+      return frontmatter[key] !== undefined ? frontmatter[key] : "";
+    });
+
+    currentNode.value = val;
+  }
+
+  if (currentNode.children && currentNode.children.length > 0) {
+    for (const child of currentNode.children) {
+      processSubtreeTextNodes(child, type, frontmatter);
+    }
+  }
+}
+
+/**
  * Process MDAST, generate keys, and prepare elements for search and HTML render.
  */
 function processAst(ast, frontmatter) {
@@ -201,41 +252,37 @@ function processAst(ast, frontmatter) {
 
   visit(ast, (node) => {
     if (node.type === "heading" || node.type === "paragraph") {
-      let text = toString(node).trim();
-      if (!text) {
+      const initialText = toString(node).trim();
+      if (!initialText) {
         nodesToRemove.add(node);
         return;
       }
 
       const type = node.type === "heading" ? "h" : "p";
 
-      // Replace newlines in paragraph nodes with spaces
-      if (type === "p") {
-        text = text.replace(/\r?\n/g, " ");
-      }
-
-      // Perform frontmatter variable substitutions
-      text = text.replace(/\{\{\s*page\.([\w\-]+)\s*\}\}/g, (match, key) => {
-        return frontmatter[key] !== undefined ? frontmatter[key] : "";
-      });
-
-      // Check for directives at the end of the text
-      const directiveMatch = text.match(/\{:\s*(.*?)\s*\}$/);
+      // Check for directives at the end of the text and extract/strip them in-place
       let htmlClass = "";
       let omitFromDb = false;
 
-      if (directiveMatch) {
-        // Strip the directive from the text being rendered/saved
-        text = text.replace(/\{:\s*(.*?)\s*\}$/, "").trim();
+      const lastTextNode = findLastTextNode(node);
+      if (lastTextNode) {
+        const directiveMatch = lastTextNode.value.match(/\{:\s*(.*?)\s*\}$/);
+        if (directiveMatch) {
+          // Extract the value (e.g. '.omit' or '.custom-class')
+          const directive = directiveMatch[1].trim();
+          htmlClass = directive.replace(/^\./, "");
 
-        // Extract the value (e.g. '.omit' or '.custom-class')
-        const directive = directiveMatch[1].trim();
-        htmlClass = directive.replace(/^\./, "");
+          if (htmlClass.toLowerCase() === "omit") {
+            omitFromDb = true;
+          }
 
-        if (htmlClass.toLowerCase() === "omit") {
-          omitFromDb = true;
+          // Strip the directive from the last text node's value in-place
+          lastTextNode.value = lastTextNode.value.replace(/\{:\s*(.*?)\s*\}$/, "").trim();
         }
       }
+
+      // Process newlines and frontmatter substitutions in-place on all text-yielding descendant nodes
+      processSubtreeTextNodes(node, type, frontmatter);
 
       const paddedGlobal = String(globalSequence).padStart(4, "0");
       globalSequence++;
@@ -252,8 +299,7 @@ function processAst(ast, frontmatter) {
         paragraphSequence++;
       }
 
-      // In-place AST updates for HTML generation
-      node.children = [{ type: "text", value: text }];
+      // In-place AST updates for HTML generation attributes
       node.data = node.data || {};
       node.data.hProperties = node.data.hProperties || {};
       node.data.hProperties.id = htmlId;
@@ -263,7 +309,9 @@ function processAst(ast, frontmatter) {
 
       if (!omitFromDb) {
         // Strip <sup> and </sup> tags so they don't go to the database
-        const cleanText = text.replace(/<\/?sup>/gi, "");
+        // Also get the fully substituted, stripped plain text of this node
+        const nodeText = toString(node).trim();
+        const cleanText = nodeText.replace(/<\/?sup>/gi, "");
         items.push({
           type,
           key,
@@ -287,6 +335,42 @@ function processAst(ast, frontmatter) {
   }
 
   return items;
+}
+
+/**
+ * Recursively copies static assets (images) from contentRoot to outputRoot.
+ * Respects Options filter if specified.
+ */
+async function copyStaticAssets(contentRoot, outputRoot, options) {
+  async function traverse(currentDir) {
+    const entries = await readdir(currentDir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(currentDir, entry.name);
+      const relPath = path.relative(contentRoot, fullPath);
+
+      if (options.path) {
+        const normFilter = path.normalize(options.path);
+        // Only recurse/copy if it starts with filter, or filter is a subpath of it
+        if (!relPath.startsWith(normFilter) && !normFilter.startsWith(relPath)) {
+          continue;
+        }
+      }
+
+      if (entry.isDirectory()) {
+        await traverse(fullPath);
+      } else if (entry.isFile()) {
+        const ext = path.extname(entry.name).toLowerCase();
+        const staticExts = new Set([".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"]);
+        if (staticExts.has(ext)) {
+          const destPath = path.join(outputRoot, relPath);
+          await mkdir(path.dirname(destPath), { recursive: true });
+          await copyFile(fullPath, destPath);
+          console.log(`Copied static asset: ${destPath}`);
+        }
+      }
+    }
+  }
+  await traverse(contentRoot);
 }
 
 async function run() {
@@ -417,7 +501,7 @@ async function run() {
     }
 
     // 4. Process each file
-    const processor = unified().use(remarkParse).use(remarkFrontmatter);
+    const processor = unified().use(remarkParse).use(remarkGfm).use(remarkFrontmatter);
 
     for (const fileInfo of filesToProcess) {
       let content;
@@ -479,6 +563,7 @@ async function run() {
             "div",
             "p",
             "a",
+            "img",
           ]);
           if (allowedTags.has(tagName)) {
             return `<${tagAndAttrs}>`;
@@ -545,6 +630,11 @@ async function run() {
           `Ingested ${items.length} items into DynamoDB table cmiSearch for ${fileInfo.source}/${fileInfo.book}/${fileInfo.unit}`,
         );
       }
+    }
+
+    // 6. Copy static assets (like images) automatically
+    if (fs.existsSync(contentRoot)) {
+      await copyStaticAssets(contentRoot, outputRoot, options);
     }
 
     console.log("Processing completed successfully.");

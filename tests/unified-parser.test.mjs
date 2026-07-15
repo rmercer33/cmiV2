@@ -46,7 +46,26 @@ This should be completely omitted.
 
 ## Second Heading Level 2 {: .custom-style}
 
-This is paragraph 2<sup>1</sup>.`
+This is paragraph 2<sup>1</sup> with a footnote[^1].
+
+This is a paragraph with **bold**, *italic*, and **_bold-italic_** text.
+
+> This is a blockquote.
+
+- Item 1
+  - Nested Item 1.1
+
+1. Ordered Item 1
+   1. Nested Ordered Item 1.1
+
+This is line 1\\
+This is line 2.
+
+Click [external link](https://google.com) or [internal link](../workbook/l002.md).
+
+![Alt text](./image.png)
+
+[^1]: This is the footnote text definition.`
     );
 
     fs.writeFileSync(
@@ -66,6 +85,9 @@ title: "Text Chapter One"
 # Chapter One ({{page.title}})
 Paragraph inside chapter one.`
     );
+
+    // Create a mock static image file to verify auto-copying
+    fs.writeFileSync(path.join(tempContentDir, "oe/workbook/image.png"), "mock image content");
 
     // 3. Create parser config JSON
     fs.writeFileSync(
@@ -142,7 +164,35 @@ Paragraph inside chapter one.`
 
     // Verification of custom classes, sequence stripping, and sequential DOM IDs
     assert.match(html1, /<h2 id="h2" class="custom-style">Second Heading Level 2<\/h2>/);
-    assert.match(html1, /<p id="p3">This is paragraph 2<sup>1<\/sup>\.<\/p>/);
+    assert.match(html1, /<p id="p3">This is paragraph 2<sup>1<\/sup> with a footnote<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref aria-describedby="footnote-label">1<\/a><\/sup>\.<\/p>/);
+
+    // Verification of rich formatting (bold, italic, and bold-italic)
+    assert.match(html1, /<p id="p4">This is a paragraph with <strong>bold<\/strong>, <em>italic<\/em>, and <strong><em>bold-italic<\/em><\/strong> text\.<\/p>/);
+
+    // Verification of blockquotes
+    assert.match(html1, /<blockquote>\s*<p id="p5">This is a blockquote\.<\/p>\s*<\/blockquote>/);
+
+    // Verification of nested unordered and ordered lists
+    assert.match(html1, /<ul>\s*<li>Item 1\s*<ul>\s*<li>Nested Item 1\.1<\/li>\s*<\/ul>\s*<\/li>\s*<\/ul>/);
+    assert.match(html1, /<ol>\s*<li>Ordered Item 1\s*<ol>\s*<li>Nested Ordered Item 1\.1<\/li>\s*<\/ol>\s*<\/li>\s*<\/ol>/);
+
+    // Verification of hard breaks (ended with backslash)
+    assert.match(html1, /<p id="p10">This is line 1<br>\s*This is line 2\.<\/p>/);
+
+    // Verification of links (both internal and external)
+    assert.match(html1, /<p id="p11">Click <a href="https:\/\/google\.com">external link<\/a> or <a href="\.\.\/workbook\/l002\.md">internal link<\/a>\.<\/p>/);
+
+    // Verification of images
+    assert.match(html1, /<p id="p12"><img src="\.\/image\.png" alt="Alt text"><\/p>/);
+
+    // Verification of markdown footnotes
+    assert.match(html1, /<section data-footnotes class="footnotes">/);
+    assert.match(html1, /<li id="user-content-fn-1">/);
+    assert.match(html1, /This is the footnote text definition\./);
+
+    // Verification of automatic image/static asset copying
+    const copiedImagePath = path.join(tempOutputDir, "oe/workbook/image.png");
+    assert.strictEqual(fs.existsSync(copiedImagePath), true, "image.png should be copied automatically to outputRoot");
   });
 
   test("Should support path filtering (e.g. limiting to oe/workbook)", () => {

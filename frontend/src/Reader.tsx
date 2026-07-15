@@ -126,6 +126,33 @@ export const Reader: React.FC<ReaderProps> = ({
             });
           }
 
+          // Post-process images to resolve relative paths
+          const contentBaseUrl = new URL(`/content/${activeUnit.url}.html`, window.location.origin);
+          doc.querySelectorAll('img').forEach((img) => {
+            const src = img.getAttribute('src');
+            if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+              try {
+                const resolvedUrl = new URL(src, contentBaseUrl).pathname;
+                img.setAttribute('src', resolvedUrl);
+              } catch (e) {
+                // Ignore resolve failures
+              }
+              img.style.maxWidth = '100%';
+              img.style.height = 'auto';
+              img.style.display = 'block';
+              img.style.margin = '1.5rem auto';
+            }
+          });
+
+          // Post-process links to target external links in new tab
+          doc.querySelectorAll('a').forEach((a) => {
+            const href = a.getAttribute('href');
+            if (href && href.startsWith('http')) {
+              a.setAttribute('target', '_blank');
+              a.setAttribute('rel', 'noopener noreferrer');
+            }
+          });
+
           setHtmlContent(doc.body.innerHTML);
         } catch (parseErr) {
           console.error('Error pre-processing sentences in HTML:', parseErr);
@@ -368,9 +395,41 @@ export const Reader: React.FC<ReaderProps> = ({
     };
   }, [activeUnit, htmlContent]);
 
-  // Handle click on paragraphs to seek audio playback
+  // Handle click on paragraphs to seek audio playback and navigate internal links
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
+    const anchor = target.closest('a');
+    
+    if (anchor) {
+      const href = anchor.getAttribute('href');
+      if (href) {
+        // Leave external, mailto, tel, and hash links alone
+        if (href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+          return;
+        }
+
+        // Intercept relative internal links
+        e.preventDefault();
+        try {
+          const contentBaseUrl = new URL(`/content/${activeUnit.url}.html`, window.location.origin);
+          const resolvedUrl = new URL(href, contentBaseUrl);
+          
+          // Strip /content/ prefix and .md (or .html) suffix
+          let path = resolvedUrl.pathname;
+          if (path.startsWith('/content/')) {
+            path = path.slice('/content/'.length);
+          }
+          path = path.replace(/\.(md|html)$/i, '');
+
+          // Navigate to SPA route
+          navigate(`/read/${path}${resolvedUrl.hash}`);
+        } catch (err) {
+          console.error('Error resolving internal link:', err);
+        }
+        return; // Avoid triggering audio seek
+      }
+    }
+
     const cmiElement = target.closest('#cmi-transcript p, #cmi-transcript h2, #cmi-transcript h3') as HTMLElement | null;
     
     if (cmiElement && activeUnit?.audiofn && audioRef.current && !audioRef.current.paused && audioRef.current.textTracks[0]) {

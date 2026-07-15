@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612" height="918" viewBox="0 0 612 918">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b10" />
+      <stop offset="50%" stop-color="#11141e" />
+      <stop offset="100%" stop-color="#050608" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#863bff" />
+      <stop offset="100%" stop-color="#00f0ff" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0055ff" />
+      <stop offset="100%" stop-color="#00ffaa" />
+    </linearGradient>
+    
+    <!-- Outer Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="40" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Solid Background -->
+  <rect width="612" height="918" fill="url(#bgGrad)" />
+
+  <!-- Ambient Light Backdrops (Nebula effect) -->
+  <circle cx="150" cy="200" r="180" fill="#863bff" opacity="0.14" filter="url(#softGlow)" />
+  <circle cx="450" cy="700" r="220" fill="#00f0ff" opacity="0.11" filter="url(#softGlow)" />
+
+  <!-- Matrix / Tech Alignment Grid -->
+  <g stroke="#ffffff" opacity="0.03" stroke-width="1">
+    <!-- Vertical grid dividers -->
+    <line x1="61.2" y1="0" x2="61.2" y2="918" />
+    <line x1="122.4" y1="0" x2="122.4" y2="918" />
+    <line x1="183.6" y1="0" x2="183.6" y2="918" />
+    <line x1="244.8" y1="0" x2="244.8" y2="918" />
+    <line x1="306" y1="0" x2="306" y2="918" />
+    <line x1="367.2" y1="0" x2="367.2" y2="918" />
+    <line x1="428.4" y1="0" x2="428.4" y2="918" />
+    <line x1="489.6" y1="0" x2="489.6" y2="918" />
+    <line x1="550.8" y1="0" x2="550.8" y2="918" />
+    <!-- Horizontal grid dividers -->
+    <line x1="0" y1="91.8" x2="612" y2="91.8" />
+    <line x1="0" y1="183.6" x2="612" y2="183.6" />
+    <line x1="0" y1="275.4" x2="612" y2="275.4" />
+    <line x1="0" y1="367.2" x2="612" y2="367.2" />
+    <line x1="0" y1="459" x2="612" y2="459" />
+    <line x1="0" y1="550.8" x2="612" y2="550.8" />
+    <line x1="0" y1="642.6" x2="612" y2="642.6" />
+    <line x1="0" y1="734.4" x2="612" y2="734.4" />
+    <line x1="0" y1="826.2" x2="612" y2="826.2" />
+  </g>
+
+  <!-- Circular Radar Target / Cyber Lines -->
+  <circle cx="306" cy="520" r="190" fill="none" stroke="url(#glowGrad)" stroke-dasharray="10, 15" stroke-width="1.5" opacity="0.35" />
+  <circle cx="306" cy="520" r="230" fill="none" stroke="#00f0ff" stroke-dasharray="4, 12, 18, 12" stroke-width="1" opacity="0.2" />
+
+  <!-- Isometric Cybercube Book Cover Center Art -->
+  <g transform="translate(306, 520)" filter="url(#glow)">
+    <!-- Isometric Left Face -->
+    <polygon points="0,0 -120,-70 -120,80 0,150" fill="#111324" stroke="#863bff" stroke-width="2.5" opacity="0.85" />
+    <!-- Isometric Right Face -->
+    <polygon points="0,0 120,-70 120,80 0,150" fill="#141f38" stroke="#00f0ff" stroke-width="2.5" opacity="0.85" />
+    <!-- Isometric Top Face -->
+    <polygon points="0,0 -120,-70 0,-140 120,-70" fill="#1a1c32" stroke="url(#glowGrad)" stroke-width="2.5" opacity="0.95" />
+
+    <!-- Glowing circuit lines on Right Face -->
+    <circle cx="50" cy="10" r="4.5" fill="#00f0ff" />
+    <path d="M50,10 L80,27 V60 L40,82" fill="none" stroke="#00f0ff" stroke-width="3" stroke-linecap="round" />
+    <circle cx="40" cy="82" r="3.5" fill="#00f0ff" />
+    
+    <!-- Code Brackets on Left Face -->
+    <path d="M-40,20 L-80,-3 L-80,45 L-40,68" fill="none" stroke="#863bff" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M-80,20 L-60,32" fill="none" stroke="#863bff" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Glowing Core Code Tag rising up -->
+    <g transform="translate(0, -60)" filter="url(#glow)">
+      <!-- Cyber </> symbols -->
+      <text x="0" y="-12" font-family="'Consolas', 'Courier New', monospace" font-size="70" font-weight="900" fill="#00f0ff" text-anchor="middle" opacity="0.95">&lt;/&gt;</text>
+    </g>
+  </g>
+
+  <!-- Typography and Metadata Layout -->
+
+  <!-- Top Ribbon System Header -->
+  <text x="306" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="800" fill="#863bff" letter-spacing="6" text-anchor="middle" opacity="0.9">CMI LIBRARY SERIES</text>
+  <line x1="220" y1="125" x2="392" y2="125" stroke="url(#glowGrad)" stroke-width="1.5" opacity="0.6" />
+
+  <!-- Title Blocks -->
+  <text x="306" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="54" font-weight="900" fill="url(#glowGrad)" letter-spacing="1" text-anchor="middle" filter="url(#glow)">DEVELOPER</text>
+  <text x="306" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="#ffffff" letter-spacing="5" text-anchor="middle">GUIDE</text>
+
+  <!-- Divider Line -->
+  <rect x="256" y="315" width="100" height="4.5" rx="2" fill="url(#glowGrad)" />
+
+  <!-- Description Subheaders -->
+  <text x="306" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" fill="#a0aec0" text-anchor="middle" opacity="0.9">An Immersive Blueprint for Content Architecture,</text>
+  <text x="306" y="385" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" fill="#a0aec0" text-anchor="middle" opacity="0.9">AST Parsing, and High-Performance HTML Delivery.</text>
+
+  <!-- Footer block with System Releases -->
+  <line x1="80" y1="810" x2="532" y2="810" stroke="#1f2937" stroke-width="1.5" />
+  <text x="306" y="845" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#718096" letter-spacing="3.5" text-anchor="middle">CMI PLATFORM TEAM</text>
+  <text x="306" y="870" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="800" fill="#863bff" letter-spacing="1" text-anchor="middle">RELEASE v2.0 // SYSTEM CORE</text>
+</svg>

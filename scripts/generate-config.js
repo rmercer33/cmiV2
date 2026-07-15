@@ -134,7 +134,7 @@ function readInfoJson(dirPath) {
 function getSubdirectories(dirPath) {
   if (!fs.existsSync(dirPath)) return [];
   return fs.readdirSync(dirPath).filter(name => {
-    if (name.startsWith('.')) return false;
+    if (name.startsWith('.') || name === 'images' || name === 'assets') return false;
     const fullPath = path.join(dirPath, name);
     return fs.statSync(fullPath).isDirectory();
   });
@@ -188,7 +188,9 @@ function processBook(bookPath, bookId, urlParts) {
   for (const entry of bookEntries) {
     const entryPath = path.join(bookPath, entry);
     if (fs.statSync(entryPath).isDirectory()) {
-      subdirectories.push(entry);
+      if (entry !== 'images' && entry !== 'assets') {
+        subdirectories.push(entry);
+      }
     } else if (entry.endsWith('.md')) {
       markdownFiles.push(entry);
     }

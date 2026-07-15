@@ -467,6 +467,30 @@ a:hover {
   transition: background-color 0.4s ease;
 }
 
+/* Code and Code Block Styles */
+#cmi-transcript code {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.85em;
+  background-color: var(--bg-secondary);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
+
+#cmi-transcript pre {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+#cmi-transcript pre code {
+  padding: 0;
+  background-color: transparent;
+  font-size: 0.82em; /* Code block text size slightly smaller than inline code */
+}
+
 /* Audio Seek Indicator on Hover */
 .audio-seek-indicator {
   position: absolute;
@@ -766,13 +790,84 @@ a:hover {
    }
 */
 
-/* WOM Source Overrides: Italic & Indented Blockquotes */
-.reader-container.source-wom #cmi-transcript blockquote {
+/* Global Blockquote Styles (Italic, Indented, Left Border) */
+#cmi-transcript blockquote {
   font-style: italic;
   margin: 1.5rem 0 1.5rem 2rem;
-  padding: 0;
+  padding: 0 0 0 1rem;
+  border-left: 4px solid var(--accent-border);
 }
 
-.reader-container.source-wom #cmi-transcript blockquote p {
+#cmi-transcript blockquote p {
   font-style: italic;
+}
+
+/* Global List Styles (Indented Lists & Nested Items) */
+#cmi-transcript ul,
+#cmi-transcript ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#cmi-transcript li {
+  margin-bottom: 0.5rem;
+}
+
+/* Correct indentation for nested lists */
+#cmi-transcript ul ul,
+#cmi-transcript ol ol,
+#cmi-transcript ul ol,
+#cmi-transcript ol ul {
+  margin-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* Global Markdown Footnote Styles */
+#cmi-transcript .footnotes {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.95rem; /* Footnotes slightly smaller and subdued */
+  color: var(--text-secondary);
+}
+
+#cmi-transcript .footnotes ol {
+  margin-left: 2rem;
+  margin-bottom: 0;
+}
+
+#cmi-transcript .footnotes li {
+  margin-bottom: 0.75rem;
+}
+
+#cmi-transcript .footnotes p {
+  display: inline; /* Keep footnote text and backreference link inline */
+  margin-bottom: 0;
+  padding: 0;
+  text-align: left;
+}
+
+#cmi-transcript .data-footnote-backref {
+  font-family: var(--font-sans);
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 0.4rem;
+  color: var(--accent-color);
+  transition: opacity 0.2s;
+}
+
+#cmi-transcript .data-footnote-backref:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* Styled superscript footnote reference links */
+#cmi-transcript [id^="user-content-fnref-"] {
+  font-family: var(--font-sans);
+  font-weight: bold;
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.15rem;
+  text-decoration: none;
 }

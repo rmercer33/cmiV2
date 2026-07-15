@@ -1,5 +1,5 @@
 {
-  "contentRoot": "../cmiContent/content",
+  "contentRoot": "../cmiContent/example/flat",
   "outputRoot": "./_site",
   "wrapperTag": "section",
   "wrapperId": "cmi-transcript"

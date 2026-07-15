@@ -3,6 +3,7 @@
 import { readFile } from "fs/promises";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
@@ -24,6 +25,7 @@ async function main() {
 
   const processor = unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkFrontmatter);
 
   const ast = processor.parse(content);
