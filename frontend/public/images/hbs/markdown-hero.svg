@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a13" /> <!-- Dark Space -->
+      <stop offset="50%" stop-color="#0f172a" /> <!-- Slate Dark -->
+      <stop offset="100%" stop-color="#1e1b4b" /> <!-- Indigo Depth -->
+    </linearGradient>
+
+    <!-- Neon Teal/Cyan Gradient -->
+    <linearGradient id="neon-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" /> <!-- Cyan -->
+      <stop offset="100%" stop-color="#3b82f6" /> <!-- Blue -->
+    </linearGradient>
+
+    <!-- Glowing Yellow Accent -->
+    <linearGradient id="glow-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" /> <!-- Amber -->
+      <stop offset="100%" stop-color="#d97706" /> <!-- Bronze -->
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.75" opacity="0.3" />
+    </pattern>
+
+    <!-- Neon Glow Filter -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Base Canvas Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" />
+
+  <!-- Subtle Blueprint Tech Grid -->
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Abstract Tech Geometry & Wave Patterns (Tech aesthetic) -->
+  <path d="M-100,280 C200,220 400,380 700,290 C1000,200 1100,320 1300,250 L1300,410 L-100,410 Z" fill="#1e293b" opacity="0.3" />
+  <path d="M-100,310 C300,260 500,420 800,320 C1100,220 1150,350 1300,290 L1300,410 L-100,410 Z" fill="url(#neon-cyan)" opacity="0.1" />
+
+  <!-- Technical Circuit Dots (Top Left and Bottom Right) -->
+  <circle cx="150" cy="80" r="3" fill="#06b6d4" opacity="0.5" />
+  <line x1="150" y1="80" x2="250" y2="80" stroke="#06b6d4" stroke-width="1" stroke-dasharray="5 5" opacity="0.3" />
+  <circle cx="250" cy="80" r="5" fill="#3b82f6" opacity="0.5" />
+
+  <circle cx="1020" cy="300" r="4" fill="#f59e0b" opacity="0.4" />
+  <line x1="920" y1="300" x2="1020" y2="300" stroke="#f59e0b" stroke-width="1" stroke-dasharray="5 5" opacity="0.3" />
+
+  <!-- Floating Markdown Syntax Symbols (Background Context) -->
+  <text x="100" y="320" fill="#334155" font-family="'Courier New', monospace" font-size="70" font-weight="900" opacity="0.4">#</text>
+  <text x="800" y="100" fill="#334155" font-family="'Courier New', monospace" font-size="50" font-weight="900" opacity="0.4">**bold**</text>
+  <text x="1100" y="180" fill="#334155" font-family="'Courier New', monospace" font-size="60" font-weight="900" opacity="0.3">*italic*</text>
+  <text x="50" y="160" fill="#334155" font-family="'Courier New', monospace" font-size="45" font-weight="900" opacity="0.3">[link](url)</text>
+  <text x="950" y="240" fill="#334155" font-family="'Courier New', monospace" font-size="55" font-weight="900" opacity="0.2">`code`</text>
+
+  <!-- Giant Glowing Technical Markdown Logo (Center Left) -->
+  <g transform="translate(180, 200)" filter="url(#soft-shadow)">
+    <!-- Base Plate -->
+    <rect x="-110" y="-80" width="220" height="160" rx="16" fill="#0f172a" stroke="url(#neon-cyan)" stroke-width="3" />
+    
+    <!-- Stylized 'M' -->
+    <path d="M-75,35 L-75,-35 L-45,5 L-15,-35 L-15,35" fill="none" stroke="#f8fafc" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Arrow Column Box -->
+    <rect x="15" y="-35" width="60" height="70" rx="8" fill="none" stroke="url(#neon-cyan)" stroke-width="6" />
+    <!-- Down Arrow -->
+    <path d="M45,-15 L45,15 M30,0 L45,15 L60,0" fill="none" stroke="url(#neon-cyan)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#neon-glow)" />
+  </g>
+
+  <!-- Decorative Vertical Tech Line -->
+  <line x1="420" y1="80" x2="420" y2="320" stroke="#334155" stroke-width="1.5" opacity="0.5" />
+  <circle cx="420" cy="200" r="5" fill="#f59e0b" filter="url(#neon-glow)" />
+
+  <!-- High-Fidelity Title Section (Right Side) -->
+  <g transform="translate(470, 0)">
+    <!-- Category Tag -->
+    <rect x="0" y="105" width="160" height="26" rx="6" fill="#1e1b4b" stroke="#3b82f6" stroke-width="1" />
+    <text x="15" y="122" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">MARKDOWN ENGINE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="185" fill="#ffffff" font-family="'Inter', sans-serif" font-size="44" font-weight="900" letter-spacing="1">UNIFIED AUTHORING</text>
+    <text x="0" y="235" fill="url(#neon-cyan)" font-family="'Inter', sans-serif" font-size="44" font-weight="900" letter-spacing="1">STYLE &amp; SYNTAX</text>
+
+    <!-- Subtitle Description -->
+    <text x="0" y="280" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="15" font-weight="500" letter-spacing="0.5">Static compiler generating highly structured, sequential reading</text>
+    <text x="0" y="305" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="15" font-weight="500" letter-spacing="0.5">materials. Fully styled and optimized for deep digital studies.</text>
+
+    <!-- Little Glowing Specs at Title Base -->
+    <rect x="0" y="335" width="40" height="4" rx="2" fill="#f59e0b" filter="url(#neon-glow)" />
+    <rect x="50" y="335" width="12" height="4" rx="2" fill="#06b6d4" />
+    <rect x="68" y="335" width="12" height="4" rx="2" fill="#3b82f6" />
+  </g>
+</svg>

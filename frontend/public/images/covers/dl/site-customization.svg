@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 918" width="612" height="918">
+  <defs>
+    <!-- Background Gradient (Deep Cosmic Amethyst to Royal Violet) -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0518" /> <!-- Obsidian Violet -->
+      <stop offset="50%" stop-color="#1e1b4b" /> <!-- Midnight Indigo -->
+      <stop offset="100%" stop-color="#4c1d95" /> <!-- Royal Purple -->
+    </linearGradient>
+
+    <!-- Glowing Violet/Magenta Gradient -->
+    <linearGradient id="glowing-magenta" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" /> <!-- Purple -->
+      <stop offset="50%" stop-color="#ec4899" /> <!-- Bright Pink -->
+      <stop offset="100%" stop-color="#f43f5e" /> <!-- Rose Red -->
+    </linearGradient>
+
+    <!-- Accent Warm Amber Gradient -->
+    <linearGradient id="glowing-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" /> <!-- Gold Amber -->
+      <stop offset="100%" stop-color="#7c2d12" /> <!-- Bronze Amber -->
+    </linearGradient>
+
+    <!-- Blueprint Grid -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2e1065" stroke-width="1" opacity="0.4" />
+    </pattern>
+
+    <!-- Neon Glow Filter -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Base Cover Canvas Background -->
+  <rect width="612" height="918" fill="url(#bg-grad)" />
+
+  <!-- Technical Grid Overlay -->
+  <rect width="612" height="918" fill="url(#grid)" />
+
+  <!-- Outer Border Design (Classic Library Frame) -->
+  <rect x="25" y="25" width="562" height="868" fill="none" stroke="url(#glowing-magenta)" stroke-width="2" stroke-opacity="0.5" rx="6" />
+  <rect x="35" y="35" width="542" height="848" fill="none" stroke="url(#glowing-gold)" stroke-width="1" stroke-opacity="0.3" rx="4" />
+
+  <!-- Decorative Corner Geometries -->
+  <g stroke="url(#glowing-magenta)" stroke-width="2" fill="none" stroke-opacity="0.7">
+    <path d="M 20,45 L 45,45 L 45,20" />
+    <path d="M 592,45 L 567,45 L 567,20" />
+    <path d="M 20,873 L 45,873 L 45,898" />
+    <path d="M 592,873 L 567,873 L 567,898" />
+  </g>
+
+  <!-- Circular Geometry lines in background -->
+  <circle cx="306" cy="420" r="160" fill="none" stroke="#2e1065" stroke-width="1.5" stroke-dasharray="10 10" opacity="0.6" />
+  <circle cx="306" cy="420" r="130" fill="none" stroke="url(#glowing-magenta)" stroke-width="1" opacity="0.15" />
+
+  <!-- Centered Technical Customization Symbol (Gears, UI Layout grids & sliders) -->
+  <g transform="translate(306, 420)" filter="url(#shadow)">
+    
+    <!-- UI Layout blueprint cards (Floating blocks of customization) -->
+    <rect x="-85" y="-60" width="100" height="70" rx="6" fill="#1e1b4b" stroke="url(#glowing-magenta)" stroke-width="1.5" stroke-opacity="0.7" opacity="0.7" transform="rotate(-12)" />
+    <rect x="-15" y="-75" width="100" height="70" rx="6" fill="#1e1b4b" stroke="url(#glowing-magenta)" stroke-width="2" stroke-linejoin="round" />
+    
+    <!-- Miniature sliders/visual elements inside the foremost card -->
+    <rect x="-5" y="-55" width="40" height="8" rx="2" fill="#d946ef" />
+    <rect x="-5" y="-40" width="80" height="4" rx="1" fill="#475569" />
+    <circle cx="30" cy="-40" r="4.5" fill="#f43f5e" filter="url(#neon-glow)" />
+    <rect x="-5" y="-28" width="60" height="4" rx="1" fill="#475569" />
+    <circle cx="10" cy="-28" r="4.5" fill="#a855f7" />
+
+    <rect x="-5" y="-12" width="80" height="2" rx="0.5" fill="#475569" />
+    <rect x="-5" y="-2" width="50" height="2" rx="0.5" fill="#475569" />
+
+    <!-- Rotating Customization Gears (Technical mechanics) -->
+    <g transform="translate(-10, 40)" filter="url(#neon-glow)">
+      <!-- Master Gear -->
+      <circle cx="0" cy="0" r="42" fill="none" stroke="url(#glowing-gold)" stroke-width="8" stroke-dasharray="18 10" />
+      <circle cx="0" cy="0" r="32" fill="#090514" stroke="url(#glowing-gold)" stroke-width="2" />
+      <circle cx="0" cy="0" r="10" fill="none" stroke="url(#glowing-gold)" stroke-width="2" />
+      <line x1="-32" y1="0" x2="32" y2="0" stroke="url(#glowing-gold)" stroke-width="1.5" />
+      <line x1="0" y1="-32" x2="0" y2="32" stroke="url(#glowing-gold)" stroke-width="1.5" />
+    </g>
+
+    <g transform="translate(55, 30)">
+      <!-- Secondary Gear -->
+      <circle cx="0" cy="0" r="26" fill="none" stroke="url(#glowing-magenta)" stroke-width="5" stroke-dasharray="12 7" />
+      <circle cx="0" cy="0" r="19" fill="#090514" stroke="url(#glowing-magenta)" stroke-width="1.5" />
+      <circle cx="0" cy="0" r="6" fill="#090514" stroke="url(#glowing-magenta)" stroke-width="1.5" />
+    </g>
+  </g>
+
+  <!-- Typography & Book Headers -->
+  <g text-anchor="middle" font-family="'Inter', sans-serif, system-ui">
+    
+    <!-- Author/Subject Tag -->
+    <text x="306" y="115" fill="#c084fc" font-size="14" font-weight="800" letter-spacing="6">TECHNICAL SERIES</text>
+    <line x1="220" y1="130" x2="392" y2="130" stroke="url(#glowing-magenta)" stroke-width="1.5" opacity="0.6" />
+
+    <!-- Volume Title (Big, Elegant, Glowing) -->
+    <text x="306" y="700" fill="#ffffff" font-size="42" font-weight="900" letter-spacing="2" filter="url(#shadow)">SITE CUSTOMIZATION</text>
+    
+    <!-- Subtitle -->
+    <text x="306" y="745" fill="#fbbf24" font-size="14" font-weight="700" letter-spacing="4">UI CONFIGURATION &amp; LAYOUTS</text>
+    
+    <!-- Ornamental Divider Line -->
+    <circle cx="306" cy="780" r="4" fill="#ec4899" filter="url(#neon-glow)" />
+    <line x1="160" y1="780" x2="286" y2="780" stroke="url(#glowing-magenta)" stroke-width="1" opacity="0.4" />
+    <line x1="326" y1="780" x2="452" y2="780" stroke="url(#glowing-magenta)" stroke-width="1" opacity="0.4" />
+
+    <!-- Summary Details Footer -->
+    <text x="306" y="825" fill="#94a3b8" font-size="12" font-weight="500" letter-spacing="1.5">A complete reference for info.json site branding, dynamic</text>
+    <text x="306" y="845" fill="#94a3b8" font-size="12" font-weight="500" letter-spacing="1.5">logos, custom MDX landing page overrides, and layouts.</text>
+  </g>
+</svg>

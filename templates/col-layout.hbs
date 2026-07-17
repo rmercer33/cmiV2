@@ -1,0 +1,18 @@
+{{! Assume if ref is found then title and subtitle are present also}}
+
+{{#if ref}}
+  <div class="col-header">
+    <h1>{{ref}}.</h1>
+    <h2>
+      {{title}}
+      <div class="subtitle">
+        <br/>
+        <em>{{subtitle}}</em>
+      </div>
+    </h2>
+  </div>
+{{/if}}
+<div class="template-content">
+  {{{content}}}
+</div>
+

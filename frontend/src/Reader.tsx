@@ -3,7 +3,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { buildReadLink } from './App';
-import type { SourceInfo, LibraryIndex } from './types';
+import type { SourceInfo, LibraryIndex, SiteInfo } from './types';
+import WelcomePage from './landing-pages/Welcome.mdx';
+
+const landingPages: Record<string, any> = import.meta.glob('./landing-pages/**/*.mdx', { eager: true });
 
 interface ReaderProps {
   resolvedContext: {
@@ -22,6 +25,7 @@ interface ReaderProps {
   libraryIndex: LibraryIndex | null;
   isSidebarCollapsed?: boolean;
   showIds?: boolean;
+  siteInfo: SiteInfo | null;
 }
 
 export const Reader: React.FC<ReaderProps> = ({
@@ -30,6 +34,7 @@ export const Reader: React.FC<ReaderProps> = ({
   libraryIndex,
   isSidebarCollapsed = false,
   showIds = false,
+  siteInfo,
 }) => {
   const { hash } = useLocation();
   const navigate = useNavigate();
@@ -485,6 +490,37 @@ export const Reader: React.FC<ReaderProps> = ({
 
   // Section-level Landing Page displaying its available sources
   if (activeSectionId && !activeSourceId) {
+    const CustomSectionComponent = 
+      landingPages[`./landing-pages/${activeSectionId}.mdx`]?.default ||
+      landingPages[`./landing-pages/sections/${activeSectionId}.mdx`]?.default;
+    if (CustomSectionComponent) {
+      return (
+        <main className="reader-container">
+          <div className="custom-landing-page" style={{ maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
+            <button 
+              onClick={() => navigate('/')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.9rem',
+                color: 'var(--accent-color)',
+                fontWeight: 500,
+                marginBottom: '2rem',
+                cursor: 'pointer',
+                background: 'none',
+                border: 'none',
+                padding: 0
+              }}
+            >
+              ← Back to Library Home
+            </button>
+            <CustomSectionComponent />
+          </div>
+        </main>
+      );
+    }
+
     const section = libraryIndex?.sectionInfo?.[activeSectionId];
     if (section) {
       return (
@@ -632,6 +668,38 @@ export const Reader: React.FC<ReaderProps> = ({
   if (activeSourceId && activeSourceConfig && !activeCollectionId && !activeBookId) {
     const backButtonText = activeSectionId ? "← Back to Section Dashboard" : "← Back to Library Home";
     const backLink = activeSectionId ? buildReadLink({ section: activeSectionId }) : "/";
+
+    const CustomSourceComponent = 
+      (activeSectionId ? landingPages[`./landing-pages/${activeSectionId}/${activeSourceId}.mdx`]?.default : null) ||
+      landingPages[`./landing-pages/${activeSourceId}.mdx`]?.default ||
+      landingPages[`./landing-pages/sources/${activeSourceId}.mdx`]?.default;
+    if (CustomSourceComponent) {
+      return (
+        <main className="reader-container">
+          <div className="custom-landing-page" style={{ maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
+            <button 
+              onClick={() => navigate(backLink)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.9rem',
+                color: 'var(--accent-color)',
+                fontWeight: 500,
+                marginBottom: '2rem',
+                cursor: 'pointer',
+                background: 'none',
+                border: 'none',
+                padding: 0
+              }}
+            >
+              {backButtonText}
+            </button>
+            <CustomSourceComponent />
+          </div>
+        </main>
+      );
+    }
     
     return (
       <main className="reader-container">
@@ -889,9 +957,41 @@ export const Reader: React.FC<ReaderProps> = ({
 
   // Collection-level Landing Page displaying its available books
   if (activeSourceId && activeSourceConfig && activeCollectionId && !activeBookId) {
+    const backLink = buildReadLink({ section: activeSectionId, source: activeSourceId });
+    const CustomCollectionComponent = 
+      (activeSectionId ? landingPages[`./landing-pages/${activeSectionId}/${activeSourceId}/${activeCollectionId}.mdx`]?.default : null) ||
+      landingPages[`./landing-pages/${activeSourceId}/${activeCollectionId}.mdx`]?.default ||
+      landingPages[`./landing-pages/collections/${activeCollectionId}.mdx`]?.default;
+    if (CustomCollectionComponent) {
+      return (
+        <main className="reader-container">
+          <div className="custom-landing-page" style={{ maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
+            <button 
+              onClick={() => navigate(backLink)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                fontSize: '0.9rem',
+                color: 'var(--accent-color)',
+                fontWeight: 500,
+                marginBottom: '2rem',
+                cursor: 'pointer',
+                background: 'none',
+                border: 'none',
+                padding: 0
+              }}
+            >
+              ← Back to {activeSourceConfig.title}
+            </button>
+            <CustomCollectionComponent />
+          </div>
+        </main>
+      );
+    }
+
     const collection = activeSourceConfig.collectionInfo?.[activeCollectionId];
     if (collection) {
-      const backLink = buildReadLink({ section: activeSectionId, source: activeSourceId });
       return (
         <main className="reader-container">
           <div className="welcome-screen" style={{ textAlign: 'left', alignItems: 'flex-start', maxWidth: 'var(--max-content-width)', width: '100%' }}>
@@ -1041,6 +1141,40 @@ export const Reader: React.FC<ReaderProps> = ({
       const backLink = activeCollectionId
         ? buildReadLink({ section: activeSectionId, source: activeSourceId, collection: activeCollectionId })
         : buildReadLink({ section: activeSectionId, source: activeSourceId });
+
+      const CustomBookComponent = 
+        (activeSectionId && activeCollectionId ? landingPages[`./landing-pages/${activeSectionId}/${activeSourceId}/${activeCollectionId}/${activeBookId}.mdx`]?.default : null) ||
+        (activeSectionId && !activeCollectionId ? landingPages[`./landing-pages/${activeSectionId}/${activeSourceId}/${activeBookId}.mdx`]?.default : null) ||
+        (!activeSectionId && activeCollectionId ? landingPages[`./landing-pages/${activeSourceId}/${activeCollectionId}/${activeBookId}.mdx`]?.default : null) ||
+        landingPages[`./landing-pages/${activeSourceId}/${activeBookId}.mdx`]?.default ||
+        landingPages[`./landing-pages/books/${activeBookId}.mdx`]?.default;
+      if (CustomBookComponent) {
+        return (
+          <main className="reader-container">
+            <div className="custom-landing-page" style={{ maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
+              <button 
+                onClick={() => navigate(backLink)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  fontSize: '0.9rem',
+                  color: 'var(--accent-color)',
+                  fontWeight: 500,
+                  marginBottom: '2rem',
+                  cursor: 'pointer',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0
+                }}
+              >
+                ← Back to {activeCollectionId ? "Collection Dashboard" : activeSourceConfig.title}
+              </button>
+              <CustomBookComponent />
+            </div>
+          </main>
+        );
+      }
 
       return (
         <main className="reader-container">
@@ -1220,22 +1354,19 @@ export const Reader: React.FC<ReaderProps> = ({
         <div className="welcome-screen" style={{ textAlign: 'center', alignItems: 'center', maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
           
           <img 
-            src="/cmi-logo.svg" 
-            alt="cmiLibrary Logo" 
+            src={siteInfo?.logo || "/cmi-logo.svg"} 
+            alt={`${siteInfo?.title || "cmiLibrary"} Logo`} 
             style={{
               height: '80px',
               width: 'auto',
-              marginBottom: '1.5rem',
+              marginBottom: '2rem',
               display: 'block'
             }} 
           />
 
-          <h1 style={{ fontSize: '2.5rem', color: 'var(--text-header)', marginBottom: '1rem', fontFamily: 'var(--font-sans)', fontWeight: 800 }}>
-            Library of Christ Mind Teachings
-          </h1>
-          <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '50ch', marginBottom: '3.5rem', textAlign: 'center' }}>
-            An immersive reading and study environment for the Christ Mind Teachings. Choose a section or teaching below to begin your study.
-          </p>
+          <div className="mdx-welcome-content" style={{ textAlign: 'left', width: '100%', marginBottom: '3.5rem' }}>
+            <WelcomePage />
+          </div>
 
           {libraryIndex && (
             <div style={{ display: 'flex', flexDirection: 'column', width: '100%', gap: '4rem', textAlign: 'left' }}>

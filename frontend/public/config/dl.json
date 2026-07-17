@@ -1,7 +1,7 @@
 {
-  "title": "Technical Documents",
-  "description": "Developer guide to the Digital Library",
-  "image": "/images/covers/_dl/tech/developer-guide-cover.svg",
+  "title": "Digital Library",
+  "description": "Guide to the Digital Library",
+  "image": "/images/covers/dl/developer-guide-cover.svg",
   "books": [
     "data",
     "markdown",
@@ -9,14 +9,24 @@
   ],
   "bookInfo": {
     "data": {
-      "title": "Data",
-      "description": "No description",
-      "units": [],
-      "unitInfo": {}
+      "title": "Data Hierarchy",
+      "description": "Site data organization",
+      "image": "/images/covers/dl/data-hierarchy.svg",
+      "units": [
+        "Content-Creator-Guide"
+      ],
+      "unitInfo": {
+        "Content-Creator-Guide": {
+          "title": "Content Creator Guide",
+          "url": "dl/data/Content-Creator-Guide",
+          "description": "How to organize the library"
+        }
+      }
     },
     "markdown": {
       "title": "Using Markdown",
       "description": "How to use markdown in the Digital Library",
+      "image": "/images/covers/dl/using-markdown.svg",
       "units": [
         "markdown-guide",
         "custom-classes",
@@ -26,23 +36,23 @@
       "unitInfo": {
         "markdown-guide": {
           "title": "Markdown Style Guide",
-          "url": "technical/markdown/markdown-guide",
+          "url": "dl/markdown/markdown-guide",
           "description": "Digital Library Markdown authoring and style guide"
         },
         "custom-classes": {
           "title": "Using Custom Classes",
-          "url": "technical/markdown/custom-classes",
+          "url": "dl/markdown/custom-classes",
           "description": "Guide for custom classes"
         },
         "handlebars": {
           "title": "Handlebars",
-          "url": "technical/markdown/handlebars",
+          "url": "dl/markdown/handlebars",
           "\"title\"": "Handlebars Templating",
           "\"description\"": "Enhance Markdown with templating"
         },
         "example": {
           "title": "Example Markdown Features",
-          "url": "technical/markdown/example",
+          "url": "dl/markdown/example",
           "description": "An example of how markdown is used in the Digital Library",
           "template": "tech/hero",
           "heroImage": "/images/hbs/markdown-hero.svg"
@@ -52,13 +62,14 @@
     "custom": {
       "title": "Site Customization",
       "description": "Features for site customization",
+      "image": "/images/covers/dl/site-customization.svg",
       "units": [
         "landing-pages"
       ],
       "unitInfo": {
         "landing-pages": {
           "title": "Landing Pages",
-          "url": "technical/custom/landing-pages",
+          "url": "dl/custom/landing-pages",
           "description": "How to customize landing pages"
         }
       }

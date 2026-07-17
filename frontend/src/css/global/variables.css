@@ -1,0 +1,60 @@
+/* ---------------------------------------------------- */
+/* 1. Theme and Variable Definitions                    */
+/* ---------------------------------------------------- */
+
+:root {
+  /* Warm Parchment - Light Mode (Default) */
+  --bg-primary: #fdfbf7;
+  --bg-secondary: #f6f3ec;
+  --bg-tertiary: #efece3;
+  --text-primary: #1e2022;
+  --text-secondary: #5e656b;
+  --text-header: #101213;
+  --accent-color: #1f4068;
+  --accent-light: rgba(31, 64, 104, 0.08);
+  --accent-border: rgba(31, 64, 104, 0.2);
+  --border-color: #e2ddd5;
+  --highlight-color: #fef08a; /* Soft amber/yellow for active highlight */
+  --shadow-color: rgba(0, 0, 0, 0.05);
+
+  /* Fonts & Geometry */
+  --font-serif: "Lora", "Georgia", "PT Serif", serif;
+  --font-sans:
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --sidebar-width: 340px;
+  --header-height: 88px;
+  --max-content-width: 65ch; /* Scientific optimal line length for readability */
+}
+
+/* Midnight Slate - Dark Mode */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-header: #f1f5f9;
+  --accent-color: #38bdf8;
+  --accent-light: rgba(56, 189, 248, 0.12);
+  --accent-border: rgba(56, 189, 248, 0.3);
+  --border-color: #334155;
+  --highlight-color: #1e3a8a; /* Deep blue highlight for dark mode */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Sepia Reading Mode */
+[data-theme="sepia"] {
+  --bg-primary: #f4ecd8;
+  --bg-secondary: #eadcb9;
+  --bg-tertiary: #dfcf9b;
+  --text-primary: #433422;
+  --text-secondary: #7a6855;
+  --text-header: #2b1e11;
+  --accent-color: #8c6239;
+  --accent-light: rgba(140, 98, 57, 0.1);
+  --accent-border: rgba(140, 98, 57, 0.25);
+  --border-color: #dfd3b3;
+  --highlight-color: #fcd34d; /* Warm amber highlight */
+  --shadow-color: rgba(67, 52, 34, 0.06);
+}

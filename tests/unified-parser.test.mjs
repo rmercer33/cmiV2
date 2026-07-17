@@ -156,14 +156,14 @@ Paragraph inside chapter one.`
     assert.match(html1, /<\/section>\s*$/);
 
     // Frontmatter template replacement verification
-    assert.match(html1, /<h1 id="h1">First Heading Level 1 \(Lesson One Title\)<\/h1>/);
+    assert.match(html1, /<h1 id="h1"><a id="first-heading-level-1-lesson-one-title"><\/a>First Heading Level 1 \(Lesson One Title\)<\/h1>/);
     assert.match(html1, /<p id="p1">This is the first paragraph by Scribe Name.<\/p>/);
 
     // Omit directive HTML verification (omitted paragraph should be rendered with class="omit" and stripped directive)
     assert.match(html1, /<p id="p2" class="omit">This should be completely omitted.<\/p>/);
 
     // Verification of custom classes, sequence stripping, and sequential DOM IDs
-    assert.match(html1, /<h2 id="h2" class="custom-style">Second Heading Level 2<\/h2>/);
+    assert.match(html1, /<h2 id="h2" class="custom-style"><a id="second-heading-level-2"><\/a>Second Heading Level 2<\/h2>/);
     assert.match(html1, /<p id="p3">This is paragraph 2<sup>1<\/sup> with a footnote<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref aria-describedby="footnote-label">1<\/a><\/sup>\.<\/p>/);
 
     // Verification of rich formatting (bold, italic, and bold-italic)
@@ -447,7 +447,7 @@ Content of Section 1.`
     assert.strictEqual(fs.existsSync(htmlPath), true, "HTML output should be placed in classical/acim/core/text/sec1.html");
 
     const htmlContent = fs.readFileSync(htmlPath, "utf8");
-    assert.match(htmlContent, /<h1 id="h1">First Heading<\/h1>/);
+    assert.match(htmlContent, /<h1 id="h1"><a id="first-heading"><\/a>First Heading<\/h1>/);
     assert.match(htmlContent, /<p id="p1">Content of Section 1\.<\/p>/);
   });
 });

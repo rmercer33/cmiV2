@@ -1,0 +1,82 @@
+/* ---------------------------------------------------- */
+/* 3. Shell Layout Structure                            */
+/* ---------------------------------------------------- */
+
+.app-shell {
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-areas:
+    "header"
+    "main";
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Header Styles */
+.app-header {
+  grid-area: header;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 10;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-header);
+  overflow: hidden;
+}
+
+.brand span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 640px) {
+  .brand span {
+    font-size: 1rem;
+    max-width: 180px; /* Elegant truncation for narrow viewports */
+  }
+}
+
+.brand-icon {
+  color: var(--accent-color);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Theme Selector Control */
+.theme-select {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Main Container: Split Pane */
+.main-container {
+  grid-area: main;
+  display: flex;
+  height: calc(100vh - var(--header-height));
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}

@@ -17,6 +17,7 @@
     "@aws-sdk/client-dynamodb": "^3.1079.0",
     "@aws-sdk/lib-dynamodb": "^3.1079.0",
     "commander": "^15.0.0",
+    "handlebars": "^4.7.9",
     "mdast-util-to-string": "^4.0.0",
     "rehype-stringify": "^10.0.1",
     "remark-frontmatter": "^5.0.0",

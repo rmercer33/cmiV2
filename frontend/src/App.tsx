@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import { Menu, Settings } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { Reader } from './Reader';
-import type { LibraryIndex, SourceInfo } from './types';
+import type { LibraryIndex, SourceInfo, SiteInfo } from './types';
 
 // Helper to construct URLs dynamically for any layout depth
 export function buildReadLink(parts: {
@@ -31,6 +31,7 @@ const AppContent: React.FC = () => {
   const segments = location.pathname.split('/').filter((s) => s && s !== 'read');
 
   const [libraryIndex, setLibraryIndex] = useState<LibraryIndex | null>(null);
+  const [siteInfo, setSiteInfo] = useState<SiteInfo | null>(null);
   const [activeSourceConfig, setActiveSourceConfig] = useState<SourceInfo | null>(null);
   const [theme, setTheme] = useState<string>('light');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
@@ -49,7 +50,7 @@ const AppContent: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // 1. Fetch lightweight index.json on initial app mount
+  // 1. Fetch lightweight index.json and site info on initial app mount
   useEffect(() => {
     fetch('/config/index.json')
       .then((res) => {
@@ -61,6 +62,18 @@ const AppContent: React.FC = () => {
       })
       .catch((err) => {
         console.error('App Load Error:', err);
+      });
+
+    fetch('/info.json')
+      .then((res) => {
+        if (res.ok) return res.json();
+        return null;
+      })
+      .then((data: SiteInfo | null) => {
+        if (data) setSiteInfo(data);
+      })
+      .catch((err) => {
+        console.error('Failed to load site info.json, using defaults:', err);
       });
 
     // Load initial theme from localStorage if saved
@@ -215,23 +228,24 @@ const AppContent: React.FC = () => {
     s3PathSuffix
   };
 
-  // 4. Update HTML Document Title contextually
+  // 4. Handle dynamic browser tab document.title setting
   useEffect(() => {
-    let newTitle = 'cmiLibrary';
+    const siteTitle = siteInfo?.title || 'cmiLibrary';
+    let newTitle = siteTitle;
     if (activeUnit) {
       if (activeUnit.pageTitle) {
         newTitle = activeUnit.pageTitle;
       } else {
-        const fallbackContext = activeBook?.pageTitle || activeBook?.title || activeSourceConfig?.pageTitle || activeSourceConfig?.title || 'cmiLibrary';
+        const fallbackContext = activeBook?.pageTitle || activeBook?.title || activeSourceConfig?.pageTitle || activeSourceConfig?.title || siteTitle;
         newTitle = `${activeUnit.title} | ${fallbackContext}`;
       }
     } else if (activeBook) {
-      newTitle = activeBook.pageTitle || activeBook.title || 'cmiLibrary';
+      newTitle = activeBook.pageTitle || activeBook.title || siteTitle;
     } else if (activeSourceConfig) {
-      newTitle = activeSourceConfig.pageTitle || activeSourceConfig.title || 'cmiLibrary';
+      newTitle = activeSourceConfig.pageTitle || activeSourceConfig.title || siteTitle;
     }
     document.title = newTitle;
-  }, [activeSourceConfig, activeBook, activeUnit]);
+  }, [activeSourceConfig, activeBook, activeUnit, siteInfo]);
 
   return (
     <div className="app-shell">
@@ -243,8 +257,8 @@ const AppContent: React.FC = () => {
               <Menu size={20} />
             </button>
             <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', color: 'inherit' }}>
-              <img src="/cmi-logo.svg" className="brand-logo" alt="" style={{ height: '32px', width: 'auto', display: 'block' }} />
-              <span>Library of Christ Mind Teachings</span>
+              <img src={siteInfo?.logo || "/cmi-logo.svg"} className="brand-logo" alt="" style={{ height: '32px', width: 'auto', display: 'block' }} />
+              <span>{siteInfo?.title || "Library of Christ Mind Teachings"}</span>
             </Link>
           </div>
 
@@ -337,6 +351,7 @@ const AppContent: React.FC = () => {
           libraryIndex={libraryIndex}
           isSidebarCollapsed={isSidebarCollapsed}
           showIds={showIds}
+          siteInfo={siteInfo}
         />
       </div>
     </div>

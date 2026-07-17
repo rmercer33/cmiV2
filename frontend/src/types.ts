@@ -98,3 +98,9 @@ export interface LibraryIndex {
     };
   };
 }
+
+export interface SiteInfo {
+  title?: string;
+  logo?: string;
+}
+

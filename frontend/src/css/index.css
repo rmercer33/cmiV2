@@ -1,199 +1,11 @@
+@import "./global/variables.css";
+@import "./global/resets.css";
+@import "./global/layout.css";
+
+/* source specific styles */
+@import "./sources/col.css";
+
 /* index.css - cmiLibrary Design System & Theme Styles */
-
-/* ---------------------------------------------------- */
-/* 1. Theme and Variable Definitions                    */
-/* ---------------------------------------------------- */
-
-:root {
-  /* Warm Parchment - Light Mode (Default) */
-  --bg-primary: #FDFBF7;
-  --bg-secondary: #F6F3EC;
-  --bg-tertiary: #EFECE3;
-  --text-primary: #1E2022;
-  --text-secondary: #5E656B;
-  --text-header: #101213;
-  --accent-color: #1F4068;
-  --accent-light: rgba(31, 64, 104, 0.08);
-  --accent-border: rgba(31, 64, 104, 0.2);
-  --border-color: #E2DDD5;
-  --highlight-color: #FEF08A; /* Soft amber/yellow for active highlight */
-  --shadow-color: rgba(0, 0, 0, 0.05);
-
-  /* Fonts & Geometry */
-  --font-serif: "Lora", "Georgia", "PT Serif", serif;
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --sidebar-width: 340px;
-  --header-height: 88px;
-  --max-content-width: 65ch; /* Scientific optimal line length for readability */
-}
-
-/* Midnight Slate - Dark Mode */
-[data-theme="dark"] {
-  --bg-primary: #0F172A;
-  --bg-secondary: #1E293B;
-  --bg-tertiary: #334155;
-  --text-primary: #E2E8F0;
-  --text-secondary: #94A3B8;
-  --text-header: #F1F5F9;
-  --accent-color: #38BDF8;
-  --accent-light: rgba(56, 189, 248, 0.12);
-  --accent-border: rgba(56, 189, 248, 0.3);
-  --border-color: #334155;
-  --highlight-color: #1E3A8A; /* Deep blue highlight for dark mode */
-  --shadow-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Sepia Reading Mode */
-[data-theme="sepia"] {
-  --bg-primary: #F4ECD8;
-  --bg-secondary: #EADCB9;
-  --bg-tertiary: #DFCF9B;
-  --text-primary: #433422;
-  --text-secondary: #7A6855;
-  --text-header: #2B1E11;
-  --accent-color: #8C6239;
-  --accent-light: rgba(140, 98, 57, 0.1);
-  --accent-border: rgba(140, 98, 57, 0.25);
-  --border-color: #DFD3B3;
-  --highlight-color: #FCD34D; /* Warm amber highlight */
-  --shadow-color: rgba(67, 52, 34, 0.06);
-}
-
-/* ---------------------------------------------------- */
-/* 2. Global Resets and Defaults                         */
-/* ---------------------------------------------------- */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  overflow-x: hidden;
-  line-height: 1.5;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: inherit;
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--bg-tertiary);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
-}
-
-/* ---------------------------------------------------- */
-/* 3. Shell Layout Structure                            */
-/* ---------------------------------------------------- */
-
-.app-shell {
-  display: grid;
-  grid-template-rows: var(--header-height) 1fr;
-  grid-template-areas:
-    "header"
-    "main";
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-/* Header Styles */
-.app-header {
-  grid-area: header;
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  z-index: 10;
-  box-shadow: 0 2px 4px var(--shadow-color);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--text-header);
-  overflow: hidden;
-}
-
-.brand span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 640px) {
-  .brand span {
-    font-size: 1rem;
-    max-width: 180px; /* Elegant truncation for narrow viewports */
-  }
-}
-
-.brand-icon {
-  color: var(--accent-color);
-}
-
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Theme Selector Control */
-.theme-select {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  font-size: 0.875rem;
-  outline: none;
-  cursor: pointer;
-}
-
-/* Main Container: Split Pane */
-.main-container {
-  grid-area: main;
-  display: flex;
-  height: calc(100vh - var(--header-height));
-  width: 100vw;
-  overflow: hidden;
-  position: relative;
-}
 
 /* ---------------------------------------------------- */
 /* 4. Sidebar Tree Navigation                          */
@@ -207,7 +19,9 @@ a:hover {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   z-index: 5;
 }
@@ -405,8 +219,14 @@ a:hover {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Sidebar Toggle Overlay Button */
@@ -415,7 +235,7 @@ a:hover {
   left: 1rem;
   bottom: 2rem;
   background-color: var(--accent-color);
-  color: #FFF;
+  color: #fff;
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -453,9 +273,18 @@ a:hover {
   line-height: 1.25;
 }
 
-#cmi-transcript h1 { font-size: 2.25rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
-#cmi-transcript h2 { font-size: 1.75rem; margin-top: 2.5rem; }
-#cmi-transcript h3 { font-size: 1.35rem; }
+#cmi-transcript h1 {
+  font-size: 2.25rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+#cmi-transcript h2 {
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+}
+#cmi-transcript h3 {
+  font-size: 1.35rem;
+}
 
 #cmi-transcript p {
   margin-bottom: 1.5rem;
@@ -501,14 +330,25 @@ a:hover {
   font-family: var(--font-sans);
   font-size: 0.8rem;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   user-select: none;
 }
 
 /* Only show play indicator on hover when audio is actively playing */
-.reader-container.audio-is-playing #cmi-transcript p:hover .audio-seek-indicator,
-.reader-container.audio-is-playing #cmi-transcript h2:hover .audio-seek-indicator,
-.reader-container.audio-is-playing #cmi-transcript h3:hover .audio-seek-indicator {
+.reader-container.audio-is-playing
+  #cmi-transcript
+  p:hover
+  .audio-seek-indicator,
+.reader-container.audio-is-playing
+  #cmi-transcript
+  h2:hover
+  .audio-seek-indicator,
+.reader-container.audio-is-playing
+  #cmi-transcript
+  h3:hover
+  .audio-seek-indicator {
   opacity: 0.8;
 }
 
@@ -538,9 +378,15 @@ a:hover {
 }
 
 @keyframes flashHighlight {
-  0% { background-color: var(--highlight-color); }
-  70% { background-color: var(--highlight-color); }
-  100% { background-color: transparent; }
+  0% {
+    background-color: var(--highlight-color);
+  }
+  70% {
+    background-color: var(--highlight-color);
+  }
+  100% {
+    background-color: transparent;
+  }
 }
 
 /* Active Audio Sync State */
@@ -573,7 +419,9 @@ a:hover {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .welcome-screen {
@@ -703,7 +551,9 @@ a:hover {
   justify-content: center;
   padding: 0.5rem;
   border-radius: 6px;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .settings-menu-btn:hover {
@@ -779,10 +629,10 @@ a:hover {
 /* 12. Source-Specific Style Overrides                  */
 /* ---------------------------------------------------- */
 
-/* 
+/*
    By prefixing your overrides with the dynamic .source-[sourceId] class,
    your CSS rules will automatically have higher specificity to style individual sources uniquely.
-   
+
    Example (ACIM Source Override):
    .reader-container.source-acim #cmi-transcript p {
      margin-bottom: 2rem;

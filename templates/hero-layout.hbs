@@ -1,0 +1,12 @@
+<div class="template-hero-layout">
+  {{#if heroImage}}
+    <div class="hero-banner" style="background-image: url('{{heroImage}}'); height: 300px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; border-radius: 8px;">
+      {{#if heroTitle}}
+        <h1 class="hero-title" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.6); font-size: 3rem; margin: 0;">{{heroTitle}}</h1>
+      {{/if}}
+    </div>
+  {{/if}}
+  <div class="template-content">
+    {{{content}}}
+  </div>
+</div>

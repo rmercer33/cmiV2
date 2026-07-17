@@ -1,23 +1,33 @@
 {
-  "title": "Digital Library Usage and Operation Manual",
+  "title": "Digital Library Usage and Operation",
   "description": "The concept and usage of the Digital Library",
   "sources": [
-    "concept",
-    "technical"
+    "dl",
+    "col"
   ],
   "sourceInfo": {
-    "concept": {
-      "title": "Concept",
-      "description": "No description",
-      "books": []
-    },
-    "technical": {
-      "title": "Digital Library Technical Documents",
-      "description": "Developer guide to the Digital Library",
-      "image": "/images/covers/_dl/tech/developer-guide-cover.svg",
+    "dl": {
+      "title": "Digital Library",
+      "description": "Guide to the Digital Library",
+      "image": "/images/covers/dl/developer-guide-cover.svg",
       "books": [
         "data",
-        "markdown"
+        "markdown",
+        "custom"
+      ]
+    },
+    "col": {
+      "title": "Choose Only Love",
+      "description": "Choose Only Love",
+      "image": "/images/covers/site/col.jpg",
+      "books": [
+        "book1",
+        "book2",
+        "book3",
+        "book4",
+        "book5",
+        "book6",
+        "book7"
       ]
     }
   }

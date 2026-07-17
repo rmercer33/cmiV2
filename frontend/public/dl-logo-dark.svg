@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Solid Pitch Black Background inside the emblem -->
+    <color id="black-solid">#000000</color>
+    
+    <!-- Neon Golden-Amber Gradient -->
+    <linearGradient id="neon-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/> <!-- Ultra Light Gold Core -->
+      <stop offset="20%" stop-color="#f59e0b"/> <!-- Vibrant Amber -->
+      <stop offset="100%" stop-color="#b45309"/> <!-- Dark Bronze -->
+    </linearGradient>
+
+    <!-- Glowing Blue Laser Rays -->
+    <linearGradient id="laser-cyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8"/> <!-- High-intensity Cyan -->
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Outer Glow Filter for neon elements -->
+    <filter id="neon-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Circular Emblem Base - Solid Pitch Black Canvas -->
+  <!-- A circular shield maximizes the dark contrast background area so it stands out in any header -->
+  <circle cx="100" cy="100" r="90" fill="#000000" stroke="url(#neon-gold)" stroke-width="6" filter="drop-shadow(0px 4px 10px rgba(0,0,0,0.9))" />
+  
+  <!-- Outer Neon Rings -->
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.4" />
+  <circle cx="100" cy="100" r="76" fill="none" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3 8" filter="url(#neon-glow-filter)" opacity="0.8" />
+
+  <!-- High-Contrast Laser Beams emerging from the book -->
+  <path d="M 100,115 L 60,45 L 140,45 Z" fill="url(#laser-cyan)" />
+  <path d="M 100,115 L 35,65 L 165,65 Z" fill="url(#laser-cyan)" />
+
+  <!-- Floating Digital Bits (Cyan Circles with Intense Neon Glows) -->
+  <circle cx="100" cy="35" r="5" fill="#22d3ee" filter="url(#neon-glow-filter)" />
+  <circle cx="60" cy="52" r="4" fill="#22d3ee" filter="url(#neon-glow-filter)" />
+  <circle cx="140" cy="52" r="4" fill="#22d3ee" filter="url(#neon-glow-filter)" />
+  <circle cx="40" cy="78" r="3" fill="#22d3ee" filter="url(#neon-glow-filter)" opacity="0.9" />
+  <circle cx="160" cy="78" r="3" fill="#22d3ee" filter="url(#neon-glow-filter)" opacity="0.9" />
+
+  <!-- Technical Circuitry Interconnections (High Contrast Cyan) -->
+  <line x1="100" y1="35" x2="60" y2="52" stroke="#22d3ee" stroke-width="1.5" opacity="0.7" />
+  <line x1="100" y1="35" x2="140" y2="52" stroke="#22d3ee" stroke-width="1.5" opacity="0.7" />
+  <line x1="60" y1="52" x2="40" y2="78" stroke="#22d3ee" stroke-width="1.25" opacity="0.6" />
+  <line x1="140" y1="52" x2="160" y2="78" stroke="#22d3ee" stroke-width="1.25" opacity="0.6" />
+
+  <!-- Highly Stylized Open Book Symbol (Vibrant Amber/Gold) -->
+  <!-- Left Page -->
+  <path d="M 100,122 
+           C 80,112 52,112 36,119 
+           L 36,97 
+           C 52,90 80,90 100,100 
+           Z" 
+        fill="url(#neon-gold)" 
+        stroke="#ffffff"
+        stroke-width="0.5"
+  />
+  
+  <!-- Right Page -->
+  <path d="M 100,122 
+           C 120,112 148,112 164,119 
+           L 164,97 
+           C 148,90 120,90 100,100 
+           Z" 
+        fill="url(#neon-gold)" 
+        stroke="#ffffff"
+        stroke-width="0.5"
+  />
+
+  <!-- Extra Page Layers (Thickness Depth) -->
+  <path d="M 36,119 C 52,112 80,112 100,122 C 120,112 148,112 164,119 L 164,122 C 148,115 120,115 100,125 C 80,115 52,115 36,122 Z" fill="#78350f" />
+
+  <!-- Glowing Bookmark Ribbon -->
+  <path d="M 97,98 L 97,135 L 103,135 L 103,98 Z" fill="#ef4444" />
+  <path d="M 97,135 L 100,132 L 103,135 Z" fill="#b91c1c" />
+
+  <!-- Text Section Emblem -->
+  <!-- Crisp, solid white and warm gold lettering for legibility over pitch black -->
+  <text x="100" y="156" fill="#ffffff" font-family="'Inter', sans-serif, system-ui" font-size="17" font-weight="900" text-anchor="middle" letter-spacing="4">DIGITAL</text>
+  <text x="100" y="172" fill="#fbbf24" font-family="'Inter', sans-serif, system-ui" font-size="12" font-weight="800" text-anchor="middle" letter-spacing="2">LIBRARY</text>
+</svg>

@@ -16,8 +16,27 @@ import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 
 import { parseArguments } from "./cli.mjs";
 import { cleanExistingRecords } from "./cleanup.mjs";
+import Handlebars from "handlebars";
 
-const rehypeProcessor = unified().use(remarkRehype).use(rehypeStringify);
+const rehypeProcessor = unified().use(remarkRehype, {allowDangerousHtml: true}).use(rehypeStringify, {allowDangerousHtml: true});
+
+const templateCache = {};
+
+async function getTemplate(templateName) {
+  if (templateCache[templateName]) {
+    return templateCache[templateName];
+  }
+  try {
+    const templatePath = path.join("templates", `${templateName}.hbs`);
+    const templateSource = await readFile(templatePath, "utf8");
+    const compiled = Handlebars.compile(templateSource);
+    templateCache[templateName] = compiled;
+    return compiled;
+  } catch (err) {
+    console.warn(`Warning: Template "${templateName}" not found or failed to compile. Falling back to default raw HTML.`, err.message);
+    return null;
+  }
+}
 
 /**
  * Safely reads and parses info.json if it exists.
@@ -293,6 +312,15 @@ function processAst(ast, frontmatter) {
         htmlId = `h${headingSequence}`;
         key = `${paddedGlobal}#${htmlId}`;
         headingSequence++;
+
+        // Generate standard slug for internal markdown links
+        const slug = toString(node).toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+        if (slug) {
+          node.children.unshift({
+            type: "html",
+            value: `<a id="${slug}"></a>`
+          });
+        }
       } else {
         htmlId = `p${paragraphSequence}`;
         key = `${paddedGlobal}#${htmlId}`;
@@ -538,8 +566,20 @@ async function run() {
       const hast = await rehypeProcessor.run(ast);
       const rawHtml = rehypeProcessor.stringify(hast);
 
+      // Apply template if specified in frontmatter
+      let contentHtml = rawHtml;
+      if (frontmatter.template) {
+        const templateFn = await getTemplate(frontmatter.template);
+        if (templateFn) {
+          contentHtml = templateFn({
+            content: rawHtml,
+            ...frontmatter
+          });
+        }
+      }
+
       // Wrap in wrapper tag with configured id
-      const wrappedHtml = `<${wrapperTag} id="${wrapperId}">\n${rawHtml}\n</${wrapperTag}>\n`;
+      const wrappedHtml = `<${wrapperTag} id="${wrapperId}">\n${contentHtml}\n</${wrapperTag}>\n`;
 
       // Unescape HTML tags that were escaped by rehype-stringify (e.g. sup, br, b, i, span)
       const cleanedHtml = wrappedHtml.replace(
