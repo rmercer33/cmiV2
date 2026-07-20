@@ -1,5 +1,14 @@
 // types.ts - cmiLibrary TypeScript Definitions
 
+export interface LocalizationPrompts {
+  explore_collection?: string;
+  explore_book?: string;
+  table_of_contents?: string;
+  back_to?: string;
+  catalog_content?: string;
+  [key: string]: string | undefined; // Allow custom keys if needed
+}
+
 export interface UnitInfo {
   title: string;
   url: string;
@@ -24,6 +33,7 @@ export interface BookInfo {
   description: string;
   pageTitle?: string;
   image?: string; // Book cover image URL
+  prompts?: LocalizationPrompts;
   groups?: string[];
   groupInfo?: {
     [groupId: string]: GroupInfo;
@@ -38,6 +48,7 @@ export interface CollectionInfo {
   title: string;
   description: string;
   books: string[];
+  prompts?: LocalizationPrompts;
   bookInfo: {
     [bookId: string]: BookInfo;
   };
@@ -53,6 +64,7 @@ export interface SourceInfo {
   email1?: string;
   email2?: string;
   copyright?: string;
+  prompts?: LocalizationPrompts;
   books?: string[];
   bookInfo?: {
     [bookId: string]: BookInfo;

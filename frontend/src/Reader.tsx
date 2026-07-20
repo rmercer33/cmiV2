@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import { buildReadLink } from './App';
 import type { SourceInfo, LibraryIndex, SiteInfo } from './types';
+import { formatUnitTitle, getPrompt } from './utils';
 import WelcomePage from './landing-pages/Welcome.mdx';
 
 const landingPages: Record<string, any> = import.meta.glob('./landing-pages/**/*.mdx', { eager: true });
@@ -785,7 +786,7 @@ export const Reader: React.FC<ReaderProps> = ({
           </div>
           
           <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
-            Catalog Content
+            {getPrompt('catalog_content', 'Catalog Content', null, null, activeSourceConfig)}
           </h2>
           
           <div style={{
@@ -842,7 +843,7 @@ export const Reader: React.FC<ReaderProps> = ({
                         border: 'none'
                       }}
                     >
-                      Explore Collection
+                      {getPrompt('explore_collection', 'Explore Collection', null, collection, activeSourceConfig)}
                     </button>
                   </div>
                 </div>
@@ -925,9 +926,11 @@ export const Reader: React.FC<ReaderProps> = ({
                       >
                         {book.title}
                       </h3>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
-                        {book.description || 'Explore the complete chapters, lessons, and spiritual collections inside.'}
-                      </p>
+                      {book.description && book.description !== 'No description' && (
+                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                          {book.description}
+                        </p>
+                      )}
                     </div>
                     <button
                       onClick={() => navigate(bookLink)}
@@ -943,7 +946,7 @@ export const Reader: React.FC<ReaderProps> = ({
                         border: 'none'
                       }}
                     >
-                      Explore Book
+                      {getPrompt('explore_book', 'Explore Book', book, null, activeSourceConfig)}
                     </button>
                   </div>
                 </div>
@@ -958,6 +961,7 @@ export const Reader: React.FC<ReaderProps> = ({
   // Collection-level Landing Page displaying its available books
   if (activeSourceId && activeSourceConfig && activeCollectionId && !activeBookId) {
     const backLink = buildReadLink({ section: activeSectionId, source: activeSourceId });
+    const collection = activeSourceConfig.collectionInfo?.[activeCollectionId];
     const CustomCollectionComponent = 
       (activeSectionId ? landingPages[`./landing-pages/${activeSectionId}/${activeSourceId}/${activeCollectionId}.mdx`]?.default : null) ||
       landingPages[`./landing-pages/${activeSourceId}/${activeCollectionId}.mdx`]?.default ||
@@ -982,7 +986,7 @@ export const Reader: React.FC<ReaderProps> = ({
                 padding: 0
               }}
             >
-              ← Back to {activeSourceConfig.title}
+              ← {getPrompt('back_to', 'Back to', null, collection, activeSourceConfig)} {activeSourceConfig.title}
             </button>
             <CustomCollectionComponent />
           </div>
@@ -990,7 +994,6 @@ export const Reader: React.FC<ReaderProps> = ({
       );
     }
 
-    const collection = activeSourceConfig.collectionInfo?.[activeCollectionId];
     if (collection) {
       return (
         <main className="reader-container">
@@ -1012,7 +1015,7 @@ export const Reader: React.FC<ReaderProps> = ({
                 padding: 0
               }}
             >
-              ← Back to {activeSourceConfig.title}
+              ← {getPrompt('back_to', 'Back to', null, collection, activeSourceConfig)} {activeSourceConfig.title}
             </button>
 
             <h1 style={{ fontSize: '2.5rem', color: 'var(--text-header)', marginBottom: '0.5rem', fontFamily: 'var(--font-sans)', fontWeight: 800 }}>
@@ -1103,9 +1106,11 @@ export const Reader: React.FC<ReaderProps> = ({
                         >
                           {book.title}
                         </h3>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
-                          {book.description || 'Explore the complete chapters, lessons, and spiritual collections inside.'}
-                        </p>
+                        {book.description && book.description !== 'No description' && (
+                          <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5', margin: 0 }}>
+                            {book.description}
+                          </p>
+                        )}
                       </div>
                       <button
                         onClick={() => navigate(bookLink)}
@@ -1121,7 +1126,7 @@ export const Reader: React.FC<ReaderProps> = ({
                           border: 'none'
                         }}
                       >
-                        Explore Book
+                        {getPrompt('explore_book', 'Explore Book', book, collection, activeSourceConfig)}
                       </button>
                     </div>
                   </div>
@@ -1138,7 +1143,8 @@ export const Reader: React.FC<ReaderProps> = ({
   if (activeSourceId && activeSourceConfig && activeBookId && !activeGroupId && !activeUnitId) {
     const book = activeBook;
     if (book) {
-      const backLink = activeCollectionId
+      const collection = activeCollectionId ? activeSourceConfig.collectionInfo?.[activeCollectionId] : undefined;
+      const backLink = activeCollectionId 
         ? buildReadLink({ section: activeSectionId, source: activeSourceId, collection: activeCollectionId })
         : buildReadLink({ section: activeSectionId, source: activeSourceId });
 
@@ -1168,7 +1174,7 @@ export const Reader: React.FC<ReaderProps> = ({
                   padding: 0
                 }}
               >
-                ← Back to {activeCollectionId ? "Collection Dashboard" : activeSourceConfig.title}
+                ← {getPrompt('back_to', 'Back to', book, collection, activeSourceConfig)} {activeCollectionId ? (collection?.title || 'Collection Dashboard') : activeSourceConfig.title}
               </button>
               <CustomBookComponent />
             </div>
@@ -1196,7 +1202,7 @@ export const Reader: React.FC<ReaderProps> = ({
                 padding: 0
               }}
             >
-              ← Back to {activeCollectionId ? "Collection Dashboard" : activeSourceConfig.title}
+              ← {getPrompt('back_to', 'Back to', book, collection, activeSourceConfig)} {activeCollectionId ? (collection?.title || 'Collection Dashboard') : activeSourceConfig.title}
             </button>
 
             <div className="book-intro-header" style={{
@@ -1251,21 +1257,25 @@ export const Reader: React.FC<ReaderProps> = ({
                 <h1 style={{ fontSize: '2rem', color: 'var(--text-header)', margin: 0, fontFamily: 'var(--font-sans)', fontWeight: 700 }}>
                   {book.title}
                 </h1>
-                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>
-                  {book.description || `Explore the complete teachings, units, and chapters inside the ${book.title} volume.`}
-                </p>
+                {book.description && book.description !== 'No description' && (
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.6', margin: 0 }}>
+                    {book.description}
+                  </p>
+                )}
               </div>
             </div>
 
             {book.groups ? (
               <>
-                <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>Table of Contents</h2>
+                <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
+                  {getPrompt('table_of_contents', 'Table of Contents', book, collection, activeSourceConfig)}
+                </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '3rem' }}>
                   {book.groups.map((gId: string) => {
                     const group = book.groupInfo?.[gId];
                     if (!group) return null;
                     return (
-                      <div key={gId} style={{ marginBottom: '2.5rem' }}>
+                      <div key={gId} id={`group-${gId}`} style={{ marginBottom: '2.5rem' }}>
                         <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', marginBottom: '0.75rem' }}>
                           <h3 style={{ fontSize: '1.25rem', color: 'var(--text-header)', fontFamily: 'var(--font-sans)', fontWeight: 700 }}>
                             {group.title}
@@ -1301,7 +1311,7 @@ export const Reader: React.FC<ReaderProps> = ({
                                 }}
                               >
                                 <span style={{ marginRight: '0.5rem', color: 'var(--accent-color)', fontWeight: 'bold' }}>•</span>
-                                <span dangerouslySetInnerHTML={{ __html: unit.title }} />
+                                <span dangerouslySetInnerHTML={{ __html: formatUnitTitle(unit, activeSourceId) }} />
                               </div>
                             );
                           })}
@@ -1313,7 +1323,9 @@ export const Reader: React.FC<ReaderProps> = ({
               </>
             ) : book.units ? (
               <>
-                <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>Table of Contents</h2>
+                <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-sans)', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem', width: '100%' }}>
+                  {getPrompt('table_of_contents', 'Table of Contents', book, collection, activeSourceConfig)}
+                </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '3rem' }}>
                   {book.units.map((uId: string) => {
                     const unit = book.unitInfo?.[uId];
@@ -1333,7 +1345,7 @@ export const Reader: React.FC<ReaderProps> = ({
                           }}
                           onMouseOver={(e) => (e.currentTarget.style.color = 'var(--accent-color)')}
                           onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-header)')}
-                          dangerouslySetInnerHTML={{ __html: unit.title }}
+                          dangerouslySetInnerHTML={{ __html: formatUnitTitle(unit, activeSourceId) }}
                         />
                       </div>
                     );

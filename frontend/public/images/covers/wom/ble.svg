@@ -1,0 +1,175 @@
+<svg width="612" height="793" viewBox="0 0 612 793" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient: Deep Spiritual Teal/Indigo -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081E24" />
+      <stop offset="50%" stop-color="#0F3842" />
+      <stop offset="100%" stop-color="#05151A" />
+    </linearGradient>
+
+    <!-- Metallic Gold Gradient for Frames & Accents -->
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#BF953F" />
+      <stop offset="25%" stop-color="#FCF6BA" />
+      <stop offset="50%" stop-color="#B38728" />
+      <stop offset="75%" stop-color="#FBF5B7" />
+      <stop offset="100%" stop-color="#AA771C" />
+    </linearGradient>
+
+    <!-- Radiating Light Glow -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FCF6BA" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#B38728" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#081E24" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Soft Drop Shadow for Text/Emblem -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.65" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="612" height="793" fill="url(#bgGrad)" />
+
+  <!-- Radiating Central Light Glow -->
+  <circle cx="306" cy="410" r="300" fill="url(#glow)" />
+
+  <!-- Classical Gold Border Frame -->
+  <rect x="25" y="25" width="562" height="743" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.85" />
+  <rect x="33" y="33" width="546" height="727" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.6" />
+
+  <!-- Corner Ornamental Accent Markers -->
+  <g stroke="url(#goldGrad)" stroke-width="2" fill="none" opacity="0.85">
+    <!-- Top-Left Corner Ornament -->
+    <path d="M 20,40 L 40,40 L 40,20" />
+    <circle cx="40" cy="40" r="3" fill="url(#goldGrad)" />
+    <!-- Top-Right Corner Ornament -->
+    <path d="M 592,40 L 572,40 L 572,20" />
+    <circle cx="572" cy="40" r="3" fill="url(#goldGrad)" />
+    <!-- Bottom-Left Corner Ornament -->
+    <path d="M 20,753 L 40,753 L 40,773" />
+    <circle cx="40" cy="753" r="3" fill="url(#goldGrad)" />
+    <!-- Bottom-Right Corner Ornament -->
+    <path d="M 592,753 L 572,753 L 572,773" />
+    <circle cx="572" cy="753" r="3" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Typography Header: Source Context -->
+  <g filter="url(#shadow)">
+    <text x="306" y="90" 
+          font-family="'Cinzel', 'Didot', 'Playfair Display', 'Times New Roman', serif" 
+          font-size="13" 
+          font-weight="600" 
+          fill="url(#goldGrad)" 
+          letter-spacing="5" 
+          text-anchor="middle" 
+          opacity="0.9">
+      THE WAY OF MASTERY
+    </text>
+    <text x="306" y="112" 
+          font-family="'Cinzel', 'Didot', 'Playfair Display', 'Times New Roman', serif" 
+          font-size="11" 
+          font-weight="500" 
+          fill="#FFFFFF" 
+          letter-spacing="4" 
+          text-anchor="middle" 
+          opacity="0.8">
+      THE EARLY YEARS
+    </text>
+  </g>
+
+  <!-- Header Separator Line -->
+  <line x1="180" y1="135" x2="432" y2="135" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4" />
+
+  <!-- Main Title: The Blessing of Forgiveness -->
+  <g filter="url(#shadow)">
+    <text x="306" y="215" 
+          font-family="'Playfair Display', 'Georgia', 'Times New Roman', serif" 
+          font-size="36" 
+          font-weight="700" 
+          fill="url(#goldGrad)" 
+          text-anchor="middle">
+      The Blessing
+    </text>
+    <text x="306" y="260" 
+          font-family="'Playfair Display', 'Georgia', 'Times New Roman', serif" 
+          font-size="24" 
+          font-style="italic" 
+          font-weight="500" 
+          fill="#FFFFFF" 
+          text-anchor="middle" 
+          opacity="0.95">
+      of
+    </text>
+    <text x="306" y="315" 
+          font-family="'Playfair Display', 'Georgia', 'Times New Roman', serif" 
+          font-size="44" 
+          font-weight="700" 
+          fill="url(#goldGrad)" 
+          text-anchor="middle" 
+          letter-spacing="1.5">
+      Forgiveness
+    </text>
+  </g>
+
+  <!-- Central Symbol: Elegant, Stylized Radiating Dove and Light beams -->
+  <g transform="translate(306, 480)" filter="url(#shadow)">
+    <!-- Light Ray Lines -->
+    <g stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.3" fill="none">
+      <line x1="0" y1="-80" x2="0" y2="-50" />
+      <line x1="0" y1="50" x2="0" y2="80" />
+      <line x1="-80" y1="0" x2="-50" y2="0" />
+      <line x1="50" y1="0" x2="80" y2="0" />
+      <line x1="-56" y1="-56" x2="-35" y2="-35" />
+      <line x1="35" y1="35" x2="56" y2="56" />
+      <line x1="56" y1="-56" x2="35" y2="-35" />
+      <line x1="-35" y1="35" x2="-56" y2="56" />
+    </g>
+
+    <!-- Concentric Golden Circles of Harmony -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4" />
+    <circle cx="0" cy="0" r="35" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6" />
+    <circle cx="0" cy="0" r="10" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.8" />
+
+    <!-- Stylized Ascending Dove Silhouette (Vector Path) -->
+    <path d="M 0,-18 
+             C -6,-15 -14,-10 -22,-18 
+             C -24,-12 -20,-4 -12,0 
+             C -16,8 -20,18 -18,22 
+             C -14,24 -6,18 0,10 
+             C 6,18 14,24 18,22 
+             C 20,18 16,8 12,0 
+             C 20,-4 24,-12 22,-18 
+             C 14,-10 6,-15 0,-18 Z" 
+          fill="url(#goldGrad)" 
+          opacity="0.9" />
+  </g>
+
+  <!-- Footer Separator Line -->
+  <line x1="220" y1="630" x2="392" y2="630" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4" />
+
+  <!-- Footer Typography -->
+  <g filter="url(#shadow)">
+    <text x="306" y="665" 
+          font-family="'Cinzel', 'Didot', 'Playfair Display', 'Times New Roman', serif" 
+          font-size="11" 
+          font-weight="500" 
+          fill="#FFFFFF" 
+          letter-spacing="2" 
+          text-anchor="middle" 
+          opacity="0.85">
+      IMMERSIBLE STUDY MODULE
+    </text>
+    <text x="306" y="688" 
+          font-family="'Playfair Display', 'Georgia', 'Times New Roman', serif" 
+          font-size="12" 
+          font-style="italic" 
+          fill="url(#goldGrad)" 
+          text-anchor="middle" 
+          opacity="0.9">
+      "Peace is the blessing of a quiet mind"
+    </text>
+  </g>
+
+</svg>

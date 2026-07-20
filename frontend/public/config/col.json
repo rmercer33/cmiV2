@@ -16,8 +16,7 @@
   ],
   "bookInfo": {
     "book1": {
-      "title": "Echoes of Holiness",
-      "description": "No description",
+      "title": "Book1: Echoes of Holiness",
       "image": "/images/covers/col/book1.jpg",
       "units": [
         "message",
@@ -50,12 +49,14 @@
       "unitInfo": {
         "message": {
           "title": "A Message from Sebastian",
-          "url": "col/book1/message"
+          "url": "col/book1/message",
+          "template": "col-layout"
         },
         "foreword": {
           "title": "Forward",
           "url": "col/book1/foreword",
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap01": {
           "title": "Triune Love",
@@ -68,142 +69,164 @@
           "title": "The Cradle of Thought",
           "url": "col/book1/chap02",
           "ref": 2,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap03": {
           "title": "The Origin of Creation",
           "url": "col/book1/chap03",
           "ref": 3,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap04": {
           "title": "The Call of Love",
           "url": "col/book1/chap04",
           "ref": 4,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap05": {
           "title": "A Light in the Darkness",
           "url": "col/book1/chap05",
           "ref": 5,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap06": {
           "title": "Devotion: Union of the Three Hearts",
           "url": "col/book1/chap06",
           "ref": 6,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap07": {
           "title": "The Miracles of Love",
           "url": "col/book1/chap07",
           "ref": 7,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap08": {
           "title": "The Abode of Light",
           "url": "col/book1/chap08",
           "ref": 8,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap09": {
           "title": "The Origin of the Soul",
           "url": "col/book1/chap09",
           "ref": 9,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap10": {
           "title": "Fear is Born",
           "url": "col/book1/chap10",
           "ref": 10,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap11": {
           "title": "The Dream of Adam",
           "url": "col/book1/chap11",
           "ref": 11,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap12": {
           "title": "The House of Cards",
           "url": "col/book1/chap12",
           "ref": 12,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap13": {
           "title": "Love Everything that Arises in You",
           "url": "col/book1/chap13",
           "ref": 13,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap14": {
           "title": "The Fork",
           "url": "col/book1/chap14",
           "ref": 14,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap15": {
           "title": "Unparalleled Love",
           "url": "col/book1/chap15",
           "ref": 15,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap16": {
           "title": "The Neutrality of Creation",
           "url": "col/book1/chap16",
           "ref": 16,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap17": {
           "title": "The Living Christ",
           "url": "col/book1/chap17",
           "ref": 17,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap18": {
           "title": "Life in Fullness",
           "url": "col/book1/chap18",
           "ref": 18,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap19": {
           "title": "The Seal of Holiness",
           "url": "col/book1/chap19",
           "ref": 19,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap20": {
           "title": "The Abode of Christ",
           "url": "col/book1/chap20",
           "ref": 20,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap21": {
           "title": "The Flight of Freedom",
           "url": "col/book1/chap21",
           "ref": 21,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "final": {
           "title": "Final Words",
           "url": "col/book1/final",
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "appendix": {
           "title": "Appendix",
           "url": "col/book1/appendix",
-          "subtitle": "Prayers"
+          "subtitle": "Prayers",
+          "template": "col-layout"
         },
         "clarifications": {
           "title": "A Mystical Relationship",
           "url": "col/book1/clarifications",
-          "subtitle": "Clarifications by Sebastian Blaksley"
+          "subtitle": "Clarifications by Sebastian Blaksley",
+          "template": "col-layout"
         }
       }
     },
     "book2": {
-      "title": "Let Yourself Be Loved",
-      "description": "No description",
+      "title": "Book2: Let Yourself Be Loved",
       "image": "/images/covers/col/book2.jpg",
       "units": [
         "message",
@@ -235,153 +258,177 @@
       "unitInfo": {
         "message": {
           "title": "A Message from Sebastian",
-          "url": "col/book2/message"
+          "url": "col/book2/message",
+          "template": "col-layout"
         },
         "prelude": {
           "title": "Prelude",
           "url": "col/book2/prelude",
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap01": {
           "title": "God Alone Is Sufficient",
           "url": "col/book2/chap01",
           "ref": 1,
-          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap02": {
           "title": "Mother of the Living Christ",
           "url": "col/book2/chap02",
           "ref": 2,
-          "subtitle": "A message from Holy Virgin Mary"
+          "subtitle": "A message from Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap03": {
           "title": "The Spiritual Betrothal",
           "url": "col/book2/chap03",
           "ref": 3,
-          "subtitle": "A message from Holy Virgin Mary"
+          "subtitle": "A message from Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap04": {
           "title": "The Fertility of Union",
           "url": "col/book2/chap04",
           "ref": 4,
-          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap05": {
           "title": "Come, Be My Light",
           "url": "col/book2/chap05",
           "ref": 5,
-          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap06": {
           "title": "The Holiness of Form",
           "url": "col/book2/chap06",
           "ref": 6,
-          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+          "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap07": {
           "title": "The Claimed Inheritance",
           "url": "col/book2/chap07",
           "ref": 7,
-          "subtitle": "A message from the Blessed Virgin Mary"
+          "subtitle": "A message from the Blessed Virgin Mary",
+          "template": "col-layout"
         },
         "chap08": {
           "title": "Forgive Yourself",
           "url": "col/book2/chap08",
           "ref": 8,
-          "subtitle": "A message from the Blessed Virgin Mary"
+          "subtitle": "A message from the Blessed Virgin Mary",
+          "template": "col-layout"
         },
         "chap09": {
           "title": "Love the Cross",
           "url": "col/book2/chap09",
           "ref": 9,
-          "subtitle": "A message from the Archangel Raphael"
+          "subtitle": "A message from the Archangel Raphael",
+          "template": "col-layout"
         },
         "chap10": {
           "title": "The Fullness of Love",
           "url": "col/book2/chap10",
           "ref": 10,
-          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap11": {
           "title": "Wisdom, Free Will, and Willingness",
           "url": "col/book2/chap11",
           "ref": 11,
-          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap12": {
           "title": "Everything Passes",
           "url": "col/book2/chap12",
           "ref": 12,
-          "subtitle": "A message from the Blessed Virgin Mary"
+          "subtitle": "A message from the Blessed Virgin Mary",
+          "template": "col-layout"
         },
         "chap13": {
           "title": "The True Authority",
           "url": "col/book2/chap13",
           "ref": 13,
-          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap14": {
           "title": "Take Love to the World",
           "url": "col/book2/chap14",
           "ref": 14,
-          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap15": {
           "title": "The Delights of Love",
           "url": "col/book2/chap15",
           "ref": 15,
-          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+          "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap16": {
           "title": "The Beauty of the Soul",
           "url": "col/book2/chap16",
           "ref": 16,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap17": {
           "title": "Nothing New Under the Sun",
           "url": "col/book2/chap17",
           "ref": 17,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap18": {
           "title": "We Are the Heaven of the World",
           "url": "col/book2/chap18",
           "ref": 18,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap19": {
           "title": "Consciousness and the Father's House",
           "url": "col/book2/chap19",
           "ref": 19,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap20": {
           "title": "Mystery and Reverence",
           "url": "col/book2/chap20",
           "ref": 20,
-          "subtitle": "A message from Holy Virgin Mary"
+          "subtitle": "A message from Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap21": {
           "title": "The Little Path of Heaven",
           "url": "col/book2/chap21",
           "ref": 21,
-          "subtitle": "A message from Jesus, identifying himeslf as 'the living Christ who lives in you.'"
+          "subtitle": "A message from Jesus, identifying himeslf as 'the living Christ who lives in you.'",
+          "template": "col-layout"
         },
         "final": {
           "title": "Final Words",
-          "url": "col/book2/final"
+          "url": "col/book2/final",
+          "template": "col-layout"
         },
         "clarifications": {
           "title": "A Mystical Relationship",
           "url": "col/book2/clarifications",
-          "subtitle": "Clarifications by Sebastian Blaksley"
+          "subtitle": "Clarifications by Sebastian Blaksley",
+          "template": "col-layout"
         }
       }
     },
     "book3": {
-      "title": "Homo-Christus Deo",
-      "description": "No description",
+      "title": "Book3: Homo-Christus Deo",
       "image": "/images/covers/col/book3.jpg",
       "units": [
         "origin",
@@ -413,153 +460,177 @@
       "unitInfo": {
         "origin": {
           "title": "How It Originated",
-          "url": "col/book3/origin"
+          "url": "col/book3/origin",
+          "template": "col-layout"
         },
         "prelude": {
           "title": "Prelude",
           "url": "col/book3/prelude",
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap01": {
           "title": "Forty Days to the Resurrection",
           "url": "col/book3/chap01",
           "ref": 1,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap02": {
           "title": "Healing and Resurrection",
           "url": "col/book3/chap02",
           "ref": 2,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap03": {
           "title": "Trust",
           "url": "col/book3/chap03",
           "ref": 3,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap04": {
           "title": "Love and Form",
           "url": "col/book3/chap04",
           "ref": 4,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap05": {
           "title": "The Kingdom of Unity",
           "url": "col/book3/chap05",
           "ref": 5,
-          "subtitle": "A message from the Most Holy Virgin Mary"
+          "subtitle": "A message from the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap06": {
           "title": "A Single True Love",
           "url": "col/book3/chap06",
           "ref": 6,
-          "subtitle": "A message from the Most Holy Virgin Mary"
+          "subtitle": "A message from the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap07": {
           "title": "Love and Be Loved",
           "url": "col/book3/chap07",
           "ref": 7,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap08": {
           "title": "The Prayer of Truth",
           "url": "col/book3/chap08",
           "ref": 8,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap09": {
           "title": "The Truth in You",
           "url": "col/book3/chap09",
           "ref": 9,
-          "subtitle": "A message from Most Holy Virgin Mary, in union with Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Most Holy Virgin Mary, in union with Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap10": {
           "title": "Surrender",
           "url": "col/book3/chap10",
           "ref": 10,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap11": {
           "title": "The Last Rebellion",
           "url": "col/book3/chap11",
           "ref": 11,
-          "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap12": {
           "title": "You Are God In God",
           "url": "col/book3/chap12",
           "ref": 12,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap13": {
           "title": "Autonomy and Freedom",
           "url": "col/book3/chap13",
           "ref": 13,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap14": {
           "title": "The Heart of Christ",
           "url": "col/book3/chap14",
           "ref": 14,
-          "subtitle": "A message from Archangel Raphael, Immaculate Mary, and Jesus, in unison with God the Father"
+          "subtitle": "A message from Archangel Raphael, Immaculate Mary, and Jesus, in unison with God the Father",
+          "template": "col-layout"
         },
         "chap15": {
           "title": "Be Not Afraid",
           "url": "col/book3/chap15",
           "ref": 15,
-          "subtitle": "A message from the Most Holy Virgin Mary in the presence of Her Divine Son, Jesus"
+          "subtitle": "A message from the Most Holy Virgin Mary in the presence of Her Divine Son, Jesus",
+          "template": "col-layout"
         },
         "chap16": {
           "title": "Unconditional Acceptance",
           "url": "col/book3/chap16",
           "ref": 16,
-          "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap17": {
           "title": "The Father and I Are One",
           "url": "col/book3/chap17",
           "ref": 17,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap18": {
           "title": "Silence, Mystery, God",
           "url": "col/book3/chap18",
           "ref": 18,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap19": {
           "title": "A Prophet Has Been Born",
           "url": "col/book3/chap19",
           "ref": 19,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap20": {
           "title": "A New Consciousness",
           "url": "col/book3/chap20",
           "ref": 20,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "chap21": {
           "title": "Union and Resurrection",
           "url": "col/book3/chap21",
           "ref": 21,
-          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+          "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+          "template": "col-layout"
         },
         "final": {
           "title": "Final Words",
-          "url": "col/book3/final"
+          "url": "col/book3/final",
+          "template": "col-layout"
         },
         "clarifications": {
           "title": "A Mystical Relationship",
           "url": "col/book3/clarifications",
-          "subtitle": "Clarifications by Sebastian Blaksley"
+          "subtitle": "Clarifications by Sebastian Blaksley",
+          "template": "col-layout"
         }
       }
     },
     "book4": {
       "title": "Book4: Wisdom",
-      "description": "No description",
       "image": "/images/covers/col/book4.jpg",
       "units": [
         "origin",
@@ -592,158 +663,183 @@
       "unitInfo": {
         "origin": {
           "title": "How It Originated",
-          "url": "col/book4/origin"
+          "url": "col/book4/origin",
+          "template": "col-layout"
         },
         "description": {
           "title": "A Description of the Manifestations",
-          "url": "col/book4/description"
+          "url": "col/book4/description",
+          "template": "col-layout"
         },
         "prelude": {
           "title": "Prelude",
           "url": "col/book4/prelude",
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap01": {
           "title": "The All in All",
           "url": "col/book4/chap01",
           "ref": 1,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap02": {
           "title": "The Bosom of God",
           "url": "col/book4/chap02",
           "ref": 2,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap03": {
           "title": "The Dream of God",
           "url": "col/book4/chap03",
           "ref": 3,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap04": {
           "title": "Love without Conditions",
           "url": "col/book4/chap04",
           "ref": 4,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap05": {
           "title": "The Abode of Knowledge",
           "url": "col/book4/chap05",
           "ref": 5,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap06": {
           "title": "The Tree of Life",
           "url": "col/book4/chap06",
           "ref": 6,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap07": {
           "title": "The New World is Born",
           "url": "col/book4/chap07",
           "ref": 7,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap08": {
           "title": "My Beloved Christ",
           "url": "col/book4/chap08",
           "ref": 8,
-          "subtitle": "A song that springs from the pure heart of Archangel Raphael"
+          "subtitle": "A song that springs from the pure heart of Archangel Raphael",
+          "template": "col-layout"
         },
         "chap09": {
           "title": "The Cloud of Unknowing",
           "url": "col/book4/chap09",
           "ref": 9,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap10": {
           "title": "Wisdom: The Gift of Love",
           "url": "col/book4/chap10",
           "ref": 10,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap11": {
           "title": "Receptivity",
           "url": "col/book4/chap11",
           "ref": 11,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap12": {
           "title": "The Relationship",
           "url": "col/book4/chap12",
           "ref": 12,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap13": {
           "title": "Giving Form to Love",
           "url": "col/book4/chap13",
           "ref": 13,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "chap14": {
           "title": "The End of Words",
           "url": "col/book4/chap14",
           "ref": 14,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap15": {
           "title": "Harvest Time",
           "url": "col/book4/chap15",
           "ref": 15,
-          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap16": {
           "title": "A New Beginning",
           "url": "col/book4/chap16",
           "ref": 16,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap17": {
           "title": "The Power of Silence",
           "url": "col/book4/chap17",
           "ref": 17,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap18": {
           "title": "Alchemy",
           "url": "col/book4/chap18",
           "ref": 18,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap19": {
           "title": "The Wisdom of the Self",
           "url": "col/book4/chap19",
           "ref": 19,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap20": {
           "title": "The Plain",
           "url": "col/book4/chap20",
           "ref": 20,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap21": {
           "title": "The Power of God in You",
           "url": "col/book4/chap21",
           "ref": 21,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "final": {
           "title": "Final Words",
           "url": "col/book4/final",
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "clarifications": {
           "title": "A Mystical Relationship",
           "url": "col/book4/clarifications",
-          "subtitle": "Clarifications by Sebastian Blaksley"
+          "subtitle": "Clarifications by Sebastian Blaksley",
+          "template": "col-layout"
         }
       }
     },
     "book5": {
-      "title": "The Holy Dwelling",
-      "description": "No description",
+      "title": "Book5: The Holy Dwelling",
       "image": "/images/covers/col/book5.jpg",
       "units": [
         "origin",
@@ -776,157 +872,182 @@
       "unitInfo": {
         "origin": {
           "title": "How It Originated",
-          "url": "col/book5/origin"
+          "url": "col/book5/origin",
+          "template": "col-layout"
         },
         "description": {
           "title": "A Description of the Manifestations",
-          "url": "col/book5/description"
+          "url": "col/book5/description",
+          "template": "col-layout"
         },
         "prelude": {
           "title": "Prelude",
           "url": "col/book5/prelude",
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap01": {
           "title": "The Name of God",
           "url": "col/book5/chap01",
           "subtitle": "A message from Jesus",
-          "ref": 1
+          "ref": 1,
+          "template": "col-layout"
         },
         "chap02": {
           "title": "The Meeting Point",
           "url": "col/book5/chap02",
           "ref": 2,
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap03": {
           "title": "The Power of Sweetness",
           "url": "col/book5/chap03",
           "ref": 3,
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap04": {
           "title": "The Joy of Being",
           "url": "col/book5/chap04",
           "ref": 4,
-          "subtitle": "A message from Mother Mary"
+          "subtitle": "A message from Mother Mary",
+          "template": "col-layout"
         },
         "chap05": {
           "title": "Words of Eternal Life",
           "url": "col/book5/chap05",
           "ref": 5,
-          "subtitle": "A message from Mother Mary"
+          "subtitle": "A message from Mother Mary",
+          "template": "col-layout"
         },
         "chap06": {
           "title": "Life is Communion",
           "url": "col/book5/chap06",
           "ref": 6,
-          "subtitle": "A message from Mother Mary"
+          "subtitle": "A message from Mother Mary",
+          "template": "col-layout"
         },
         "chap07": {
           "title": "The Game of Beautiful Love",
           "url": "col/book5/chap07",
           "ref": 7,
-          "subtitle": "A message from Mother Mary"
+          "subtitle": "A message from Mother Mary",
+          "template": "col-layout"
         },
         "chap08": {
           "title": "The Game of Beautiful Love",
           "url": "col/book5/chap08",
           "ref": 8,
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap09": {
           "title": "New Temptations",
           "url": "col/book5/chap09",
           "ref": 9,
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap10": {
           "title": "The Spiritual Practice of Joy",
           "url": "col/book5/chap10",
           "ref": 10,
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap11": {
           "title": "I Have Known You Forever",
           "url": "col/book5/chap11",
           "ref": 11,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "chap12": {
           "title": "The Divinity of the Soul",
           "url": "col/book5/chap12",
           "ref": 12,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "chap13": {
           "title": "The Wound of God",
           "url": "col/book5/chap13",
           "ref": 13,
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap14": {
           "title": "Communication from Above",
           "url": "col/book5/chap14",
           "ref": 14,
-          "subtitle": "A message from Jesus"
+          "subtitle": "A message from Jesus",
+          "template": "col-layout"
         },
         "chap15": {
           "title": "Uniqueness: The Reality of Love",
           "url": "col/book5/chap15",
           "ref": 15,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap16": {
           "title": "The Government of Love",
           "url": "col/book5/chap16",
           "ref": 16,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap17": {
           "title": "The Light of My Glory",
           "url": "col/book5/chap17",
           "ref": 17,
-          "subtitle": "A message from Jesus as the Universal Voice of Love, being full God, fully Christ, and fully human"
+          "subtitle": "A message from Jesus as the Universal Voice of Love, being full God, fully Christ, and fully human",
+          "template": "col-layout"
         },
         "chap18": {
           "title": "Work for Love",
           "url": "col/book5/chap18",
           "ref": 18,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "chap19": {
           "title": "The Rest of the Pure Soul",
           "url": "col/book5/chap19",
           "ref": 19,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "chap20": {
           "title": "Shanti, Deo Maranatha",
           "url": "col/book5/chap20",
           "ref": 20,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "chap21": {
           "title": "Love's Creations",
           "url": "col/book5/chap21",
           "ref": 21,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "final": {
           "title": "Final Words",
-          "url": "col/book5/final"
+          "url": "col/book5/final",
+          "template": "col-layout"
         },
         "clarifications": {
           "title": "A Mystical Relationship",
           "url": "col/book5/clarifications",
-          "subtitle": "Clarifications by Sebastian Blaksley"
+          "subtitle": "Clarifications by Sebastian Blaksley",
+          "template": "col-layout"
         }
       }
     },
     "book6": {
-      "title": "The Divine Relationship",
-      "description": "No description",
+      "title": "Book6: The Divine Relationship",
       "image": "/images/covers/col/book6.jpg",
       "units": [
         "message",
@@ -958,151 +1079,177 @@
       "unitInfo": {
         "message": {
           "title": "A Message from Sebastian",
-          "url": "col/book6/message"
+          "url": "col/book6/message",
+          "template": "col-layout"
         },
         "prelude": {
           "title": "Prelude",
           "url": "col/book6/prelude",
-          "subtitle": "A song expressed by the voice of the beloved for his beloved, the voice of Christ for a soul in love."
+          "subtitle": "A song expressed by the voice of the beloved for his beloved, the voice of Christ for a soul in love.",
+          "template": "col-layout"
         },
         "chap01": {
           "title": "The Unknown Saints",
           "url": "col/book6/chap01",
           "ref": 1,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap02": {
           "title": "The Art of Living",
           "url": "col/book6/chap02",
           "ref": 2,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap03": {
           "title": "Peace Has Come",
           "url": "col/book6/chap03",
           "ref": 3,
-          "subtitle": "A message from Jesus speaking from both his Humanity and Divinity, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus speaking from both his Humanity and Divinity, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap04": {
           "title": "The Return to the Father",
           "url": "col/book6/chap04",
           "ref": 4,
-          "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap05": {
           "title": "Talking to Heaven",
           "url": "col/book6/chap05",
           "ref": 5,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap06": {
           "title": "The Creator Created",
           "url": "col/book6/chap06",
           "ref": 6,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap07": {
           "title": "Known Christ",
           "url": "col/book6/chap07",
           "ref": 7,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap08": {
-          "title": "Chap08",
-          "url": "col/book6/chap08"
+          "title": "Mystics",
+          "url": "col/book6/chap08",
+          "ref": 8,
+          "subtitle": "A message from Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap09": {
           "title": "Divine Lovers",
           "url": "col/book6/chap09",
           "ref": 9,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap10": {
           "title": "The End of Relationship",
           "url": "col/book6/chap10",
           "ref": 10,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap11": {
           "title": "Fused in Love",
           "url": "col/book6/chap11",
           "ref": 11,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap12": {
           "title": "Invitation of the Whole",
           "url": "col/book6/chap12",
           "ref": 12,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap13": {
           "title": "The Soul in Love",
           "url": "col/book6/chap13",
           "ref": 13,
-          "subtitle": "A message from the Blessed Mother Mary"
+          "subtitle": "A message from the Blessed Mother Mary",
+          "template": "col-layout"
         },
         "chap14": {
           "title": "Great Is Love",
           "url": "col/book6/chap14",
           "ref": 14,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap15": {
           "title": "United in Freedom",
           "url": "col/book6/chap15",
           "ref": 15,
-          "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+          "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap16": {
           "title": "The Memory of a Voice",
           "url": "col/book6/chap16",
           "ref": 16,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap17": {
           "title": "The Power of Being",
           "url": "col/book6/chap17",
           "ref": 17,
-          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+          "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+          "template": "col-layout"
         },
         "chap18": {
           "title": "Love in Fullness",
           "url": "col/book6/chap18",
           "ref": 18,
-          "subtitle": "A message from Mother Mary, presenting herself as 'The Mother of Love'"
+          "subtitle": "A message from Mother Mary, presenting herself as 'The Mother of Love'",
+          "template": "col-layout"
         },
         "chap19": {
           "title": "Ecstacy of a Heart in Love",
           "url": "col/book6/chap19",
           "ref": 19,
-          "subtitle": "Words heard by a soul who has chosen only love, having been infused with the living Christ within"
+          "subtitle": "Words heard by a soul who has chosen only love, having been infused with the living Christ within",
+          "template": "col-layout"
         },
         "chap20": {
           "title": "Bliss and Being",
           "url": "col/book6/chap20",
           "ref": 20,
-          "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices"
+          "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices",
+          "template": "col-layout"
         },
         "chap21": {
           "title": "The Gift of Divine Relationship",
           "url": "col/book6/chap21",
           "ref": 21,
-          "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices"
+          "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices",
+          "template": "col-layout"
         },
         "final": {
           "title": "Final Words",
-          "url": "col/book6/final"
+          "url": "col/book6/final",
+          "template": "col-layout"
         },
         "clarifications": {
           "title": "A Mystical Relationship",
           "url": "col/book6/clarifications",
-          "subtitle": "Clarifications by Sebastian Blaksley"
+          "subtitle": "Clarifications by Sebastian Blaksley",
+          "template": "col-layout"
         }
       }
     },
     "book7": {
-      "title": "The Way of Being",
-      "description": "No description",
+      "title": "Book7: The Way of Being",
       "image": "/images/covers/col/book7.jpg",
       "units": [
         "gender",
@@ -1134,140 +1281,165 @@
       "unitInfo": {
         "gender": {
           "title": "A Special Note about Gender",
-          "url": "col/book7/gender"
+          "url": "col/book7/gender",
+          "template": "col-layout"
         },
         "message": {
           "title": "A Message from Sebastian",
-          "url": "col/book7/message"
+          "url": "col/book7/message",
+          "template": "col-layout"
         },
         "prelude": {
           "title": "Prelude",
           "url": "col/book7/prelude",
-          "subtitle": "\"A message from the Voice of Christ through a choir of Angels,"
+          "subtitle": "\"A message from the Voice of Christ through a choir of Angels,",
+          "template": "col-layout"
         },
         "chap01": {
           "title": "New Melodies of Love",
           "url": "col/book7/chap01",
           "ref": 1,
-          "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+          "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+          "template": "col-layout"
         },
         "chap02": {
           "title": "The Wind Blows",
           "url": "col/book7/chap02",
           "ref": 2,
-          "subtitle": "A message from the Archangel Raphael"
+          "subtitle": "A message from the Archangel Raphael",
+          "template": "col-layout"
         },
         "chap03": {
           "title": "Divine Whispers",
           "url": "col/book7/chap03",
           "ref": 3,
-          "subtitle": "A message from Mother Marry"
+          "subtitle": "A message from Mother Marry",
+          "template": "col-layout"
         },
         "chap04": {
           "title": "The Testimony of the Truth",
           "url": "col/book7/chap04",
           "ref": 4,
-          "subtitle": "\"A message from Jesus, identifying himself as the Living"
+          "subtitle": "\"A message from Jesus, identifying himself as the Living",
+          "template": "col-layout"
         },
         "chap05": {
           "title": "New Forms of Love",
           "url": "col/book7/chap05",
           "ref": 5,
-          "subtitle": "\"A message from the Voice of Christ through a choir of"
+          "subtitle": "\"A message from the Voice of Christ through a choir of",
+          "template": "col-layout"
         },
         "chap06": {
           "title": "Form and Knowledge",
           "url": "col/book7/chap06",
           "ref": 6,
-          "subtitle": "A message from Mother Mary"
+          "subtitle": "A message from Mother Mary",
+          "template": "col-layout"
         },
         "chap07": {
           "title": "Canals, Rivers, and Oceans",
           "url": "col/book7/chap07",
           "ref": 7,
-          "subtitle": "\"A message from Jesus, identifying himself as the Living"
+          "subtitle": "\"A message from Jesus, identifying himself as the Living",
+          "template": "col-layout"
         },
         "chap08": {
           "title": "The Golden Cages",
           "url": "col/book7/chap08",
           "ref": 8,
-          "subtitle": "\"A message from Jesus, identifying himself as the Living"
+          "subtitle": "\"A message from Jesus, identifying himself as the Living",
+          "template": "col-layout"
         },
         "chap09": {
           "title": "I Live for Being Who I Am",
           "url": "col/book7/chap09",
           "ref": 9,
-          "subtitle": "\"A message from Jesus, identifying himself as the Living"
+          "subtitle": "\"A message from Jesus, identifying himself as the Living",
+          "template": "col-layout"
         },
         "chap10": {
           "title": "Gathering and Truth",
           "url": "col/book7/chap10",
           "ref": 10,
-          "subtitle": "A message from Archangel Gabriel"
+          "subtitle": "A message from Archangel Gabriel",
+          "template": "col-layout"
         },
         "chap11": {
           "title": "Nothing Is Impossible for You",
           "url": "col/book7/chap11",
           "ref": 11,
-          "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+          "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+          "template": "col-layout"
         },
         "chap12": {
           "title": "Love and I Are One",
           "url": "col/book7/chap12",
           "ref": 12,
-          "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+          "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+          "template": "col-layout"
         },
         "chap13": {
           "title": "The Breath of Living Love",
           "url": "col/book7/chap13",
           "ref": 13,
-          "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+          "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+          "template": "col-layout"
         },
         "chap14": {
           "title": "A New Anointing",
           "url": "col/book7/chap14",
           "ref": 14,
-          "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+          "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+          "template": "col-layout"
         },
         "chap15": {
           "title": "A World of Pure Crystal",
           "url": "col/book7/chap15",
           "ref": 15,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap16": {
           "title": "The Ascension Has Come",
           "url": "col/book7/chap16",
           "ref": 16,
-          "subtitle": "A message from Archangel Raphael"
+          "subtitle": "A message from Archangel Raphael",
+          "template": "col-layout"
         },
         "chap17": {
           "title": "Flow of Eternal Unity",
           "url": "col/book7/chap17",
           "ref": 17,
-          "subtitle": "\"A message from the Voice of Christ through a choir of"
+          "subtitle": "\"A message from the Voice of Christ through a choir of",
+          "template": "col-layout"
         },
         "chap18": {
           "title": "The Fullness of Time",
           "url": "col/book7/chap18",
           "ref": 18,
-          "subtitle": "\"A message from the Voice of Mother-Father God, the Voice of"
+          "subtitle": "\"A message from the Voice of Mother-Father God, the Voice of",
+          "template": "col-layout"
         },
         "final": {
           "title": "Final words",
-          "url": "col/book7/final"
+          "url": "col/book7/final",
+          "template": "col-layout"
         },
         "appendix": {
           "title": "Appendix",
-          "url": "col/book7/appendix"
+          "url": "col/book7/appendix",
+          "template": "col-layout"
         },
         "resources": {
           "title": "Resources",
-          "url": "col/book7/resources"
+          "url": "col/book7/resources",
+          "template": "col-layout"
         },
         "about": {
           "title": "About Sebastian Blaksley",
-          "url": "col/book7/about"
+          "url": "col/book7/about",
+          "template": "col-layout"
         }
       }
     }

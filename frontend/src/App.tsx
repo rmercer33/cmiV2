@@ -125,7 +125,9 @@ const AppContent: React.FC = () => {
       }
 
       if (resolvedBookId) {
-        const bookMeta = activeSourceConfig.bookInfo?.[resolvedBookId];
+        const bookMeta = resolvedCollectionId && activeSourceConfig.collectionInfo
+          ? activeSourceConfig.collectionInfo[resolvedCollectionId]?.bookInfo?.[resolvedBookId]
+          : activeSourceConfig.bookInfo?.[resolvedBookId];
         if (bookMeta) {
           if (segmentIndex < segments.length) {
             const nextSegment = segments[segmentIndex];

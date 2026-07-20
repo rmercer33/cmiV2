@@ -11,6 +11,17 @@
       </div>
     </h2>
   </div>
+{{else}}
+  <div class="col-header">
+    <h2>{{title}}
+      {{#if subtitle}}
+        <div class="subtitle">
+          <br/>
+          <em>{{subtitle}}</em>
+        </div>
+      {{/if}}
+    </h2>
+  </div>
 {{/if}}
 <div class="template-content">
   {{{content}}}

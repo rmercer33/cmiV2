@@ -3,7 +3,8 @@
   "description": "The concept and usage of the Digital Library",
   "sources": [
     "dl",
-    "col"
+    "col",
+    "wom"
   ],
   "sourceInfo": {
     "dl": {
@@ -28,6 +29,15 @@
         "book5",
         "book6",
         "book7"
+      ]
+    },
+    "wom": {
+      "title": "Way of Mastery",
+      "description": "Available in English and Polish",
+      "image": "/images/covers/site/wom.jpg",
+      "collections": [
+        "english",
+        "polish"
       ]
     }
   }

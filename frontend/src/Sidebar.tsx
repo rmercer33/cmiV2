@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, X, Book, Folder, Layers, BookOpen } from 'lucide-react';
 import { buildReadLink } from './App';
-import type { LibraryIndex, SourceInfo } from './types';
+import type { LibraryIndex, SourceInfo, UnitInfo } from './types';
+import { formatUnitTitle } from './utils';
 
 interface SidebarProps {
   libraryIndex: LibraryIndex | null;
@@ -106,6 +107,15 @@ const SidebarNode: React.FC<SidebarNodeProps> = ({
       if (type === 'book') parts.book = id;
       navigate(buildReadLink(parts));
     }
+
+    if (type === 'group') {
+      setTimeout(() => {
+        const element = document.getElementById(`group-${id}`);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
   };
 
   // Determine children to render recursively (generalised as { id, type } to support mixtures of node types)
@@ -154,13 +164,14 @@ const SidebarNode: React.FC<SidebarNodeProps> = ({
     }
     const unitLink = buildReadLink(finalAccumulated);
     const isUnitActive = resolvedContext.unitId === id && resolvedContext.bookId === accumulatedParts.book;
+    const displayTitle = formatUnitTitle(nodeData as UnitInfo, resolvedContext.sourceId || accumulatedParts.source);
 
     return (
       <Link
         to={unitLink}
         className={`unit-item ${isUnitActive ? 'active' : ''}`}
         style={{ paddingLeft: `${pathParts.length * 0.75 + 1.25}rem` }}
-        dangerouslySetInnerHTML={{ __html: title }}
+        dangerouslySetInnerHTML={{ __html: displayTitle }}
       />
     );
   }

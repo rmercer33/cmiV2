@@ -177,9 +177,12 @@ function processBook(bookPath, bookId, urlParts) {
 
   const bookNode = {
     title: defaultBookMeta.title || capitalize(bookId),
-    description: defaultBookMeta.description || defaultBookMeta.title || "No description",
     ...bookInfo
   };
+
+  if (!bookNode.description && defaultBookMeta.description) {
+    bookNode.description = defaultBookMeta.description;
+  }
 
   const bookEntries = fs.readdirSync(bookPath).filter(name => !name.startsWith('.'));
   const subdirectories = [];

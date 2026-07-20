@@ -183,7 +183,7 @@ Paragraph inside chapter one.`
     assert.match(html1, /<p id="p11">Click <a href="https:\/\/google\.com">external link<\/a> or <a href="\.\.\/workbook\/l002\.md">internal link<\/a>\.<\/p>/);
 
     // Verification of images
-    assert.match(html1, /<p id="p12"><img src="\.\/image\.png" alt="Alt text"><\/p>/);
+    assert.match(html1, /<p><img src="\.\/image\.png" alt="Alt text"><\/p>/);
 
     // Verification of markdown footnotes
     assert.match(html1, /<section data-footnotes class="footnotes">/);

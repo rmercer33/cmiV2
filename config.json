@@ -5,7 +5,8 @@
   "@description": "This is the simplest site organization: <source>-<book>-<unit>",
   "sources": [
     "dl",
-    "col"
+    "col",
+    "wom"
   ],
   "sourceInfo": {
     "dl": {
@@ -104,8 +105,7 @@
       ],
       "bookInfo": {
         "book1": {
-          "title": "Echoes of Holiness",
-          "description": "No description",
+          "title": "Book1: Echoes of Holiness",
           "image": "/images/covers/col/book1.jpg",
           "units": [
             "message",
@@ -138,12 +138,14 @@
           "unitInfo": {
             "message": {
               "title": "A Message from Sebastian",
-              "url": "col/book1/message"
+              "url": "col/book1/message",
+              "template": "col-layout"
             },
             "foreword": {
               "title": "Forward",
               "url": "col/book1/foreword",
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap01": {
               "title": "Triune Love",
@@ -156,142 +158,164 @@
               "title": "The Cradle of Thought",
               "url": "col/book1/chap02",
               "ref": 2,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap03": {
               "title": "The Origin of Creation",
               "url": "col/book1/chap03",
               "ref": 3,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap04": {
               "title": "The Call of Love",
               "url": "col/book1/chap04",
               "ref": 4,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap05": {
               "title": "A Light in the Darkness",
               "url": "col/book1/chap05",
               "ref": 5,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap06": {
               "title": "Devotion: Union of the Three Hearts",
               "url": "col/book1/chap06",
               "ref": 6,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap07": {
               "title": "The Miracles of Love",
               "url": "col/book1/chap07",
               "ref": 7,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap08": {
               "title": "The Abode of Light",
               "url": "col/book1/chap08",
               "ref": 8,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap09": {
               "title": "The Origin of the Soul",
               "url": "col/book1/chap09",
               "ref": 9,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap10": {
               "title": "Fear is Born",
               "url": "col/book1/chap10",
               "ref": 10,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap11": {
               "title": "The Dream of Adam",
               "url": "col/book1/chap11",
               "ref": 11,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap12": {
               "title": "The House of Cards",
               "url": "col/book1/chap12",
               "ref": 12,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap13": {
               "title": "Love Everything that Arises in You",
               "url": "col/book1/chap13",
               "ref": 13,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap14": {
               "title": "The Fork",
               "url": "col/book1/chap14",
               "ref": 14,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap15": {
               "title": "Unparalleled Love",
               "url": "col/book1/chap15",
               "ref": 15,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap16": {
               "title": "The Neutrality of Creation",
               "url": "col/book1/chap16",
               "ref": 16,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap17": {
               "title": "The Living Christ",
               "url": "col/book1/chap17",
               "ref": 17,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap18": {
               "title": "Life in Fullness",
               "url": "col/book1/chap18",
               "ref": 18,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap19": {
               "title": "The Seal of Holiness",
               "url": "col/book1/chap19",
               "ref": 19,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap20": {
               "title": "The Abode of Christ",
               "url": "col/book1/chap20",
               "ref": 20,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap21": {
               "title": "The Flight of Freedom",
               "url": "col/book1/chap21",
               "ref": 21,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "final": {
               "title": "Final Words",
               "url": "col/book1/final",
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "appendix": {
               "title": "Appendix",
               "url": "col/book1/appendix",
-              "subtitle": "Prayers"
+              "subtitle": "Prayers",
+              "template": "col-layout"
             },
             "clarifications": {
               "title": "A Mystical Relationship",
               "url": "col/book1/clarifications",
-              "subtitle": "Clarifications by Sebastian Blaksley"
+              "subtitle": "Clarifications by Sebastian Blaksley",
+              "template": "col-layout"
             }
           }
         },
         "book2": {
-          "title": "Let Yourself Be Loved",
-          "description": "No description",
+          "title": "Book2: Let Yourself Be Loved",
           "image": "/images/covers/col/book2.jpg",
           "units": [
             "message",
@@ -323,153 +347,177 @@
           "unitInfo": {
             "message": {
               "title": "A Message from Sebastian",
-              "url": "col/book2/message"
+              "url": "col/book2/message",
+              "template": "col-layout"
             },
             "prelude": {
               "title": "Prelude",
               "url": "col/book2/prelude",
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap01": {
               "title": "God Alone Is Sufficient",
               "url": "col/book2/chap01",
               "ref": 1,
-              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap02": {
               "title": "Mother of the Living Christ",
               "url": "col/book2/chap02",
               "ref": 2,
-              "subtitle": "A message from Holy Virgin Mary"
+              "subtitle": "A message from Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap03": {
               "title": "The Spiritual Betrothal",
               "url": "col/book2/chap03",
               "ref": 3,
-              "subtitle": "A message from Holy Virgin Mary"
+              "subtitle": "A message from Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap04": {
               "title": "The Fertility of Union",
               "url": "col/book2/chap04",
               "ref": 4,
-              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap05": {
               "title": "Come, Be My Light",
               "url": "col/book2/chap05",
               "ref": 5,
-              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap06": {
               "title": "The Holiness of Form",
               "url": "col/book2/chap06",
               "ref": 6,
-              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel"
+              "subtitle": "A message from Archangel Raphael in unison with the Choir of Angels in the presence of Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap07": {
               "title": "The Claimed Inheritance",
               "url": "col/book2/chap07",
               "ref": 7,
-              "subtitle": "A message from the Blessed Virgin Mary"
+              "subtitle": "A message from the Blessed Virgin Mary",
+              "template": "col-layout"
             },
             "chap08": {
               "title": "Forgive Yourself",
               "url": "col/book2/chap08",
               "ref": 8,
-              "subtitle": "A message from the Blessed Virgin Mary"
+              "subtitle": "A message from the Blessed Virgin Mary",
+              "template": "col-layout"
             },
             "chap09": {
               "title": "Love the Cross",
               "url": "col/book2/chap09",
               "ref": 9,
-              "subtitle": "A message from the Archangel Raphael"
+              "subtitle": "A message from the Archangel Raphael",
+              "template": "col-layout"
             },
             "chap10": {
               "title": "The Fullness of Love",
               "url": "col/book2/chap10",
               "ref": 10,
-              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap11": {
               "title": "Wisdom, Free Will, and Willingness",
               "url": "col/book2/chap11",
               "ref": 11,
-              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap12": {
               "title": "Everything Passes",
               "url": "col/book2/chap12",
               "ref": 12,
-              "subtitle": "A message from the Blessed Virgin Mary"
+              "subtitle": "A message from the Blessed Virgin Mary",
+              "template": "col-layout"
             },
             "chap13": {
               "title": "The True Authority",
               "url": "col/book2/chap13",
               "ref": 13,
-              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap14": {
               "title": "Take Love to the World",
               "url": "col/book2/chap14",
               "ref": 14,
-              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap15": {
               "title": "The Delights of Love",
               "url": "col/book2/chap15",
               "ref": 15,
-              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel"
+              "subtitle": "A message from the voice of Christ through a chorus of angels in the presence of the Archangel Raphael and the Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap16": {
               "title": "The Beauty of the Soul",
               "url": "col/book2/chap16",
               "ref": 16,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap17": {
               "title": "Nothing New Under the Sun",
               "url": "col/book2/chap17",
               "ref": 17,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap18": {
               "title": "We Are the Heaven of the World",
               "url": "col/book2/chap18",
               "ref": 18,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap19": {
               "title": "Consciousness and the Father's House",
               "url": "col/book2/chap19",
               "ref": 19,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap20": {
               "title": "Mystery and Reverence",
               "url": "col/book2/chap20",
               "ref": 20,
-              "subtitle": "A message from Holy Virgin Mary"
+              "subtitle": "A message from Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap21": {
               "title": "The Little Path of Heaven",
               "url": "col/book2/chap21",
               "ref": 21,
-              "subtitle": "A message from Jesus, identifying himeslf as 'the living Christ who lives in you.'"
+              "subtitle": "A message from Jesus, identifying himeslf as 'the living Christ who lives in you.'",
+              "template": "col-layout"
             },
             "final": {
               "title": "Final Words",
-              "url": "col/book2/final"
+              "url": "col/book2/final",
+              "template": "col-layout"
             },
             "clarifications": {
               "title": "A Mystical Relationship",
               "url": "col/book2/clarifications",
-              "subtitle": "Clarifications by Sebastian Blaksley"
+              "subtitle": "Clarifications by Sebastian Blaksley",
+              "template": "col-layout"
             }
           }
         },
         "book3": {
-          "title": "Homo-Christus Deo",
-          "description": "No description",
+          "title": "Book3: Homo-Christus Deo",
           "image": "/images/covers/col/book3.jpg",
           "units": [
             "origin",
@@ -501,153 +549,177 @@
           "unitInfo": {
             "origin": {
               "title": "How It Originated",
-              "url": "col/book3/origin"
+              "url": "col/book3/origin",
+              "template": "col-layout"
             },
             "prelude": {
               "title": "Prelude",
               "url": "col/book3/prelude",
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap01": {
               "title": "Forty Days to the Resurrection",
               "url": "col/book3/chap01",
               "ref": 1,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap02": {
               "title": "Healing and Resurrection",
               "url": "col/book3/chap02",
               "ref": 2,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap03": {
               "title": "Trust",
               "url": "col/book3/chap03",
               "ref": 3,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap04": {
               "title": "Love and Form",
               "url": "col/book3/chap04",
               "ref": 4,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap05": {
               "title": "The Kingdom of Unity",
               "url": "col/book3/chap05",
               "ref": 5,
-              "subtitle": "A message from the Most Holy Virgin Mary"
+              "subtitle": "A message from the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap06": {
               "title": "A Single True Love",
               "url": "col/book3/chap06",
               "ref": 6,
-              "subtitle": "A message from the Most Holy Virgin Mary"
+              "subtitle": "A message from the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap07": {
               "title": "Love and Be Loved",
               "url": "col/book3/chap07",
               "ref": 7,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap08": {
               "title": "The Prayer of Truth",
               "url": "col/book3/chap08",
               "ref": 8,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you', in the presence of the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap09": {
               "title": "The Truth in You",
               "url": "col/book3/chap09",
               "ref": 9,
-              "subtitle": "A message from Most Holy Virgin Mary, in union with Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Most Holy Virgin Mary, in union with Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap10": {
               "title": "Surrender",
               "url": "col/book3/chap10",
               "ref": 10,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap11": {
               "title": "The Last Rebellion",
               "url": "col/book3/chap11",
               "ref": 11,
-              "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap12": {
               "title": "You Are God In God",
               "url": "col/book3/chap12",
               "ref": 12,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap13": {
               "title": "Autonomy and Freedom",
               "url": "col/book3/chap13",
               "ref": 13,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap14": {
               "title": "The Heart of Christ",
               "url": "col/book3/chap14",
               "ref": 14,
-              "subtitle": "A message from Archangel Raphael, Immaculate Mary, and Jesus, in unison with God the Father"
+              "subtitle": "A message from Archangel Raphael, Immaculate Mary, and Jesus, in unison with God the Father",
+              "template": "col-layout"
             },
             "chap15": {
               "title": "Be Not Afraid",
               "url": "col/book3/chap15",
               "ref": 15,
-              "subtitle": "A message from the Most Holy Virgin Mary in the presence of Her Divine Son, Jesus"
+              "subtitle": "A message from the Most Holy Virgin Mary in the presence of Her Divine Son, Jesus",
+              "template": "col-layout"
             },
             "chap16": {
               "title": "Unconditional Acceptance",
               "url": "col/book3/chap16",
               "ref": 16,
-              "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Chorus of Angels in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap17": {
               "title": "The Father and I Are One",
               "url": "col/book3/chap17",
               "ref": 17,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap18": {
               "title": "Silence, Mystery, God",
               "url": "col/book3/chap18",
               "ref": 18,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap19": {
               "title": "A Prophet Has Been Born",
               "url": "col/book3/chap19",
               "ref": 19,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap20": {
               "title": "A New Consciousness",
               "url": "col/book3/chap20",
               "ref": 20,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "chap21": {
               "title": "Union and Resurrection",
               "url": "col/book3/chap21",
               "ref": 21,
-              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary"
+              "subtitle": "A message from Jesus, identifying Himself as 'the living Christ who lives in you' in the presence of the Most Holy Virgin Mary",
+              "template": "col-layout"
             },
             "final": {
               "title": "Final Words",
-              "url": "col/book3/final"
+              "url": "col/book3/final",
+              "template": "col-layout"
             },
             "clarifications": {
               "title": "A Mystical Relationship",
               "url": "col/book3/clarifications",
-              "subtitle": "Clarifications by Sebastian Blaksley"
+              "subtitle": "Clarifications by Sebastian Blaksley",
+              "template": "col-layout"
             }
           }
         },
         "book4": {
           "title": "Book4: Wisdom",
-          "description": "No description",
           "image": "/images/covers/col/book4.jpg",
           "units": [
             "origin",
@@ -680,158 +752,183 @@
           "unitInfo": {
             "origin": {
               "title": "How It Originated",
-              "url": "col/book4/origin"
+              "url": "col/book4/origin",
+              "template": "col-layout"
             },
             "description": {
               "title": "A Description of the Manifestations",
-              "url": "col/book4/description"
+              "url": "col/book4/description",
+              "template": "col-layout"
             },
             "prelude": {
               "title": "Prelude",
               "url": "col/book4/prelude",
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap01": {
               "title": "The All in All",
               "url": "col/book4/chap01",
               "ref": 1,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap02": {
               "title": "The Bosom of God",
               "url": "col/book4/chap02",
               "ref": 2,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap03": {
               "title": "The Dream of God",
               "url": "col/book4/chap03",
               "ref": 3,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap04": {
               "title": "Love without Conditions",
               "url": "col/book4/chap04",
               "ref": 4,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap05": {
               "title": "The Abode of Knowledge",
               "url": "col/book4/chap05",
               "ref": 5,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap06": {
               "title": "The Tree of Life",
               "url": "col/book4/chap06",
               "ref": 6,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap07": {
               "title": "The New World is Born",
               "url": "col/book4/chap07",
               "ref": 7,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap08": {
               "title": "My Beloved Christ",
               "url": "col/book4/chap08",
               "ref": 8,
-              "subtitle": "A song that springs from the pure heart of Archangel Raphael"
+              "subtitle": "A song that springs from the pure heart of Archangel Raphael",
+              "template": "col-layout"
             },
             "chap09": {
               "title": "The Cloud of Unknowing",
               "url": "col/book4/chap09",
               "ref": 9,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap10": {
               "title": "Wisdom: The Gift of Love",
               "url": "col/book4/chap10",
               "ref": 10,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap11": {
               "title": "Receptivity",
               "url": "col/book4/chap11",
               "ref": 11,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap12": {
               "title": "The Relationship",
               "url": "col/book4/chap12",
               "ref": 12,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap13": {
               "title": "Giving Form to Love",
               "url": "col/book4/chap13",
               "ref": 13,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "chap14": {
               "title": "The End of Words",
               "url": "col/book4/chap14",
               "ref": 14,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap15": {
               "title": "Harvest Time",
               "url": "col/book4/chap15",
               "ref": 15,
-              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a Choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap16": {
               "title": "A New Beginning",
               "url": "col/book4/chap16",
               "ref": 16,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap17": {
               "title": "The Power of Silence",
               "url": "col/book4/chap17",
               "ref": 17,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap18": {
               "title": "Alchemy",
               "url": "col/book4/chap18",
               "ref": 18,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap19": {
               "title": "The Wisdom of the Self",
               "url": "col/book4/chap19",
               "ref": 19,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap20": {
               "title": "The Plain",
               "url": "col/book4/chap20",
               "ref": 20,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap21": {
               "title": "The Power of God in You",
               "url": "col/book4/chap21",
               "ref": 21,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "final": {
               "title": "Final Words",
               "url": "col/book4/final",
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "clarifications": {
               "title": "A Mystical Relationship",
               "url": "col/book4/clarifications",
-              "subtitle": "Clarifications by Sebastian Blaksley"
+              "subtitle": "Clarifications by Sebastian Blaksley",
+              "template": "col-layout"
             }
           }
         },
         "book5": {
-          "title": "The Holy Dwelling",
-          "description": "No description",
+          "title": "Book5: The Holy Dwelling",
           "image": "/images/covers/col/book5.jpg",
           "units": [
             "origin",
@@ -864,157 +961,182 @@
           "unitInfo": {
             "origin": {
               "title": "How It Originated",
-              "url": "col/book5/origin"
+              "url": "col/book5/origin",
+              "template": "col-layout"
             },
             "description": {
               "title": "A Description of the Manifestations",
-              "url": "col/book5/description"
+              "url": "col/book5/description",
+              "template": "col-layout"
             },
             "prelude": {
               "title": "Prelude",
               "url": "col/book5/prelude",
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap01": {
               "title": "The Name of God",
               "url": "col/book5/chap01",
               "subtitle": "A message from Jesus",
-              "ref": 1
+              "ref": 1,
+              "template": "col-layout"
             },
             "chap02": {
               "title": "The Meeting Point",
               "url": "col/book5/chap02",
               "ref": 2,
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap03": {
               "title": "The Power of Sweetness",
               "url": "col/book5/chap03",
               "ref": 3,
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap04": {
               "title": "The Joy of Being",
               "url": "col/book5/chap04",
               "ref": 4,
-              "subtitle": "A message from Mother Mary"
+              "subtitle": "A message from Mother Mary",
+              "template": "col-layout"
             },
             "chap05": {
               "title": "Words of Eternal Life",
               "url": "col/book5/chap05",
               "ref": 5,
-              "subtitle": "A message from Mother Mary"
+              "subtitle": "A message from Mother Mary",
+              "template": "col-layout"
             },
             "chap06": {
               "title": "Life is Communion",
               "url": "col/book5/chap06",
               "ref": 6,
-              "subtitle": "A message from Mother Mary"
+              "subtitle": "A message from Mother Mary",
+              "template": "col-layout"
             },
             "chap07": {
               "title": "The Game of Beautiful Love",
               "url": "col/book5/chap07",
               "ref": 7,
-              "subtitle": "A message from Mother Mary"
+              "subtitle": "A message from Mother Mary",
+              "template": "col-layout"
             },
             "chap08": {
               "title": "The Game of Beautiful Love",
               "url": "col/book5/chap08",
               "ref": 8,
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap09": {
               "title": "New Temptations",
               "url": "col/book5/chap09",
               "ref": 9,
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap10": {
               "title": "The Spiritual Practice of Joy",
               "url": "col/book5/chap10",
               "ref": 10,
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap11": {
               "title": "I Have Known You Forever",
               "url": "col/book5/chap11",
               "ref": 11,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "chap12": {
               "title": "The Divinity of the Soul",
               "url": "col/book5/chap12",
               "ref": 12,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "chap13": {
               "title": "The Wound of God",
               "url": "col/book5/chap13",
               "ref": 13,
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap14": {
               "title": "Communication from Above",
               "url": "col/book5/chap14",
               "ref": 14,
-              "subtitle": "A message from Jesus"
+              "subtitle": "A message from Jesus",
+              "template": "col-layout"
             },
             "chap15": {
               "title": "Uniqueness: The Reality of Love",
               "url": "col/book5/chap15",
               "ref": 15,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap16": {
               "title": "The Government of Love",
               "url": "col/book5/chap16",
               "ref": 16,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap17": {
               "title": "The Light of My Glory",
               "url": "col/book5/chap17",
               "ref": 17,
-              "subtitle": "A message from Jesus as the Universal Voice of Love, being full God, fully Christ, and fully human"
+              "subtitle": "A message from Jesus as the Universal Voice of Love, being full God, fully Christ, and fully human",
+              "template": "col-layout"
             },
             "chap18": {
               "title": "Work for Love",
               "url": "col/book5/chap18",
               "ref": 18,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "chap19": {
               "title": "The Rest of the Pure Soul",
               "url": "col/book5/chap19",
               "ref": 19,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "chap20": {
               "title": "Shanti, Deo Maranatha",
               "url": "col/book5/chap20",
               "ref": 20,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "chap21": {
               "title": "Love's Creations",
               "url": "col/book5/chap21",
               "ref": 21,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "final": {
               "title": "Final Words",
-              "url": "col/book5/final"
+              "url": "col/book5/final",
+              "template": "col-layout"
             },
             "clarifications": {
               "title": "A Mystical Relationship",
               "url": "col/book5/clarifications",
-              "subtitle": "Clarifications by Sebastian Blaksley"
+              "subtitle": "Clarifications by Sebastian Blaksley",
+              "template": "col-layout"
             }
           }
         },
         "book6": {
-          "title": "The Divine Relationship",
-          "description": "No description",
+          "title": "Book6: The Divine Relationship",
           "image": "/images/covers/col/book6.jpg",
           "units": [
             "message",
@@ -1046,151 +1168,177 @@
           "unitInfo": {
             "message": {
               "title": "A Message from Sebastian",
-              "url": "col/book6/message"
+              "url": "col/book6/message",
+              "template": "col-layout"
             },
             "prelude": {
               "title": "Prelude",
               "url": "col/book6/prelude",
-              "subtitle": "A song expressed by the voice of the beloved for his beloved, the voice of Christ for a soul in love."
+              "subtitle": "A song expressed by the voice of the beloved for his beloved, the voice of Christ for a soul in love.",
+              "template": "col-layout"
             },
             "chap01": {
               "title": "The Unknown Saints",
               "url": "col/book6/chap01",
               "ref": 1,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap02": {
               "title": "The Art of Living",
               "url": "col/book6/chap02",
               "ref": 2,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap03": {
               "title": "Peace Has Come",
               "url": "col/book6/chap03",
               "ref": 3,
-              "subtitle": "A message from Jesus speaking from both his Humanity and Divinity, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus speaking from both his Humanity and Divinity, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap04": {
               "title": "The Return to the Father",
               "url": "col/book6/chap04",
               "ref": 4,
-              "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap05": {
               "title": "Talking to Heaven",
               "url": "col/book6/chap05",
               "ref": 5,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap06": {
               "title": "The Creator Created",
               "url": "col/book6/chap06",
               "ref": 6,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap07": {
               "title": "Known Christ",
               "url": "col/book6/chap07",
               "ref": 7,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap08": {
-              "title": "Chap08",
-              "url": "col/book6/chap08"
+              "title": "Mystics",
+              "url": "col/book6/chap08",
+              "ref": 8,
+              "subtitle": "A message from Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap09": {
               "title": "Divine Lovers",
               "url": "col/book6/chap09",
               "ref": 9,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap10": {
               "title": "The End of Relationship",
               "url": "col/book6/chap10",
               "ref": 10,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap11": {
               "title": "Fused in Love",
               "url": "col/book6/chap11",
               "ref": 11,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap12": {
               "title": "Invitation of the Whole",
               "url": "col/book6/chap12",
               "ref": 12,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap13": {
               "title": "The Soul in Love",
               "url": "col/book6/chap13",
               "ref": 13,
-              "subtitle": "A message from the Blessed Mother Mary"
+              "subtitle": "A message from the Blessed Mother Mary",
+              "template": "col-layout"
             },
             "chap14": {
               "title": "Great Is Love",
               "url": "col/book6/chap14",
               "ref": 14,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap15": {
               "title": "United in Freedom",
               "url": "col/book6/chap15",
               "ref": 15,
-              "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel"
+              "subtitle": "A message from the Voice of Christ through a choir of Angels, in the presence of Archangel Raphael and Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap16": {
               "title": "The Memory of a Voice",
               "url": "col/book6/chap16",
               "ref": 16,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap17": {
               "title": "The Power of Being",
               "url": "col/book6/chap17",
               "ref": 17,
-              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'"
+              "subtitle": "A message from Jesus, identifying himself as 'the living Christ who lives in you'",
+              "template": "col-layout"
             },
             "chap18": {
               "title": "Love in Fullness",
               "url": "col/book6/chap18",
               "ref": 18,
-              "subtitle": "A message from Mother Mary, presenting herself as 'The Mother of Love'"
+              "subtitle": "A message from Mother Mary, presenting herself as 'The Mother of Love'",
+              "template": "col-layout"
             },
             "chap19": {
               "title": "Ecstacy of a Heart in Love",
               "url": "col/book6/chap19",
               "ref": 19,
-              "subtitle": "Words heard by a soul who has chosen only love, having been infused with the living Christ within"
+              "subtitle": "Words heard by a soul who has chosen only love, having been infused with the living Christ within",
+              "template": "col-layout"
             },
             "chap20": {
               "title": "Bliss and Being",
               "url": "col/book6/chap20",
               "ref": 20,
-              "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices"
+              "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices",
+              "template": "col-layout"
             },
             "chap21": {
               "title": "The Gift of Divine Relationship",
               "url": "col/book6/chap21",
               "ref": 21,
-              "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices"
+              "subtitle": "A message from the Voice of Mother-Father God, the Voice of All Voices",
+              "template": "col-layout"
             },
             "final": {
               "title": "Final Words",
-              "url": "col/book6/final"
+              "url": "col/book6/final",
+              "template": "col-layout"
             },
             "clarifications": {
               "title": "A Mystical Relationship",
               "url": "col/book6/clarifications",
-              "subtitle": "Clarifications by Sebastian Blaksley"
+              "subtitle": "Clarifications by Sebastian Blaksley",
+              "template": "col-layout"
             }
           }
         },
         "book7": {
-          "title": "The Way of Being",
-          "description": "No description",
+          "title": "Book7: The Way of Being",
           "image": "/images/covers/col/book7.jpg",
           "units": [
             "gender",
@@ -1222,140 +1370,1924 @@
           "unitInfo": {
             "gender": {
               "title": "A Special Note about Gender",
-              "url": "col/book7/gender"
+              "url": "col/book7/gender",
+              "template": "col-layout"
             },
             "message": {
               "title": "A Message from Sebastian",
-              "url": "col/book7/message"
+              "url": "col/book7/message",
+              "template": "col-layout"
             },
             "prelude": {
               "title": "Prelude",
               "url": "col/book7/prelude",
-              "subtitle": "\"A message from the Voice of Christ through a choir of Angels,"
+              "subtitle": "\"A message from the Voice of Christ through a choir of Angels,",
+              "template": "col-layout"
             },
             "chap01": {
               "title": "New Melodies of Love",
               "url": "col/book7/chap01",
               "ref": 1,
-              "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+              "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+              "template": "col-layout"
             },
             "chap02": {
               "title": "The Wind Blows",
               "url": "col/book7/chap02",
               "ref": 2,
-              "subtitle": "A message from the Archangel Raphael"
+              "subtitle": "A message from the Archangel Raphael",
+              "template": "col-layout"
             },
             "chap03": {
               "title": "Divine Whispers",
               "url": "col/book7/chap03",
               "ref": 3,
-              "subtitle": "A message from Mother Marry"
+              "subtitle": "A message from Mother Marry",
+              "template": "col-layout"
             },
             "chap04": {
               "title": "The Testimony of the Truth",
               "url": "col/book7/chap04",
               "ref": 4,
-              "subtitle": "\"A message from Jesus, identifying himself as the Living"
+              "subtitle": "\"A message from Jesus, identifying himself as the Living",
+              "template": "col-layout"
             },
             "chap05": {
               "title": "New Forms of Love",
               "url": "col/book7/chap05",
               "ref": 5,
-              "subtitle": "\"A message from the Voice of Christ through a choir of"
+              "subtitle": "\"A message from the Voice of Christ through a choir of",
+              "template": "col-layout"
             },
             "chap06": {
               "title": "Form and Knowledge",
               "url": "col/book7/chap06",
               "ref": 6,
-              "subtitle": "A message from Mother Mary"
+              "subtitle": "A message from Mother Mary",
+              "template": "col-layout"
             },
             "chap07": {
               "title": "Canals, Rivers, and Oceans",
               "url": "col/book7/chap07",
               "ref": 7,
-              "subtitle": "\"A message from Jesus, identifying himself as the Living"
+              "subtitle": "\"A message from Jesus, identifying himself as the Living",
+              "template": "col-layout"
             },
             "chap08": {
               "title": "The Golden Cages",
               "url": "col/book7/chap08",
               "ref": 8,
-              "subtitle": "\"A message from Jesus, identifying himself as the Living"
+              "subtitle": "\"A message from Jesus, identifying himself as the Living",
+              "template": "col-layout"
             },
             "chap09": {
               "title": "I Live for Being Who I Am",
               "url": "col/book7/chap09",
               "ref": 9,
-              "subtitle": "\"A message from Jesus, identifying himself as the Living"
+              "subtitle": "\"A message from Jesus, identifying himself as the Living",
+              "template": "col-layout"
             },
             "chap10": {
               "title": "Gathering and Truth",
               "url": "col/book7/chap10",
               "ref": 10,
-              "subtitle": "A message from Archangel Gabriel"
+              "subtitle": "A message from Archangel Gabriel",
+              "template": "col-layout"
             },
             "chap11": {
               "title": "Nothing Is Impossible for You",
               "url": "col/book7/chap11",
               "ref": 11,
-              "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+              "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+              "template": "col-layout"
             },
             "chap12": {
               "title": "Love and I Are One",
               "url": "col/book7/chap12",
               "ref": 12,
-              "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+              "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+              "template": "col-layout"
             },
             "chap13": {
               "title": "The Breath of Living Love",
               "url": "col/book7/chap13",
               "ref": 13,
-              "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+              "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+              "template": "col-layout"
             },
             "chap14": {
               "title": "A New Anointing",
               "url": "col/book7/chap14",
               "ref": 14,
-              "subtitle": "\"A message from Jesus, identifying himself as 'the living"
+              "subtitle": "\"A message from Jesus, identifying himself as 'the living",
+              "template": "col-layout"
             },
             "chap15": {
               "title": "A World of Pure Crystal",
               "url": "col/book7/chap15",
               "ref": 15,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap16": {
               "title": "The Ascension Has Come",
               "url": "col/book7/chap16",
               "ref": 16,
-              "subtitle": "A message from Archangel Raphael"
+              "subtitle": "A message from Archangel Raphael",
+              "template": "col-layout"
             },
             "chap17": {
               "title": "Flow of Eternal Unity",
               "url": "col/book7/chap17",
               "ref": 17,
-              "subtitle": "\"A message from the Voice of Christ through a choir of"
+              "subtitle": "\"A message from the Voice of Christ through a choir of",
+              "template": "col-layout"
             },
             "chap18": {
               "title": "The Fullness of Time",
               "url": "col/book7/chap18",
               "ref": 18,
-              "subtitle": "\"A message from the Voice of Mother-Father God, the Voice of"
+              "subtitle": "\"A message from the Voice of Mother-Father God, the Voice of",
+              "template": "col-layout"
             },
             "final": {
               "title": "Final words",
-              "url": "col/book7/final"
+              "url": "col/book7/final",
+              "template": "col-layout"
             },
             "appendix": {
               "title": "Appendix",
-              "url": "col/book7/appendix"
+              "url": "col/book7/appendix",
+              "template": "col-layout"
             },
             "resources": {
               "title": "Resources",
-              "url": "col/book7/resources"
+              "url": "col/book7/resources",
+              "template": "col-layout"
             },
             "about": {
               "title": "About Sebastian Blaksley",
-              "url": "col/book7/about"
+              "url": "col/book7/about",
+              "template": "col-layout"
+            }
+          }
+        }
+      }
+    },
+    "wom": {
+      "title": "Way of Mastery",
+      "description": "Available in English and Polish",
+      "image": "/images/covers/site/wom.jpg",
+      "prompts": {
+        "catalog_content": "Catalog / Katalog"
+      },
+      "collections": [
+        "english",
+        "polish"
+      ],
+      "collectionInfo": {
+        "english": {
+          "title": "The Way of Mastery",
+          "description": "English",
+          "website": "https://wayofmastery.com/",
+          "contact": "sandy@wayofmastery.com",
+          "image": "/images/covers/site/wom.jpg",
+          "books": [
+            "early",
+            "tjl",
+            "woh",
+            "wot",
+            "wok",
+            "wos",
+            "questions"
+          ],
+          "bookInfo": {
+            "early": {
+              "title": "The Early Years",
+              "description": "Messages given before The Way of Mastery Series",
+              "image": "/images/covers/wom/early.jpg",
+              "units": [
+                "ble",
+                "c2s",
+                "com",
+                "dbc",
+                "doorway",
+                "dth",
+                "easter",
+                "fem",
+                "freedom",
+                "gar",
+                "hea",
+                "hoe",
+                "hoi",
+                "holyr",
+                "hsp",
+                "ign",
+                "illusions",
+                "joy1",
+                "joy2",
+                "lht",
+                "light",
+                "moa",
+                "mot",
+                "peace",
+                "perception",
+                "pow",
+                "purpose",
+                "seeking",
+                "shr",
+                "teach",
+                "toc",
+                "wak",
+                "wlk"
+              ],
+              "unitInfo": {
+                "ble": {
+                  "title": "The Blessing of Forgiveness",
+                  "url": "wom/english/early/ble",
+                  "audiofn": "BLE"
+                },
+                "c2s": {
+                  "title": "Choose to See",
+                  "url": "wom/english/early/c2s",
+                  "audiofn": "C2S"
+                },
+                "com": {
+                  "title": "Mastering Communication",
+                  "url": "wom/english/early/com",
+                  "audiofn": "COM"
+                },
+                "dbc": {
+                  "title": "Decide to be Christ",
+                  "url": "wom/english/early/dbc"
+                },
+                "doorway": {
+                  "title": "Doorway to Self Love",
+                  "url": "wom/english/early/doorway",
+                  "audiofn": "doorway"
+                },
+                "dth": {
+                  "title": "Death and Earth Changes",
+                  "url": "wom/english/early/dth",
+                  "audiofn": "DTH"
+                },
+                "easter": {
+                  "title": "Easter",
+                  "url": "wom/english/early/easter"
+                },
+                "fem": {
+                  "title": "The Divine Feminine",
+                  "url": "wom/english/early/fem",
+                  "audiofn": "FEM"
+                },
+                "freedom": {
+                  "title": "Freedom and Forgiveness",
+                  "url": "wom/english/early/freedom",
+                  "received": "Jan 30, 1993"
+                },
+                "gar": {
+                  "title": "Grace as Reality",
+                  "url": "wom/english/early/gar",
+                  "audiofn": "GAR"
+                },
+                "hea": {
+                  "title": "Healing",
+                  "url": "wom/english/early/hea"
+                },
+                "hoe": {
+                  "title": "Heaven on Earth",
+                  "url": "wom/english/early/hoe",
+                  "audiofn": "HOE",
+                  "received": "Aug 30, 1994"
+                },
+                "hoi": {
+                  "title": "The Holy Instant",
+                  "url": "wom/english/early/hoi",
+                  "audiofn": "HOI"
+                },
+                "holyr": {
+                  "title": "Holy Relationship",
+                  "url": "wom/english/early/holyr",
+                  "audiofn": "holyr"
+                },
+                "hsp": {
+                  "title": "The Holy Spirit",
+                  "url": "wom/english/early/hsp"
+                },
+                "ign": {
+                  "title": "Ignorance is Bliss",
+                  "url": "wom/english/early/ign",
+                  "audiofn": "IGN",
+                  "received": "Sep 1994"
+                },
+                "illusions": {
+                  "title": "Healing the Illusions of Hurt",
+                  "url": "wom/english/early/illusions",
+                  "received": "Nov 17, 1992"
+                },
+                "joy1": {
+                  "title": "Joy I",
+                  "url": "wom/english/early/joy1",
+                  "audiofn": "joy1"
+                },
+                "joy2": {
+                  "title": "Joy II",
+                  "url": "wom/english/early/joy2",
+                  "audiofn": "joy2"
+                },
+                "lht": {
+                  "title": "Love Heals All Things",
+                  "url": "wom/english/early/lht",
+                  "audiofn": "LHT"
+                },
+                "light": {
+                  "title": "The Light that You Are",
+                  "url": "wom/english/early/light",
+                  "received": "Nov 20, 1992"
+                },
+                "moa": {
+                  "title": "The Meaning of Ascension",
+                  "url": "wom/english/early/moa",
+                  "audiofn": "MOA"
+                },
+                "mot": {
+                  "title": "Become the Master of Time",
+                  "url": "wom/english/early/mot"
+                },
+                "peace": {
+                  "title": "Peace",
+                  "url": "wom/english/early/peace",
+                  "received": "August 21, 1992"
+                },
+                "perception": {
+                  "title": "Perception",
+                  "url": "wom/english/early/perception",
+                  "received": "March 20, 1992"
+                },
+                "pow": {
+                  "title": "The Purpose of the World",
+                  "url": "wom/english/early/pow",
+                  "date": "Feb 5, 1993"
+                },
+                "purpose": {
+                  "title": "Now Is My Purpose Before Me",
+                  "url": "wom/english/early/purpose",
+                  "date": "Jan 1, 1993"
+                },
+                "seeking": {
+                  "title": "The End of Seeking is Upon Us",
+                  "url": "wom/english/early/seeking",
+                  "received": "Jan 27, 1993"
+                },
+                "shr": {
+                  "title": "Special and Holy Relationships",
+                  "url": "wom/english/early/shr",
+                  "received": "June 26, 1992"
+                },
+                "teach": {
+                  "title": "Teach Only Love",
+                  "url": "wom/english/early/teach",
+                  "audiofn": "teach"
+                },
+                "toc": {
+                  "title": "A Time of Celebration",
+                  "url": "wom/english/early/toc",
+                  "date": "Jan 22, 1993",
+                  "place": "Kauai, HI"
+                },
+                "wak": {
+                  "title": "Awakening",
+                  "url": "wom/english/early/wak"
+                },
+                "wlk": {
+                  "title": "Walk with Me",
+                  "url": "wom/english/early/wlk",
+                  "audiofn": "WLK"
+                }
+              }
+            },
+            "tjl": {
+              "title": "The Jeshua Letters",
+              "description": "Jayem's account of first meeting Jeshua",
+              "image": "/images/covers/wom/tjl.jpg",
+              "units": [
+                "ack",
+                "chap01",
+                "chap02",
+                "chap03",
+                "chap04",
+                "chap05",
+                "chap06",
+                "chap07",
+                "chap08",
+                "chap09",
+                "chap10",
+                "chap11",
+                "chap12",
+                "epilogue",
+                "foreword",
+                "preface"
+              ],
+              "unitInfo": {
+                "ack": {
+                  "title": "Acknowledgements",
+                  "url": "wom/english/tjl/ack"
+                },
+                "chap01": {
+                  "title": "One",
+                  "url": "wom/english/tjl/chap01"
+                },
+                "chap02": {
+                  "title": "Two",
+                  "url": "wom/english/tjl/chap02"
+                },
+                "chap03": {
+                  "title": "Three",
+                  "url": "wom/english/tjl/chap03"
+                },
+                "chap04": {
+                  "title": "Four",
+                  "url": "wom/english/tjl/chap04"
+                },
+                "chap05": {
+                  "title": "Five",
+                  "url": "wom/english/tjl/chap05"
+                },
+                "chap06": {
+                  "title": "Six",
+                  "url": "wom/english/tjl/chap06"
+                },
+                "chap07": {
+                  "title": "Seven",
+                  "url": "wom/english/tjl/chap07"
+                },
+                "chap08": {
+                  "title": "Eight",
+                  "url": "wom/english/tjl/chap08"
+                },
+                "chap09": {
+                  "title": "Nine",
+                  "url": "wom/english/tjl/chap09"
+                },
+                "chap10": {
+                  "title": "Ten",
+                  "url": "wom/english/tjl/chap10"
+                },
+                "chap11": {
+                  "title": "Eleven",
+                  "url": "wom/english/tjl/chap11"
+                },
+                "chap12": {
+                  "title": "Twelve",
+                  "url": "wom/english/tjl/chap12"
+                },
+                "epilogue": {
+                  "title": "Epilogue",
+                  "url": "wom/english/tjl/epilogue"
+                },
+                "foreword": {
+                  "title": "Foreword",
+                  "url": "wom/english/tjl/foreword"
+                },
+                "preface": {
+                  "title": "Preface",
+                  "url": "wom/english/tjl/preface"
+                }
+              }
+            },
+            "woh": {
+              "title": "Way of the Heart",
+              "descriptiion": "Year One of the Way to Mastery Series",
+              "image": "/images/covers/wom/woh.jpg",
+              "units": [
+                "l01",
+                "l02",
+                "l03",
+                "l04",
+                "l05",
+                "l06",
+                "l07",
+                "l08",
+                "l09",
+                "l10",
+                "l11",
+                "l12"
+              ],
+              "unitInfo": {
+                "l01": {
+                  "title": "Lesson One",
+                  "url": "wom/english/woh/l01",
+                  "audiofn": "L01"
+                },
+                "l02": {
+                  "title": "Lesson Two",
+                  "url": "wom/english/woh/l02",
+                  "audiofn": "L02"
+                },
+                "l03": {
+                  "title": "Lesson Three",
+                  "url": "wom/english/woh/l03",
+                  "audiofn": "L03"
+                },
+                "l04": {
+                  "title": "Lesson Four",
+                  "url": "wom/english/woh/l04",
+                  "audiofn": "L04"
+                },
+                "l05": {
+                  "title": "Lesson Five",
+                  "url": "wom/english/woh/l05",
+                  "audiofn": "L05"
+                },
+                "l06": {
+                  "title": "Lesson Six",
+                  "url": "wom/english/woh/l06",
+                  "audiofn": "L06"
+                },
+                "l07": {
+                  "title": "Lesson Seven",
+                  "url": "wom/english/woh/l07",
+                  "audiofn": "L07"
+                },
+                "l08": {
+                  "title": "Lesson Eight",
+                  "url": "wom/english/woh/l08",
+                  "audiofn": "L08"
+                },
+                "l09": {
+                  "title": "Lesson Nine",
+                  "url": "wom/english/woh/l09",
+                  "audiofn": "L09"
+                },
+                "l10": {
+                  "title": "Lesson Ten",
+                  "url": "wom/english/woh/l10",
+                  "audiofn": "L10"
+                },
+                "l11": {
+                  "title": "Lesson Eleven",
+                  "url": "wom/english/woh/l11",
+                  "audiofn": "L11"
+                },
+                "l12": {
+                  "title": "Lesson Twelve",
+                  "url": "wom/english/woh/l12",
+                  "audiofn": "L12"
+                }
+              }
+            },
+            "wot": {
+              "title": "Way of Transformation",
+              "description": "The second year of the Way of Mastery series.",
+              "image": "/images/covers/wom/wot.jpg",
+              "units": [
+                "l13",
+                "l14",
+                "l15",
+                "l16",
+                "l17",
+                "l18",
+                "l19",
+                "l20",
+                "l21",
+                "l22",
+                "l23",
+                "l24"
+              ],
+              "unitInfo": {
+                "l13": {
+                  "title": "Lesson One",
+                  "url": "wom/english/wot/l13",
+                  "audiofn": "L13"
+                },
+                "l14": {
+                  "title": "Lesson Two",
+                  "url": "wom/english/wot/l14",
+                  "audiofn": "L14"
+                },
+                "l15": {
+                  "title": "Lesson Three",
+                  "url": "wom/english/wot/l15",
+                  "audiofn": "L15"
+                },
+                "l16": {
+                  "title": "Lesson Four",
+                  "url": "wom/english/wot/l16",
+                  "audiofn": "L16"
+                },
+                "l17": {
+                  "title": "Lesson Five",
+                  "url": "wom/english/wot/l17",
+                  "audiofn": "L17"
+                },
+                "l18": {
+                  "title": "Lesson Six",
+                  "url": "wom/english/wot/l18",
+                  "audiofn": "l18",
+                  "toc": ""
+                },
+                "l19": {
+                  "title": "Lesson Seven",
+                  "url": "wom/english/wot/l19",
+                  "audiofn": "L19.md"
+                },
+                "l20": {
+                  "title": "Lesson Eight",
+                  "url": "wom/english/wot/l20",
+                  "audiofn": "L20"
+                },
+                "l21": {
+                  "title": "Lesson Nine",
+                  "url": "wom/english/wot/l21",
+                  "audiofn": "L21"
+                },
+                "l22": {
+                  "title": "Lesson Ten",
+                  "url": "wom/english/wot/l22",
+                  "audiofn": "L22"
+                },
+                "l23": {
+                  "title": "Lesson Eleven",
+                  "url": "wom/english/wot/l23",
+                  "audiofn": "L23"
+                },
+                "l24": {
+                  "title": "Lesson Twelve",
+                  "url": "wom/english/wot/l24",
+                  "audiofn": "L24"
+                }
+              }
+            },
+            "wok": {
+              "title": "Way of Knowing",
+              "description": "The third and final year of the Way of Mastery series.",
+              "image": "/images/covers/wom/wok.jpg",
+              "units": [
+                "l25",
+                "l26",
+                "l27",
+                "l28",
+                "l29",
+                "l30",
+                "l31",
+                "l32",
+                "l33",
+                "l34",
+                "l35"
+              ],
+              "unitInfo": {
+                "l25": {
+                  "title": "Lesson One",
+                  "url": "wom/english/wok/l25",
+                  "audiofn": "L25"
+                },
+                "l26": {
+                  "title": "Lesson Two",
+                  "url": "wom/english/wok/l26",
+                  "audiofn": "L26"
+                },
+                "l27": {
+                  "title": "Lesson Three",
+                  "url": "wom/english/wok/l27",
+                  "audiofn": "L27"
+                },
+                "l28": {
+                  "title": "Lesson Four",
+                  "url": "wom/english/wok/l28",
+                  "audiofn": "L28"
+                },
+                "l29": {
+                  "title": "Lesson Five",
+                  "url": "wom/english/wok/l29",
+                  "audiofn": "L29"
+                },
+                "l30": {
+                  "title": "Lesson Six",
+                  "url": "wom/english/wok/l30",
+                  "audiofn": "L30"
+                },
+                "l31": {
+                  "title": "Lesson Seven",
+                  "url": "wom/english/wok/l31",
+                  "audiofn": "L31"
+                },
+                "l32": {
+                  "title": "Lesson Eight",
+                  "url": "wom/english/wok/l32",
+                  "audiofn": "L32"
+                },
+                "l33": {
+                  "title": "Lesson Nine",
+                  "url": "wom/english/wok/l33",
+                  "audiofn": "L33"
+                },
+                "l34": {
+                  "title": "Lesson Ten",
+                  "url": "wom/english/wok/l34",
+                  "audiofn": "L34"
+                },
+                "l35": {
+                  "title": "Lesson Eleven",
+                  "url": "wom/english/wok/l35",
+                  "audiofn": "L35"
+                }
+              }
+            },
+            "wos": {
+              "title": "Way of the Servant",
+              "description": "A poetic description of the journey of awakening",
+              "image": "/images/covers/wom/wos.jpg",
+              "units": [
+                "foreword",
+                "preface",
+                "chap01",
+                "chap02",
+                "chap03",
+                "chap04",
+                "afterwords",
+                "epilog",
+                "prayer"
+              ],
+              "unitInfo": {
+                "foreword": {
+                  "title": "Foreword",
+                  "url": "wom/english/wos/foreword"
+                },
+                "preface": {
+                  "title": "Preface",
+                  "url": "wom/english/wos/preface",
+                  "audiofn": "preface"
+                },
+                "chap01": {
+                  "title": "Book One",
+                  "url": "wom/english/wos/chap01",
+                  "audiofn": "chap01"
+                },
+                "chap02": {
+                  "title": "Book Two",
+                  "url": "wom/english/wos/chap02",
+                  "audiofn": "chap02"
+                },
+                "chap03": {
+                  "title": "Book Three",
+                  "url": "wom/english/wos/chap03",
+                  "audiofn": "chap03"
+                },
+                "chap04": {
+                  "title": "Book Four",
+                  "url": "wom/english/wos/chap04",
+                  "audiofn": "book4"
+                },
+                "afterwords": {
+                  "title": "After Words",
+                  "url": "wom/english/wos/afterwords",
+                  "audiofn": "afterwords"
+                },
+                "epilog": {
+                  "title": "Epilogue",
+                  "url": "wom/english/wos/epilog",
+                  "audiofn": "epilogue"
+                },
+                "prayer": {
+                  "title": "A Prayer of Remembrance",
+                  "url": "wom/english/wos/prayer"
+                }
+              }
+            },
+            "questions": {
+              "title": "Q&A with Jeshua",
+              "description": "Jeshua answers questions after channeled sessions",
+              "image": "/images/covers/wom/qa.svg",
+              "groups": [
+                "ble",
+                "c2s",
+                "hoe",
+                "com",
+                "dth",
+                "lht",
+                "woh",
+                "wot",
+                "wok"
+              ],
+              "groupInfo": {
+                "ble": {
+                  "title": "The Blessing of Forgiveness",
+                  "image": "/images/covers/wom/ble.svg",
+                  "units": [
+                    "q1",
+                    "q2",
+                    "q3",
+                    "q4"
+                  ],
+                  "unitInfo": {
+                    "q1": {
+                      "title": "Profound Time of Year",
+                      "url": "wom/english/questions/ble/q1"
+                    },
+                    "q2": {
+                      "title": "About Community",
+                      "url": "wom/english/questions/ble/q2"
+                    },
+                    "q3": {
+                      "title": "Co-Creating Christs",
+                      "url": "wom/english/questions/ble/q3"
+                    },
+                    "q4": {
+                      "title": "About 12/12",
+                      "url": "wom/english/questions/ble/q4"
+                    }
+                  }
+                },
+                "c2s": {
+                  "title": "Choose to See",
+                  "image": "/images/covers/wom/c2s.svg",
+                  "units": [
+                    "q1",
+                    "q2",
+                    "q3",
+                    "q4",
+                    "q5"
+                  ],
+                  "unitInfo": {
+                    "q1": {
+                      "title": "Crucifixion and Resurrection",
+                      "url": "wom/english/questions/c2s/q1"
+                    },
+                    "q2": {
+                      "title": "Surrendering to the Holy Spirit",
+                      "url": "wom/english/questions/c2s/q2"
+                    },
+                    "q3": {
+                      "title": "What is my role in bringing Heaven to Earth",
+                      "url": "wom/english/questions/c2s/q3"
+                    },
+                    "q4": {
+                      "title": "Is Christ different from Jeshua?",
+                      "url": "wom/english/questions/c2s/q4"
+                    },
+                    "q5": {
+                      "title": "About Non-physical Reality",
+                      "url": "wom/english/questions/c2s/q5"
+                    }
+                  }
+                },
+                "hoe": {
+                  "title": "Heaven on Earth",
+                  "units": [
+                    "q1",
+                    "q2",
+                    "q3",
+                    "q4"
+                  ],
+                  "unitInfo": {
+                    "q1": {
+                      "title": "Discerning Love from Fear",
+                      "url": "wom/english/questions/hoe/q1"
+                    },
+                    "q2": {
+                      "title": "Hear the sound of your own flute",
+                      "url": "wom/english/questions/hoe/q2"
+                    },
+                    "q3": {
+                      "title": "Living as Christ in the Third Dimension",
+                      "url": "wom/english/questions/hoe/q3"
+                    },
+                    "q4": {
+                      "title": "manifestation",
+                      "url": "wom/english/questions/hoe/q4"
+                    }
+                  }
+                },
+                "com": {
+                  "title": "Mastering Communication",
+                  "units": [
+                    "q1"
+                  ],
+                  "unitInfo": {
+                    "q1": {
+                      "title": "Mastering Communication - Question One",
+                      "url": "wom/english/questions/com/q1",
+                      "contents": "early"
+                    }
+                  }
+                },
+                "dth": {
+                  "title": "Death and Earth Changes",
+                  "units": [
+                    "q1",
+                    "q2",
+                    "q3",
+                    "q4",
+                    "q5",
+                    "q6",
+                    "q7",
+                    "q8",
+                    "q9",
+                    "q10"
+                  ],
+                  "unitInfo": {
+                    "q1": {
+                      "title": "Wars and Rumors of Wars",
+                      "url": "wom/english/questions/dth/q1"
+                    },
+                    "q2": {
+                      "title": "Will Physical Change Happen on the Planet?",
+                      "url": "wom/english/questions/dth/q2"
+                    },
+                    "q3": {
+                      "title": "What is the role of Shanti Christo?",
+                      "url": "wom/english/questions/dth/q3"
+                    },
+                    "q4": {
+                      "title": "Will there be three days of darkness?",
+                      "url": "wom/english/questions/dth/q4"
+                    },
+                    "q5": {
+                      "title": "Does Individuality Exist?",
+                      "url": "wom/english/questions/dth/q5"
+                    },
+                    "q6": {
+                      "title": "About Death",
+                      "url": "wom/english/questions/dth/q6"
+                    },
+                    "q7": {
+                      "title": "Passing through a tunnel at death.",
+                      "url": "wom/english/questions/dth/q7"
+                    },
+                    "q8": {
+                      "title": "Is God Self-Aware?",
+                      "url": "wom/english/questions/dth/q8"
+                    },
+                    "q9": {
+                      "title": "Is there a force outside of God?",
+                      "url": "wom/english/questions/dth/q9"
+                    },
+                    "q10": {
+                      "title": "About Shanti Christo",
+                      "url": "wom/english/questions/dth/q10"
+                    }
+                  }
+                },
+                "lht": {
+                  "title": "Love Heals All Things",
+                  "units": [
+                    "q1",
+                    "q2",
+                    "q3",
+                    "q4",
+                    "q5",
+                    "q6",
+                    "q7",
+                    "q8"
+                  ],
+                  "unitInfo": {
+                    "q1": {
+                      "title": "Words are symbols of symbols",
+                      "url": "wom/english/questions/lht/q1"
+                    },
+                    "q2": {
+                      "title": "Why all the pain?",
+                      "url": "wom/english/questions/lht/q2"
+                    },
+                    "q3": {
+                      "title": "What is the Answer to Planetary Problems?",
+                      "url": "wom/english/questions/lht/q3"
+                    },
+                    "q4": {
+                      "title": "Manifestation of Disease",
+                      "url": "wom/english/questions/lht/q4",
+                      "contents": "early"
+                    },
+                    "q5": {
+                      "title": "How to open to creativity.",
+                      "url": "wom/english/questions/lht/q5"
+                    },
+                    "q6": {
+                      "title": "What blocks me from using my artistic ability?",
+                      "url": "wom/english/questions/lht/q6"
+                    },
+                    "q7": {
+                      "title": "The Father will take the final step",
+                      "url": "wom/english/questions/lht/q7"
+                    },
+                    "q8": {
+                      "title": "Q&A Wrap Up",
+                      "url": "wom/english/questions/lht/q8"
+                    }
+                  }
+                },
+                "woh": {
+                  "title": "The Way of the Heart",
+                  "units": [
+                    "h1q1",
+                    "h1q2",
+                    "h1q3",
+                    "h2q1",
+                    "h2q2",
+                    "h6q1",
+                    "h6q2",
+                    "h6q3",
+                    "h7q1",
+                    "h7q2",
+                    "h7q3",
+                    "h7q4",
+                    "h7q5",
+                    "h8q1",
+                    "h8q2",
+                    "h9q1",
+                    "h10q1",
+                    "h10q2",
+                    "h10q3",
+                    "h11q1",
+                    "h11q2",
+                    "h11q3",
+                    "h12q1",
+                    "h12q2",
+                    "h12q3"
+                  ],
+                  "unitInfo": {
+                    "h1q1": {
+                      "title": "Lesson One: What motivates you?",
+                      "url": "wom/english/questions/woh/h1q1"
+                    },
+                    "h1q2": {
+                      "title": "Lesson One: Role of Sexuality in Spirituality",
+                      "url": "wom/english/questions/woh/h1q2"
+                    },
+                    "h1q3": {
+                      "title": "Lesson One: What needs to occur for bodily healing?",
+                      "url": "wom/english/questions/woh/h1q3"
+                    },
+                    "h2q1": {
+                      "title": "Lesson Two: Forty Days and Forty Nights",
+                      "url": "wom/english/questions/woh/h2q1"
+                    },
+                    "h2q2": {
+                      "title": "Lesson Two: Messages from Mary",
+                      "url": "wom/english/questions/woh/h2q2"
+                    },
+                    "h6q1": {
+                      "title": "Lesson Six: How to Integrate Breath Work",
+                      "url": "wom/english/questions/woh/h6q1"
+                    },
+                    "h6q2": {
+                      "title": "Lesson Six: Is there a need to work with the dark side?",
+                      "url": "wom/english/questions/woh/h6q2"
+                    },
+                    "h6q3": {
+                      "title": "Lesson Six: Feel Fully",
+                      "url": "wom/english/questions/woh/h6q3"
+                    },
+                    "h7q1": {
+                      "title": "Lesson Seven: What does it mean to be a servant of God?",
+                      "url": "wom/english/questions/woh/h7q1",
+                      "contents": "woh"
+                    },
+                    "h7q2": {
+                      "title": "Lesson Seven: Twin Flame and Soul Mate",
+                      "url": "wom/english/questions/woh/h7q2",
+                      "contents": "woh"
+                    },
+                    "h7q3": {
+                      "title": "Lesson Seven: Unconscious Blocks",
+                      "url": "wom/english/questions/woh/h7q3"
+                    },
+                    "h7q4": {
+                      "title": "Lesson Seven: Discipline and Self Control",
+                      "url": "wom/english/questions/woh/h7q4"
+                    },
+                    "h7q5": {
+                      "title": "Lesson Seven: Message to New Age and Pentecostal Movements",
+                      "url": "wom/english/questions/woh/h7q5"
+                    },
+                    "h8q1": {
+                      "title": "Lesson Eight: The Holy Spirit",
+                      "url": "wom/english/questions/woh/h8q1"
+                    },
+                    "h8q2": {
+                      "title": "Lesson Eight: Need for Healing and Accepting Self",
+                      "url": "wom/english/questions/woh/h8q2"
+                    },
+                    "h9q1": {
+                      "title": "Lesson Nine: Asking forgiveness of self",
+                      "url": "wom/english/questions/woh/h9q1"
+                    },
+                    "h10q1": {
+                      "title": "Lesson Ten: Importance of Natal Charts",
+                      "url": "wom/english/questions/woh/h10q1"
+                    },
+                    "h10q2": {
+                      "title": "Lesson Ten: Symbolism of a Cross of Light",
+                      "url": "wom/english/questions/woh/h10q2"
+                    },
+                    "h10q3": {
+                      "title": "Lesson Ten: Spiral of Growth",
+                      "url": "wom/english/questions/woh/h10q3"
+                    },
+                    "h11q1": {
+                      "title": "Lesson Eleven: Responsibility fo the Poor and Oppressed",
+                      "url": "wom/english/questions/woh/h11q1"
+                    },
+                    "h11q2": {
+                      "title": "Lesson Eleven: Helping Others",
+                      "url": "wom/english/questions/woh/h11q2"
+                    },
+                    "h11q3": {
+                      "title": "Lesson Eleven: Teaching Children",
+                      "url": "wom/english/questions/woh/h11q3"
+                    },
+                    "h12q1": {
+                      "title": "Lesson Twelve: Why hast Thou Forsaken Me?",
+                      "url": "wom/english/questions/woh/h12q1"
+                    },
+                    "h12q2": {
+                      "title": "Lesson Twelve: Mary Magdalene",
+                      "url": "wom/english/questions/woh/h12q2"
+                    },
+                    "h12q3": {
+                      "title": "Lesson Twelve: About Channeling St. Germain",
+                      "url": "wom/english/questions/woh/h12q3"
+                    }
+                  }
+                },
+                "wot": {
+                  "title": "The Way of Transformation",
+                  "units": [
+                    "t1q1",
+                    "t1q2",
+                    "t6q1",
+                    "t6q2",
+                    "t7q1",
+                    "t9q1",
+                    "t9q2",
+                    "t9q3",
+                    "t9q4",
+                    "t11q1",
+                    "t11q2",
+                    "t11q3"
+                  ],
+                  "unitInfo": {
+                    "t1q1": {
+                      "title": "Lesson One: Other Masters",
+                      "url": "wom/english/questions/wot/t1q1"
+                    },
+                    "t1q2": {
+                      "title": "Lesson One: Judging and Discernin",
+                      "url": "wom/english/questions/wot/t1q2"
+                    },
+                    "t6q1": {
+                      "title": "Lesson Six: Vulnerability and invulnerability",
+                      "url": "wom/english/questions/wot/t6q1"
+                    },
+                    "t6q2": {
+                      "title": "Lesson Six: Message of the Cross",
+                      "url": "wom/english/questions/wot/t6q2"
+                    },
+                    "t7q1": {
+                      "title": "Lesson Seven: Healing",
+                      "url": "wom/english/questions/wot/t7q1"
+                    },
+                    "t9q1": {
+                      "title": "Lesson Nine: True Guidance",
+                      "url": "wom/english/questions/wot/t9q1"
+                    },
+                    "t9q2": {
+                      "title": "Lesson Nine: All Events are Neutral",
+                      "url": "wom/english/questions/wot/t9q2"
+                    },
+                    "t9q3": {
+                      "title": "Lesson Nine: Living as Christ in the Body",
+                      "url": "wom/english/questions/wot/t9q3"
+                    },
+                    "t9q4": {
+                      "title": "Lesson Nine: Up and Out",
+                      "url": "wom/english/questions/wot/t9q4"
+                    },
+                    "t11q1": {
+                      "title": "Lesson Eleven: Do we have a unique purpose?",
+                      "url": "wom/english/questions/wot/t11q1"
+                    },
+                    "t11q2": {
+                      "title": "Lesson Eleven: What is the Lineage?",
+                      "url": "wom/english/questions/wot/t11q2"
+                    },
+                    "t11q3": {
+                      "title": "Lesson Eleven: Specialness and Holiness in Sexuality",
+                      "url": "wom/english/questions/wot/t11q3"
+                    }
+                  }
+                },
+                "wok": {
+                  "title": "The Way of Knowing",
+                  "units": [
+                    "k3q1",
+                    "k3q2",
+                    "k4q1",
+                    "k4q2",
+                    "k6q1",
+                    "k6q2",
+                    "k10q1",
+                    "k10q2"
+                  ],
+                  "unitInfo": {
+                    "k3q1": {
+                      "title": "Lesson Three: Source for Love",
+                      "url": "wom/english/questions/wok/k3q1"
+                    },
+                    "k3q2": {
+                      "title": "Lesson Three: Guidance of the Holy Spirit",
+                      "url": "wom/english/questions/wok/k3q2"
+                    },
+                    "k4q1": {
+                      "title": "Lesson Four: Great Rays of Light",
+                      "url": "wom/english/questions/wok/k4q1"
+                    },
+                    "k4q2": {
+                      "title": "Lesson Four: Differentiation and Enlightenment",
+                      "url": "wom/english/questions/wok/k4q2"
+                    },
+                    "k6q1": {
+                      "title": "Lesson Six: Joy and Pleasure ",
+                      "url": "wom/english/questions/wok/k6q1"
+                    },
+                    "k6q2": {
+                      "title": "Lesson Six: About Shanti Christo",
+                      "url": "wom/english/questions/wok/k6q2"
+                    },
+                    "k10q1": {
+                      "title": "Lesson Ten: The Bible Codes",
+                      "url": "wom/english/questions/wok/k10q1"
+                    },
+                    "k10q2": {
+                      "title": "Lesson Ten: Free Will of Children",
+                      "url": "wom/english/questions/wok/k10q2"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "polish": {
+          "title": "Droga Mistrzostwa",
+          "description": "Witamy na Drodze Mistrzostwa",
+          "image": "/images/covers/site/pwom.jpg",
+          "prompts": {
+            "explore_collection": "Eksploruj Kolekcję",
+            "explore_book": "Eksploruj Książkę",
+            "table_of_contents": "Spis Treści",
+            "back_to": "Powrót do"
+          },
+          "books": [
+            "lj",
+            "wos",
+            "early",
+            "early2",
+            "early3",
+            "woh",
+            "wot",
+            "wok",
+            "questions"
+          ],
+          "bookInfo": {
+            "lj": {
+              "title": "Listy Jeszuy",
+              "image": "/images/covers/pwom/lj.jpg",
+              "units": [
+                "acknow",
+                "reader",
+                "forwd",
+                "intr",
+                "chap01",
+                "chap02",
+                "chap03",
+                "chap04",
+                "chap05",
+                "chap06",
+                "chap07",
+                "chap08",
+                "chap09",
+                "chap10",
+                "chap11",
+                "chap12",
+                "eplg"
+              ],
+              "unitInfo": {
+                "acknow": {
+                  "title": "Podziękowania",
+                  "url": "wom/polish/lj/acknow"
+                },
+                "reader": {
+                  "title": "Do czytelnika",
+                  "url": "wom/polish/lj/reader"
+                },
+                "forwd": {
+                  "title": "Przedmowa Alana Cohena",
+                  "url": "wom/polish/lj/forwd"
+                },
+                "intr": {
+                  "title": "Wstęp",
+                  "url": "wom/polish/lj/intr"
+                },
+                "chap01": {
+                  "title": "Rozdział pierwszy",
+                  "url": "wom/polish/lj/chap01"
+                },
+                "chap02": {
+                  "title": "Rozdział drugi",
+                  "url": "wom/polish/lj/chap02"
+                },
+                "chap03": {
+                  "title": "Rozdział trzeci",
+                  "url": "wom/polish/lj/chap03"
+                },
+                "chap04": {
+                  "title": "Rozdział czwarty",
+                  "url": "wom/polish/lj/chap04"
+                },
+                "chap05": {
+                  "title": "Rozdział piąty",
+                  "url": "wom/polish/lj/chap05"
+                },
+                "chap06": {
+                  "title": "Rozdział szósty",
+                  "url": "wom/polish/lj/chap06"
+                },
+                "chap07": {
+                  "title": "Rozdział siódmy",
+                  "url": "wom/polish/lj/chap07"
+                },
+                "chap08": {
+                  "title": "Rozdział ósmy",
+                  "url": "wom/polish/lj/chap08"
+                },
+                "chap09": {
+                  "title": "Rozdział dziewiąty",
+                  "url": "wom/polish/lj/chap09"
+                },
+                "chap10": {
+                  "title": "Rozdział dziesiąty",
+                  "url": "wom/polish/lj/chap10"
+                },
+                "chap11": {
+                  "title": "Rozdział jedenasty",
+                  "url": "wom/polish/lj/chap11"
+                },
+                "chap12": {
+                  "title": "Rozdział dwunasty",
+                  "url": "wom/polish/lj/chap12"
+                },
+                "eplg": {
+                  "title": "Epilog",
+                  "url": "wom/polish/lj/eplg"
+                }
+              }
+            },
+            "wos": {
+              "title": "Droga Sługi",
+              "image": "/images/covers/pwom/wos.jpg",
+              "units": [
+                "intr",
+                "chap01",
+                "chap02",
+                "chap03",
+                "chap04",
+                "aftwrd",
+                "eplg",
+                "prayer"
+              ],
+              "unitInfo": {
+                "intr": {
+                  "title": "Wstęp",
+                  "url": "wom/polish/wos/intr"
+                },
+                "chap01": {
+                  "title": "Księga Pierwsza",
+                  "url": "wom/polish/wos/chap01"
+                },
+                "chap02": {
+                  "title": "Księga druga",
+                  "url": "wom/polish/wos/chap02"
+                },
+                "chap03": {
+                  "title": "Księga trzecia",
+                  "url": "wom/polish/wos/chap03"
+                },
+                "chap04": {
+                  "title": "Księga czwarta",
+                  "url": "wom/polish/wos/chap04"
+                },
+                "aftwrd": {
+                  "title": "Posłowie",
+                  "url": "wom/polish/wos/aftwrd"
+                },
+                "eplg": {
+                  "title": "Epilog",
+                  "url": "wom/polish/wos/eplg"
+                },
+                "prayer": {
+                  "title": "Modlitwa Przypomnienia",
+                  "url": "wom/polish/wos/prayer"
+                }
+              }
+            },
+            "early": {
+              "title": "Wczesne lata Drogi Mistrzostwa, Tom 1",
+              "image": "/images/covers/pwom/early.jpg",
+              "units": [
+                "intr",
+                "chap01",
+                "chap02",
+                "chap03",
+                "chap04",
+                "chap05",
+                "chap06",
+                "chap07",
+                "chap08",
+                "chap09",
+                "chap10"
+              ],
+              "unitInfo": {
+                "intr": {
+                  "title": "Wstęp",
+                  "url": "wom/polish/early/intr"
+                },
+                "chap01": {
+                  "title": "Miłość uzdrawia wszystko",
+                  "url": "wom/polish/early/chap01"
+                },
+                "chap02": {
+                  "title": "Mistrzostwo komunikacji",
+                  "url": "wom/polish/early/chap02"
+                },
+                "chap03": {
+                  "title": "Błogosławieństwo przebaczenia",
+                  "url": "wom/polish/early/chap03"
+                },
+                "chap04": {
+                  "title": "Błogość niewiedzy",
+                  "url": "wom/polish/early/chap04"
+                },
+                "chap05": {
+                  "title": "Święta chwila",
+                  "url": "wom/polish/early/chap05"
+                },
+                "chap06": {
+                  "title": "Boska Kobiecość",
+                  "url": "wom/polish/early/chap06"
+                },
+                "chap07": {
+                  "title": "Znaczenie Wniebowstąpienia",
+                  "url": "wom/polish/early/chap07"
+                },
+                "chap08": {
+                  "title": "Niebo na Ziemi",
+                  "url": "wom/polish/early/chap08"
+                },
+                "chap09": {
+                  "title": "Śmierć i zmiany na Ziemi",
+                  "url": "wom/polish/early/chap09"
+                },
+                "chap10": {
+                  "title": "Chodź ze mną",
+                  "url": "wom/polish/early/chap10"
+                }
+              }
+            },
+            "early2": {
+              "title": "Wczesne lata Drogi Mistrzostwa, Tom 2",
+              "image": "/images/covers/pwom/early2.jpg",
+              "units": [
+                "intr",
+                "chap01",
+                "chap02",
+                "chap03",
+                "chap04",
+                "chap05",
+                "chap06",
+                "chap07",
+                "chap08",
+                "chap09"
+              ],
+              "unitInfo": {
+                "intr": {
+                  "title": "Wstęp",
+                  "url": "wom/polish/early2/intr"
+                },
+                "chap01": {
+                  "title": "Postanów widzieć",
+                  "url": "wom/polish/early2/chap01"
+                },
+                "chap02": {
+                  "title": "Chap02",
+                  "url": "wom/polish/early2/chap02",
+                  "Title": "Stań się mistrzem czasu"
+                },
+                "chap03": {
+                  "title": "Chap03",
+                  "url": "wom/polish/early2/chap03",
+                  "Title": "Zdecyduj się być Chrystusem"
+                },
+                "chap04": {
+                  "title": "Chap04",
+                  "url": "wom/polish/early2/chap04",
+                  "Title": "Uzdrawianie"
+                },
+                "chap05": {
+                  "title": "Chap05",
+                  "url": "wom/polish/early2/chap05",
+                  "Title": "Duch Święty"
+                },
+                "chap06": {
+                  "title": "Chap06",
+                  "url": "wom/polish/early2/chap06",
+                  "Title": "Przebudzenie"
+                },
+                "chap07": {
+                  "title": "Chap07",
+                  "url": "wom/polish/early2/chap07",
+                  "Title": "Radość I"
+                },
+                "chap08": {
+                  "title": "Chap08",
+                  "url": "wom/polish/early2/chap08",
+                  "Title": "Radość II"
+                },
+                "chap09": {
+                  "title": "Chap09",
+                  "url": "wom/polish/early2/chap09",
+                  "Title": "Łaska jako Rzeczywistość"
+                }
+              }
+            },
+            "early3": {
+              "title": "Wczesne lata Drogi Mistrzostwa, Tom 3",
+              "image": "/images/covers/pwom/early3.png",
+              "units": [
+                "intr",
+                "chap01",
+                "chap02",
+                "chap03",
+                "chap04",
+                "chap05",
+                "chap06",
+                "chap07",
+                "chap08",
+                "chap09",
+                "chap10",
+                "chap11",
+                "chap12",
+                "chap13"
+              ],
+              "unitInfo": {
+                "intr": {
+                  "title": "Wstęp",
+                  "url": "wom/polish/early3/intr"
+                },
+                "chap01": {
+                  "title": "Uzdrawianie iluzji zranienia",
+                  "url": "wom/polish/early3/chap01"
+                },
+                "chap02": {
+                  "title": "Wielkanoc",
+                  "url": "wom/polish/early3/chap02"
+                },
+                "chap03": {
+                  "title": "Wolność i przebaczenie",
+                  "url": "wom/polish/early3/chap03"
+                },
+                "chap04": {
+                  "title": "Oto teraz cel mego życia jest przede mną",
+                  "url": "wom/polish/early3/chap04"
+                },
+                "chap05": {
+                  "title": "Cel istnienia świata",
+                  "url": "wom/polish/early3/chap05"
+                },
+                "chap06": {
+                  "title": "Czas świętowania",
+                  "url": "wom/polish/early3/chap06"
+                },
+                "chap07": {
+                  "title": "Światło, którym jesteś",
+                  "url": "wom/polish/early3/chap07"
+                },
+                "chap08": {
+                  "title": "Pokój",
+                  "url": "wom/polish/early3/chap08"
+                },
+                "chap09": {
+                  "title": "Postrzeganie",
+                  "url": "wom/polish/early3/chap09"
+                },
+                "chap10": {
+                  "title": "Bliski jest kres poszukiwań",
+                  "url": "wom/polish/early3/chap10"
+                },
+                "chap11": {
+                  "title": "Uzdrawianie miłością siebie samego",
+                  "url": "wom/polish/early3/chap11"
+                },
+                "chap12": {
+                  "title": "Święty związek",
+                  "url": "wom/polish/early3/chap12"
+                },
+                "chap13": {
+                  "title": "Nauczaj jedynie Miłości",
+                  "url": "wom/polish/early3/chap13"
+                }
+              }
+            },
+            "woh": {
+              "title": "Droga Serca",
+              "image": "/images/covers/pwom/woh.jpg",
+              "units": [
+                "preface",
+                "l01",
+                "l02",
+                "l03",
+                "l04",
+                "l05",
+                "l06",
+                "l07",
+                "l08",
+                "l09",
+                "l10",
+                "l11",
+                "l12",
+                "path"
+              ],
+              "unitInfo": {
+                "preface": {
+                  "title": "Przedmowa",
+                  "url": "wom/polish/woh/preface"
+                },
+                "l01": {
+                  "title": "Lekcja 1",
+                  "url": "wom/polish/woh/l01",
+                  "audiofn": "l01"
+                },
+                "l02": {
+                  "title": "Lekcja 2",
+                  "url": "wom/polish/woh/l02",
+                  "audiofn": "l02"
+                },
+                "l03": {
+                  "title": "Lekcja 3",
+                  "url": "wom/polish/woh/l03",
+                  "audiofn": "l03"
+                },
+                "l04": {
+                  "title": "Lekcja 4",
+                  "url": "wom/polish/woh/l04",
+                  "audiofn": "l04"
+                },
+                "l05": {
+                  "title": "Lekcja 5",
+                  "url": "wom/polish/woh/l05",
+                  "audiofn": "l05"
+                },
+                "l06": {
+                  "title": "Lekcja 6",
+                  "url": "wom/polish/woh/l06",
+                  "audiofn": "l06"
+                },
+                "l07": {
+                  "title": "Lekcja 7",
+                  "url": "wom/polish/woh/l07",
+                  "audiofn": "l07"
+                },
+                "l08": {
+                  "title": "Lekcja 8",
+                  "url": "wom/polish/woh/l08",
+                  "audiofn": "l08"
+                },
+                "l09": {
+                  "title": "Lekcja 9",
+                  "url": "wom/polish/woh/l09",
+                  "audiofn": "l09"
+                },
+                "l10": {
+                  "title": "Lekcja 10",
+                  "url": "wom/polish/woh/l10",
+                  "audiofn": "l10"
+                },
+                "l11": {
+                  "title": "Lekcja 11",
+                  "url": "wom/polish/woh/l11",
+                  "audiofn": "l11"
+                },
+                "l12": {
+                  "title": "Lekcja 12",
+                  "url": "wom/polish/woh/l12",
+                  "audiofn": "l12"
+                },
+                "path": {
+                  "title": "Ścieżka Drogi Mistrzostwa",
+                  "url": "wom/polish/woh/path"
+                }
+              }
+            },
+            "wot": {
+              "title": "Droga Przemiany",
+              "image": "/images/covers/pwom/wot.jpg",
+              "units": [
+                "preface",
+                "l01",
+                "l02",
+                "l03",
+                "l04",
+                "l05",
+                "l06",
+                "l07",
+                "l08",
+                "l09",
+                "l10",
+                "l11",
+                "l12"
+              ],
+              "unitInfo": {
+                "preface": {
+                  "title": "Przedmowa",
+                  "url": "wom/polish/wot/preface"
+                },
+                "l01": {
+                  "title": "Lekcja 1",
+                  "url": "wom/polish/wot/l01",
+                  "audiofn": "l01"
+                },
+                "l02": {
+                  "title": "Lekcja 2",
+                  "url": "wom/polish/wot/l02",
+                  "audiofn": "l02"
+                },
+                "l03": {
+                  "title": "Lekcja 3",
+                  "url": "wom/polish/wot/l03",
+                  "audiofn": "l03"
+                },
+                "l04": {
+                  "title": "Lekcja 4",
+                  "url": "wom/polish/wot/l04",
+                  "audiofn": "l04"
+                },
+                "l05": {
+                  "title": "Lekcja 5",
+                  "url": "wom/polish/wot/l05",
+                  "audiofn": "l05"
+                },
+                "l06": {
+                  "title": "Lekcja 6",
+                  "url": "wom/polish/wot/l06",
+                  "audiofn": "l06"
+                },
+                "l07": {
+                  "title": "Lekcja 7",
+                  "url": "wom/polish/wot/l07",
+                  "audiofn": "l07"
+                },
+                "l08": {
+                  "title": "Lekcja 8",
+                  "url": "wom/polish/wot/l08",
+                  "audiofn": "l08"
+                },
+                "l09": {
+                  "title": "Lekcja 9",
+                  "url": "wom/polish/wot/l09",
+                  "audiofn": "l09"
+                },
+                "l10": {
+                  "title": "Lekcja 10",
+                  "url": "wom/polish/wot/l10",
+                  "audiofn": "l10"
+                },
+                "l11": {
+                  "title": "Lekcja 11",
+                  "url": "wom/polish/wot/l11",
+                  "audiofn": "l11"
+                },
+                "l12": {
+                  "title": "Lekcja 12",
+                  "url": "wom/polish/wot/l12",
+                  "audiofn": "l12"
+                }
+              }
+            },
+            "wok": {
+              "title": "Droga Poznania",
+              "image": "/images/covers/pwom/wok.jpg",
+              "units": [
+                "preface",
+                "l01",
+                "l02",
+                "l03",
+                "l04",
+                "l05",
+                "l06",
+                "l07",
+                "l08",
+                "l09",
+                "l10",
+                "l11"
+              ],
+              "unitInfo": {
+                "preface": {
+                  "title": "Przedmowa",
+                  "url": "wom/polish/wok/preface"
+                },
+                "l01": {
+                  "title": "Lekcja 1",
+                  "url": "wom/polish/wok/l01",
+                  "audiofn": "l01"
+                },
+                "l02": {
+                  "title": "Lekcja 2",
+                  "url": "wom/polish/wok/l02",
+                  "audiofn": "l02"
+                },
+                "l03": {
+                  "title": "Lekcja 3",
+                  "url": "wom/polish/wok/l03",
+                  "audiofn": "l03"
+                },
+                "l04": {
+                  "title": "Lekcja 4",
+                  "url": "wom/polish/wok/l04",
+                  "audiofn": "l04"
+                },
+                "l05": {
+                  "title": "Lekcja 5",
+                  "url": "wom/polish/wok/l05",
+                  "audiofn": "l05"
+                },
+                "l06": {
+                  "title": "Lekcja 6",
+                  "url": "wom/polish/wok/l06",
+                  "audiofn": "l06"
+                },
+                "l07": {
+                  "title": "Lekcja 7",
+                  "url": "wom/polish/wok/l07",
+                  "audiofn": "l07"
+                },
+                "l08": {
+                  "title": "Lekcja 8",
+                  "url": "wom/polish/wok/l08",
+                  "audiofn": "l08"
+                },
+                "l09": {
+                  "title": "Lekcja 9",
+                  "url": "wom/polish/wok/l09",
+                  "audiofn": "l09"
+                },
+                "l10": {
+                  "title": "Lekcja 10",
+                  "url": "wom/polish/wok/l10",
+                  "audiofn": "l10"
+                },
+                "l11": {
+                  "title": "Lekcja 11",
+                  "url": "wom/polish/wok/l11",
+                  "audiofn": "l11"
+                }
+              }
+            },
+            "questions": {
+              "title": "Questions",
+              "groups": [
+                "early",
+                "early2",
+                "woh",
+                "wok",
+                "wot"
+              ],
+              "groupInfo": {
+                "early": {
+                  "title": "No title",
+                  "units": [],
+                  "unitInfo": {}
+                },
+                "early2": {
+                  "title": "No title",
+                  "units": [],
+                  "unitInfo": {}
+                },
+                "woh": {
+                  "title": "No title",
+                  "units": [],
+                  "unitInfo": {}
+                },
+                "wok": {
+                  "title": "No title",
+                  "units": [],
+                  "unitInfo": {}
+                },
+                "wot": {
+                  "title": "No title",
+                  "units": [],
+                  "unitInfo": {}
+                }
+              }
             }
           }
         }

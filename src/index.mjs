@@ -271,6 +271,19 @@ function processAst(ast, frontmatter) {
 
   visit(ast, (node) => {
     if (node.type === "heading" || node.type === "paragraph") {
+      // Standalone image blocks wrapped in paragraphs should not be assigned sequence IDs or indexed
+      if (node.type === "paragraph" && Array.isArray(node.children)) {
+        const isOnlyImage = node.children.every(
+          (child) =>
+            child.type === "image" ||
+            (child.type === "text" && !child.value.trim()) ||
+            child.type === "html"
+        );
+        if (isOnlyImage && node.children.some((child) => child.type === "image")) {
+          return;
+        }
+      }
+
       const initialText = toString(node).trim();
       if (!initialText) {
         nodesToRemove.add(node);
@@ -337,9 +350,13 @@ function processAst(ast, frontmatter) {
 
       if (!omitFromDb) {
         // Strip <sup> and </sup> tags so they don't go to the database
-        // Also get the fully substituted, stripped plain text of this node
+        // Also strip HTML entities and double spaces, getting the fully substituted clean text
         const nodeText = toString(node).trim();
-        const cleanText = nodeText.replace(/<\/?sup>/gi, "");
+        const cleanText = nodeText
+          .replace(/<\/?sup>/gi, "")
+          .replace(/&[a-z0-9#]+;/gi, " ")
+          .replace(/\s+/g, " ")
+          .trim();
         items.push({
           type,
           key,

@@ -296,6 +296,44 @@
   transition: background-color 0.4s ease;
 }
 
+/* Styled Dropcaps for first letter of a paragraph */
+#cmi-transcript p.dropcap::first-letter {
+  float: left;
+  font-size: 3.25em;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 0.85;
+  margin: 4px 6px 0 0;
+  color: var(--accent-color);
+}
+
+/* Custom Text and Paragraph Alignment Utilities */
+#cmi-transcript .center-text,
+#cmi-transcript p.center-text {
+  text-align: center;
+  text-justify: auto; /* Overrides default inter-word spacing */
+}
+
+#cmi-transcript .right-text,
+#cmi-transcript p.right-text {
+  text-align: right;
+  text-justify: auto;
+}
+
+#cmi-transcript .lead-paragraph,
+#cmi-transcript p.lead-paragraph {
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: var(--text-header);
+}
+
+#cmi-transcript .small-text,
+#cmi-transcript p.small-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
 /* Code and Code Block Styles */
 #cmi-transcript code {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
