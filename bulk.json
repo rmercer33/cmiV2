@@ -1,0 +1,8 @@
+[
+  {
+    "match": "../cmiContent/example/flat/wom/english/questions/**/*.md",
+    "set": {
+      "audiofn": "<basename>"
+    }
+  }
+]

@@ -447,8 +447,7 @@
             "l18": {
               "title": "Lesson Six",
               "url": "wom/english/wot/l18",
-              "audiofn": "l18",
-              "toc": ""
+              "audiofn": "l18"
             },
             "l19": {
               "title": "Lesson Seven",
@@ -646,19 +645,23 @@
               "unitInfo": {
                 "q1": {
                   "title": "Profound Time of Year",
-                  "url": "wom/english/questions/ble/q1"
+                  "url": "wom/english/questions/ble/q1",
+                  "audiofn": "q1"
                 },
                 "q2": {
                   "title": "About Community",
-                  "url": "wom/english/questions/ble/q2"
+                  "url": "wom/english/questions/ble/q2",
+                  "audiofn": "q2"
                 },
                 "q3": {
                   "title": "Co-Creating Christs",
-                  "url": "wom/english/questions/ble/q3"
+                  "url": "wom/english/questions/ble/q3",
+                  "audiofn": "q3"
                 },
                 "q4": {
                   "title": "About 12/12",
-                  "url": "wom/english/questions/ble/q4"
+                  "url": "wom/english/questions/ble/q4",
+                  "audiofn": "q4"
                 }
               }
             },
@@ -675,23 +678,28 @@
               "unitInfo": {
                 "q1": {
                   "title": "Crucifixion and Resurrection",
-                  "url": "wom/english/questions/c2s/q1"
+                  "url": "wom/english/questions/c2s/q1",
+                  "audiofn": "q1"
                 },
                 "q2": {
                   "title": "Surrendering to the Holy Spirit",
-                  "url": "wom/english/questions/c2s/q2"
+                  "url": "wom/english/questions/c2s/q2",
+                  "audiofn": "q2"
                 },
                 "q3": {
                   "title": "What is my role in bringing Heaven to Earth",
-                  "url": "wom/english/questions/c2s/q3"
+                  "url": "wom/english/questions/c2s/q3",
+                  "audiofn": "q3"
                 },
                 "q4": {
                   "title": "Is Christ different from Jeshua?",
-                  "url": "wom/english/questions/c2s/q4"
+                  "url": "wom/english/questions/c2s/q4",
+                  "audiofn": "q4"
                 },
                 "q5": {
                   "title": "About Non-physical Reality",
-                  "url": "wom/english/questions/c2s/q5"
+                  "url": "wom/english/questions/c2s/q5",
+                  "audiofn": "q5"
                 }
               }
             },
@@ -706,19 +714,23 @@
               "unitInfo": {
                 "q1": {
                   "title": "Discerning Love from Fear",
-                  "url": "wom/english/questions/hoe/q1"
+                  "url": "wom/english/questions/hoe/q1",
+                  "audiofn": "q1"
                 },
                 "q2": {
                   "title": "Hear the sound of your own flute",
-                  "url": "wom/english/questions/hoe/q2"
+                  "url": "wom/english/questions/hoe/q2",
+                  "audiofn": "q2"
                 },
                 "q3": {
                   "title": "Living as Christ in the Third Dimension",
-                  "url": "wom/english/questions/hoe/q3"
+                  "url": "wom/english/questions/hoe/q3",
+                  "audiofn": "q3"
                 },
                 "q4": {
                   "title": "manifestation",
-                  "url": "wom/english/questions/hoe/q4"
+                  "url": "wom/english/questions/hoe/q4",
+                  "audiofn": "q4"
                 }
               }
             },
@@ -731,7 +743,7 @@
                 "q1": {
                   "title": "Mastering Communication - Question One",
                   "url": "wom/english/questions/com/q1",
-                  "contents": "early"
+                  "audiofn": "q1"
                 }
               }
             },
@@ -752,43 +764,53 @@
               "unitInfo": {
                 "q1": {
                   "title": "Wars and Rumors of Wars",
-                  "url": "wom/english/questions/dth/q1"
+                  "url": "wom/english/questions/dth/q1",
+                  "audiofn": "q1"
                 },
                 "q2": {
                   "title": "Will Physical Change Happen on the Planet?",
-                  "url": "wom/english/questions/dth/q2"
+                  "url": "wom/english/questions/dth/q2",
+                  "audiofn": "q2"
                 },
                 "q3": {
                   "title": "What is the role of Shanti Christo?",
-                  "url": "wom/english/questions/dth/q3"
+                  "url": "wom/english/questions/dth/q3",
+                  "audiofn": "q3"
                 },
                 "q4": {
                   "title": "Will there be three days of darkness?",
-                  "url": "wom/english/questions/dth/q4"
+                  "url": "wom/english/questions/dth/q4",
+                  "audiofn": "q4"
                 },
                 "q5": {
                   "title": "Does Individuality Exist?",
-                  "url": "wom/english/questions/dth/q5"
+                  "url": "wom/english/questions/dth/q5",
+                  "audiofn": "q5"
                 },
                 "q6": {
                   "title": "About Death",
-                  "url": "wom/english/questions/dth/q6"
+                  "url": "wom/english/questions/dth/q6",
+                  "audiofn": "q6"
                 },
                 "q7": {
                   "title": "Passing through a tunnel at death.",
-                  "url": "wom/english/questions/dth/q7"
+                  "url": "wom/english/questions/dth/q7",
+                  "audiofn": "q7"
                 },
                 "q8": {
                   "title": "Is God Self-Aware?",
-                  "url": "wom/english/questions/dth/q8"
+                  "url": "wom/english/questions/dth/q8",
+                  "audiofn": "q8"
                 },
                 "q9": {
                   "title": "Is there a force outside of God?",
-                  "url": "wom/english/questions/dth/q9"
+                  "url": "wom/english/questions/dth/q9",
+                  "audiofn": "q9"
                 },
                 "q10": {
                   "title": "About Shanti Christo",
-                  "url": "wom/english/questions/dth/q10"
+                  "url": "wom/english/questions/dth/q10",
+                  "audiofn": "q10"
                 }
               }
             },
@@ -807,36 +829,43 @@
               "unitInfo": {
                 "q1": {
                   "title": "Words are symbols of symbols",
-                  "url": "wom/english/questions/lht/q1"
+                  "url": "wom/english/questions/lht/q1",
+                  "audiofn": "q1"
                 },
                 "q2": {
                   "title": "Why all the pain?",
-                  "url": "wom/english/questions/lht/q2"
+                  "url": "wom/english/questions/lht/q2",
+                  "audiofn": "q2"
                 },
                 "q3": {
                   "title": "What is the Answer to Planetary Problems?",
-                  "url": "wom/english/questions/lht/q3"
+                  "url": "wom/english/questions/lht/q3",
+                  "audiofn": "q3"
                 },
                 "q4": {
                   "title": "Manifestation of Disease",
                   "url": "wom/english/questions/lht/q4",
-                  "contents": "early"
+                  "audiofn": "q4"
                 },
                 "q5": {
                   "title": "How to open to creativity.",
-                  "url": "wom/english/questions/lht/q5"
+                  "url": "wom/english/questions/lht/q5",
+                  "audiofn": "q5"
                 },
                 "q6": {
                   "title": "What blocks me from using my artistic ability?",
-                  "url": "wom/english/questions/lht/q6"
+                  "url": "wom/english/questions/lht/q6",
+                  "audiofn": "q6"
                 },
                 "q7": {
                   "title": "The Father will take the final step",
-                  "url": "wom/english/questions/lht/q7"
+                  "url": "wom/english/questions/lht/q7",
+                  "audiofn": "q7"
                 },
                 "q8": {
                   "title": "Q&A Wrap Up",
-                  "url": "wom/english/questions/lht/q8"
+                  "url": "wom/english/questions/lht/q8",
+                  "audiofn": "q8"
                 }
               }
             },
@@ -872,105 +901,130 @@
               "unitInfo": {
                 "h1q1": {
                   "title": "Lesson One: What motivates you?",
-                  "url": "wom/english/questions/woh/h1q1"
+                  "url": "wom/english/questions/woh/h1q1",
+                  "audiofn": "h1q1"
                 },
                 "h1q2": {
                   "title": "Lesson One: Role of Sexuality in Spirituality",
-                  "url": "wom/english/questions/woh/h1q2"
+                  "url": "wom/english/questions/woh/h1q2",
+                  "audiofn": "h1q2"
                 },
                 "h1q3": {
                   "title": "Lesson One: What needs to occur for bodily healing?",
-                  "url": "wom/english/questions/woh/h1q3"
+                  "url": "wom/english/questions/woh/h1q3",
+                  "audiofn": "h1q3"
                 },
                 "h2q1": {
                   "title": "Lesson Two: Forty Days and Forty Nights",
-                  "url": "wom/english/questions/woh/h2q1"
+                  "url": "wom/english/questions/woh/h2q1",
+                  "audiofn": "h2q1"
                 },
                 "h2q2": {
                   "title": "Lesson Two: Messages from Mary",
-                  "url": "wom/english/questions/woh/h2q2"
+                  "url": "wom/english/questions/woh/h2q2",
+                  "audiofn": "h2q2"
                 },
                 "h6q1": {
                   "title": "Lesson Six: How to Integrate Breath Work",
-                  "url": "wom/english/questions/woh/h6q1"
+                  "url": "wom/english/questions/woh/h6q1",
+                  "audiofn": "h6q1"
                 },
                 "h6q2": {
                   "title": "Lesson Six: Is there a need to work with the dark side?",
-                  "url": "wom/english/questions/woh/h6q2"
+                  "url": "wom/english/questions/woh/h6q2",
+                  "audiofn": "h6q2"
                 },
                 "h6q3": {
                   "title": "Lesson Six: Feel Fully",
-                  "url": "wom/english/questions/woh/h6q3"
+                  "url": "wom/english/questions/woh/h6q3",
+                  "audiofn": "h6q3"
                 },
                 "h7q1": {
                   "title": "Lesson Seven: What does it mean to be a servant of God?",
                   "url": "wom/english/questions/woh/h7q1",
-                  "contents": "woh"
+                  "contents": "woh",
+                  "audiofn": "h7q1"
                 },
                 "h7q2": {
                   "title": "Lesson Seven: Twin Flame and Soul Mate",
                   "url": "wom/english/questions/woh/h7q2",
-                  "contents": "woh"
+                  "contents": "woh",
+                  "audiofn": "h7q2"
                 },
                 "h7q3": {
                   "title": "Lesson Seven: Unconscious Blocks",
-                  "url": "wom/english/questions/woh/h7q3"
+                  "url": "wom/english/questions/woh/h7q3",
+                  "audiofn": "h7q3"
                 },
                 "h7q4": {
                   "title": "Lesson Seven: Discipline and Self Control",
-                  "url": "wom/english/questions/woh/h7q4"
+                  "url": "wom/english/questions/woh/h7q4",
+                  "audiofn": "h7q4"
                 },
                 "h7q5": {
                   "title": "Lesson Seven: Message to New Age and Pentecostal Movements",
-                  "url": "wom/english/questions/woh/h7q5"
+                  "url": "wom/english/questions/woh/h7q5",
+                  "audiofn": "h7q5"
                 },
                 "h8q1": {
                   "title": "Lesson Eight: The Holy Spirit",
-                  "url": "wom/english/questions/woh/h8q1"
+                  "url": "wom/english/questions/woh/h8q1",
+                  "audiofn": "h8q1"
                 },
                 "h8q2": {
                   "title": "Lesson Eight: Need for Healing and Accepting Self",
-                  "url": "wom/english/questions/woh/h8q2"
+                  "url": "wom/english/questions/woh/h8q2",
+                  "audiofn": "h8q2"
                 },
                 "h9q1": {
                   "title": "Lesson Nine: Asking forgiveness of self",
-                  "url": "wom/english/questions/woh/h9q1"
+                  "url": "wom/english/questions/woh/h9q1",
+                  "audiofn": "h9q1"
                 },
                 "h10q1": {
                   "title": "Lesson Ten: Importance of Natal Charts",
-                  "url": "wom/english/questions/woh/h10q1"
+                  "url": "wom/english/questions/woh/h10q1",
+                  "audiofn": "h10q1"
                 },
                 "h10q2": {
                   "title": "Lesson Ten: Symbolism of a Cross of Light",
-                  "url": "wom/english/questions/woh/h10q2"
+                  "url": "wom/english/questions/woh/h10q2",
+                  "audiofn": "h10q2"
                 },
                 "h10q3": {
                   "title": "Lesson Ten: Spiral of Growth",
-                  "url": "wom/english/questions/woh/h10q3"
+                  "url": "wom/english/questions/woh/h10q3",
+                  "audiofn": "h10q3"
                 },
                 "h11q1": {
                   "title": "Lesson Eleven: Responsibility fo the Poor and Oppressed",
-                  "url": "wom/english/questions/woh/h11q1"
+                  "url": "wom/english/questions/woh/h11q1",
+                  "audiofn": "h11q1"
                 },
                 "h11q2": {
                   "title": "Lesson Eleven: Helping Others",
-                  "url": "wom/english/questions/woh/h11q2"
+                  "url": "wom/english/questions/woh/h11q2",
+                  "audiofn": "h11q2"
                 },
                 "h11q3": {
                   "title": "Lesson Eleven: Teaching Children",
-                  "url": "wom/english/questions/woh/h11q3"
+                  "url": "wom/english/questions/woh/h11q3",
+                  "audiofn": "h11q3"
                 },
                 "h12q1": {
                   "title": "Lesson Twelve: Why hast Thou Forsaken Me?",
-                  "url": "wom/english/questions/woh/h12q1"
+                  "url": "wom/english/questions/woh/h12q1",
+                  "audiofn": "h12q1"
                 },
                 "h12q2": {
                   "title": "Lesson Twelve: Mary Magdalene",
-                  "url": "wom/english/questions/woh/h12q2"
+                  "url": "wom/english/questions/woh/h12q2",
+                  "audiofn": "h12q2"
                 },
                 "h12q3": {
                   "title": "Lesson Twelve: About Channeling St. Germain",
-                  "url": "wom/english/questions/woh/h12q3"
+                  "url": "wom/english/questions/woh/h12q3",
+                  "audiofn": "h12q3"
                 }
               }
             },
@@ -993,57 +1047,71 @@
               "unitInfo": {
                 "t1q1": {
                   "title": "Lesson One: Other Masters",
-                  "url": "wom/english/questions/wot/t1q1"
+                  "url": "wom/english/questions/wot/t1q1",
+                  "audiofn": "t1q1"
                 },
                 "t1q2": {
                   "title": "Lesson One: Judging and Discernin",
-                  "url": "wom/english/questions/wot/t1q2"
+                  "url": "wom/english/questions/wot/t1q2",
+                  "audiofn": "t1q2"
                 },
                 "t6q1": {
                   "title": "Lesson Six: Vulnerability and invulnerability",
-                  "url": "wom/english/questions/wot/t6q1"
+                  "url": "wom/english/questions/wot/t6q1",
+                  "audiofn": "t6q1"
                 },
                 "t6q2": {
                   "title": "Lesson Six: Message of the Cross",
-                  "url": "wom/english/questions/wot/t6q2"
+                  "url": "wom/english/questions/wot/t6q2",
+                  "audiofn": "t6q2"
                 },
                 "t7q1": {
                   "title": "Lesson Seven: Healing",
-                  "url": "wom/english/questions/wot/t7q1"
+                  "url": "wom/english/questions/wot/t7q1",
+                  "audiofn": "t7q1"
                 },
                 "t9q1": {
                   "title": "Lesson Nine: True Guidance",
-                  "url": "wom/english/questions/wot/t9q1"
+                  "url": "wom/english/questions/wot/t9q1",
+                  "audiofn": "t9q1"
                 },
                 "t9q2": {
                   "title": "Lesson Nine: All Events are Neutral",
-                  "url": "wom/english/questions/wot/t9q2"
+                  "url": "wom/english/questions/wot/t9q2",
+                  "audiofn": "t9q2"
                 },
                 "t9q3": {
                   "title": "Lesson Nine: Living as Christ in the Body",
-                  "url": "wom/english/questions/wot/t9q3"
+                  "url": "wom/english/questions/wot/t9q3",
+                  "audiofn": "t9q3"
                 },
                 "t9q4": {
                   "title": "Lesson Nine: Up and Out",
-                  "url": "wom/english/questions/wot/t9q4"
+                  "url": "wom/english/questions/wot/t9q4",
+                  "audiofn": "t9q4"
                 },
                 "t11q1": {
                   "title": "Lesson Eleven: Do we have a unique purpose?",
-                  "url": "wom/english/questions/wot/t11q1"
+                  "url": "wom/english/questions/wot/t11q1",
+                  "audiofn": "t11q1"
                 },
                 "t11q2": {
                   "title": "Lesson Eleven: What is the Lineage?",
-                  "url": "wom/english/questions/wot/t11q2"
+                  "url": "wom/english/questions/wot/t11q2",
+                  "audiofn": "t11q2"
                 },
                 "t11q3": {
                   "title": "Lesson Eleven: Specialness and Holiness in Sexuality",
-                  "url": "wom/english/questions/wot/t11q3"
+                  "url": "wom/english/questions/wot/t11q3",
+                  "audiofn": "t11q3"
                 }
               }
             },
             "wok": {
               "title": "The Way of Knowing",
               "units": [
+                "k2q1",
+                "k2q2",
                 "k3q1",
                 "k3q2",
                 "k4q1",
@@ -1054,37 +1122,55 @@
                 "k10q2"
               ],
               "unitInfo": {
+                "k2q1": {
+                  "title": "Lesson Two: About Knowledge",
+                  "url": "wom/english/questions/wok/k2q1",
+                  "audiofn": "k2q1"
+                },
+                "k2q2": {
+                  "title": "Lesson Two: Responding to Attack",
+                  "url": "wom/english/questions/wok/k2q2",
+                  "audiofn": "k2q2"
+                },
                 "k3q1": {
                   "title": "Lesson Three: Source for Love",
-                  "url": "wom/english/questions/wok/k3q1"
+                  "url": "wom/english/questions/wok/k3q1",
+                  "audiofn": "k3q1"
                 },
                 "k3q2": {
                   "title": "Lesson Three: Guidance of the Holy Spirit",
-                  "url": "wom/english/questions/wok/k3q2"
+                  "url": "wom/english/questions/wok/k3q2",
+                  "audiofn": "k3q2"
                 },
                 "k4q1": {
                   "title": "Lesson Four: Great Rays of Light",
-                  "url": "wom/english/questions/wok/k4q1"
+                  "url": "wom/english/questions/wok/k4q1",
+                  "audiofn": "k4q1"
                 },
                 "k4q2": {
                   "title": "Lesson Four: Differentiation and Enlightenment",
-                  "url": "wom/english/questions/wok/k4q2"
+                  "url": "wom/english/questions/wok/k4q2",
+                  "audiofn": "k4q2"
                 },
                 "k6q1": {
                   "title": "Lesson Six: Joy and Pleasure ",
-                  "url": "wom/english/questions/wok/k6q1"
+                  "url": "wom/english/questions/wok/k6q1",
+                  "audiofn": "k6q1"
                 },
                 "k6q2": {
                   "title": "Lesson Six: About Shanti Christo",
-                  "url": "wom/english/questions/wok/k6q2"
+                  "url": "wom/english/questions/wok/k6q2",
+                  "audiofn": "k6q2"
                 },
                 "k10q1": {
                   "title": "Lesson Ten: The Bible Codes",
-                  "url": "wom/english/questions/wok/k10q1"
+                  "url": "wom/english/questions/wok/k10q1",
+                  "audiofn": "k10q1"
                 },
                 "k10q2": {
                   "title": "Lesson Ten: Free Will of Children",
-                  "url": "wom/english/questions/wok/k10q2"
+                  "url": "wom/english/questions/wok/k10q2",
+                  "audiofn": "k10q2"
                 }
               }
             }

@@ -13,13 +13,19 @@
       "description": "Site data organization",
       "image": "/images/covers/dl/data-hierarchy.svg",
       "units": [
-        "Content-Creator-Guide"
+        "Content-Creator-Guide",
+        "bulk-modifier-readme"
       ],
       "unitInfo": {
         "Content-Creator-Guide": {
           "title": "Content Creator Guide",
           "url": "dl/data/Content-Creator-Guide",
           "description": "How to organize the library"
+        },
+        "bulk-modifier-readme": {
+          "title": "Bulk Modification of Data Hierarchy",
+          "url": "dl/data/bulk-modifier-readme",
+          "\"description\"": "Simplify adding metadata to data hierarchy"
         }
       }
     },
