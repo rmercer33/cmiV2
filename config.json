@@ -16,7 +16,8 @@
       "books": [
         "data",
         "markdown",
-        "custom"
+        "custom",
+        "audio"
       ],
       "bookInfo": {
         "data": {
@@ -88,6 +89,19 @@
               "title": "Landing Pages",
               "url": "dl/custom/landing-pages",
               "description": "How to customize landing pages"
+            }
+          }
+        },
+        "audio": {
+          "title": "Audio Support",
+          "description": "How to associate audio with content",
+          "units": [
+            "vtt-generation"
+          ],
+          "unitInfo": {
+            "vtt-generation": {
+              "title": "Audio Highlight Tracking",
+              "url": "dl/audio/vtt-generation"
             }
           }
         }

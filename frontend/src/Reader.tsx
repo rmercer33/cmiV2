@@ -91,39 +91,53 @@ export const Reader: React.FC<ReaderProps> = ({
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           
-          const walk = (node: Node) => {
-            if (node.nodeType === Node.TEXT_NODE && node.nodeValue?.trim()) {
-              const text = node.nodeValue;
-              
-              // Split by sentence ending punctuation (. ? !) followed by space, or at the end of the string
-              const sentences = text.split(/([.!?]+(?:\s+|$))/);
-              const fragment = doc.createDocumentFragment();
-              
-              for (let i = 0; i < sentences.length; i += 2) {
-                const sentenceText = sentences[i];
-                const delimiter = sentences[i+1] || '';
+          const blocks = doc.querySelectorAll('p, h2, h3');
+          blocks.forEach((block) => {
+            const blockId = block.id;
+            if (!blockId) return;
+            
+            let sIdx = 0;
+            const walk = (node: Node) => {
+              if (node.nodeType === Node.TEXT_NODE && node.nodeValue) {
+                const text = node.nodeValue;
+                const sentences = text.split(/([.!?]+(?:\s+|$))/);
+                const fragment = doc.createDocumentFragment();
                 
-                if (sentenceText.trim()) {
-                  const span = doc.createElement('span');
-                  span.className = 'cmi-sentence';
-                  span.textContent = sentenceText + delimiter;
-                  fragment.appendChild(span);
-                } else if (delimiter) {
-                  fragment.appendChild(doc.createTextNode(delimiter));
+                for (let i = 0; i < sentences.length; i += 2) {
+                  const sentenceText = sentences[i];
+                  const delimiter = sentences[i+1] || '';
+                  
+                  if (sentenceText.trim()) {
+                    const span = doc.createElement('span');
+                    span.className = 'cmi-sentence';
+                    span.setAttribute('data-sentence-id', `${blockId}-s${sIdx}`);
+                    span.textContent = sentenceText + delimiter;
+                    fragment.appendChild(span);
+                  } else if (delimiter) {
+                    fragment.appendChild(doc.createTextNode(delimiter));
+                  }
+                  
+                  if (delimiter) {
+                    sIdx++;
+                  }
                 }
+                node.parentNode?.replaceChild(fragment, node);
+              } else {
+                Array.from(node.childNodes).forEach(walk);
               }
-              node.parentNode?.replaceChild(fragment, node);
-            } else {
-              Array.from(node.childNodes).forEach(walk);
-            }
-          };
-
-          walk(doc.body);
+            };
+            
+            Array.from(block.childNodes).forEach(walk);
+          });
 
           // If this unit has an audio track, prepend a play indicator to all paragraphs and headings
           if (activeUnit.audiofn) {
             const paragraphs = doc.querySelectorAll('p, h2, h3');
             paragraphs.forEach((p) => {
+              // Skip paragraphs that contain images and have no textual content
+              if (p.querySelector('img') && !p.textContent?.trim()) {
+                return;
+              }
               const indicator = doc.createElement('span');
               indicator.className = 'audio-seek-indicator';
               indicator.textContent = '▶';
@@ -194,13 +208,13 @@ export const Reader: React.FC<ReaderProps> = ({
     return () => clearTimeout(timer);
   }, [loading, htmlContent, hash]);
 
-  // Construct S3 URLs using the dynamically constructed path suffix from App.tsx
-  const s3BucketUrl = import.meta.env.VITE_S3_AUDIO_BUCKET_URL || '';
-  const audioUrl = s3BucketUrl && activeSourceId && s3PathSuffix
-    ? `${s3BucketUrl}/${activeSourceId}/audio/${s3PathSuffix}.mp3`
+  // Construct media URLs using the dynamically constructed path suffix from App.tsx
+  const mediaBaseUrl = siteInfo?.mediaBaseUrl || import.meta.env.VITE_S3_AUDIO_BUCKET_URL || '';
+  const audioUrl = mediaBaseUrl && s3PathSuffix
+    ? `${mediaBaseUrl}/${s3PathSuffix}.mp3`
     : '';
-  const vttUrl = s3BucketUrl && activeSourceId && s3PathSuffix
-    ? `${s3BucketUrl}/${activeSourceId}/audio/${s3PathSuffix}.vtt`
+  const vttUrl = mediaBaseUrl && s3PathSuffix
+    ? `${mediaBaseUrl}/${s3PathSuffix}.vtt`
     : '';
 
   // Reset scroll tracking and play states when switching units
@@ -225,98 +239,13 @@ export const Reader: React.FC<ReaderProps> = ({
 
       if (!activeCue || !activeCue.text) return;
 
-      const rawCueText = activeCue.text.trim();
-      if (!rawCueText) return;
+      const targetId = activeCue.text.trim();
+      if (!targetId) return;
 
-      let targetId: string | null = null;
-      let cueText = rawCueText;
+      const matchingSentences = document.querySelectorAll(`[data-sentence-id="${targetId}"]`);
+      let foundParentParagraph: HTMLElement | null = null;
 
-      const pipeIdx = rawCueText.indexOf('|');
-      if (pipeIdx !== -1) {
-        targetId = rawCueText.substring(0, pipeIdx);
-        cueText = rawCueText.substring(pipeIdx + 1);
-      }
-
-      const cleanString = (str: string) => 
-        str.toLowerCase()
-          .replace(/[^\w\s]/g, '')
-          .replace(/\s+/g, ' ')
-          .trim();
-
-      const cleanCue = cleanString(cueText);
-      if (!cleanCue) return;
-
-      const parentParagraph = targetId ? document.getElementById(targetId) : null;
-
-      const sentences = parentParagraph 
-        ? parentParagraph.querySelectorAll('.cmi-sentence')
-        : document.querySelectorAll('.cmi-sentence');
-        
-      const matchingSentences: HTMLElement[] = [];
-
-      for (const s of Array.from(sentences)) {
-        const sText = s.textContent || '';
-        const cleanS = cleanString(sText);
-        
-        if (cleanS && (cleanS.includes(cleanCue) || cleanCue.includes(cleanS))) {
-          matchingSentences.push(s as HTMLElement);
-        }
-      }
-
-      let bestSentenceMatch: HTMLElement | null = null;
       if (matchingSentences.length > 0) {
-        if (matchingSentences.length === 1) {
-          bestSentenceMatch = matchingSentences[0];
-        } else {
-          const lastPara = lastActiveParagraphRef.current || parentParagraph;
-          if (lastPara) {
-            const sameParaMatch = matchingSentences.find((s) => lastPara.contains(s));
-            if (sameParaMatch) {
-              bestSentenceMatch = sameParaMatch;
-            } else {
-              const nextSequentialMatch = matchingSentences.find((s) => {
-                const position = lastPara.compareDocumentPosition(s);
-                return !!(position & Node.DOCUMENT_POSITION_FOLLOWING);
-              });
-              bestSentenceMatch = nextSequentialMatch || matchingSentences[0];
-            }
-          } else {
-            bestSentenceMatch = matchingSentences[0];
-          }
-        }
-      }
-
-      let bestParagraphMatch: HTMLElement | null = parentParagraph;
-
-      if (!bestSentenceMatch && !bestParagraphMatch) {
-        const paragraphs = document.querySelectorAll('#cmi-transcript p');
-        const matchingParagraphs: HTMLElement[] = [];
-
-        for (const p of Array.from(paragraphs)) {
-          const pText = p.textContent || '';
-          const cleanP = cleanString(pText);
-          if (cleanP && (cleanP.includes(cleanCue) || cleanCue.includes(cleanP))) {
-            matchingParagraphs.push(p as HTMLElement);
-          }
-        }
-
-        if (matchingParagraphs.length > 0) {
-          const lastPara = lastActiveParagraphRef.current;
-          if (lastPara) {
-            const nextPara = matchingParagraphs.find((p) => {
-              const position = lastPara.compareDocumentPosition(p);
-              return !!(position & Node.DOCUMENT_POSITION_FOLLOWING);
-            });
-            bestParagraphMatch = nextPara || matchingParagraphs[0];
-          } else {
-            bestParagraphMatch = matchingParagraphs[0];
-          }
-        }
-      }
-
-      const matchFound = bestSentenceMatch || bestParagraphMatch;
-
-      if (matchFound) {
         document.querySelectorAll('#cmi-transcript p.active-audio').forEach((el) => {
           el.classList.remove('active-audio');
         });
@@ -324,25 +253,37 @@ export const Reader: React.FC<ReaderProps> = ({
           el.classList.remove('active-sentence');
         });
 
-        if (bestSentenceMatch) {
-          (bestSentenceMatch as HTMLElement).classList.add('active-sentence');
-          const finalParentParagraph = parentParagraph || (bestSentenceMatch as HTMLElement).closest('#cmi-transcript p') as HTMLElement | null;
-          if (finalParentParagraph) {
-            finalParentParagraph.classList.add('active-audio');
-
-            if (finalParentParagraph !== lastActiveParagraphRef.current) {
-              lastActiveParagraphRef.current = finalParentParagraph;
-              finalParentParagraph.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-              });
-            }
+        matchingSentences.forEach((el) => {
+          el.classList.add('active-sentence');
+          if (!foundParentParagraph) {
+            foundParentParagraph = el.closest('#cmi-transcript p, #cmi-transcript h2, #cmi-transcript h3') as HTMLElement | null;
           }
-        } else if (bestParagraphMatch) {
-          (bestParagraphMatch as HTMLElement).classList.add('active-audio');
-          if (bestParagraphMatch !== lastActiveParagraphRef.current) {
-            lastActiveParagraphRef.current = bestParagraphMatch;
-            (bestParagraphMatch as HTMLElement).scrollIntoView({
+        });
+
+        if (foundParentParagraph) {
+          (foundParentParagraph as HTMLElement).classList.add('active-audio');
+          if (foundParentParagraph !== lastActiveParagraphRef.current) {
+            lastActiveParagraphRef.current = foundParentParagraph;
+            (foundParentParagraph as HTMLElement).scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }
+        }
+      } else {
+        const paragraph = document.getElementById(targetId);
+        if (paragraph) {
+          document.querySelectorAll('#cmi-transcript p.active-audio').forEach((el) => {
+            el.classList.remove('active-audio');
+          });
+          document.querySelectorAll('.cmi-sentence.active-sentence').forEach((el) => {
+            el.classList.remove('active-sentence');
+          });
+
+          paragraph.classList.add('active-audio');
+          if (paragraph !== lastActiveParagraphRef.current) {
+            lastActiveParagraphRef.current = paragraph;
+            paragraph.scrollIntoView({
               behavior: 'smooth',
               block: 'center'
             });
@@ -436,21 +377,35 @@ export const Reader: React.FC<ReaderProps> = ({
       }
     }
 
+    const cmiSentence = target.closest('.cmi-sentence') as HTMLElement | null;
     const cmiElement = target.closest('#cmi-transcript p, #cmi-transcript h2, #cmi-transcript h3') as HTMLElement | null;
     
     if (cmiElement && activeUnit?.audiofn && audioRef.current && !audioRef.current.paused && audioRef.current.textTracks[0]) {
       const track = audioRef.current.textTracks[0];
       if (track && track.cues && track.cues.length > 0) {
-        const targetId = cmiElement.id;
+        const sentenceId = cmiSentence?.getAttribute('data-sentence-id');
+        const paragraphId = cmiElement.id;
 
-        if (targetId) {
+        if (sentenceId || paragraphId) {
           let foundCue: VTTCue | null = null;
 
-          for (let i = 0; i < track.cues.length; i++) {
-            const cue = track.cues[i] as VTTCue;
-            if (cue.text && (cue.text.startsWith(targetId + '|') || cue.text === targetId)) {
-              foundCue = cue;
-              break;
+          if (sentenceId) {
+            for (let i = 0; i < track.cues.length; i++) {
+              const cue = track.cues[i] as VTTCue;
+              if (cue.text === sentenceId) {
+                foundCue = cue;
+                break;
+              }
+            }
+          }
+
+          if (!foundCue && paragraphId) {
+            for (let i = 0; i < track.cues.length; i++) {
+              const cue = track.cues[i] as VTTCue;
+              if (cue.text === paragraphId || cue.text.startsWith(paragraphId + '-s') || cue.text.startsWith(paragraphId + '|')) {
+                foundCue = cue;
+                break;
+              }
             }
           }
 

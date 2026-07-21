@@ -206,6 +206,7 @@ const AppContent: React.FC = () => {
 
   // Compute clean S3/local media suffix dynamically starting from collection or book folder down to audio file
   const audioParts: string[] = [];
+  if (resolvedSourceId) audioParts.push(resolvedSourceId);
   if (resolvedCollectionId) audioParts.push(resolvedCollectionId);
   if (resolvedBookId) audioParts.push(resolvedBookId);
   if (resolvedGroupId && resolvedGroupId !== 'index' && resolvedGroupId !== 'flat') {

@@ -49,6 +49,31 @@ async function main() {
 
   visit(ast, (node) => {
     if (node.type === "heading" || node.type === "paragraph") {
+      // Standalone image blocks wrapped in paragraphs should not be assigned sequence IDs or indexed
+      if (node.type === "paragraph" && Array.isArray(node.children)) {
+        const isOnlyImage = node.children.every(
+          (child) =>
+            child.type === "image" ||
+            (child.type === "text" && !child.value.trim()) ||
+            child.type === "html"
+        );
+        if (isOnlyImage && node.children.some((child) => child.type === "image")) {
+          return;
+        }
+      }
+
+      // Prevent words from combining across forced newlines (\ or <br>)
+      visit(node, 'break', (n) => {
+        n.type = 'text';
+        n.value = ' ';
+      });
+      visit(node, 'html', (n) => {
+        if (n.value && n.value.match(/<br\s*\/?>/i)) {
+          n.type = 'text';
+          n.value = ' ';
+        }
+      });
+
       let text = toString(node).trim();
       if (!text) {
         return;
@@ -93,9 +118,29 @@ async function main() {
 
       // We only emit paragraphs that are NOT omitted
       if (type === "p" && !isOmitted) {
+        const sentencesRaw = cleanText.split(/([.!?]+(?:\s+|$))/);
+        const sentences = [];
+        let sIdx = 0;
+        
+        for (let i = 0; i < sentencesRaw.length; i += 2) {
+          const sentenceText = sentencesRaw[i];
+          const delimiter = sentencesRaw[i+1] || '';
+          
+          if (sentenceText.trim()) {
+            sentences.push({
+              id: `${htmlId}-s${sIdx}`,
+              text: sentenceText + delimiter
+            });
+            sIdx++;
+          } else if (delimiter && sentences.length > 0) {
+            sentences[sentences.length - 1].text += delimiter;
+          }
+        }
+
         blocks.push({
           id: htmlId,
-          text: cleanText
+          text: cleanText,
+          sentences: sentences
         });
       }
     }

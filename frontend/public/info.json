@@ -1,4 +1,5 @@
 {
   "title": "The Digital Library",
-  "logo": "/dl-logo-dark.svg"
+  "logo": "/dl-logo-dark.svg",
+  "mediaBaseUrl": "https://s3.us-east-1.amazonaws.com/assets.christmind.info.v2/audio"
 }

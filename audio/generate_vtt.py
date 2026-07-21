@@ -42,80 +42,94 @@ def extract_markdown_blocks(md_path):
             print(f"Subprocess stderr:\n{e.stderr}", file=sys.stderr)
         sys.exit(1)
 
-def annotate_segments_with_block_ids(segments, blocks):
-    """Maps sequential Whisper segments back to the parsed paragraph blocks using clean character indexing."""
-    # Prepare clean_full_text and character-to-block info mapping
-    clean_full_text = ""
-    char_to_block_info = [] # list of (block_id, original_char_idx)
+def map_words_to_sentences(words, sentences, debug=False):
+    """Maps aligned words from stable_whisper back to their respective sentences.
+    Computes a start/end time for each sentence.
+    """
+    # 1. Build an array of cleaned words and their corresponding sentence IDs
+    text_words = []
+    word_to_sentence_id = []
     
-    for block in blocks:
-        b_id = block["id"]
-        b_text = block["text"]
-        for idx, char in enumerate(b_text):
-            cleaned_char = re.sub(r'[^\w]', '', char).lower()
-            if cleaned_char:
-                clean_full_text += cleaned_char
-                char_to_block_info.append((b_id, idx))
-                
-    annotated_segments = []
-    clean_char_ptr = 0
-    for segment in segments:
-        seg_text = segment.text
-        # Clean the segment text for matching
-        clean_seg = re.sub(r'[^\w]', '', seg_text).lower()
-        if not clean_seg:
+    for s in sentences:
+        s_id = s["id"]
+        # Strip apostrophes (father's -> fathers)
+        clean_s_text = s["text"].lower().replace("'", "").replace("’", "")
+        # Replace en/em dashes with space to avoid joining independent clauses
+        clean_s_text = clean_s_text.replace("—", " ").replace("–", " ")
+        # Strip regular hyphens so compound words (ever-changing -> everchanging) are single words
+        clean_s_text = clean_s_text.replace("-", "")
+        # Extract alphanumeric words
+        words_in_s = re.findall(r'\w+', clean_s_text)
+        for w in words_in_s:
+            text_words.append(w)
+            word_to_sentence_id.append(s_id)
+            
+    sentence_timings = {}
+    
+    # 2. Iterate through Whisper words and match them to the text_words array
+    word_ptr = 0
+    if debug:
+        print(f"\n--- Aligning Whisper words to Text array (Length: {len(text_words)}) ---")
+    for w in words:
+        w_text = getattr(w, 'word', None)
+        if w_text is None and isinstance(w, dict):
+            w_text = w.get('word', '')
+            
+        clean_w = re.sub(r'[^\w]', '', w_text).lower()
+        if not clean_w:
             continue
             
-        # Find clean_seg in clean_full_text starting from clean_char_ptr
-        match_idx = clean_full_text.find(clean_seg, clean_char_ptr)
-        if match_idx == -1:
-            # Fallback: search from beginning if we got out of sync
-            match_idx = clean_full_text.find(clean_seg, 0)
-            
-        if match_idx != -1:
-            # Found a match! Map the segment's characters to the blocks
-            matched_info = char_to_block_info[match_idx : match_idx + len(clean_seg)]
-            if matched_info:
-                # Find the most common block ID in this range
-                block_ids = [info[0] for info in matched_info]
-                best_block_id = Counter(block_ids).most_common(1)[0][0]
-                
-                # Retrieve the exact substring from the original block text
-                relevant_indices = [info[1] for info in matched_info if info[0] == best_block_id]
-                if relevant_indices:
-                    min_idx = min(relevant_indices)
-                    max_idx = max(relevant_indices)
-                    
-                    best_block = next((b for b in blocks if b["id"] == best_block_id), None)
-                    if best_block:
-                        # Extend min_idx backward to capture leading non-alphanumeric, non-space characters
-                        while min_idx > 0 and not best_block["text"][min_idx - 1].isalnum() and not best_block["text"][min_idx - 1].isspace():
-                            min_idx -= 1
-                            
-                        # Extend max_idx forward to capture trailing non-alphanumeric, non-space characters
-                        while max_idx + 1 < len(best_block["text"]) and not best_block["text"][max_idx + 1].isalnum() and not best_block["text"][max_idx + 1].isspace():
-                            max_idx += 1
-                            
-                        exact_substring = best_block["text"][min_idx : max_idx + 1]
-                        annotated_text = f"{best_block_id}|{exact_substring}"
-                    else:
-                        annotated_text = f"{best_block_id}|{seg_text}"
-                else:
-                    annotated_text = f"{best_block_id}|{seg_text}"
-                
-                # Advance the pointer
-                clean_char_ptr = match_idx + len(clean_seg)
-            else:
-                annotated_text = f"unknown|{seg_text}"
-        else:
-            annotated_text = f"unknown|{seg_text}"
-
-        annotated_segments.append({
-            "start": segment.start,
-            "end": segment.end,
-            "text": annotated_text
-        })
+        match_idx = -1
         
+        # Exact match at the current pointer
+        if word_ptr < len(text_words) and text_words[word_ptr] == clean_w:
+            match_idx = word_ptr
+        else:
+            # Bounded forward search (window of 10 words) for minor drift/skips
+            for i in range(1, 10):
+                if word_ptr + i < len(text_words) and text_words[word_ptr + i] == clean_w:
+                    match_idx = word_ptr + i
+                    break
+                    
+        if match_idx != -1:
+            s_id = word_to_sentence_id[match_idx]
+            
+            w_start = getattr(w, 'start', None)
+            if w_start is None and isinstance(w, dict):
+                w_start = w.get('start', 0.0)
+                
+            w_end = getattr(w, 'end', None)
+            if w_end is None and isinstance(w, dict):
+                w_end = w.get('end', 0.0)
+                
+            if s_id not in sentence_timings:
+                sentence_timings[s_id] = {
+                    "start": w_start,
+                    "end": w_end
+                }
+                if debug:
+                    print(f"  [START] {s_id} @ {w_start:.2f}s (Word: '{clean_w}')")
+            else:
+                sentence_timings[s_id]["end"] = w_end
+                if debug:
+                    print(f"  [UPDATE] {s_id} -> end @ {w_end:.2f}s (Word: '{clean_w}')")
+                
+            # Advance pointer strictly to the next word
+            word_ptr = match_idx + 1
+        else:
+            if debug:
+                print(f"  [SKIP] Whisper word '{clean_w}' (Could not align within 10 words of pointer {word_ptr})")
+            
+    annotated_segments = []
+    for s in sentences:
+        s_id = s["id"]
+        if s_id in sentence_timings:
+            annotated_segments.append({
+                "start": sentence_timings[s_id]["start"],
+                "end": sentence_timings[s_id]["end"],
+                "text": s_id
+            })
+            
     return annotated_segments
 
 def format_timestamp(seconds):
@@ -156,6 +170,7 @@ def main():
     )
     parser.add_argument("s3_url", help="Publicly accessible S3 URL to the audio file")
     parser.add_argument("markdown_file", help="Path to the local markdown transcript file")
+    parser.add_argument("--debug", "-d", action="store_true", help="Enable verbose alignment debugging output")
     
     args = parser.parse_args()
 
@@ -178,7 +193,22 @@ def main():
 
         # Step 2: Extract & Clean Text using Node Block Extractor
         blocks = extract_markdown_blocks(args.markdown_file)
-        clean_text = " ".join([b["text"] for b in blocks])
+        
+        # Flatten into sentences
+        sentences = []
+        for b in blocks:
+            for s in b.get("sentences", []):
+                sentences.append(s)
+                
+        # If no sentences (e.g. older blocks output), fallback to block-level
+        if not sentences:
+            for b in blocks:
+                sentences.append({
+                    "id": b["id"],
+                    "text": b["text"]
+                })
+                
+        clean_text = " ".join([s["text"] for s in sentences])
 
         # Debug print a sample of the cleaned text
         print("\n--- Cleaned Text Sample (First 200 chars) ---")
@@ -194,8 +224,16 @@ def main():
         # Align the existing clean text to the downloaded audio file
         result = model.align(temp_audio_path, clean_text, language='en')
 
-        # Step 3b: Annotate segments with block IDs and exact text
-        annotated_segments = annotate_segments_with_block_ids(result.segments, blocks)
+        # Step 3b: Map aligned words to our exact sentence IDs
+        words = []
+        for segment in result.segments:
+            seg_words = getattr(segment, 'words', None)
+            if seg_words is None and isinstance(segment, dict):
+                seg_words = segment.get('words')
+            if seg_words:
+                words.extend(seg_words)
+                
+        annotated_segments = map_words_to_sentences(words, sentences, debug=args.debug)
 
         # Step 4: Save to WebVTT
         save_vtt(vtt_path, annotated_segments)

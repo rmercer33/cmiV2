@@ -1,0 +1,17 @@
+BLE
+C2S
+COM
+doorway
+DTH
+FEM
+GAR
+HOE
+HOI
+holyr
+IGN
+joy1
+joy2
+LHT
+MOA
+teach
+WLK

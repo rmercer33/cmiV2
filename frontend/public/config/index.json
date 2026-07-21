@@ -14,7 +14,8 @@
       "books": [
         "data",
         "markdown",
-        "custom"
+        "custom",
+        "audio"
       ]
     },
     "col": {
