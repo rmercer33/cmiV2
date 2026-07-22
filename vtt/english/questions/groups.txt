@@ -1,0 +1,9 @@
+ble
+c2s
+com
+dth
+hoe
+lht
+woh
+wok
+wot

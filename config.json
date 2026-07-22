@@ -2,7 +2,7 @@
   "title": "Digital Library Usage and Operation",
   "description": "The concept and usage of the Digital Library",
   "image": "/images/covers/dl/developer-guide-cover.svg",
-  "@description": "This is the simplest site organization: <source>-<book>-<unit>",
+  "mediaBaseUrl": "https://s3.us-east-1.amazonaws.com/assets.christmind.info.v2/audio/",
   "sources": [
     "dl",
     "col",
