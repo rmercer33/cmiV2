@@ -267,3 +267,45 @@ describe("Config Splitter - Sections & Collections Integration Tests", () => {
     assert.ok(sourceConfig.collectionInfo.core.bookInfo.text, "Source config must contain deep bookInfo nested inside collections");
   });
 });
+
+describe("Config Splitter Script Parameterized Tests", () => {
+  const outputDir = path.join(projectRoot, "frontend", "public", "config");
+  const tempConfigPath = path.join(projectRoot, "temp-custom-config.json");
+  const customIndexName = "custom-index.json";
+  const customIndexPath = path.join(outputDir, customIndexName);
+
+  before(() => {
+    const customConfig = {
+      title: "Custom Room Config",
+      description: "Testing parameter splitting",
+      sources: ["dl"],
+      sourceInfo: {
+        dl: {
+          title: "Digital Library",
+          description: "Technical instructions",
+          books: ["data"]
+        }
+      }
+    };
+    fs.writeFileSync(tempConfigPath, JSON.stringify(customConfig, null, 2), "utf8");
+  });
+
+  after(() => {
+    if (fs.existsSync(tempConfigPath)) {
+      fs.rmSync(tempConfigPath, { force: true });
+    }
+    if (fs.existsSync(customIndexPath)) {
+      fs.rmSync(customIndexPath, { force: true });
+    }
+  });
+
+  test("Should split with custom config path and output index name", () => {
+    // Run the splitter with custom arguments
+    execSync(`node scripts/split-config.mjs "${tempConfigPath}" "${customIndexName}"`, { cwd: projectRoot });
+
+    assert.ok(fs.existsSync(customIndexPath), "custom-index.json must exist");
+    const indexConfig = JSON.parse(fs.readFileSync(customIndexPath, "utf8"));
+    assert.strictEqual(indexConfig.title, "Custom Room Config");
+    assert.deepStrictEqual(indexConfig.sources, ["dl"]);
+  });
+});

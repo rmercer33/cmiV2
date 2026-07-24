@@ -1,6 +1,6 @@
 // App.tsx - cmiLibrary SPA Shell and State Coordinator
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation, useParams } from 'react-router-dom';
 import { Menu, Settings } from 'lucide-react';
 import { Sidebar } from './Sidebar';
 import { Reader } from './Reader';
@@ -22,13 +22,27 @@ export function buildReadLink(parts: {
   if (parts.book) segments.push(parts.book);
   if (parts.group && parts.group !== 'index' && parts.group !== 'flat') segments.push(parts.group);
   if (parts.unit) segments.push(parts.unit);
-  return `/read/${segments.join('/')}`;
+  
+  const path = `/read/${segments.join('/')}`;
+  const roomMatch = window.location.pathname.match(/^\/room\/([^/]+)/);
+  if (roomMatch) {
+    return `/room/${roomMatch[1]}${path}`;
+  }
+  return path;
 }
 
 // Child component that resides inside the BrowserRouter context, allowing hooks to function
 const AppContent: React.FC = () => {
+  const { roomId: urlRoomId } = useParams<{ roomId: string }>();
+  const roomId = urlRoomId || 'main';
   const location = useLocation();
-  const segments = location.pathname.split('/').filter((s) => s && s !== 'read');
+
+  // Clean pathname to remove the /room/:roomId prefix for segment resolution
+  let cleanPathname = location.pathname;
+  if (urlRoomId) {
+    cleanPathname = cleanPathname.replace(new RegExp(`^\\/room\\/${urlRoomId}`), '');
+  }
+  const segments = cleanPathname.split('/').filter((s) => s && s !== 'read');
 
   const [libraryIndex, setLibraryIndex] = useState<LibraryIndex | null>(null);
   const [siteInfo, setSiteInfo] = useState<SiteInfo | null>(null);
@@ -50,11 +64,23 @@ const AppContent: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // 1. Fetch lightweight index.json and site info on initial app mount
+  // 1. Fetch lightweight index.json variant based on room, and site info
   useEffect(() => {
-    fetch('/config/index.json')
+    if (!roomId) return;
+
+    fetch('/config/rooms.json')
       .then((res) => {
-        if (!res.ok) throw new Error('Failed to load global library index.');
+        if (!res.ok) throw new Error('Failed to load rooms configuration.');
+        return res.json();
+      })
+      .then((roomsData: { rooms: { id: string; indexUrl: string }[] }) => {
+        const room = roomsData.rooms.find((r) => r.id === roomId);
+        const indexUrl = room ? room.indexUrl : `/config/${roomId}-index.json`;
+        
+        return fetch(indexUrl);
+      })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Failed to load index for room: ${roomId}`);
         return res.json();
       })
       .then((data: LibraryIndex) => {
@@ -79,7 +105,7 @@ const AppContent: React.FC = () => {
     // Load initial theme from localStorage if saved
     const savedTheme = localStorage.getItem('cmi-theme') || 'light';
     setTheme(savedTheme);
-  }, []);
+  }, [roomId]);
 
   // Central Path Resolver: computed dynamically on render based on current URL path segments
   let resolvedSectionId: string | undefined = undefined;
@@ -349,6 +375,7 @@ const AppContent: React.FC = () => {
 
         {/* Immersive Reader display */}
         <Reader
+          roomId={roomId}
           resolvedContext={resolvedContext}
           activeSourceConfig={activeSourceConfig}
           libraryIndex={libraryIndex}
@@ -361,15 +388,20 @@ const AppContent: React.FC = () => {
   );
 };
 
+import { LibraryHome } from './LibraryHome';
+
 // Catch-all URL routing configuration matching arbitrary depth levels
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AppContent />} />
+        <Route path="/" element={<LibraryHome />} />
+        <Route path="/room/:roomId" element={<AppContent />} />
+        <Route path="/room/:roomId/read/*" element={<AppContent />} />
+        {/* Backward compatibility for direct legacy URLs */}
         <Route path="/read/*" element={<AppContent />} />
         {/* Fallback routing */}
-        <Route path="*" element={<AppContent />} />
+        <Route path="*" element={<LibraryHome />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,62 @@
+{
+  "title": "Digital Library",
+  "description": "Guide to the Digital Library",
+  "image": "/images/covers/dl/developer-guide-cover.svg",
+  "books": [
+    "data",
+    "markdown",
+    "custom",
+    "audio"
+  ],
+  "sources": [
+    "audio",
+    "custom",
+    "data",
+    "markdown"
+  ],
+  "sourceInfo": {
+    "audio": {
+      "title": "Audio Support",
+      "description": "How to associate audio with content",
+      "units": [
+        "vtt-generation"
+      ],
+      "books": [],
+      "bookInfo": {}
+    },
+    "custom": {
+      "title": "Site Customization",
+      "description": "Features for site customization",
+      "image": "/images/covers/dl/site-customization.svg",
+      "units": [
+        "landing-pages"
+      ],
+      "books": [],
+      "bookInfo": {}
+    },
+    "data": {
+      "title": "Data Hierarchy",
+      "description": "Site data organization",
+      "image": "/images/covers/dl/data-hierarchy.svg",
+      "units": [
+        "Content-Creator-Guide",
+        "bulk-modifier-readme"
+      ],
+      "books": [],
+      "bookInfo": {}
+    },
+    "markdown": {
+      "title": "Using Markdown",
+      "description": "How to use markdown in the Digital Library",
+      "image": "/images/covers/dl/using-markdown.svg",
+      "units": [
+        "markdown-guide",
+        "custom-classes",
+        "handlebars",
+        "example"
+      ],
+      "books": [],
+      "bookInfo": {}
+    }
+  }
+}

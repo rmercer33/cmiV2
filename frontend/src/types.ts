@@ -117,3 +117,20 @@ export interface SiteInfo {
   mediaBaseUrl?: string;
 }
 
+export interface RoomInfo {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
+  indexUrl: string; // e.g., "/config/index.json"
+  contentDir?: string; // Root of the data hierarchy, e.g., "content-scifi", used during build
+}
+
+export interface RoomsConfig {
+  title: string;
+  description: string;
+  rooms: RoomInfo[];
+  helpUrl?: string;
+  contactUrl?: string;
+}
+

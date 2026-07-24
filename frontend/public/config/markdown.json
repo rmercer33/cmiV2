@@ -1,0 +1,13 @@
+{
+  "title": "Using Markdown",
+  "description": "How to use markdown in the Digital Library",
+  "image": "/images/covers/dl/using-markdown.svg",
+  "units": [
+    "markdown-guide",
+    "custom-classes",
+    "handlebars",
+    "example"
+  ],
+  "books": [],
+  "bookInfo": {}
+}

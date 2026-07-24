@@ -1,0 +1,24 @@
+{
+  "title": "The Christ Mind Library",
+  "description": "Welcome to the Digital Library. Select a room below to explore distinct collections of teachings.",
+  "helpUrl": "https://christmind.info/help",
+  "contactUrl": "https://christmind.info/contact",
+  "rooms": [
+    {
+      "id": "main",
+      "title": "Main Reading Room",
+      "description": "The complete collection of Christ Mind Teachings including Choose Only Love, Way of Mastery, and the Digital Library Guide.",
+      "image": "/images/covers/site/col.jpg",
+      "indexUrl": "/config/index.json",
+      "contentDir": "../cmiContent/example/flat"
+    },
+    {
+      "id": "dl",
+      "title": "Digital Library User Guide",
+      "description": "How to build and operate a digital library",
+      "image": "/images/covers/dl/developer-guide-cover.svg",
+      "indexUrl": "/config/scifi-index.json",
+      "contentDir": "../cmiContent/example/dl"
+    }
+  ]
+}

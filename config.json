@@ -1,112 +1,12 @@
 {
-  "title": "Digital Library Usage and Operation",
-  "description": "The concept and usage of the Digital Library",
-  "image": "/images/covers/dl/developer-guide-cover.svg",
+  "title": "Library of Christ Mind Teachings",
+  "description": "An online digital repository offering simple, readable, and uncluttered access to a wide collection of Christ Mind teachings.",
   "mediaBaseUrl": "https://s3.us-east-1.amazonaws.com/assets.christmind.info.v2/audio/",
   "sources": [
-    "dl",
     "col",
     "wom"
   ],
   "sourceInfo": {
-    "dl": {
-      "title": "Digital Library",
-      "description": "Guide to the Digital Library",
-      "image": "/images/covers/dl/developer-guide-cover.svg",
-      "books": [
-        "data",
-        "markdown",
-        "custom",
-        "audio"
-      ],
-      "bookInfo": {
-        "data": {
-          "title": "Data Hierarchy",
-          "description": "Site data organization",
-          "image": "/images/covers/dl/data-hierarchy.svg",
-          "units": [
-            "Content-Creator-Guide",
-            "bulk-modifier-readme"
-          ],
-          "unitInfo": {
-            "Content-Creator-Guide": {
-              "title": "Content Creator Guide",
-              "url": "dl/data/Content-Creator-Guide",
-              "description": "How to organize the library"
-            },
-            "bulk-modifier-readme": {
-              "title": "Bulk Modification of Data Hierarchy",
-              "url": "dl/data/bulk-modifier-readme",
-              "\"description\"": "Simplify adding metadata to data hierarchy"
-            }
-          }
-        },
-        "markdown": {
-          "title": "Using Markdown",
-          "description": "How to use markdown in the Digital Library",
-          "image": "/images/covers/dl/using-markdown.svg",
-          "units": [
-            "markdown-guide",
-            "custom-classes",
-            "handlebars",
-            "example"
-          ],
-          "unitInfo": {
-            "markdown-guide": {
-              "title": "Markdown Style Guide",
-              "url": "dl/markdown/markdown-guide",
-              "description": "Digital Library Markdown authoring and style guide"
-            },
-            "custom-classes": {
-              "title": "Using Custom Classes",
-              "url": "dl/markdown/custom-classes",
-              "description": "Guide for custom classes"
-            },
-            "handlebars": {
-              "title": "Handlebars",
-              "url": "dl/markdown/handlebars",
-              "\"title\"": "Handlebars Templating",
-              "\"description\"": "Enhance Markdown with templating"
-            },
-            "example": {
-              "title": "Example Markdown Features",
-              "url": "dl/markdown/example",
-              "description": "An example of how markdown is used in the Digital Library",
-              "template": "tech/hero",
-              "heroImage": "/images/hbs/markdown-hero.svg"
-            }
-          }
-        },
-        "custom": {
-          "title": "Site Customization",
-          "description": "Features for site customization",
-          "image": "/images/covers/dl/site-customization.svg",
-          "units": [
-            "landing-pages"
-          ],
-          "unitInfo": {
-            "landing-pages": {
-              "title": "Landing Pages",
-              "url": "dl/custom/landing-pages",
-              "description": "How to customize landing pages"
-            }
-          }
-        },
-        "audio": {
-          "title": "Audio Support",
-          "description": "How to associate audio with content",
-          "units": [
-            "vtt-generation"
-          ],
-          "unitInfo": {
-            "vtt-generation": {
-              "title": "Audio Highlight Tracking",
-              "url": "dl/audio/vtt-generation"
-            }
-          }
-        }
-      }
-    },
     "col": {
       "title": "Choose Only Love",
       "description": "Choose Only Love",

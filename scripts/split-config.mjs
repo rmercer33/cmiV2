@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-const CONFIG_PATH = './config.json';
+// Parse optional command-line arguments: node split-config.mjs [configPath] [indexFilename]
+const CONFIG_PATH = process.argv[2] || './config.json';
+const INDEX_FILENAME = process.argv[3] || 'index.json';
 const OUTPUT_DIR = './frontend/public/config';
 
 // Ensure output directory exists
@@ -16,7 +18,7 @@ function writeSourceFile(sourceId, sourceData) {
 }
 
 function splitConfig() {
-  console.log('Reading main config.json...');
+  console.log(`Reading configuration from: ${CONFIG_PATH}`);
   const rawConfig = fs.readFileSync(CONFIG_PATH, 'utf-8');
   const config = JSON.parse(rawConfig);
 
@@ -99,9 +101,9 @@ function splitConfig() {
   }
 
   // Write index.json
-  const indexFilePath = path.join(OUTPUT_DIR, 'index.json');
+  const indexFilePath = path.join(OUTPUT_DIR, INDEX_FILENAME);
   fs.writeFileSync(indexFilePath, JSON.stringify(indexConfig, null, 2));
-  console.log(`Created index.json (${(fs.statSync(indexFilePath).size / 1024).toFixed(1)} KB)`);
+  console.log(`Created ${INDEX_FILENAME} (${(fs.statSync(indexFilePath).size / 1024).toFixed(1)} KB)`);
 
   console.log('Config splitting completed successfully!');
 }

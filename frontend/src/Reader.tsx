@@ -10,6 +10,7 @@ import WelcomePage from './landing-pages/Welcome.mdx';
 const landingPages: Record<string, any> = import.meta.glob('./landing-pages/**/*.mdx', { eager: true });
 
 interface ReaderProps {
+  roomId?: string;
   resolvedContext: {
     sectionId: string | undefined;
     sourceId: string | undefined;
@@ -30,6 +31,7 @@ interface ReaderProps {
 }
 
 export const Reader: React.FC<ReaderProps> = ({
+  roomId = 'main',
   resolvedContext,
   activeSourceConfig,
   libraryIndex,
@@ -1316,6 +1318,8 @@ export const Reader: React.FC<ReaderProps> = ({
 
   // Site-level Main Welcome Dashboard
   if (!activeSourceId && !activeSectionId) {
+    const RoomWelcomePage = landingPages[`./landing-pages/Welcome-${roomId}.mdx`]?.default || WelcomePage;
+
     return (
       <main className="reader-container">
         <div className="welcome-screen" style={{ textAlign: 'center', alignItems: 'center', maxWidth: 'var(--max-content-width)', width: '100%', padding: '2rem 1rem' }}>
@@ -1332,7 +1336,7 @@ export const Reader: React.FC<ReaderProps> = ({
           />
 
           <div className="mdx-welcome-content" style={{ textAlign: 'left', width: '100%', marginBottom: '3.5rem' }}>
-            <WelcomePage />
+            <RoomWelcomePage />
           </div>
 
           {libraryIndex && (

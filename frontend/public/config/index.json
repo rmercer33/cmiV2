@@ -1,23 +1,11 @@
 {
-  "title": "Digital Library Usage and Operation",
-  "description": "The concept and usage of the Digital Library",
+  "title": "Library of Christ Mind Teachings",
+  "description": "An online digital repository offering simple, readable, and uncluttered access to a wide collection of Christ Mind teachings.",
   "sources": [
-    "dl",
     "col",
     "wom"
   ],
   "sourceInfo": {
-    "dl": {
-      "title": "Digital Library",
-      "description": "Guide to the Digital Library",
-      "image": "/images/covers/dl/developer-guide-cover.svg",
-      "books": [
-        "data",
-        "markdown",
-        "custom",
-        "audio"
-      ]
-    },
     "col": {
       "title": "Choose Only Love",
       "description": "Choose Only Love",
